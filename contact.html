@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="events.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1600&q=85&fit=crop');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">Reach Out</p>
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you. We're here to help.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact-main">
+    <div class="container">
+      <div class="contact-layout">
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <h3 style="color:var(--navy);margin-bottom:1.5rem;">Send Us a Message</h3>
+          <div class="form-row">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+          </div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone (optional)</label><input type="tel" placeholder="(404) 000-0000" /></div>
+          <div class="fg">
+            <label>How can we help?</label>
+            <select>
+              <option value="">Select a topic...</option>
+              <option>General Inquiry</option>
+              <option>Prayer Request</option>
+              <option>Volunteer Opportunities</option>
+              <option>Pastoral Care</option>
+              <option>Membership / New Here</option>
+              <option>Small Groups</option>
+              <option>Baptism</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea rows="5" placeholder="Tell us how we can help..." required></textarea></div>
+          <button type="submit" class="btn-dark full">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+
+        <div class="contact-side">
+          <div class="cinfo-block">
+            <h4>Get In Touch</h4>
+            <ul>
+              <li><i class="fa-solid fa-location-dot"></i><span>1234 Glory Lane, Suite 100<br>Atlanta, GA 30301</span></li>
+              <li><i class="fa-solid fa-phone"></i><span>(404) 555-0192</span></li>
+              <li><i class="fa-solid fa-envelope"></i><span>hello@doxasanctuary.org</span></li>
+              <li><i class="fa-regular fa-clock"></i><span>Office Hours: Mon–Fri, 9AM–5PM</span></li>
+            </ul>
+          </div>
+          <div class="cinfo-block">
+            <h4>Service Times</h4>
+            <ul>
+              <li><i class="fa-solid fa-sun"></i><span><strong>Sunday</strong> — 9:00 AM &amp; 11:00 AM</span></li>
+              <li><i class="fa-solid fa-star"></i><span><strong>Wednesday</strong> — 7:00 PM</span></li>
+            </ul>
+          </div>
+          <div class="cinfo-block">
+            <h4>Follow Us</h4>
+            <div class="socials">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+          </div>
+          <div class="cinfo-block new-here">
+            <h4>New Here?</h4>
+            <p>We'd love to meet you. Fill out this form and our team will reach out to help you get connected.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class="contact-map">
+        <img src="https://images.unsplash.com/photo-1548625361-58a9b86aa83b?w=1400&q=80&fit=crop" alt="Church location" />
+        <div class="contact-map-overlay">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>1234 Glory Lane · Atlanta, GA</span>
+          <a href="https://maps.google.com" target="_blank" class="btn-gold" style="margin-top:.8rem;">Open in Google Maps <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="events.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="#">Children's Ministry</a></li><li><a href="#">Youth &amp; Young Adults</a></li><li><a href="#">Men's Ministry</a></li><li><a href="#">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>9:00 AM &amp; 11:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Wednesday</strong><br>7:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

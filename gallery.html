@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="events.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1600&q=85&fit=crop');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">Life at DOXA</p>
+      <h1>Gallery</h1>
+      <p>A glimpse of our community in worship, service, and fellowship.</p>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <section id="gallery-full">
+    <div class="container">
+      <!-- Filter -->
+      <div class="filter-bar" style="margin-bottom:2.5rem;">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="worship">Worship</button>
+        <button class="filter-btn" data-cat="community">Community</button>
+        <button class="filter-btn" data-cat="youth">Youth</button>
+        <button class="filter-btn" data-cat="outreach">Outreach</button>
+      </div>
+
+      <div class="gallery-masonry" id="galleryGrid">
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=700&q=80&fit=crop" alt="Congregation" /><div class="gm-overlay"><span>Sunday Service</span></div></div>
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1545987796-200677ee1011?w=600&q=80&fit=crop" alt="Worship" /><div class="gm-overlay"><span>Worship Night</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80&fit=crop" alt="Community" /><div class="gm-overlay"><span>Church Family</span></div></div>
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=700&q=80&fit=crop" alt="Service" /><div class="gm-overlay"><span>Easter 2026</span></div></div>
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=600&q=80&fit=crop" alt="Praise" /><div class="gm-overlay"><span>Praise &amp; Worship</span></div></div>
+        <div class="gm-item" data-cat="youth"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=700&q=80&fit=crop" alt="Youth" /><div class="gm-overlay"><span>Youth Night</span></div></div>
+        <div class="gm-item" data-cat="outreach"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80&fit=crop" alt="Outreach" /><div class="gm-overlay"><span>Community Outreach</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="https://images.unsplash.com/photo-1519406596751-0a3ccc4937fe?w=600&q=80&fit=crop" alt="Service" /><div class="gm-overlay"><span>Sunday Message</span></div></div>
+        <div class="gm-item" data-cat="youth"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80&fit=crop" alt="Youth group" /><div class="gm-overlay"><span>Youth Retreat</span></div></div>
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80&fit=crop" alt="Worship" /><div class="gm-overlay"><span>Wednesday Night</span></div></div>
+        <div class="gm-item" data-cat="outreach"><img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600&q=80&fit=crop" alt="Outreach" /><div class="gm-overlay"><span>City Outreach</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="https://images.unsplash.com/photo-1545987796-200677ee1011?w=700&q=80&fit=crop" alt="Community" /><div class="gm-overlay"><span>Church Picnic</span></div></div>
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?w=700&q=80&fit=crop" alt="Worship lights" /><div class="gm-overlay"><span>Praise Night</span></div></div>
+        <div class="gm-item" data-cat="outreach"><img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600&q=80&fit=crop" alt="Volunteers" /><div class="gm-overlay"><span>Volunteer Day</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=700&q=80&fit=crop" alt="Church family" /><div class="gm-overlay"><span>Church Family</span></div></div>
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1510407235045-41ca4d8b77c0?w=600&q=80&fit=crop" alt="Prayer" /><div class="gm-overlay"><span>Prayer Night</span></div></div>
+        <div class="gm-item" data-cat="youth"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=80&fit=crop" alt="Kids" /><div class="gm-overlay"><span>Kids Ministry</span></div></div>
+        <div class="gm-item" data-cat="outreach"><img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=700&q=80&fit=crop" alt="Community" /><div class="gm-overlay"><span>Feeding the City</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=600&q=80&fit=crop" alt="Smiling congregation" /><div class="gm-overlay"><span>Welcome Sunday</span></div></div>
+        <div class="gm-item" data-cat="worship"><img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=700&q=80&fit=crop" alt="Church interior" /><div class="gm-overlay"><span>The Sanctuary</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lbImg" src="" alt="" />
+    <p id="lbCaption"></p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="events.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="#">Children's Ministry</a></li><li><a href="#">Youth &amp; Young Adults</a></li><li><a href="#">Men's Ministry</a></li><li><a href="#">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>9:00 AM &amp; 11:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Wednesday</strong><br>7:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Gallery filter
+    document.querySelectorAll('.filter-btn[data-cat]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.gm-item').forEach(item => {
+          item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+    // Lightbox
+    document.querySelectorAll('.gm-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const cap = item.querySelector('span');
+        document.getElementById('lbImg').src = img.src;
+        document.getElementById('lbCaption').textContent = cap ? cap.textContent : '';
+        document.getElementById('lightbox').classList.add('open');
+      });
+    });
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>

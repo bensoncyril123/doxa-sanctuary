@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sermons — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="events.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1519406596751-0a3ccc4937fe?w=1600&q=85&fit=crop');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">The Word</p>
+      <h1>Sermons</h1>
+      <p>Powerful messages to strengthen your faith — wherever you are.</p>
+    </div>
+  </div>
+
+  <!-- FEATURED -->
+  <section id="featured-sermon">
+    <div class="container">
+      <div class="sermon-feature-grid">
+        <div class="sermon-player">
+          <div class="yt-wrapper">
+            <iframe src="https://www.youtube.com/embed/Cc0QR8JWPdQ?rel=0&modestbranding=1" title="Latest Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="sermon-feature-info">
+          <p class="eyebrow gold">Latest Message</p>
+          <h2>The Power of the Empty Tomb</h2>
+          <p class="sermon-meta-line"><i class="fa-solid fa-user"></i> Pastor Daniel Mensah &nbsp;·&nbsp; <i class="fa-regular fa-calendar"></i> April 20, 2026</p>
+          <span class="sermon-series-tag">Series: Risen &amp; Reigning</span>
+          <p>In this powerful Easter message, Pastor Daniel unpacks the significance of the resurrection and what the empty tomb means for your life today.</p>
+          <div class="sermon-feature-btns">
+            <a href="#" class="btn-dark"><i class="fa-solid fa-headphones"></i> Listen</a>
+            <a href="#" class="btn-outline-dark"><i class="fa-regular fa-file-lines"></i> Notes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER + ARCHIVE -->
+  <section id="sermon-archive" style="background:var(--off);">
+    <div class="container">
+      <div class="section-hd">
+        <div><p class="eyebrow gold">Archive</p><h2>All Sermons</h2></div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Series</button>
+        <button class="filter-btn" data-filter="risen">Risen &amp; Reigning</button>
+        <button class="filter-btn" data-filter="faith">Faith That Works</button>
+        <button class="filter-btn" data-filter="identity">Identity in Christ</button>
+        <div class="filter-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search sermons..." id="sermonSearch" />
+        </div>
+      </div>
+
+      <div class="sermons-grid" id="sermonsGrid">
+        <div class="sm-card" data-series="risen">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1519406596751-0a3ccc4937fe?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button><span class="sm-badge">Latest</span></div>
+          <div class="sm-info"><span class="sm-series">Risen &amp; Reigning</span><h4>The Power of the Empty Tomb</h4><p>Pastor Daniel Mensah · April 20, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button><button><i class="fa-regular fa-file-lines"></i> Notes</button></div></div>
+        </div>
+        <div class="sm-card" data-series="risen">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Risen &amp; Reigning</span><h4>He Is Not Here</h4><p>Pastor Daniel Mensah · April 13, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="risen">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1609234656388-0ff363383899?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Risen &amp; Reigning</span><h4>More Than a Miracle</h4><p>Pastor Daniel Mensah · April 6, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="faith">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Faith That Works</span><h4>Living What You Believe</h4><p>Min. Grace Owusu · March 30, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="faith">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1545987796-200677ee1011?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Faith That Works</span><h4>Faith Without Actions Is Dead</h4><p>Pastor Daniel Mensah · March 23, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="identity">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Identity in Christ</span><h4>You Are Chosen</h4><p>Pastor Daniel Mensah · March 16, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="identity">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1438032005730-c779502df39b?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Identity in Christ</span><h4>Knowing Who You Are</h4><p>Min. Grace Owusu · March 9, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="identity">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Identity in Christ</span><h4>Seated in Heavenly Places</h4><p>Pastor Daniel Mensah · March 2, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="faith">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Faith That Works</span><h4>When Faith Feels Impossible</h4><p>Min. Grace Owusu · Feb 23, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="identity">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1510407235045-41ca4d8b77c0?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Identity in Christ</span><h4>The Power of Prayer</h4><p>Pastor Daniel Mensah · Feb 16, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="risen">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Risen &amp; Reigning</span><h4>New Life, New Purpose</h4><p>Pastor Daniel Mensah · Feb 9, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="faith">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Faith That Works</span><h4>Serving with a Joyful Heart</h4><p>Min. Samuel Owusu · Feb 2, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+        <div class="sm-card" data-series="identity">
+          <div class="sm-thumb" style="background-image:url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=700&q=80&fit=crop');"><button class="sm-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="sm-info"><span class="sm-series">Identity in Christ</span><h4>You Were Made for More</h4><p>Pastor Daniel Mensah · Jan 26, 2026</p><div class="sm-actions"><button><i class="fa-solid fa-play"></i> Watch</button><button><i class="fa-solid fa-headphones"></i> Listen</button></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="events.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="#">Children's Ministry</a></li><li><a href="#">Youth &amp; Young Adults</a></li><li><a href="#">Men's Ministry</a></li><li><a href="#">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>9:00 AM &amp; 11:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Wednesday</strong><br>7:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.sm-card').forEach(card => {
+          card.style.display = (f === 'all' || card.dataset.series === f) ? '' : 'none';
+        });
+      });
+    });
+    // Search
+    document.getElementById('sermonSearch').addEventListener('input', function() {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('.sm-card').forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

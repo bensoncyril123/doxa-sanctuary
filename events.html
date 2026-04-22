@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="events.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1545987796-200677ee1011?w=1600&q=85&fit=crop');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">What's Happening</p>
+      <h1>Events</h1>
+      <p>Stay connected and be part of something bigger.</p>
+    </div>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <section id="upcoming">
+    <div class="container">
+      <div class="section-hd"><div><p class="eyebrow gold">Coming Up</p><h2>Upcoming Events</h2></div></div>
+      <div class="events-cards-grid">
+
+        <div class="ev-card-big">
+          <div class="ev-card-img"><img src="https://images.unsplash.com/photo-1519406596751-0a3ccc4937fe?w=800&q=80&fit=crop" alt="Easter" /></div>
+          <div class="ev-card-body">
+            <div class="ev-card-date"><span>APR</span><strong>27</strong></div>
+            <div class="ev-card-info">
+              <span class="ev-tag worship">Worship</span>
+              <h3>Easter Sunday Celebration</h3>
+              <p>A powerful Easter service with live worship, drama, and a message of hope. All are welcome — bring a friend!</p>
+              <ul class="ev-details-list">
+                <li><i class="fa-regular fa-clock"></i> 9:00 AM &amp; 11:00 AM</li>
+                <li><i class="fa-solid fa-location-dot"></i> Main Auditorium</li>
+                <li><i class="fa-solid fa-ticket"></i> Free — No registration required</li>
+              </ul>
+              <a href="#" class="btn-dark">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ev-card-big">
+          <div class="ev-card-img"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80&fit=crop" alt="Outreach" /></div>
+          <div class="ev-card-body">
+            <div class="ev-card-date"><span>MAY</span><strong>3</strong></div>
+            <div class="ev-card-info">
+              <span class="ev-tag community">Community</span>
+              <h3>Community Outreach Day</h3>
+              <p>Join us as we serve our city — food distribution, neighborhood cleanup, and free prayer for all who come.</p>
+              <ul class="ev-details-list">
+                <li><i class="fa-regular fa-clock"></i> 8:00 AM – 2:00 PM</li>
+                <li><i class="fa-solid fa-location-dot"></i> Church Parking Lot</li>
+                <li><i class="fa-solid fa-ticket"></i> Volunteer signup encouraged</li>
+              </ul>
+              <a href="#" class="btn-dark">Volunteer <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ev-card-big">
+          <div class="ev-card-img"><img src="https://images.unsplash.com/photo-1545987796-200677ee1011?w=800&q=80&fit=crop" alt="Youth" /></div>
+          <div class="ev-card-body">
+            <div class="ev-card-date"><span>MAY</span><strong>10</strong></div>
+            <div class="ev-card-info">
+              <span class="ev-tag youth">Youth</span>
+              <h3>Youth Summer Kickoff</h3>
+              <p>Games, worship, and real connection for teens and young adults. The best summer starts right here at DOXA!</p>
+              <ul class="ev-details-list">
+                <li><i class="fa-regular fa-clock"></i> 6:00 PM – 9:00 PM</li>
+                <li><i class="fa-solid fa-location-dot"></i> Youth Hall</li>
+                <li><i class="fa-solid fa-ticket"></i> Free — Ages 13–25</li>
+              </ul>
+              <a href="#" class="btn-dark">Register <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ev-card-big">
+          <div class="ev-card-img"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&fit=crop" alt="Marriage" /></div>
+          <div class="ev-card-body">
+            <div class="ev-card-date"><span>MAY</span><strong>17</strong></div>
+            <div class="ev-card-info">
+              <span class="ev-tag growth">Growth</span>
+              <h3>Marriage Enrichment Retreat</h3>
+              <p>A weekend designed to strengthen and refresh marriages through teaching, fellowship, and focused time together.</p>
+              <ul class="ev-details-list">
+                <li><i class="fa-regular fa-clock"></i> Fri 6PM – Sun 2PM</li>
+                <li><i class="fa-solid fa-location-dot"></i> Retreat Center</li>
+                <li><i class="fa-solid fa-ticket"></i> Registration required · Limited space</li>
+              </ul>
+              <a href="#" class="btn-dark">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SMALL GROUPS CTA -->
+  <section style="background:var(--navy);padding:4rem 0;">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <p class="eyebrow gold">Community</p>
+        <h2 style="color:#fff;margin:.3rem 0 .8rem;">Join a Small Group</h2>
+        <p style="color:rgba(255,255,255,.65);max-width:500px;">Small groups are where real community happens. Find a group near you and grow in faith alongside others.</p>
+      </div>
+      <a href="contact.html" class="btn-gold">Find a Group <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="events.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="#">Children's Ministry</a></li><li><a href="#">Youth &amp; Young Adults</a></li><li><a href="#">Men's Ministry</a></li><li><a href="#">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>9:00 AM &amp; 11:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Wednesday</strong><br>7:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
