@@ -381,6 +381,9 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
 /* ── HOMEPAGE: SERVICE TIMES ── */
 .svc-times-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem;}
+.svc-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;}
+.svc-online-col{display:flex;flex-direction:column;gap:1.2rem;}
+.svc-inperson-col{display:flex;flex-direction:column;}
 .svc-time-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;gap:.7rem;transition:var(--t);}
 .svc-time-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px);border-color:var(--border);}
 .svc-time-card.featured{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);}
@@ -517,6 +520,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 @media(max-width:768px){
   .two-col{grid-template-columns:1fr;}
   .svc-times-row{grid-template-columns:1fr;}
+  .svc-layout{grid-template-columns:1fr;}
   .events-cards-grid{grid-template-columns:1fr;}
   .give-options-grid{grid-template-columns:1fr;}
   .gallery-masonry{columns:2;}
