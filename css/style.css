@@ -89,15 +89,18 @@ section{padding:5.5rem 0;position:relative;}
 /* 3-image crossfade slideshow */
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:heroFade 18s infinite;}
 .slide-1{
-  background-image:url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1920&q=90&fit=crop');
+  background-image:url('../assets/hero-congregation.jpg');
+  background-position:center 30%;
   animation-delay:0s;
 }
 .slide-2{
-  background-image:url('https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1920&q=90&fit=crop');
+  background-image:url('../assets/hero-worship.jpg');
+  background-position:center center;
   animation-delay:6s;
 }
 .slide-3{
-  background-image:url('https://images.unsplash.com/photo-1545987796-200677ee1011?w=1920&q=90&fit=crop');
+  background-image:url('../assets/hero-church.jpg');
+  background-position:center 60%;
   animation-delay:12s;
 }
 @keyframes heroFade{
