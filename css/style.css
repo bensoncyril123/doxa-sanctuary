@@ -527,7 +527,6 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .values-grid{grid-template-columns:1fr 1fr;}
   .team-grid{grid-template-columns:1fr;}
   .give-band-inner{flex-direction:column;text-align:center;}
-  .loc-strip{flex-direction:column;text-align:center;}
 }
 @media(max-width:480px){
   .gallery-masonry{columns:1;}
