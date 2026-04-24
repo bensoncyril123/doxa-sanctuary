@@ -475,7 +475,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 .lb-close:hover{background:rgba(255,255,255,.25);}
 
 /* ── GIVE PAGE ── */
-.give-options-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.give-options-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
 .give-big-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:2.5rem;text-align:center;transition:var(--t);}
 .give-big-card:hover{box-shadow:var(--shadowM);transform:translateY(-4px);}
 .give-big-card.featured-give{border-color:var(--gold);background:var(--goldp);}
