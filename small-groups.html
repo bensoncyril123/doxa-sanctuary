@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Small Groups — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .sg-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .sg-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,.1);
+      transform: translateY(-4px);
+    }
+    .sg-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+    .sg-card h3 {
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .sg-card p {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .sg-meta {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .sg-meta li {
+      font-size: .82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .sg-meta li i {
+      color: var(--gold);
+      width: 14px;
+      flex-shrink: 0;
+    }
+    .sg-tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .tag-faith    { background: rgba(201,168,76,.15); color: #9a7630; }
+    .tag-prayer   { background: rgba(100,60,180,.12); color: #6432b4; }
+    .tag-life     { background: rgba(0,152,203,.1);   color: #0078a0; }
+    .tag-growth   { background: rgba(0,180,100,.12);  color: #006e3c; }
+    .tag-leader   { background: rgba(220,50,50,.1);   color: #b02020; }
+    .tag-outreach { background: rgba(240,130,0,.12);  color: #b05800; }
+    .sg-join-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background: var(--navy);
+      color: #fff;
+      padding: .65rem 1.4rem;
+      border-radius: 4px;
+      font-size: .88rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: auto;
+      transition: background .2s;
+    }
+    .sg-join-btn:hover { background: var(--gold); color: var(--navy); }
+    .sg-form-wrap {
+      background: #fff;
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,.08);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .how-step {
+      text-align: center;
+    }
+    .how-step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .how-step h4 { color: var(--navy); margin-bottom: .4rem; font-size: 1rem; }
+    .how-step p  { color: var(--muted); font-size: .88rem; line-height: 1.6; }
+    @media(max-width:900px){
+      .sg-grid { grid-template-columns: repeat(2,1fr); }
+      .how-steps { grid-template-columns: 1fr; }
+    }
+    @media(max-width:580px){
+      .sg-grid { grid-template-columns: 1fr; }
+      .sg-form-wrap { padding: 2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('assets/community-1.jpg');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">Community</p>
+      <h1>Small Groups</h1>
+      <p>Real relationships. Real growth. Find your people at DOXA Sanctuary.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="two-col" style="align-items:center;gap:4rem;">
+        <div class="tc-copy">
+          <p class="eyebrow gold">Why Small Groups?</p>
+          <h2>Church Is Better Together</h2>
+          <p style="text-align:justify;">Sunday service is where we gather as one body — but small groups are where real life happens. They are where you are known by name, prayed for by people who care, and challenged to grow. At DOXA Sanctuary, our small groups are not programs; they are families within the family.</p>
+          <p style="text-align:justify;">Whether you're new to faith or have walked with God for years, there is a group for you. Choose the one that fits your season, your interests, or your calling — and show up ready to grow.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+          <div style="background:#fff;border-radius:10px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06);">
+            <i class="fa-solid fa-people-group" style="font-size:1.8rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+            <strong style="color:var(--navy);display:block;font-size:1.1rem;">6 Groups</strong>
+            <span style="color:var(--muted);font-size:.82rem;">Available now</span>
+          </div>
+          <div style="background:#fff;border-radius:10px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06);">
+            <i class="fa-solid fa-calendar-check" style="font-size:1.8rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+            <strong style="color:var(--navy);display:block;font-size:1.1rem;">Weekly</strong>
+            <span style="color:var(--muted);font-size:.82rem;">Most groups meet weekly</span>
+          </div>
+          <div style="background:#fff;border-radius:10px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06);">
+            <i class="fa-solid fa-location-dot" style="font-size:1.8rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+            <strong style="color:var(--navy);display:block;font-size:1.1rem;">In Person</strong>
+            <span style="color:var(--muted);font-size:.82rem;">Bronx & online options</span>
+          </div>
+          <div style="background:#fff;border-radius:10px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06);">
+            <i class="fa-solid fa-heart" style="font-size:1.8rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+            <strong style="color:var(--navy);display:block;font-size:1.1rem;">Free</strong>
+            <span style="color:var(--muted);font-size:.82rem;">No cost to join</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Getting Started</p>
+        <h2>How to Join a Group</h2>
+        <p class="sub">Three simple steps to find your community at DOXA Sanctuary.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Browse the Groups</h4>
+          <p>Explore our six small groups below and find the one that fits your season, gifts, or interests.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Submit Your Interest</h4>
+          <p>Fill out the short form at the bottom of this page and select the group you'd like to join.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>We'll Connect You</h4>
+          <p>A group leader will reach out within 48 hours to welcome you and share next steps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROUPS GRID -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Find Your Group</p>
+        <h2>Our Small Groups</h2>
+        <p class="sub">Six intentional communities — each one a place to belong, grow, and make a difference.</p>
+      </div>
+
+      <div class="sg-grid">
+
+        <!-- 1. Bible Study -->
+        <div class="sg-card">
+          <div class="sg-icon"><i class="fa-solid fa-book-open"></i></div>
+          <span class="sg-tag tag-faith">Faith</span>
+          <h3>Bible Study &amp; Discussion</h3>
+          <p>Dive deep into God's Word in a relaxed, interactive setting. We explore books of the Bible, unpack Sunday sermons, and apply truth to everyday life. No Bible degree required — just a hunger to know God more.</p>
+          <ul class="sg-meta">
+            <li><i class="fa-regular fa-clock"></i> Weekly · Weekday evenings</li>
+            <li><i class="fa-solid fa-users"></i> Open to all ages</li>
+            <li><i class="fa-solid fa-location-dot"></i> In person &amp; Zoom</li>
+          </ul>
+          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 2. Prayer Circles -->
+        <div class="sg-card">
+          <div class="sg-icon"><i class="fa-solid fa-hands-praying"></i></div>
+          <span class="sg-tag tag-prayer">Prayer</span>
+          <h3>Prayer Circles</h3>
+          <p>A small, intimate group built entirely around prayer. We come together to worship, intercede for one another, and pray for our church, city, and nation. These groups build some of the deepest spiritual bonds you'll ever experience.</p>
+          <ul class="sg-meta">
+            <li><i class="fa-regular fa-clock"></i> Weekly · Early mornings or evenings</li>
+            <li><i class="fa-solid fa-users"></i> 5 – 12 people per circle</li>
+            <li><i class="fa-solid fa-location-dot"></i> In person &amp; Zoom</li>
+          </ul>
+          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 3. Life Stage Groups -->
+        <div class="sg-card">
+          <div class="sg-icon"><i class="fa-solid fa-person-half-dress"></i></div>
+          <span class="sg-tag tag-life">Life Stage</span>
+          <h3>Life Stage Groups</h3>
+          <p>People open up more when they feel understood. Our life stage groups bring together people in similar seasons — Young Adults, Married Couples, Men's Group, and Women's Group. Show up as you are and find people who get it.</p>
+          <ul class="sg-meta">
+            <li><i class="fa-regular fa-clock"></i> Bi-weekly or monthly</li>
+            <li><i class="fa-solid fa-users"></i> Grouped by life season</li>
+            <li><i class="fa-solid fa-location-dot"></i> In person · Bronx</li>
+          </ul>
+          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 4. Accountability & Growth -->
+        <div class="sg-card">
+          <div class="sg-icon"><i class="fa-solid fa-seedling"></i></div>
+          <span class="sg-tag tag-growth">Growth</span>
+          <h3>Accountability &amp; Growth</h3>
+          <p>Small, focused, and intentional. These groups of 3 to 5 people commit together to spiritual discipline — consistent prayer, daily Bible reading, and personal growth goals. If you want to go deep, this is the group for you.</p>
+          <ul class="sg-meta">
+            <li><i class="fa-regular fa-clock"></i> Weekly · Flexible times</li>
+            <li><i class="fa-solid fa-users"></i> 3 – 5 people per group</li>
+            <li><i class="fa-solid fa-location-dot"></i> In person or Zoom</li>
+          </ul>
+          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 5. Leadership Development (my addition) -->
+        <div class="sg-card">
+          <div class="sg-icon"><i class="fa-solid fa-crown"></i></div>
+          <span class="sg-tag tag-leader">Leadership</span>
+          <h3>Leadership Development</h3>
+          <p>Built for those who sense a call to lead. This group develops servant leaders through teaching, mentorship, and hands-on ministry training. Learn how to lead prayer, facilitate discussions, and eventually shepherd your own group.</p>
+          <ul class="sg-meta">
+            <li><i class="fa-regular fa-clock"></i> Bi-weekly · Evenings</li>
+            <li><i class="fa-solid fa-users"></i> Application-based · Limited spots</li>
+            <li><i class="fa-solid fa-location-dot"></i> In person · Bronx</li>
+          </ul>
+          <a href="#join-form" class="sg-join-btn">Apply to Join <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 6. Outreach & Evangelism (my addition) -->
+        <div class="sg-card">
+          <div class="sg-icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <span class="sg-tag tag-outreach">Outreach</span>
+          <h3>Outreach &amp; Evangelism</h3>
+          <p>For those who want to take the Gospel beyond the walls of the church. This group goes out together — into neighborhoods, schools, and streets of the Bronx — to pray, serve, and invite people to encounter Jesus.</p>
+          <ul class="sg-meta">
+            <li><i class="fa-regular fa-clock"></i> Monthly outreach days</li>
+            <li><i class="fa-solid fa-users"></i> Open to all</li>
+            <li><i class="fa-solid fa-location-dot"></i> Bronx &amp; surrounding areas</li>
+          </ul>
+          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN FORM -->
+  <section id="join-form">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Take the First Step</p>
+        <h2>Join a Small Group</h2>
+        <p class="sub">Fill out the form below and a group leader will reach out to you within 48 hours.</p>
+      </div>
+      <div class="sg-form-wrap">
+        <form onsubmit="handleSGForm(event)">
+          <div class="form-row">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
+          <div class="fg">
+            <label>Which group are you interested in?</label>
+            <select required>
+              <option value="">Select a group...</option>
+              <option>Bible Study &amp; Discussion</option>
+              <option>Prayer Circles</option>
+              <option>Life Stage Groups</option>
+              <option>Accountability &amp; Growth</option>
+              <option>Leadership Development</option>
+              <option>Outreach &amp; Evangelism</option>
+              <option>Not sure — help me find one</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Tell us a little about yourself (optional)</label>
+            <textarea rows="4" placeholder="How long have you been attending DOXA? What are you hoping to get out of a small group?"></textarea>
+          </div>
+          <button type="submit" class="btn-dark full">Request to Join <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-note" id="sgNote" style="margin-top:1rem;text-align:center;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA BAND -->
+  <section style="background:var(--navy);padding:4rem 0;text-align:center;">
+    <div class="container">
+      <p class="eyebrow gold">Have Questions?</p>
+      <h2 style="color:#fff;margin-bottom:.8rem;">We're Here to Help You Get Connected</h2>
+      <p style="color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 2rem;font-size:1.05rem;">Not sure which group is right for you? Reach out and our team will help you find the perfect fit.</p>
+      <a href="contact.html" class="btn-gold">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="#">Children's Ministry</a></li><li><a href="#">Youth &amp; Young Adults</a></li><li><a href="#">Men's Ministry</a></li><li><a href="#">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function handleSGForm(e) {
+      e.preventDefault();
+      const note = document.getElementById('sgNote');
+      note.style.color = 'var(--gold)';
+      note.textContent = 'Thank you! A group leader will reach out to you within 48 hours.';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
