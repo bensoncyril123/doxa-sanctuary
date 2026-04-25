@@ -389,7 +389,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 .svc-time-card h3{color:#fff;}
 .svc-time-card .t{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold);}
 .svc-time-card p{color:rgba(255,255,255,.65);}
-.svc-time-card span{display:inline-block;background:rgba(201,168,76,.15);color:var(--gold);font-size:.72rem;font-weight:700;padding:.25rem .75rem;border-radius:50px;letter-spacing:.06em;margin-top:auto;}
+.svc-time-card span{display:block;background:rgba(201,168,76,.15);color:var(--gold);font-size:.72rem;font-weight:700;padding:.25rem .75rem;border-radius:50px;letter-spacing:.06em;margin-top:auto;text-align:center;}
 .loc-strip{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.5rem 2rem;gap:2rem;flex-wrap:wrap;}
 .loc-strip-info{display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,.75);font-size:.9rem;}
 .loc-strip-info i{font-size:1.8rem;color:var(--gold);flex-shrink:0;}
