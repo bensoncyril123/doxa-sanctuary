@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ministries — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .min-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .min-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .min-card:hover {
+      box-shadow: var(--shadowM);
+      transform: translateY(-4px);
+    }
+    .min-card-banner {
+      height: 10px;
+    }
+    .min-card-body {
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .min-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.3rem;
+    }
+    .min-card h3 {
+      color: var(--navy);
+      font-size: 1.3rem;
+      margin-bottom: .5rem;
+    }
+    .min-leader {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .min-leader i { color: var(--gold); font-size: .85rem; }
+    .min-leader span { font-size: .85rem; font-weight: 600; color: var(--navy); }
+    .min-card p {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.8;
+      text-align: justify;
+      flex: 1;
+    }
+    .min-card-footer {
+      padding: 1.2rem 2rem;
+      border-top: 1px solid #f0f0f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .8rem;
+    }
+    .min-tag {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .8rem;
+      border-radius: 50px;
+    }
+    /* banner colors */
+    .banner-children  { background: linear-gradient(90deg, #f9a825, #fbc02d); }
+    .banner-youth     { background: linear-gradient(90deg, #1565c0, #1e88e5); }
+    .banner-men       { background: linear-gradient(90deg, #1b5e20, #388e3c); }
+    .banner-women     { background: linear-gradient(90deg, #880e4f, #c2185b); }
+    /* icon bg colors */
+    .icon-children  { background: rgba(249,168,37,.15); color: #f9a825; }
+    .icon-youth     { background: rgba(21,101,192,.12); color: #1565c0; }
+    .icon-men       { background: rgba(27,94,32,.12);   color: #2e7d32; }
+    .icon-women     { background: rgba(136,14,79,.12);  color: #880e4f; }
+    /* tag colors */
+    .tag-children { background: rgba(249,168,37,.15); color: #b7860a; }
+    .tag-youth    { background: rgba(21,101,192,.12); color: #1565c0; }
+    .tag-men      { background: rgba(27,94,32,.12);   color: #1b5e20; }
+    .tag-women    { background: rgba(136,14,79,.12);  color: #880e4f; }
+
+    .values-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .vs-item {
+      text-align: center;
+      padding: 2rem 1.2rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 10px;
+    }
+    .vs-item i { font-size: 1.8rem; color: var(--gold); margin-bottom: .8rem; display: block; }
+    .vs-item h4 { color: #fff; margin-bottom: .4rem; font-size: .98rem; }
+    .vs-item p { color: rgba(255,255,255,.6); font-size: .82rem; line-height: 1.6; }
+
+    @media(max-width: 860px) {
+      .min-grid { grid-template-columns: 1fr; }
+      .values-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 480px) {
+      .values-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="new-here.html">I'm New</a></li>
+        <li><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('assets/community-2.jpg');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">Serve. Grow. Belong.</p>
+      <h1>Our Ministries</h1>
+      <p>Every person has a place at DOXA Sanctuary. Find the ministry where you belong and make a difference.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section style="background:var(--navy);">
+    <div class="container">
+      <div style="text-align:center;max-width:750px;margin:0 auto;">
+        <p class="eyebrow gold">Built for Every Person</p>
+        <h2 style="color:#fff;margin:.5rem 0 1.2rem;">A Ministry for Every Stage of Life</h2>
+        <p style="color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.9;text-align:justify;">At DOXA Sanctuary, we believe the Church grows when every member is activated in their gift. Our ministries are not just programs, they are families within the family, each one intentionally designed to nurture, develop, and deploy every person into their God-given purpose. Wherever you are in life, there is a place for you here.</p>
+      </div>
+      <div class="values-strip">
+        <div class="vs-item">
+          <i class="fa-solid fa-child"></i>
+          <h4>Children's Ministry</h4>
+          <p>Raising the next generation in the Word and ways of God</p>
+        </div>
+        <div class="vs-item">
+          <i class="fa-solid fa-bolt"></i>
+          <h4>Youth Ministry</h4>
+          <p>Empowering young people to live boldly for Christ</p>
+        </div>
+        <div class="vs-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Men's Ministry</h4>
+          <p>Building men of integrity, faith, and godly character</p>
+        </div>
+        <div class="vs-item">
+          <i class="fa-solid fa-crown"></i>
+          <h4>Women's Ministry</h4>
+          <p>Equipping women to walk in grace, purpose, and power</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINISTRIES GRID -->
+  <section>
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Get Involved</p>
+        <h2>Our Four Ministries</h2>
+        <p class="sub">Led by dedicated servants of God, each ministry is a community where you will grow, be challenged, and find your purpose.</p>
+      </div>
+
+      <div class="min-grid">
+
+        <!-- Children's Ministry -->
+        <div class="min-card">
+          <div class="min-card-banner banner-children"></div>
+          <div class="min-card-body">
+            <div class="min-icon icon-children"><i class="fa-solid fa-child"></i></div>
+            <h3>Children's Ministry</h3>
+            <div class="min-leader">
+              <i class="fa-solid fa-user"></i>
+              <span>Led by Deaconess Margaret Kumi</span>
+            </div>
+            <p>Our Children's Ministry is a safe, fun, and Spirit-filled environment where children from infants to pre-teens encounter God's love and learn His Word. We are passionate about planting the seeds of faith early, because we believe that what is sown in a child's heart today will bear fruit for generations to come.</p>
+            <p style="margin-top:.8rem;">Through engaging Bible lessons, praise and worship, games, and creative activities, we raise children who know who they are in Christ, love the presence of God, and grow up with a strong spiritual foundation. Every child who walks through our doors is seen, valued, and loved.</p>
+          </div>
+          <div class="min-card-footer">
+            <span class="min-tag tag-children">Ages: Birth to 12</span>
+            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Youth Ministry -->
+        <div class="min-card">
+          <div class="min-card-banner banner-youth"></div>
+          <div class="min-card-body">
+            <div class="min-icon icon-youth"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Youth &amp; Young Adults</h3>
+            <div class="min-leader">
+              <i class="fa-solid fa-user"></i>
+              <span>Led by Mr. Daniel Asiamah</span>
+            </div>
+            <p>The Youth Ministry at DOXA Sanctuary is a vibrant, Spirit-filled community for teenagers and young adults who are ready to go beyond religion and into a real relationship with God. We meet young people exactly where they are, and challenge them to become who God created them to be.</p>
+            <p style="margin-top:.8rem;">Through worship nights, Bible studies, leadership training, and fellowship, we build young men and women who are bold in their faith, grounded in the Word, and equipped to impact their schools, campuses, and communities. The next generation of leaders is being raised right here.</p>
+          </div>
+          <div class="min-card-footer">
+            <span class="min-tag tag-youth">Ages: 13 to 35</span>
+            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Men's Ministry -->
+        <div class="min-card">
+          <div class="min-card-banner banner-men"></div>
+          <div class="min-card-body">
+            <div class="min-icon icon-men"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Men's Ministry</h3>
+            <div class="min-leader">
+              <i class="fa-solid fa-user"></i>
+              <span>Led by Presiding Elder Aboagye</span>
+            </div>
+            <p>The Men's Ministry at DOXA Sanctuary is committed to raising men who are strong in faith, grounded in Scripture, and faithful in every area of life. We believe the strength of the family, the church, and the community is directly tied to the spiritual health of its men, and we take that seriously.</p>
+            <p style="margin-top:.8rem;">Through fellowship, accountability, discipleship, and practical teaching, we build men who lead their homes with wisdom, serve their church with humility, and walk in the integrity that God requires. Iron sharpens iron, and in this ministry, you will find brothers who sharpen you.</p>
+          </div>
+          <div class="min-card-footer">
+            <span class="min-tag tag-men">Open to all men</span>
+            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Women's Ministry -->
+        <div class="min-card">
+          <div class="min-card-banner banner-women"></div>
+          <div class="min-card-body">
+            <div class="min-icon icon-women"><i class="fa-solid fa-crown"></i></div>
+            <h3>Women's Ministry</h3>
+            <div class="min-leader">
+              <i class="fa-solid fa-user"></i>
+              <span>Led by Dr. Mrs. Doreen Owusu</span>
+            </div>
+            <p>The Women's Ministry at DOXA Sanctuary is a community of women who are walking boldly in grace, purpose, and the power of the Holy Spirit. Under the leadership of Dr. Mrs. Doreen Owusu, this ministry creates a space where every woman is seen, celebrated, and equipped to fulfil her God-given calling.</p>
+            <p style="margin-top:.8rem;">Through retreats, Bible studies, mentorship, and powerful gatherings, we nurture women in every season of life, from the young woman finding her identity to the seasoned believer walking in legacy. You will find sisterhood, strength, and the presence of God in this ministry.</p>
+          </div>
+          <div class="min-card-footer">
+            <span class="min-tag tag-women">Open to all women</span>
+            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--gold);padding:4rem 0;text-align:center;">
+    <div class="container">
+      <h2 style="color:var(--navy);margin-bottom:.8rem;">Not Sure Which Ministry Is Right for You?</h2>
+      <p style="color:var(--navy);opacity:.8;max-width:540px;margin:0 auto 2rem;font-size:1.05rem;text-align:justify;">Reach out to our team and we will help you find the perfect place to plug in, grow, and make an impact at DOXA Sanctuary.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn-dark">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="small-groups.html" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:.75rem 1.8rem;border-radius:4px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">Join a Small Group <i class="fa-solid fa-people-group"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="ministries.html#children">Children's Ministry</a></li><li><a href="ministries.html#youth">Youth &amp; Young Adults</a></li><li><a href="ministries.html#men">Men's Ministry</a></li><li><a href="ministries.html#women">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/69ebf31bab915d1c35765065/1jn0qr8gs';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</body>
+</html>
