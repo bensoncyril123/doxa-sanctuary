@@ -206,7 +206,7 @@
           </div>
           <div class="min-card-footer">
             <span class="min-tag tag-children">Ages: Birth to 12</span>
-            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#get-involved" onclick="preselect('children')" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -223,7 +223,7 @@
           </div>
           <div class="min-card-footer">
             <span class="min-tag tag-youth">Ages: 13 to 35</span>
-            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#get-involved" onclick="preselect('youth')" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -240,7 +240,7 @@
           </div>
           <div class="min-card-footer">
             <span class="min-tag tag-men">Open to all men</span>
-            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#get-involved" onclick="preselect('men')" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -257,7 +257,7 @@
           </div>
           <div class="min-card-footer">
             <span class="min-tag tag-women">Open to all women</span>
-            <a href="contact.html" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#get-involved" onclick="preselect('women')" class="btn-dark" style="padding:.55rem 1.2rem;font-size:.84rem;">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -265,14 +265,36 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section style="background:var(--gold);padding:4rem 0;text-align:center;">
+  <!-- GET INVOLVED FORM -->
+  <section id="get-involved" style="background:var(--off);">
     <div class="container">
-      <h2 style="color:var(--navy);margin-bottom:.8rem;">Not Sure Which Ministry Is Right for You?</h2>
-      <p style="color:var(--navy);opacity:.8;max-width:540px;margin:0 auto 2rem;font-size:1.05rem;text-align:justify;">Reach out to our team and we will help you find the perfect place to plug in, grow, and make an impact at DOXA Sanctuary.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="btn-dark">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="small-groups.html" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:.75rem 1.8rem;border-radius:4px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">Join a Small Group <i class="fa-solid fa-people-group"></i></a>
+      <div class="section-hd center">
+        <p class="eyebrow gold">Take the Next Step</p>
+        <h2>Get Involved</h2>
+        <p class="sub">Fill out the form below and the leader of your chosen ministry will reach out to welcome you.</p>
+      </div>
+      <div style="max-width:680px;margin:2.5rem auto 0;">
+        <form class="contact-form" onsubmit="handleMinistryForm(event)" style="background:#fff;padding:2.5rem;border-radius:12px;box-shadow:var(--shadow);">
+          <div class="form-row">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+          </div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone (optional)</label><input type="tel" placeholder="(404) 000-0000" /></div>
+          <div class="fg">
+            <label>Which Ministry Are You Interested In?</label>
+            <select id="ministrySelect" required>
+              <option value="">Select a ministry...</option>
+              <option value="children">Children's Ministry</option>
+              <option value="youth">Youth &amp; Young Adults</option>
+              <option value="men">Men's Ministry</option>
+              <option value="women">Women's Ministry</option>
+            </select>
+          </div>
+          <div class="fg"><label>Tell Us About Yourself (optional)</label><textarea rows="4" placeholder="Share anything that would help us connect you to the right ministry..."></textarea></div>
+          <button type="submit" class="btn-dark full">Submit <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-note" id="ministryFormNote"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -292,6 +314,21 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    function preselect(val) {
+      setTimeout(() => {
+        const sel = document.getElementById('ministrySelect');
+        if (sel) sel.value = val;
+      }, 100);
+    }
+    function handleMinistryForm(e) {
+      e.preventDefault();
+      const note = document.getElementById('ministryFormNote');
+      note.style.color = 'green';
+      note.textContent = 'Thank you! A ministry leader will reach out to you soon.';
+      e.target.reset();
+    }
+  </script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
