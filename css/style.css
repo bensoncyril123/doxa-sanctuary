@@ -64,7 +64,7 @@ section{padding:5.5rem 0;position:relative;}
 .logo-text{font-family:'Playfair Display',serif;font-size:1.05rem;letter-spacing:.03em;}
 .logo-text strong{font-weight:900;}
 .logo-img-link{display:flex;align-items:center;text-decoration:none;}
-.nav-logo{height:72px;width:auto;display:block;object-fit:contain;}
+.nav-logo{height:88px;width:auto;display:block;object-fit:contain;}
 .nav-links{display:flex;gap:1.8rem;margin-left:auto;align-items:center;}
 .nav-links>li>a{color:rgba(255,255,255,.82);font-size:.88rem;font-weight:500;transition:var(--t);display:flex;align-items:center;gap:.3rem;padding:.3rem 0;}
 .nav-links>li>a:hover{color:var(--gold);}
