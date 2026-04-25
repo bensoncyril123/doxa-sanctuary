@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'm New — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* EXPECT STEPS */
+    .expect-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .expect-step { background:#fff; border-radius:10px; padding:1.8rem 1.5rem; text-align:center; box-shadow:var(--shadow); position:relative; }
+    .expect-step::before { content:attr(data-num); position:absolute; top:-18px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--navy); font-weight:700; font-size:.8rem; padding:.3rem .9rem; border-radius:50px; letter-spacing:.08em; }
+    .expect-step i { font-size:2rem; color:var(--gold); margin:1rem 0 .8rem; display:block; }
+    .expect-step h4 { color:var(--navy); margin-bottom:.5rem; }
+    .expect-step p { font-size:.88rem; line-height:1.7; text-align:justify; }
+
+    /* SERVICE TIMES CARDS */
+    .times-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+    .time-card { background:rgba(255,255,255,.07); border:1px solid rgba(201,168,76,.25); border-radius:10px; padding:1.8rem; text-align:center; }
+    .time-card i { font-size:1.6rem; color:var(--gold); margin-bottom:.8rem; display:block; }
+    .time-card h4 { color:#fff; margin-bottom:.5rem; }
+    .time-card p { color:rgba(255,255,255,.65); font-size:.88rem; line-height:1.7; }
+    .time-card .badge { display:inline-block; font-size:.7rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:.2rem .7rem; border-radius:50px; background:rgba(201,168,76,.2); color:var(--gold); margin-bottom:.6rem; }
+
+    /* FAQ */
+    .faq-list { max-width:780px; margin:2.5rem auto 0; }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-q { width:100%; background:none; border:none; text-align:left; padding:1.2rem 0; font-size:.97rem; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; gap:1rem; }
+    .faq-q i { color:var(--gold); flex-shrink:0; transition:transform .3s; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+    .faq-a p { padding-bottom:1.2rem; color:var(--muted); font-size:.92rem; line-height:1.8; text-align:justify; }
+    .faq-item.open .faq-a { max-height:300px; }
+    .faq-item.open .faq-q i { transform:rotate(180deg); }
+
+    /* CONNECT FORM */
+    .connect-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    .connect-info h2 { margin-bottom:1rem; }
+    .connect-info p { text-align:justify; margin-bottom:1.5rem; }
+    .connect-highlight { background:var(--off); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:1.2rem 1.5rem; margin-bottom:1.2rem; }
+    .connect-highlight i { color:var(--gold); margin-right:.6rem; }
+    .connect-highlight span { font-size:.9rem; color:var(--navy); font-weight:500; }
+    .connect-form-box { background:#fff; border-radius:12px; padding:2.5rem; box-shadow:var(--shadowM); }
+    .connect-form-box h3 { color:var(--navy); margin-bottom:1.5rem; font-size:1.3rem; }
+
+    /* WELCOME BANNER */
+    .welcome-banner { background:var(--gold); padding:4rem 0; text-align:center; }
+    .welcome-banner h2 { color:var(--navy); margin-bottom:.8rem; }
+    .welcome-banner p { color:var(--navy); opacity:.8; max-width:560px; margin:0 auto 2rem; font-size:1.05rem; text-align:justify; }
+
+    @media(max-width:960px){
+      .expect-steps { grid-template-columns:repeat(2,1fr); }
+      .times-grid { grid-template-columns:1fr; }
+      .connect-wrap { grid-template-columns:1fr; gap:2rem; }
+    }
+    @media(max-width:580px){
+      .expect-steps { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="new-here.html" style="color:var(--gold);font-weight:600;">I'm New</a></li>
+        <li><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('assets/community-1.jpg');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">Welcome to DOXA</p>
+      <h1>You Belong Here</h1>
+      <p>No matter who you are or where you've been, there is a place for you at DOXA Sanctuary. Come as you are.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+        <a href="#expect" class="btn-gold">What to Expect <i class="fa-solid fa-arrow-down"></i></a>
+        <a href="#connect" class="btn-ghost">Connect With Us <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WELCOME MESSAGE -->
+  <section style="background:var(--navy);padding:3.5rem 0;">
+    <div class="container" style="text-align:center;">
+      <p class="eyebrow gold">A Message From Our Pastor</p>
+      <h2 style="color:#fff;margin:.5rem 0 1.2rem;">We've Been Expecting You</h2>
+      <p style="color:rgba(255,255,255,.75);max-width:700px;margin:0 auto;font-size:1.05rem;line-height:1.9;text-align:justify;">"Whether you're walking into church for the very first time, returning after a long season away, or simply searching for something real, I want you to know you are not here by accident. God has been drawing you, and we at DOXA Sanctuary are honored to be a part of your journey. You will find no judgment here, only love, truth, and a community that genuinely cares. We can't wait to meet you."</p>
+      <p style="color:var(--gold);font-weight:600;margin-top:1.2rem;font-size:.95rem;">— Rev. Alex Owusu Jnr., Lead Pastor</p>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section id="expect">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Your First Sunday</p>
+        <h2>What to Expect When You Arrive</h2>
+        <p class="sub">Here's a simple walkthrough of what your first visit at DOXA Sanctuary will look like.</p>
+      </div>
+      <div class="expect-steps">
+        <div class="expect-step" data-num="ARRIVE">
+          <i class="fa-solid fa-location-dot"></i>
+          <h4>Find Us</h4>
+          <p>We meet at 865 Morris Park Ave, Bronx, NY 10462. Street parking is available nearby. Arrive a few minutes early to settle in comfortably.</p>
+        </div>
+        <div class="expect-step" data-num="WELCOME">
+          <i class="fa-solid fa-handshake"></i>
+          <h4>Be Welcomed</h4>
+          <p>Our friendly welcome team will greet you at the door, answer any questions, and help you find a seat. You will never feel alone walking in.</p>
+        </div>
+        <div class="expect-step" data-num="WORSHIP">
+          <i class="fa-solid fa-music"></i>
+          <h4>Worship Together</h4>
+          <p>We begin with powerful praise and worship. Feel free to sing along, clap, or simply soak it in. There is no pressure, just freedom to encounter God.</p>
+        </div>
+        <div class="expect-step" data-num="THE WORD">
+          <i class="fa-solid fa-book-open"></i>
+          <h4>Hear the Word</h4>
+          <p>Our pastor delivers a practical, Spirit-led message straight from the Bible. You will leave feeling encouraged, challenged, and full of hope.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO WEAR -->
+  <section style="background:var(--off);padding:4rem 0;">
+    <div class="container">
+      <div class="two-col" style="align-items:center;gap:4rem;">
+        <div class="tc-img">
+          <img src="assets/community-4.jpg" alt="DOXA Community" style="object-position:center top;" />
+        </div>
+        <div class="tc-copy">
+          <p class="eyebrow gold">Dress Code</p>
+          <h2>Come Exactly As You Are</h2>
+          <p style="text-align:justify;">There is no dress code at DOXA Sanctuary. We believe God looks at the heart, not the outfit. Whether you come in your Sunday best or your everyday clothes, you are welcome here. What matters most is that you show up.</p>
+          <p style="text-align:justify;margin-top:1rem;">Our congregation is beautifully diverse, a mix of cultures, backgrounds, ages, and styles. You will fit right in. We are a family, and families welcome each other just as they are.</p>
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:2rem;">
+            <div style="display:flex;align-items:center;gap:.6rem;">
+              <i class="fa-solid fa-check-circle" style="color:var(--gold);font-size:1.1rem;"></i>
+              <span style="font-size:.9rem;color:var(--navy);font-weight:500;">Casual wear</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.6rem;">
+              <i class="fa-solid fa-check-circle" style="color:var(--gold);font-size:1.1rem;"></i>
+              <span style="font-size:.9rem;color:var(--navy);font-weight:500;">Smart casual</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.6rem;">
+              <i class="fa-solid fa-check-circle" style="color:var(--gold);font-size:1.1rem;"></i>
+              <span style="font-size:.9rem;color:var(--navy);font-weight:500;">Formal wear</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.6rem;">
+              <i class="fa-solid fa-check-circle" style="color:var(--gold);font-size:1.1rem;"></i>
+              <span style="font-size:.9rem;color:var(--navy);font-weight:500;">Cultural attire</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE TIMES -->
+  <section style="background:var(--navy);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">When We Meet</p>
+        <h2 style="color:#fff;">Service Times</h2>
+        <p class="sub" style="color:rgba(255,255,255,.6);">Join us in person or online. There is always a way to connect with the DOXA family.</p>
+      </div>
+      <div class="times-grid">
+        <div class="time-card">
+          <span class="badge">In Person</span>
+          <i class="fa-solid fa-sun"></i>
+          <h4>Sunday Celebration</h4>
+          <p>10:00 AM<br />Main Auditorium<br />865 Morris Park Ave, Bronx NY</p>
+        </div>
+        <div class="time-card">
+          <span class="badge">Online · Zoom</span>
+          <i class="fa-solid fa-laptop"></i>
+          <h4>Tuesday &amp; Friday</h4>
+          <p>7:00 PM – 8:00 PM<br />Word Encounter (Tue)<br />Prayer Service (Fri)</p>
+        </div>
+        <div class="time-card">
+          <span class="badge">Online · Zoom</span>
+          <i class="fa-solid fa-cloud-sun"></i>
+          <h4>Morning Dew</h4>
+          <p>6:00 AM – 6:30 AM<br />Monday through Friday<br />Start your day in God's presence</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank" class="btn-gold"><i class="fa-brands fa-youtube"></i> Watch Us Live on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section>
+    <div class="container">
+      <div class="two-col" style="align-items:center;gap:4rem;">
+        <div class="tc-copy">
+          <p class="eyebrow gold">Find Us</p>
+          <h2>We're in the Heart of the Bronx</h2>
+          <p style="text-align:justify;">We are located at 865 Morris Park Ave, Bronx, NY 10462. We are easily accessible by public transport and there is street parking available around the building.</p>
+          <ul style="list-style:none;margin-top:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+            <li style="display:flex;align-items:flex-start;gap:.8rem;">
+              <i class="fa-solid fa-location-dot" style="color:var(--gold);margin-top:.2rem;flex-shrink:0;"></i>
+              <span style="color:var(--navy);font-size:.93rem;">865 Morris Park Ave, Bronx, NY 10462</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:.8rem;">
+              <i class="fa-solid fa-phone" style="color:var(--gold);margin-top:.2rem;flex-shrink:0;"></i>
+              <span style="color:var(--navy);font-size:.93rem;">(631) 492-8609</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:.8rem;">
+              <i class="fa-solid fa-envelope" style="color:var(--gold);margin-top:.2rem;flex-shrink:0;"></i>
+              <span style="color:var(--navy);font-size:.93rem;">hello@doxasanctuary.org</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:.8rem;">
+              <i class="fa-solid fa-car" style="color:var(--gold);margin-top:.2rem;flex-shrink:0;"></i>
+              <span style="color:var(--navy);font-size:.93rem;">Street parking available on Morris Park Ave and surrounding streets</span>
+            </li>
+          </ul>
+          <a href="https://maps.google.com/?q=865+Morris+Park+Ave+Bronx+NY+10462" target="_blank" class="btn-dark" style="margin-top:1.8rem;display:inline-flex;">Open in Google Maps <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="tc-img">
+          <img src="assets/worship-2.jpg" alt="DOXA Sanctuary Bronx" style="object-position:center top;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Common Questions</p>
+        <h2>First Timer FAQs</h2>
+        <p class="sub">Everything you need to know before your first visit.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do I need to be a Christian to attend? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Absolutely not. DOXA Sanctuary is a place for everyone, regardless of where you are on your faith journey. Whether you are a committed believer, a curious seeker, or someone who has never set foot in a church before, you are welcome here. Come with your questions and an open heart.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How long is the service? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Our Sunday Celebration Service typically runs about 90 minutes to 2 hours. We believe in giving the Holy Spirit room to move, so we don't rush. However, the time always flies by because of the energy of worship and the power of the Word.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is there anything for my children? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Yes! We have a Children's Ministry that runs during the Sunday service so your little ones can learn about God in a fun, age-appropriate environment. Our team will guide you to the children's area when you arrive. Your kids are just as important to us as you are.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Will I be asked to give money? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>We do receive tithes and offerings as part of our service, but as a first-time guest you are under absolutely no obligation to give. Giving at DOXA is always a personal, Spirit-led decision. We never want anyone to feel pressured.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What if I come late? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Don't let that stop you from coming! We would rather you arrive late than not at all. Our welcome team will quietly help you find a seat without any fuss. You are always welcome, no matter what time you walk through the door.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I watch online if I can't make it in person? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Yes! We stream live on our YouTube channel at <strong>youtube.com/@TOPMinistriesNYC</strong>. We also have Zoom services on Tuesdays and Fridays from 7:00 PM to 8:00 PM, and Morning Dew prayer Monday through Friday from 6:00 AM to 6:30 AM. Reach out to us for the Zoom links.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I get more connected after my first visit? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>The best next step is to fill out the connect card below, join one of our Small Groups, and follow us on social media. Our pastoral team will personally reach out to you and help you find your place in the DOXA family. We are very intentional about making sure no one falls through the cracks.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT CARD -->
+  <section id="connect">
+    <div class="container">
+      <div class="connect-wrap">
+        <div class="connect-info">
+          <p class="eyebrow gold">Stay Connected</p>
+          <h2>Fill Out a Connect Card</h2>
+          <p>We would love to know you were here. Fill out this short form and our team will personally reach out to welcome you, answer your questions, and help you take your next step at DOXA Sanctuary.</p>
+          <div class="connect-highlight">
+            <i class="fa-solid fa-clock"></i>
+            <span>We respond within 24 – 48 hours</span>
+          </div>
+          <div class="connect-highlight">
+            <i class="fa-solid fa-lock"></i>
+            <span>Your information is private and will never be shared</span>
+          </div>
+          <div class="connect-highlight">
+            <i class="fa-solid fa-heart"></i>
+            <span>No spam, just genuine care from our team</span>
+          </div>
+          <div style="margin-top:2rem;">
+            <p style="margin-bottom:1rem;color:var(--navy);font-weight:600;">Have more questions?</p>
+            <a href="contact.html" class="btn-dark">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="connect-form-box">
+          <h3>We'd Love to Meet You</h3>
+          <form onsubmit="handleConnect(event)">
+            <div class="form-row">
+              <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
+              <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+            </div>
+            <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
+            <div class="fg">
+              <label>Is this your first time at DOXA?</label>
+              <select required>
+                <option value="">Select one...</option>
+                <option>Yes, this is my first time</option>
+                <option>I've visited a couple of times</option>
+                <option>I'm a returning member</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>How did you hear about us?</label>
+              <select>
+                <option value="">Select one...</option>
+                <option>A friend or family member</option>
+                <option>Social media (Instagram, Facebook)</option>
+                <option>YouTube</option>
+                <option>Google search</option>
+                <option>Walked past the church</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label>Anything you'd like us to know? (optional)</label><textarea rows="3" placeholder="Questions, prayer requests, or just a hello..."></textarea></div>
+            <button type="submit" class="btn-gold full" style="margin-top:.5rem;">Send My Connect Card <i class="fa-solid fa-paper-plane"></i></button>
+            <p id="connectNote" style="text-align:center;margin-top:1rem;color:var(--gold);font-weight:600;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <div class="welcome-banner">
+    <div class="container">
+      <h2>Ready to Take the Next Step?</h2>
+      <p>Join a small group, explore our ministries, or simply show up this Sunday. Whatever your next step is, DOXA Sanctuary is here to walk with you every step of the way.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="small-groups.html" class="btn-dark">Join a Small Group <i class="fa-solid fa-people-group"></i></a>
+        <a href="index.html#services" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:.75rem 1.8rem;border-radius:4px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">Service Times <i class="fa-solid fa-clock"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="#">Children's Ministry</a></li><li><a href="#">Youth &amp; Young Adults</a></li><li><a href="#">Men's Ministry</a></li><li><a href="#">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    function handleConnect(e) {
+      e.preventDefault();
+      document.getElementById('connectNote').textContent = 'Thank you! Our team will reach out to you within 24 hours. God bless you!';
+      e.target.reset();
+    }
+  </script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/69ebf31bab915d1c35765065/1jn0qr8gs';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</body>
+</html>
