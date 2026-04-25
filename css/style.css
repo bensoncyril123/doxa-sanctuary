@@ -382,20 +382,16 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 /* ── HOMEPAGE: SERVICE TIMES ── */
 .svc-times-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem;}
 .svc-info-panel{grid-column:2/4;grid-row:2;display:flex;flex-direction:column;gap:1rem;justify-content:center;}
-.svc-time-card{background:#fff;border:1px solid #e8e8e8;border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;gap:.7rem;transition:var(--t);box-shadow:0 2px 12px rgba(0,0,0,.06);}
-.svc-time-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.1);transform:translateY(-4px);border-color:var(--gold);}
-.svc-time-card.featured{background:var(--navy);border-color:var(--navy);}
-.svc-time-card.featured h3{color:#fff;}
-.svc-time-card.featured .t{color:var(--gold);}
-.svc-time-card.featured p{color:rgba(255,255,255,.7);}
+.svc-time-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;gap:.7rem;transition:var(--t);}
+.svc-time-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px);border-color:var(--border);}
+.svc-time-card.featured{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);}
 .svc-time-card i{font-size:2rem;color:var(--gold);}
-.svc-time-card h3{color:var(--navy);}
+.svc-time-card h3{color:#fff;}
 .svc-time-card .t{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold);}
-.svc-time-card p{color:var(--muted);}
+.svc-time-card p{color:rgba(255,255,255,.65);}
 .svc-time-card span{display:block;background:rgba(201,168,76,.15);color:var(--gold);font-size:.72rem;font-weight:700;padding:.25rem .75rem;border-radius:50px;letter-spacing:.06em;margin-top:auto;text-align:center;}
-.svc-time-card.featured span{background:rgba(201,168,76,.2);}
-.loc-strip{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e8e8e8;border-radius:var(--r);padding:1.5rem 2rem;gap:2rem;flex-wrap:wrap;box-shadow:0 2px 12px rgba(0,0,0,.06);}
-.loc-strip-info{display:flex;align-items:center;gap:1rem;color:var(--muted);font-size:.9rem;}
+.loc-strip{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.5rem 2rem;gap:2rem;flex-wrap:wrap;}
+.loc-strip-info{display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,.75);font-size:.9rem;}
 .loc-strip-info i{font-size:1.8rem;color:var(--gold);flex-shrink:0;}
 
 /* ── HOMEPAGE: GALLERY TEASER ── */
