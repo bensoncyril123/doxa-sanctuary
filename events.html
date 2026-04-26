@@ -7,6 +7,247 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── VIEW TOGGLE ── */
+    .view-toggle {
+      display: flex;
+      align-items: center;
+      background: #f0ede6;
+      border-radius: 8px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .view-btn {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .5rem 1.1rem;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: var(--t);
+      font-family: 'Inter', sans-serif;
+    }
+    .view-btn.active {
+      background: #fff;
+      color: var(--navy);
+      box-shadow: 0 1px 6px rgba(0,0,0,.1);
+    }
+
+    /* ── FILTER BAR ── */
+    .ev-filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .ev-cats {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .ev-cat-btn {
+      padding: .4rem 1rem;
+      border: 1.5px solid #ddd;
+      border-radius: 50px;
+      background: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: var(--t);
+      font-family: 'Inter', sans-serif;
+    }
+    .ev-cat-btn.active, .ev-cat-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    /* ── EVENT CARDS (LIST VIEW) ── */
+    .events-list { display: flex; flex-direction: column; gap: 1.8rem; }
+    .ev-card {
+      display: flex;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid #efefef;
+      transition: var(--t);
+    }
+    .ev-card:hover { box-shadow: var(--shadowM); transform: translateY(-3px); }
+    .ev-card-thumb {
+      width: 260px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .ev-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .ev-date-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 8px;
+      padding: .4rem .7rem;
+      text-align: center;
+      min-width: 52px;
+    }
+    .ev-date-badge span { display: block; font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .ev-date-badge strong { display: block; font-size: 1.5rem; font-weight: 900; line-height: 1; }
+    .ev-card-content {
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .6rem;
+      flex: 1;
+    }
+    .ev-card-content h3 { color: var(--navy); font-size: 1.25rem; margin: 0; }
+    .ev-card-content p { color: var(--muted); font-size: .92rem; line-height: 1.7; margin: 0; }
+    .ev-meta { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .ev-meta span { display: flex; align-items: center; gap: .35rem; font-size: .82rem; color: var(--muted); }
+    .ev-meta i { color: var(--gold); font-size: .8rem; }
+    .ev-card-footer-row { display: flex; align-items: center; gap: 1rem; margin-top: .4rem; flex-wrap: wrap; }
+
+    /* ── CALENDAR VIEW ── */
+    #calendarView { display: none; }
+    .cal-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .cal-nav h3 { color: var(--navy); font-size: 1.3rem; }
+    .cal-nav-btn {
+      background: #fff;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--t);
+    }
+    .cal-nav-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .cal-grid {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid #efefef;
+    }
+    .cal-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background: var(--navy);
+    }
+    .cal-header span {
+      text-align: center;
+      padding: .75rem 0;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.7);
+      text-transform: uppercase;
+    }
+    .cal-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+    .cal-day {
+      min-height: 90px;
+      padding: .6rem;
+      border-right: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      position: relative;
+    }
+    .cal-day:nth-child(7n) { border-right: none; }
+    .cal-day.empty { background: #fafafa; }
+    .cal-day.today .day-num { background: var(--gold); color: var(--navy); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .day-num { font-size: .85rem; font-weight: 600; color: var(--navy); margin-bottom: .3rem; }
+    .cal-event-pill {
+      display: block;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .15rem .4rem;
+      border-radius: 4px;
+      margin-bottom: .2rem;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: var(--t);
+    }
+    .cal-event-pill:hover { opacity: .8; }
+    .pill-worship  { background: rgba(201,168,76,.2);  color: #8a6b0a; }
+    .pill-community{ background: rgba(21,101,192,.15); color: #1565c0; }
+    .pill-youth    { background: rgba(27,94,32,.15);   color: #1b5e20; }
+    .pill-growth   { background: rgba(136,14,79,.15);  color: #880e4f; }
+
+    /* ── EVENT DETAIL POPUP ── */
+    .cal-popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .cal-popup-overlay.open { display: flex; }
+    .cal-popup {
+      background: #fff;
+      border-radius: 14px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    .cal-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .cal-popup h4 { color: var(--navy); font-size: 1.2rem; margin-bottom: .8rem; }
+    .cal-popup p { color: var(--muted); font-size: .92rem; line-height: 1.7; margin-bottom: 1rem; }
+    .cal-popup-meta { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.2rem; }
+    .cal-popup-meta span { font-size: .85rem; color: var(--muted); display: flex; align-items: center; gap: .5rem; }
+    .cal-popup-meta i { color: var(--gold); }
+
+    /* ── TAGS ── */
+    .ev-tag { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .7rem; border-radius: 50px; }
+    .ev-tag.worship   { background: rgba(201,168,76,.15); color: #8a6b0a; }
+    .ev-tag.community { background: rgba(21,101,192,.12); color: #1565c0; }
+    .ev-tag.youth     { background: rgba(27,94,32,.12);   color: #1b5e20; }
+    .ev-tag.growth    { background: rgba(136,14,79,.12);  color: #880e4f; }
+
+    @media(max-width: 680px) {
+      .ev-card { flex-direction: column; }
+      .ev-card-thumb { width: 100%; height: 200px; }
+      .cal-day { min-height: 60px; }
+      .cal-event-pill { display: none; }
+      .cal-day.has-event::after { content: '•'; color: var(--gold); font-size: 1rem; display: block; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -38,87 +279,140 @@
     </div>
   </div>
 
-  <!-- UPCOMING EVENTS -->
-  <section id="upcoming">
+  <!-- EVENTS SECTION -->
+  <section id="upcoming" style="background:var(--off);">
     <div class="container">
-      <div class="section-hd"><div><p class="eyebrow gold">Coming Up</p><h2>Upcoming Events</h2></div></div>
-      <div class="events-cards-grid">
 
-        <div class="ev-card-big">
-          <div class="ev-card-img"><img src="assets/event-halal.jpg" alt="HALAL Praise Service" /></div>
-          <div class="ev-card-body">
-            <div class="ev-card-date"><span>MAY</span><strong>10</strong></div>
-            <div class="ev-card-info">
-              <span class="ev-tag worship">Worship</span>
-              <h3>HALAL (Praise) Service</h3>
-              <p>An evening of extravagant praise and worship as we lift up the name of the Lord together. Come ready to glorify God!</p>
-              <ul class="ev-details-list">
-                <li><i class="fa-regular fa-clock"></i> Celebration Service · 10:00 AM</li>
-                <li><i class="fa-solid fa-location-dot"></i> Church Auditorium</li>
-                <li><i class="fa-solid fa-ticket"></i> Free — All are welcome</li>
-              </ul>
-              <a href="#" class="btn-dark">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      <!-- Filter + Toggle Row -->
+      <div class="ev-filter-row">
+        <div class="ev-cats">
+          <button class="ev-cat-btn active" data-cat="all">All Events</button>
+          <button class="ev-cat-btn" data-cat="worship">Worship</button>
+          <button class="ev-cat-btn" data-cat="community">Community</button>
+          <button class="ev-cat-btn" data-cat="youth">Youth</button>
+          <button class="ev-cat-btn" data-cat="growth">Growth</button>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="btnList"><i class="fa-solid fa-list"></i> List</button>
+          <button class="view-btn" id="btnCal"><i class="fa-regular fa-calendar"></i> Calendar</button>
+        </div>
+      </div>
+
+      <!-- LIST VIEW -->
+      <div id="listView" class="events-list">
+
+        <div class="ev-card" data-cat="worship">
+          <div class="ev-card-thumb">
+            <img src="assets/event-halal.jpg" alt="HALAL Praise Service" />
+            <div class="ev-date-badge"><span>MAY</span><strong>10</strong></div>
+          </div>
+          <div class="ev-card-content">
+            <span class="ev-tag worship">Worship</span>
+            <h3>HALAL (Praise) Service</h3>
+            <p>An evening of extravagant praise and worship as we lift up the name of the Lord together. Come ready to glorify God!</p>
+            <div class="ev-meta">
+              <span><i class="fa-regular fa-clock"></i> 10:00 AM</span>
+              <span><i class="fa-solid fa-location-dot"></i> Church Auditorium</span>
+              <span><i class="fa-solid fa-ticket"></i> Free — All Welcome</span>
+            </div>
+            <div class="ev-card-footer-row">
+              <a href="contact.html" class="btn-dark" style="padding:.55rem 1.3rem;font-size:.84rem;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="ev-card-big">
-          <div class="ev-card-img"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80&fit=crop" alt="Outreach" /></div>
-          <div class="ev-card-body">
-            <div class="ev-card-date"><span>MAY</span><strong>3</strong></div>
-            <div class="ev-card-info">
-              <span class="ev-tag community">Community</span>
-              <h3>Community Outreach Day</h3>
-              <p>Join us as we serve our city — food distribution, neighborhood cleanup, and free prayer for all who come.</p>
-              <ul class="ev-details-list">
-                <li><i class="fa-regular fa-clock"></i> 8:00 AM – 2:00 PM</li>
-                <li><i class="fa-solid fa-location-dot"></i> Church Parking Lot</li>
-                <li><i class="fa-solid fa-ticket"></i> Volunteer signup encouraged</li>
-              </ul>
-              <a href="#" class="btn-dark">Volunteer <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="ev-card" data-cat="community">
+          <div class="ev-card-thumb">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80&fit=crop" alt="Outreach" />
+            <div class="ev-date-badge"><span>MAY</span><strong>3</strong></div>
+          </div>
+          <div class="ev-card-content">
+            <span class="ev-tag community">Community</span>
+            <h3>Community Outreach Day</h3>
+            <p>Join us as we serve our city — food distribution, neighborhood cleanup, and free prayer for all who come.</p>
+            <div class="ev-meta">
+              <span><i class="fa-regular fa-clock"></i> 8:00 AM – 2:00 PM</span>
+              <span><i class="fa-solid fa-location-dot"></i> Church Parking Lot</span>
+              <span><i class="fa-solid fa-ticket"></i> Volunteer signup encouraged</span>
+            </div>
+            <div class="ev-card-footer-row">
+              <a href="contact.html" class="btn-dark" style="padding:.55rem 1.3rem;font-size:.84rem;">Volunteer <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="ev-card-big">
-          <div class="ev-card-img"><img src="https://images.unsplash.com/photo-1545987796-200677ee1011?w=800&q=80&fit=crop" alt="Youth" /></div>
-          <div class="ev-card-body">
-            <div class="ev-card-date"><span>MAY</span><strong>10</strong></div>
-            <div class="ev-card-info">
-              <span class="ev-tag youth">Youth</span>
-              <h3>Youth Summer Kickoff</h3>
-              <p>Games, worship, and real connection for teens and young adults. The best summer starts right here at DOXA!</p>
-              <ul class="ev-details-list">
-                <li><i class="fa-regular fa-clock"></i> 6:00 PM – 9:00 PM</li>
-                <li><i class="fa-solid fa-location-dot"></i> Youth Hall</li>
-                <li><i class="fa-solid fa-ticket"></i> Free — Ages 13–25</li>
-              </ul>
-              <a href="#" class="btn-dark">Register <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="ev-card" data-cat="youth">
+          <div class="ev-card-thumb">
+            <img src="https://images.unsplash.com/photo-1545987796-200677ee1011?w=800&q=80&fit=crop" alt="Youth" />
+            <div class="ev-date-badge"><span>MAY</span><strong>10</strong></div>
+          </div>
+          <div class="ev-card-content">
+            <span class="ev-tag youth">Youth</span>
+            <h3>Youth Summer Kickoff</h3>
+            <p>Games, worship, and real connection for teens and young adults. The best summer starts right here at DOXA!</p>
+            <div class="ev-meta">
+              <span><i class="fa-regular fa-clock"></i> 6:00 PM – 9:00 PM</span>
+              <span><i class="fa-solid fa-location-dot"></i> Youth Hall</span>
+              <span><i class="fa-solid fa-ticket"></i> Free — Ages 13–25</span>
+            </div>
+            <div class="ev-card-footer-row">
+              <a href="contact.html" class="btn-dark" style="padding:.55rem 1.3rem;font-size:.84rem;">Register <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="ev-card-big">
-          <div class="ev-card-img"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&fit=crop" alt="Marriage" /></div>
-          <div class="ev-card-body">
-            <div class="ev-card-date"><span>MAY</span><strong>17</strong></div>
-            <div class="ev-card-info">
-              <span class="ev-tag growth">Growth</span>
-              <h3>Marriage Enrichment Retreat</h3>
-              <p>A weekend designed to strengthen and refresh marriages through teaching, fellowship, and focused time together.</p>
-              <ul class="ev-details-list">
-                <li><i class="fa-regular fa-clock"></i> Fri 6PM – Sun 2PM</li>
-                <li><i class="fa-solid fa-location-dot"></i> Retreat Center</li>
-                <li><i class="fa-solid fa-ticket"></i> Registration required · Limited space</li>
-              </ul>
-              <a href="#" class="btn-dark">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="ev-card" data-cat="growth">
+          <div class="ev-card-thumb">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&fit=crop" alt="Marriage" />
+            <div class="ev-date-badge"><span>MAY</span><strong>17</strong></div>
+          </div>
+          <div class="ev-card-content">
+            <span class="ev-tag growth">Growth</span>
+            <h3>Marriage Enrichment Retreat</h3>
+            <p>A weekend designed to strengthen and refresh marriages through teaching, fellowship, and focused time together.</p>
+            <div class="ev-meta">
+              <span><i class="fa-regular fa-clock"></i> Fri 6PM – Sun 2PM</span>
+              <span><i class="fa-solid fa-location-dot"></i> Retreat Center</span>
+              <span><i class="fa-solid fa-ticket"></i> Registration required · Limited space</span>
+            </div>
+            <div class="ev-card-footer-row">
+              <a href="contact.html" class="btn-dark" style="padding:.55rem 1.3rem;font-size:.84rem;">Register Now <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
       </div>
+
+      <!-- CALENDAR VIEW -->
+      <div id="calendarView">
+        <div class="cal-nav">
+          <button class="cal-nav-btn" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+          <h3 id="calMonthLabel">May 2026</h3>
+          <button class="cal-nav-btn" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-header">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="cal-days" id="calDays"></div>
+        </div>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:1rem;text-align:center;">Click on a highlighted date to view event details.</p>
+      </div>
+
     </div>
   </section>
+
+  <!-- EVENT DETAIL POPUP -->
+  <div class="cal-popup-overlay" id="popupOverlay" onclick="closePopup(event)">
+    <div class="cal-popup">
+      <button class="cal-popup-close" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+      <span class="ev-tag" id="popupTag"></span>
+      <h4 id="popupTitle" style="margin-top:.6rem;"></h4>
+      <p id="popupDesc"></p>
+      <div class="cal-popup-meta" id="popupMeta"></div>
+      <a href="contact.html" class="btn-dark" style="font-size:.85rem;">Get In Touch <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
 
   <!-- SMALL GROUPS CTA -->
   <section style="background:var(--navy);padding:4rem 0;">
@@ -128,7 +422,7 @@
         <h2 style="color:#fff;margin:.3rem 0 .8rem;">Join a Small Group</h2>
         <p style="color:rgba(255,255,255,.65);max-width:500px;">Small groups are where real community happens. Find a group near you and grow in faith alongside others.</p>
       </div>
-      <a href="contact.html" class="btn-gold">Find a Group <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="small-groups.html" class="btn-gold">Find a Group <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -147,6 +441,116 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // ── EVENT DATA ──
+    const EVENTS = [
+      { day: 3,  month: 4, year: 2026, cat: 'community', title: 'Community Outreach Day',      desc: 'Join us as we serve our city — food distribution, neighborhood cleanup, and free prayer for all who come.', time: '8:00 AM – 2:00 PM', location: 'Church Parking Lot', ticket: 'Volunteer signup encouraged' },
+      { day: 10, month: 4, year: 2026, cat: 'worship',   title: 'HALAL (Praise) Service',       desc: 'An evening of extravagant praise and worship as we lift up the name of the Lord together. Come ready to glorify God!', time: '10:00 AM', location: 'Church Auditorium', ticket: 'Free — All Welcome' },
+      { day: 10, month: 4, year: 2026, cat: 'youth',     title: 'Youth Summer Kickoff',          desc: 'Games, worship, and real connection for teens and young adults. The best summer starts right here at DOXA!', time: '6:00 PM – 9:00 PM', location: 'Youth Hall', ticket: 'Free — Ages 13–25' },
+      { day: 17, month: 4, year: 2026, cat: 'growth',    title: 'Marriage Enrichment Retreat',   desc: 'A weekend designed to strengthen and refresh marriages through teaching, fellowship, and focused time together.', time: 'Fri 6PM – Sun 2PM', location: 'Retreat Center', ticket: 'Registration required · Limited space' },
+    ];
+
+    // ── CATEGORY FILTER ──
+    let activeFilter = 'all';
+    document.querySelectorAll('.ev-cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ev-cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.cat;
+        document.querySelectorAll('.ev-card').forEach(card => {
+          card.style.display = (activeFilter === 'all' || card.dataset.cat === activeFilter) ? '' : 'none';
+        });
+      });
+    });
+
+    // ── LIST / CALENDAR TOGGLE ──
+    const listView = document.getElementById('listView');
+    const calView  = document.getElementById('calendarView');
+    document.getElementById('btnList').addEventListener('click', () => {
+      listView.style.display = ''; calView.style.display = 'none';
+      document.getElementById('btnList').classList.add('active');
+      document.getElementById('btnCal').classList.remove('active');
+    });
+    document.getElementById('btnCal').addEventListener('click', () => {
+      listView.style.display = 'none'; calView.style.display = '';
+      document.getElementById('btnCal').classList.add('active');
+      document.getElementById('btnList').classList.remove('active');
+      renderCalendar(currentYear, currentMonth);
+    });
+
+    // ── CALENDAR ──
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    let currentYear = 2026, currentMonth = 4; // 0-indexed: 4 = May
+
+    function renderCalendar(year, month) {
+      document.getElementById('calMonthLabel').textContent = MONTHS[month] + ' ' + year;
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const today = new Date();
+      const grid = document.getElementById('calDays');
+      grid.innerHTML = '';
+
+      // blank cells before first day
+      for (let i = 0; i < firstDay; i++) {
+        const blank = document.createElement('div');
+        blank.className = 'cal-day empty';
+        grid.appendChild(blank);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day';
+        const isToday = (today.getFullYear() === year && today.getMonth() === month && today.getDate() === d);
+        if (isToday) cell.classList.add('today');
+
+        const numEl = document.createElement('div');
+        numEl.className = 'day-num';
+        numEl.textContent = d;
+        if (isToday) { const wrap = document.createElement('div'); wrap.className = 'day-num today'; wrap.textContent = d; cell.appendChild(wrap); }
+        else cell.appendChild(numEl);
+
+        // events for this day
+        const dayEvents = EVENTS.filter(e => e.day === d && e.month === month && e.year === year);
+        if (dayEvents.length) cell.classList.add('has-event');
+        dayEvents.forEach(ev => {
+          const pill = document.createElement('span');
+          pill.className = `cal-event-pill pill-${ev.cat}`;
+          pill.textContent = ev.title;
+          pill.addEventListener('click', () => showPopup(ev));
+          cell.appendChild(pill);
+        });
+        grid.appendChild(cell);
+      }
+    }
+
+    document.getElementById('prevMonth').addEventListener('click', () => {
+      currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+      renderCalendar(currentYear, currentMonth);
+    });
+    document.getElementById('nextMonth').addEventListener('click', () => {
+      currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+      renderCalendar(currentYear, currentMonth);
+    });
+
+    // ── POPUP ──
+    function showPopup(ev) {
+      const tagEl = document.getElementById('popupTag');
+      tagEl.textContent = ev.cat.charAt(0).toUpperCase() + ev.cat.slice(1);
+      tagEl.className = `ev-tag ${ev.cat}`;
+      document.getElementById('popupTitle').textContent = ev.title;
+      document.getElementById('popupDesc').textContent = ev.desc;
+      document.getElementById('popupMeta').innerHTML = `
+        <span><i class="fa-regular fa-clock"></i> ${ev.time}</span>
+        <span><i class="fa-solid fa-location-dot"></i> ${ev.location}</span>
+        <span><i class="fa-solid fa-ticket"></i> ${ev.ticket}</span>`;
+      document.getElementById('popupOverlay').classList.add('open');
+    }
+    function closePopup(e) {
+      if (!e || e.target === document.getElementById('popupOverlay') || e.currentTarget.classList.contains('cal-popup-close')) {
+        document.getElementById('popupOverlay').classList.remove('open');
+      }
+    }
+  </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
