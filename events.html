@@ -259,7 +259,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li><li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="ministries.html"><i class="fa-solid fa-hands-holding"></i> Ministries</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
         <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
-        <li><a href="events.html">Events</a></li>
+        <li class="has-dropdown"><a href="events.html">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> All Events</a></li><li><a href="events.html#calendar"><i class="fa-regular fa-calendar"></i> Calendar</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li></ul></li>
         <li><a href="new-here.html" style="color:var(--gold);font-weight:600;">I'm New</a></li>
         <li><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
       </ul>
@@ -502,6 +502,11 @@
     const listView = document.getElementById('listView');
     const calView  = document.getElementById('calendarView');
     let calendar = null;
+
+    // Auto-switch to calendar view if URL has #calendar
+    if (window.location.hash === '#calendar') {
+      document.getElementById('btnCal').click();
+    }
 
     document.getElementById('btnList').addEventListener('click', () => {
       listView.style.display = 'flex'; calView.style.display = 'none';
