@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Children's Ministry — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* AGE GROUP CARDS */
+    .age-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+    .age-card { background:#fff; border-radius:12px; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+    .age-card-top { padding:2rem 2rem 1.2rem; flex:1; }
+    .age-badge { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.3rem .9rem; border-radius:50px; margin-bottom:1.2rem; }
+    .age-card h3 { color:var(--navy); font-size:1.15rem; margin-bottom:.6rem; }
+    .age-card p { color:var(--muted); font-size:.9rem; line-height:1.75; }
+    .age-card-foot { padding:1rem 2rem 1.5rem; }
+
+    /* WHAT WE DO */
+    .activities-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem; }
+    .activity-item { text-align:center; padding:2rem 1.2rem; background:#fff; border-radius:10px; box-shadow:var(--shadow); }
+    .activity-item i { font-size:2rem; color:var(--gold); margin-bottom:.9rem; display:block; }
+    .activity-item h4 { color:var(--navy); font-size:.95rem; margin-bottom:.4rem; }
+    .activity-item p { color:var(--muted); font-size:.83rem; line-height:1.65; }
+
+    /* PARENT SECTION */
+    .parent-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+    .parent-card { background:rgba(255,255,255,.07); border:1px solid rgba(201,168,76,.2); border-radius:10px; padding:1.8rem; }
+    .parent-card i { font-size:1.5rem; color:var(--gold); margin-bottom:.8rem; display:block; }
+    .parent-card h4 { color:#fff; margin-bottom:.5rem; font-size:.97rem; }
+    .parent-card p { color:rgba(255,255,255,.65); font-size:.87rem; line-height:1.7; }
+
+    /* LEADER */
+    .leader-block { display:flex; gap:3rem; align-items:center; background:var(--off); border-radius:14px; padding:3rem; margin-top:3rem; }
+    .leader-photo { width:160px; height:160px; border-radius:50%; object-fit:cover; object-position:center top; flex-shrink:0; border:4px solid var(--gold); }
+    .leader-info h3 { color:var(--navy); margin-bottom:.3rem; }
+    .leader-info span { color:var(--gold); font-size:.88rem; font-weight:600; display:block; margin-bottom:.8rem; }
+    .leader-info p { color:var(--muted); font-size:.93rem; line-height:1.8; text-align:justify; }
+
+    /* FAQ */
+    .faq-list { max-width:780px; margin:2.5rem auto 0; }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-q { width:100%; background:none; border:none; text-align:left; padding:1.2rem 0; font-size:.97rem; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; gap:1rem; }
+    .faq-q i { color:var(--gold); flex-shrink:0; transition:transform .3s; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+    .faq-a p { padding-bottom:1.2rem; color:var(--muted); font-size:.92rem; line-height:1.8; }
+    .faq-item.open .faq-a { max-height:300px; }
+    .faq-item.open .faq-q i { transform:rotate(180deg); }
+
+    @media(max-width:900px){
+      .age-grid { grid-template-columns:1fr; }
+      .activities-grid { grid-template-columns:repeat(2,1fr); }
+      .parent-cards { grid-template-columns:1fr; }
+      .leader-block { flex-direction:column; text-align:center; }
+      .leader-info p { text-align:center; }
+    }
+    @media(max-width:580px){
+      .activities-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li><li class="has-dropdown"><a href="#">About Us <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="leadership.html"><i class="fa-solid fa-users"></i> Leadership</a></li><li><a href="new-here.html"><i class="fa-solid fa-star"></i> I'm New</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li class="has-dropdown"><a href="events.html">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> All Events</a></li><li><a href="calendar.html"><i class="fa-regular fa-calendar"></i> Calendar</a></li></ul></li>
+        <li class="has-dropdown"><a href="ministries.html">Ministries <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="childrens-ministry.html"><i class="fa-solid fa-child"></i> Children's Ministry</a></li><li><a href="ministries.html#youth"><i class="fa-solid fa-users"></i> Youth &amp; Young Adults</a></li><li><a href="ministries.html#men"><i class="fa-solid fa-person"></i> Men's Ministry</a></li><li><a href="ministries.html#women"><i class="fa-solid fa-heart"></i> Women's Ministry</a></li></ul></li>
+        <li><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('assets/bring-the-kids.jpg');background-position:center top;">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">DOXA Sanctuary</p>
+      <h1>Children's Ministry</h1>
+      <p>Children are not the future of DOXA Sanctuary — they are the present. And they are loved, valued, and fully welcome here.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+        <a href="#programs" class="btn-gold">Our Programs <i class="fa-solid fa-arrow-down"></i></a>
+        <a href="#register" class="btn-ghost">Register Your Child <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENING STATEMENT -->
+  <section style="background:var(--navy);padding:4rem 0;">
+    <div class="container" style="text-align:center;max-width:780px;margin:0 auto;">
+      <p class="eyebrow gold">Who We Are</p>
+      <h2 style="color:#fff;margin:.5rem 0 1.2rem;">A Safe Place to Know God, Have Fun &amp; Grow</h2>
+      <p style="color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.9;">Our Children's Ministry is a safe, fun, and Spirit-filled environment where children from infants to pre-teens encounter God's love and learn His Word. We are passionate about planting the seeds of faith early, because what is sown in a child's heart today will bear fruit for generations to come. Every child who walks through our doors is seen, valued, and deeply loved.</p>
+    </div>
+  </section>
+
+  <!-- AGE PROGRAMS -->
+  <section id="programs">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Programs</p>
+        <h2>Something for Every Age</h2>
+        <p class="sub">We have age-appropriate programs running every Sunday so the whole family can experience God together.</p>
+      </div>
+      <div class="age-grid">
+
+        <div class="age-card">
+          <div style="height:8px;background:linear-gradient(90deg,#f9a825,#fbc02d);"></div>
+          <div class="age-card-top">
+            <div class="age-badge" style="background:rgba(249,168,37,.15);color:#b7860a;">Birth – Age 3</div>
+            <h3>Nursery</h3>
+            <p>A warm, loving, and safe space for your littlest ones. Our dedicated nursery team provides attentive care for infants and toddlers while parents enjoy the service. Your baby is in good hands.</p>
+          </div>
+          <div class="age-card-foot">
+            <div style="display:flex;align-items:center;gap:.5rem;">
+              <i class="fa-solid fa-clock" style="color:var(--gold);font-size:.85rem;"></i>
+              <span style="font-size:.83rem;color:var(--muted);">Every Sunday · During Service</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="age-card">
+          <div style="height:8px;background:linear-gradient(90deg,#f9a825,#fbc02d);"></div>
+          <div class="age-card-top">
+            <div class="age-badge" style="background:rgba(249,168,37,.15);color:#b7860a;">Ages 4 – 8</div>
+            <h3>Children's Church</h3>
+            <p>A fun, gospel-centred program where preschoolers through early elementary children worship, discover Bible stories, and learn who they are in Christ through engaging, hands-on activities made just for them.</p>
+          </div>
+          <div class="age-card-foot">
+            <div style="display:flex;align-items:center;gap:.5rem;">
+              <i class="fa-solid fa-clock" style="color:var(--gold);font-size:.85rem;"></i>
+              <span style="font-size:.83rem;color:var(--muted);">Every Sunday · During Service</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="age-card">
+          <div style="height:8px;background:linear-gradient(90deg,#f9a825,#fbc02d);"></div>
+          <div class="age-card-top">
+            <div class="age-badge" style="background:rgba(249,168,37,.15);color:#b7860a;">Ages 9 – 12</div>
+            <h3>Pre-Teen Ministry</h3>
+            <p>Designed for older children who are ready to go deeper. We engage pre-teens with age-relevant Bible teaching, leadership opportunities, and meaningful conversations about faith, identity, and purpose in God.</p>
+          </div>
+          <div class="age-card-foot">
+            <div style="display:flex;align-items:center;gap:.5rem;">
+              <i class="fa-solid fa-clock" style="color:var(--gold);font-size:.85rem;"></i>
+              <span style="font-size:.83rem;color:var(--muted);">Every Sunday · During Service</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">What We Do</p>
+        <h2>How We Raise the Next Generation</h2>
+        <p class="sub">Every Sunday we create an experience that kids actually look forward to.</p>
+      </div>
+      <div class="activities-grid">
+        <div class="activity-item">
+          <i class="fa-solid fa-book-bible"></i>
+          <h4>Bible Teaching</h4>
+          <p>Age-appropriate lessons straight from the Word of God, taught in ways children understand and remember.</p>
+        </div>
+        <div class="activity-item">
+          <i class="fa-solid fa-music"></i>
+          <h4>Praise &amp; Worship</h4>
+          <p>Children learn to worship from an early age — with joy, energy, and a heart for God's presence.</p>
+        </div>
+        <div class="activity-item">
+          <i class="fa-solid fa-palette"></i>
+          <h4>Creative Activities</h4>
+          <p>Crafts, drawing, and creative projects that reinforce biblical truths in a fun and memorable way.</p>
+        </div>
+        <div class="activity-item">
+          <i class="fa-solid fa-gamepad"></i>
+          <h4>Games &amp; Fellowship</h4>
+          <p>Building friendships and community through games and activities that make church a place kids love.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE LEADER -->
+  <section>
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Our Team</p>
+        <h2>Meet the Ministry Leader</h2>
+      </div>
+      <div class="leader-block">
+        <img src="assets/pastor-doreen.jpg" alt="Deaconess Margaret Kumi" class="leader-photo" />
+        <div class="leader-info">
+          <h3>Deaconess Margaret Kumi</h3>
+          <span>Children's Ministry Leader</span>
+          <p>Deaconess Margaret Kumi leads our Children's Ministry with a deep love for children and an unwavering commitment to seeing the next generation encounter God. With patience, creativity, and a mother's heart, she has built a ministry where every child feels seen, celebrated, and spiritually nourished. Her team works faithfully every Sunday to create an environment where faith is planted and God's love is made real to every child in their care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR PARENTS -->
+  <section style="background:var(--navy);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">For Parents</p>
+        <h2 style="color:#fff;">What to Know Before You Arrive</h2>
+        <p class="sub" style="color:rgba(255,255,255,.65);">We want your family's first Sunday to be smooth, comfortable, and full of joy.</p>
+      </div>
+      <div class="parent-cards">
+        <div class="parent-card">
+          <i class="fa-solid fa-handshake"></i>
+          <h4>Warm Welcome</h4>
+          <p>When you arrive, our welcome team will personally guide you and your children to the right area. No stress, no confusion — just a warm hand to show you the way.</p>
+        </div>
+        <div class="parent-card">
+          <i class="fa-solid fa-shield-heart"></i>
+          <h4>Safe Environment</h4>
+          <p>The safety and wellbeing of your children is our highest priority. All our children's workers are trusted, vetted members of the DOXA Sanctuary family.</p>
+        </div>
+        <div class="parent-card">
+          <i class="fa-solid fa-people-roof"></i>
+          <h4>Partner With You</h4>
+          <p>We see ourselves as partners with parents — not replacements. Our goal is to reinforce at church what you are already building at home in the Word and in faith.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO + CTA -->
+  <section>
+    <div class="container">
+      <div class="two-col" style="align-items:center;gap:4rem;">
+        <div class="tc-img">
+          <img src="assets/bring-the-kids.jpg" alt="DOXA Children's Ministry" style="object-position:center top;" />
+        </div>
+        <div class="tc-copy">
+          <p class="eyebrow gold">Bring Them Along</p>
+          <h2>Your Kids Will Love It Here</h2>
+          <p style="text-align:justify;">We know that as a parent, one of the most important decisions you make is where your children grow spiritually. At DOXA Sanctuary, we take that trust seriously. From the moment your child walks in, they will be greeted with love, introduced to God's Word, and surrounded by a team that genuinely cares about their growth.</p>
+          <p style="text-align:justify;margin-top:1rem;">Don't leave the kids at home — bring them. Church is better when the whole family comes together, and we have a place ready just for them.</p>
+          <a href="#register" class="btn-dark" style="display:inline-flex;margin-top:1.8rem;">Register Your Child <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENT FAQ -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Parent FAQs</p>
+        <h2>Questions We Get From Parents</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What age can my child join the Children's Ministry? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>We welcome children from birth through age 12. Nursery is available for newborns through age 3, Children's Church for ages 4–8, and Pre-Teen Ministry for ages 9–12. Every age group has a program designed specifically for them.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is my child safe while in the Children's Ministry? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Absolutely. The safety of your child is our top priority. All our children's workers are trusted, known members of the DOXA Sanctuary family who are committed to providing a secure and nurturing environment for every child in their care.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do I need to register in advance? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>You are welcome to simply show up on Sunday and our team will take care of everything. However, filling out the registration form below helps us prepare and ensures your child gets the most out of their first visit.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What happens during Children's Church? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Children's Church runs during the Sunday service and includes praise and worship, a Bible lesson taught in an age-appropriate and engaging way, creative activities, and games. It is designed to be fun, memorable, and spiritually enriching for every child.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I stay with my child if they are nervous? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Of course. We understand that some children may take time to settle in, especially on their first visit. You are always welcome to stay as long as your child needs you. Our team will make sure both you and your child feel comfortable and at ease.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER FORM -->
+  <section id="register">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Get Started</p>
+        <h2>Register Your Child</h2>
+        <p class="sub">Fill out this short form and our Children's Ministry team will be in touch to welcome your family.</p>
+      </div>
+      <div style="max-width:680px;margin:2.5rem auto 0;">
+        <form class="contact-form" onsubmit="handleRegister(event)" style="background:#fff;padding:2.5rem;border-radius:12px;box-shadow:var(--shadow);">
+          <div class="form-row">
+            <div class="fg"><label>Parent / Guardian First Name</label><input type="text" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
+          <div class="fg"><label>Child's Name</label><input type="text" placeholder="Child's full name" required /></div>
+          <div class="fg">
+            <label>Child's Age Group</label>
+            <select required>
+              <option value="">Select age group...</option>
+              <option>Nursery — Birth to Age 3</option>
+              <option>Children's Church — Ages 4 to 8</option>
+              <option>Pre-Teen Ministry — Ages 9 to 12</option>
+            </select>
+          </div>
+          <div class="fg"><label>Anything we should know? (optional)</label><textarea rows="3" placeholder="Allergies, special needs, or anything that helps us serve your child better..."></textarea></div>
+          <button type="submit" class="btn-dark full">Register Now <i class="fa-solid fa-paper-plane"></i></button>
+          <p id="registerNote" style="text-align:center;margin-top:1rem;color:green;font-weight:600;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>About Us</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="childrens-ministry.html">Children's Ministry</a></li><li><a href="ministries.html#youth">Youth &amp; Young Adults</a></li><li><a href="ministries.html#men">Men's Ministry</a></li><li><a href="ministries.html#women">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    function handleRegister(e) {
+      e.preventDefault();
+      document.getElementById('registerNote').textContent = 'Thank you! Our Children\'s Ministry team will reach out to you soon. God bless your family!';
+      e.target.reset();
+    }
+  </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69ebf31bab915d1c35765065/1jn0qr8gs';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
