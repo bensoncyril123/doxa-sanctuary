@@ -412,17 +412,17 @@
     let calendar = null;
 
     document.getElementById('btnList').addEventListener('click', () => {
-      listView.style.display = ''; calView.style.display = 'none';
+      listView.style.display = 'flex'; calView.style.display = 'none';
       document.getElementById('btnList').classList.add('active');
       document.getElementById('btnCal').classList.remove('active');
     });
 
     document.getElementById('btnCal').addEventListener('click', () => {
-      listView.style.display = 'none'; calView.style.display = '';
+      listView.style.display = 'none'; calView.style.display = 'block';
       document.getElementById('btnCal').classList.add('active');
       document.getElementById('btnList').classList.remove('active');
       if (!calendar) initCalendar();
-      else calendar.render();
+      else { calendar.render(); setTimeout(() => calendar.updateSize(), 50); }
     });
 
     // ── FULLCALENDAR INIT ──
