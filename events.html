@@ -53,23 +53,6 @@
       gap: .5rem;
       flex-wrap: wrap;
     }
-    .ev-cat-btn {
-      padding: .4rem 1rem;
-      border: 1.5px solid #ddd;
-      border-radius: 50px;
-      background: #fff;
-      font-size: .8rem;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      transition: var(--t);
-      font-family: 'Inter', sans-serif;
-    }
-    .ev-cat-btn.active, .ev-cat-btn:hover {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #fff;
-    }
 
     /* ── EVENT CARDS (LIST VIEW) ── */
     .events-list { display: flex; flex-direction: column; gap: 1.8rem; }
@@ -235,11 +218,13 @@
       <!-- Filter + Toggle Row -->
       <div class="ev-filter-row">
         <div class="ev-cats">
-          <button class="ev-cat-btn active" data-cat="all">All Events</button>
-          <button class="ev-cat-btn" data-cat="worship">Worship</button>
-          <button class="ev-cat-btn" data-cat="community">Community</button>
-          <button class="ev-cat-btn" data-cat="youth">Youth</button>
-          <button class="ev-cat-btn" data-cat="growth">Growth</button>
+          <select id="catSelect" style="padding:.5rem 1.1rem;border:1.5px solid #ddd;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--navy);font-family:'Inter',sans-serif;background:#fff;cursor:pointer;outline:none;">
+            <option value="all">All Events</option>
+            <option value="worship">Worship</option>
+            <option value="community">Community</option>
+            <option value="youth">Youth</option>
+            <option value="growth">Growth</option>
+          </select>
         </div>
         <div class="view-toggle">
           <button class="view-btn active" id="btnList"><i class="fa-solid fa-list"></i> List</button>
@@ -394,16 +379,12 @@
 
     // ── CATEGORY FILTER ──
     let activeFilter = 'all';
-    document.querySelectorAll('.ev-cat-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.ev-cat-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeFilter = btn.dataset.cat;
-        document.querySelectorAll('.ev-card').forEach(card => {
-          card.style.display = (activeFilter === 'all' || card.dataset.cat === activeFilter) ? '' : 'none';
-        });
-        if (calendar) calendar.refetchEvents();
+    document.getElementById('catSelect').addEventListener('change', function() {
+      activeFilter = this.value;
+      document.querySelectorAll('.ev-card').forEach(card => {
+        card.style.display = (activeFilter === 'all' || card.dataset.cat === activeFilter) ? '' : 'none';
       });
+      if (calendar) calendar.refetchEvents();
     });
 
     // ── LIST / CALENDAR TOGGLE ──
