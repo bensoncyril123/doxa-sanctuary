@@ -54,6 +54,75 @@
       flex-wrap: wrap;
     }
 
+    /* ── FILTER BUTTONS ── */
+    .ev-all-btn {
+      padding: .5rem 1.2rem;
+      border: 1.5px solid var(--navy);
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: var(--t);
+    }
+    .ev-all-btn:not(.active) {
+      background: #fff;
+      color: var(--navy);
+    }
+    .ev-filter-toggle {
+      padding: .5rem 1.2rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--navy);
+      font-size: .85rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: var(--t);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .ev-filter-toggle:hover, .ev-filter-toggle.open {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: #fff;
+    }
+    .ev-filter-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + .5rem);
+      left: 0;
+      background: #fff;
+      border: 1px solid #e4e4e4;
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+      min-width: 160px;
+      z-index: 100;
+      overflow: hidden;
+      border-top: 3px solid var(--gold);
+    }
+    .ev-filter-dropdown.open { display: block; }
+    .ev-drop-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: .7rem 1.1rem;
+      border: none;
+      background: transparent;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--navy);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: var(--t);
+    }
+    .ev-drop-item:hover { background: var(--off); color: var(--navy); }
+    .ev-drop-item.selected { font-weight: 700; color: var(--gold); }
+
     /* ── EVENT CARDS (LIST VIEW) ── */
     .events-list { display: flex; flex-direction: column; gap: 1.8rem; }
     .ev-card {
@@ -217,14 +286,18 @@
 
       <!-- Filter + Toggle Row -->
       <div class="ev-filter-row">
-        <div class="ev-cats">
-          <select id="catSelect" style="padding:.5rem 1.1rem;border:1.5px solid #ddd;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--navy);font-family:'Inter',sans-serif;background:#fff;cursor:pointer;outline:none;">
-            <option value="all">All Events</option>
-            <option value="worship">Worship</option>
-            <option value="community">Community</option>
-            <option value="youth">Youth</option>
-            <option value="growth">Growth</option>
-          </select>
+        <div class="ev-cats" style="display:flex;align-items:center;gap:.6rem;position:relative;">
+          <button id="allEventsBtn" class="ev-all-btn active">All Events</button>
+          <div style="position:relative;">
+            <button id="filterToggleBtn" class="ev-filter-toggle">Filter <i class="fa-solid fa-chevron-down fa-xs"></i></button>
+            <div id="filterDropdown" class="ev-filter-dropdown">
+              <button class="ev-drop-item" data-cat="worship">Worship</button>
+              <button class="ev-drop-item" data-cat="community">Community</button>
+              <button class="ev-drop-item" data-cat="youth">Youth</button>
+              <button class="ev-drop-item" data-cat="growth">Growth</button>
+            </div>
+          </div>
+          <span id="activeFilterLabel" style="font-size:.8rem;font-weight:600;color:var(--gold);display:none;"></span>
         </div>
         <div class="view-toggle">
           <button class="view-btn active" id="btnList"><i class="fa-solid fa-list"></i> List</button>
@@ -379,13 +452,51 @@
 
     // ── CATEGORY FILTER ──
     let activeFilter = 'all';
-    document.getElementById('catSelect').addEventListener('change', function() {
-      activeFilter = this.value;
+    const filterToggle = document.getElementById('filterToggleBtn');
+    const filterDropdown = document.getElementById('filterDropdown');
+    const allEventsBtn = document.getElementById('allEventsBtn');
+    const activeLabel = document.getElementById('activeFilterLabel');
+
+    filterToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      filterDropdown.classList.toggle('open');
+      filterToggle.classList.toggle('open');
+    });
+
+    document.addEventListener('click', () => {
+      filterDropdown.classList.remove('open');
+      filterToggle.classList.remove('open');
+    });
+
+    document.querySelectorAll('.ev-drop-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        activeFilter = item.dataset.cat;
+        document.querySelectorAll('.ev-drop-item').forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+        allEventsBtn.classList.remove('active');
+        filterToggle.textContent = '';
+        filterToggle.innerHTML = item.textContent + ' <i class="fa-solid fa-chevron-down fa-xs"></i>';
+        filterDropdown.classList.remove('open');
+        filterToggle.classList.remove('open');
+        applyFilter();
+      });
+    });
+
+    allEventsBtn.addEventListener('click', () => {
+      activeFilter = 'all';
+      allEventsBtn.classList.add('active');
+      document.querySelectorAll('.ev-drop-item').forEach(i => i.classList.remove('selected'));
+      filterToggle.innerHTML = 'Filter <i class="fa-solid fa-chevron-down fa-xs"></i>';
+      applyFilter();
+    });
+
+    function applyFilter() {
       document.querySelectorAll('.ev-card').forEach(card => {
         card.style.display = (activeFilter === 'all' || card.dataset.cat === activeFilter) ? '' : 'none';
       });
       if (calendar) calendar.refetchEvents();
-    });
+    }
 
     // ── LIST / CALENDAR TOGGLE ──
     const listView = document.getElementById('listView');
