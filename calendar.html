@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events Calendar — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" />
+  <style>
+    /* ── CALENDAR WRAPPER ── */
+    #cal-wrapper {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: var(--shadowM);
+      border: 1px solid #efefef;
+      overflow: hidden;
+      padding: 1.5rem;
+    }
+
+    /* ── FULLCALENDAR OVERRIDES ── */
+    .fc .fc-toolbar-title { font-family: 'Playfair Display', serif; color: var(--navy); font-size: 1.4rem; }
+    .fc .fc-button-primary { background: var(--navy) !important; border-color: var(--navy) !important; font-family: 'Inter', sans-serif; font-size: .82rem; border-radius: 6px !important; }
+    .fc .fc-button-primary:hover { background: #162030 !important; border-color: #162030 !important; }
+    .fc .fc-button-primary:not(:disabled).fc-button-active { background: var(--gold) !important; border-color: var(--gold) !important; color: var(--navy) !important; font-weight: 700; }
+    .fc .fc-col-header-cell { background: var(--navy); }
+    .fc .fc-col-header-cell-cushion { color: rgba(255,255,255,.85) !important; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: .7rem 0; }
+    .fc .fc-daygrid-day-number { color: var(--navy); font-weight: 600; font-size: .85rem; text-decoration: none; }
+    .fc .fc-day-today { background: rgba(201,168,76,.08) !important; }
+    .fc .fc-day-today .fc-daygrid-day-number { background: var(--gold); color: var(--navy); border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+    .fc .fc-daygrid-day-frame { min-height: 100px; }
+    .fc-event { border: none !important; border-radius: 5px !important; font-size: .76rem !important; font-weight: 600 !important; cursor: pointer; padding: 2px 5px !important; }
+    .fc-event:hover { opacity: .85; }
+    .fc-event-worship   { background: rgba(201,168,76,.3) !important;  color: #6b4e00 !important; }
+    .fc-event-community { background: rgba(21,101,192,.2) !important;  color: #0d47a1 !important; }
+    .fc-event-youth     { background: rgba(27,94,32,.2) !important;    color: #1b5e20 !important; }
+    .fc-event-growth    { background: rgba(136,14,79,.2) !important;   color: #880e4f !important; }
+    .fc .fc-daygrid-more-link { color: var(--gold); font-weight: 700; font-size: .78rem; }
+    .fc .fc-list-event-title a { color: var(--navy); text-decoration: none; font-weight: 600; }
+    .fc .fc-list-day-cushion { background: var(--off); }
+    .fc .fc-list-day-text, .fc .fc-list-day-side-text { color: var(--navy); font-weight: 700; }
+
+    /* ── LEGEND ── */
+    .cal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+    .dot-worship   { background: rgba(201,168,76,.5); }
+    .dot-community { background: rgba(21,101,192,.4); }
+    .dot-youth     { background: rgba(27,94,32,.4); }
+    .dot-growth    { background: rgba(136,14,79,.4); }
+
+    /* ── POPUP ── */
+    .cal-popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .cal-popup-overlay.open { display: flex; }
+    .cal-popup {
+      background: #fff;
+      border-radius: 14px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    .cal-popup-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--muted); }
+    .cal-popup h4 { color: var(--navy); font-size: 1.2rem; margin: .5rem 0 .8rem; }
+    .cal-popup p { color: var(--muted); font-size: .92rem; line-height: 1.7; margin-bottom: 1rem; }
+    .cal-popup-meta { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.2rem; }
+    .cal-popup-meta span { font-size: .85rem; color: var(--muted); display: flex; align-items: center; gap: .5rem; }
+    .cal-popup-meta i { color: var(--gold); }
+    .ev-tag { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .7rem; border-radius: 50px; }
+    .ev-tag.worship   { background: rgba(201,168,76,.15); color: #8a6b0a; }
+    .ev-tag.community { background: rgba(21,101,192,.12); color: #1565c0; }
+    .ev-tag.youth     { background: rgba(27,94,32,.12);   color: #1b5e20; }
+    .ev-tag.growth    { background: rgba(136,14,79,.12);  color: #880e4f; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="has-dropdown"><a href="#">Church <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="ministries.html"><i class="fa-solid fa-hands-holding"></i> Ministries</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li class="has-dropdown"><a href="events.html">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> All Events</a></li><li><a href="calendar.html"><i class="fa-regular fa-calendar"></i> Calendar</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li></ul></li>
+        <li><a href="new-here.html" style="color:var(--gold);font-weight:600;">I'm New</a></li>
+        <li><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background-image:url('assets/events-hero.jpg');">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">What's Happening</p>
+      <h1>Events Calendar</h1>
+      <p>Browse upcoming events and plan your visit.</p>
+    </div>
+  </div>
+
+  <!-- CALENDAR SECTION -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="section-hd">
+        <div>
+          <p class="eyebrow gold">Plan Ahead</p>
+          <h2>Monthly Calendar</h2>
+        </div>
+        <a href="events.html" class="btn-outline-dark"><i class="fa-solid fa-list"></i> List View</a>
+      </div>
+
+      <div id="cal-wrapper">
+        <div id="fullcalendar"></div>
+        <div class="cal-legend">
+          <div class="legend-item"><div class="legend-dot dot-worship"></div> Worship</div>
+          <div class="legend-item"><div class="legend-dot dot-community"></div> Community</div>
+          <div class="legend-item"><div class="legend-dot dot-youth"></div> Youth</div>
+          <div class="legend-item"><div class="legend-dot dot-growth"></div> Growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT DETAIL POPUP -->
+  <div class="cal-popup-overlay" id="popupOverlay" onclick="closePopup(event)">
+    <div class="cal-popup">
+      <button class="cal-popup-close" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+      <span class="ev-tag" id="popupTag"></span>
+      <h4 id="popupTitle"></h4>
+      <p id="popupDesc"></p>
+      <div class="cal-popup-meta" id="popupMeta"></div>
+      <a href="events.html" class="btn-dark" style="font-size:.85rem;">View All Events <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>Church</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="ministries.html">Children's Ministry</a></li><li><a href="ministries.html">Youth &amp; Young Adults</a></li><li><a href="ministries.html">Men's Ministry</a></li><li><a href="ministries.html">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  <script>
+    const EVENTS = [
+      { title:'Community Outreach Day',     start:'2026-05-03', cat:'community', desc:'Join us as we serve our city — food distribution, neighborhood cleanup, and free prayer for all who come.',           time:'8:00 AM – 2:00 PM',  location:'Church Parking Lot', ticket:'Volunteer signup encouraged' },
+      { title:'HALAL (Praise) Service',     start:'2026-05-10', cat:'worship',   desc:'An evening of extravagant praise and worship as we lift up the name of the Lord. Come ready to glorify God!',       time:'10:00 AM',            location:'Church Auditorium',  ticket:'Free — All Welcome' },
+      { title:'Youth Summer Kickoff',       start:'2026-05-10', cat:'youth',     desc:'Games, worship, and real connection for teens and young adults. The best summer starts right here at DOXA!',         time:'6:00 PM – 9:00 PM',  location:'Youth Hall',         ticket:'Free — Ages 13–25' },
+      { title:'Marriage Enrichment Retreat',start:'2026-05-17', end:'2026-05-19', cat:'growth', desc:'A weekend designed to strengthen and refresh marriages through teaching, fellowship, and focused time.', time:'Fri 6PM – Sun 2PM', location:'Retreat Center',     ticket:'Registration required · Limited space' },
+    ];
+
+    const calendar = new FullCalendar.Calendar(document.getElementById('fullcalendar'), {
+      initialView: 'dayGridMonth',
+      initialDate: '2026-05-01',
+      headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' },
+      buttonText: { today: 'Today', month: 'Month', list: 'Agenda' },
+      height: 'auto',
+      events: EVENTS.map(e => ({
+        title: e.title,
+        start: e.start,
+        end: e.end || null,
+        classNames: ['fc-event-' + e.cat],
+        extendedProps: e
+      })),
+      eventClick: function(info) {
+        const e = info.event.extendedProps;
+        const tagEl = document.getElementById('popupTag');
+        tagEl.textContent = e.cat.charAt(0).toUpperCase() + e.cat.slice(1);
+        tagEl.className = 'ev-tag ' + e.cat;
+        document.getElementById('popupTitle').textContent = info.event.title;
+        document.getElementById('popupDesc').textContent = e.desc;
+        document.getElementById('popupMeta').innerHTML = `
+          <span><i class="fa-regular fa-clock"></i> ${e.time}</span>
+          <span><i class="fa-solid fa-location-dot"></i> ${e.location}</span>
+          <span><i class="fa-solid fa-ticket"></i> ${e.ticket}</span>`;
+        document.getElementById('popupOverlay').classList.add('open');
+      },
+      eventDisplay: 'block',
+      dayMaxEvents: 3,
+    });
+    calendar.render();
+
+    function closePopup(e) {
+      if (!e || e.target === document.getElementById('popupOverlay') || e.currentTarget.classList.contains('cal-popup-close')) {
+        document.getElementById('popupOverlay').classList.remove('open');
+      }
+    }
+  </script>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/69ebf31bab915d1c35765065/1jn0qr8gs';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</body>
+</html>
