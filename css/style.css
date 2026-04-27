@@ -426,7 +426,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 .team-photo{height:280px;background-size:cover;background-position:center top;}
 .team-info{padding:1.5rem;}
 .team-info h4{color:var(--navy);margin-bottom:.2rem;}
-.team-info span{display:block;font-size:.8rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem;}
+.team-info span{display:block;font-size:.72rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.8rem;white-space:nowrap;}
 .team-info p{font-size:.88rem;margin-bottom:1rem;}
 .team-socials{display:flex;gap:.5rem;}
 .team-socials a{width:32px;height:32px;border-radius:50%;background:var(--off);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:.78rem;transition:var(--t);}
