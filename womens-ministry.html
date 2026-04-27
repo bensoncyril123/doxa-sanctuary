@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women's Ministry — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .pillars-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem; }
+    .pillar-item { text-align:center; padding:2rem 1.2rem; background:#fff; border-radius:10px; box-shadow:var(--shadow); }
+    .pillar-item i { font-size:2rem; color:#880e4f; margin-bottom:.9rem; display:block; }
+    .pillar-item h4 { color:var(--navy); font-size:.95rem; margin-bottom:.4rem; }
+    .pillar-item p { color:var(--muted); font-size:.83rem; line-height:1.65; }
+
+    .leader-block { display:flex; gap:3rem; align-items:center; background:var(--off); border-radius:14px; padding:3rem; margin-top:3rem; }
+    .leader-photo { width:160px; height:160px; border-radius:50%; object-fit:cover; object-position:center top; flex-shrink:0; border:4px solid #880e4f; }
+    .leader-info h3 { color:var(--navy); margin-bottom:.3rem; }
+    .leader-info span { color:#880e4f; font-size:.88rem; font-weight:600; display:block; margin-bottom:.8rem; }
+    .leader-info p { color:var(--muted); font-size:.93rem; line-height:1.8; text-align:justify; }
+
+    .values-navy { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+    .val-card { background:rgba(255,255,255,.07); border:1px solid rgba(136,14,79,.3); border-radius:10px; padding:1.8rem; }
+    .val-card i { font-size:1.5rem; color:#e91e8c; margin-bottom:.8rem; display:block; }
+    .val-card h4 { color:#fff; margin-bottom:.5rem; font-size:.97rem; }
+    .val-card p { color:rgba(255,255,255,.65); font-size:.87rem; line-height:1.7; }
+
+    .faq-list { max-width:780px; margin:2.5rem auto 0; }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-q { width:100%; background:none; border:none; text-align:left; padding:1.2rem 0; font-size:.97rem; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; gap:1rem; }
+    .faq-q i { color:#880e4f; flex-shrink:0; transition:transform .3s; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+    .faq-a p { padding-bottom:1.2rem; color:var(--muted); font-size:.92rem; line-height:1.8; }
+    .faq-item.open .faq-a { max-height:300px; }
+    .faq-item.open .faq-q i { transform:rotate(180deg); }
+
+    @media(max-width:900px){ .pillars-grid { grid-template-columns:repeat(2,1fr); } .values-navy { grid-template-columns:1fr; } .leader-block { flex-direction:column; text-align:center; } .leader-info p { text-align:center; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li><li class="has-dropdown"><a href="#">About Us <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="leadership.html"><i class="fa-solid fa-users"></i> Leadership</a></li><li><a href="new-here.html"><i class="fa-solid fa-star"></i> I'm New</a></li><li><a href="index.html#services"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="about.html#testimonies"><i class="fa-solid fa-quote-left"></i> Testimonies</a></li></ul></li>
+        <li class="has-dropdown"><a href="events.html">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> All Events</a></li><li><a href="calendar.html"><i class="fa-regular fa-calendar"></i> Calendar</a></li></ul></li>
+        <li class="has-dropdown"><a href="ministries.html">Ministries <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="childrens-ministry.html"><i class="fa-solid fa-child"></i> Children's Ministry</a></li><li><a href="youth-ministry.html"><i class="fa-solid fa-users"></i> Youth &amp; Young Adults</a></li><li><a href="mens-ministry.html"><i class="fa-solid fa-person"></i> Men's Ministry</a></li><li><a href="womens-ministry.html"><i class="fa-solid fa-heart"></i> Women's Ministry</a></li></ul></li>
+        <li><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i> Online</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero" style="background-image:url('assets/pillar-community.jpg');background-position:center top;">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">DOXA Sanctuary</p>
+      <h1>Women's Ministry</h1>
+      <p>Walking boldly in grace, purpose, and the power of the Holy Spirit.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+        <a href="#about" class="btn-gold">Who We Are <i class="fa-solid fa-arrow-down"></i></a>
+        <a href="#connect" class="btn-ghost">Get Connected <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENING -->
+  <section id="about" style="background:var(--navy);padding:4rem 0;">
+    <div class="container" style="text-align:center;max-width:780px;margin:0 auto;">
+      <p class="eyebrow gold">Who We Are</p>
+      <h2 style="color:#fff;margin:.5rem 0 1.2rem;">Grace, Purpose &amp; Power</h2>
+      <p style="color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.9;">The Women's Ministry at DOXA Sanctuary is a community of women who are walking boldly in grace, purpose, and the power of the Holy Spirit. This ministry creates a space where every woman is seen, celebrated, and equipped to fulfil her God-given calling — from the young woman finding her identity to the seasoned believer walking in legacy.</p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section>
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">What We Do</p>
+        <h2>How We Equip Women to Flourish</h2>
+        <p class="sub">Every gathering is a space to encounter God, build sisterhood, and step into purpose.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <i class="fa-solid fa-spa"></i>
+          <h4>Retreats</h4>
+          <p>Purposeful retreats designed to help women disconnect from the noise, encounter God, and come back renewed and refocused.</p>
+        </div>
+        <div class="pillar-item">
+          <i class="fa-solid fa-book-open"></i>
+          <h4>Bible Studies</h4>
+          <p>Deep, Spirit-led study of the Word that grounds women in truth and empowers them to live with conviction and clarity.</p>
+        </div>
+        <div class="pillar-item">
+          <i class="fa-solid fa-heart-handshake"></i>
+          <h4>Mentorship</h4>
+          <p>Older women pouring into younger ones — sharing wisdom, experience, and faith across every generation.</p>
+        </div>
+        <div class="pillar-item">
+          <i class="fa-solid fa-star"></i>
+          <h4>Powerful Gatherings</h4>
+          <p>Special services and events that celebrate women, stir faith, and release the power of God in every room.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO COL -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="two-col" style="align-items:center;gap:4rem;">
+        <div class="tc-img">
+          <img src="assets/worship-1.jpg" alt="DOXA Women's Ministry" style="object-position:center top;" />
+        </div>
+        <div class="tc-copy">
+          <p class="eyebrow gold">Open to All Women</p>
+          <h2>A Sisterhood That Goes the Distance</h2>
+          <p style="text-align:justify;">Whether you are a young woman still discovering who you are, a wife and mother navigating the fullness of life, or a woman in her seasoned years carrying a legacy — there is a place for you in this ministry. We do not just gather for events; we do life together.</p>
+          <p style="text-align:justify;margin-top:1rem;">In this ministry you will find real women, real faith, and real community. Women who pray for each other, celebrate each other, and refuse to let anyone walk alone. You were created for more — and this is a community that will help you step into it.</p>
+          <a href="#connect" class="btn-dark" style="display:inline-flex;margin-top:1.8rem;">Join the Sisterhood <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE STAND FOR -->
+  <section style="background:var(--navy);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Our Heart</p>
+        <h2 style="color:#fff;">What We Believe About Women</h2>
+        <p class="sub" style="color:rgba(255,255,255,.65);">Three convictions at the core of everything we do in this ministry.</p>
+      </div>
+      <div class="values-navy">
+        <div class="val-card">
+          <i class="fa-solid fa-crown"></i>
+          <h4>You Are Seen</h4>
+          <p>Every woman who walks into this ministry is fully known, fully valued, and fully welcomed — exactly as she is, with no performance required.</p>
+        </div>
+        <div class="val-card">
+          <i class="fa-solid fa-fire"></i>
+          <h4>You Are Called</h4>
+          <p>God has placed a specific calling and gifting inside every woman. This ministry exists to help you discover it, develop it, and deploy it for His glory.</p>
+        </div>
+        <div class="val-card">
+          <i class="fa-solid fa-seedling"></i>
+          <h4>You Are Not Alone</h4>
+          <p>We are a sisterhood — in every season of life, in every challenge and victory, you will find women standing with you, praying for you, and believing with you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADER -->
+  <section>
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Leadership</p>
+        <h2>Meet the Ministry Leader</h2>
+      </div>
+      <div class="leader-block">
+        <img src="assets/pastor-doreen.jpg" alt="Dr. Mrs. Doreen Owusu" class="leader-photo" />
+        <div class="leader-info">
+          <h3>Dr. Mrs. Doreen Owusu</h3>
+          <span>Co-Pastor &amp; Women's Ministry Leader</span>
+          <p>Dr. Mrs. Doreen Owusu leads the Women's Ministry with grace, wisdom, and a mother's heart. Under her leadership, this ministry has become a sanctuary within a sanctuary — a space where every woman is embraced, empowered, and released into her purpose. Through retreats, Bible studies, mentorship, and powerful gatherings, she nurtures women in every season of life and reflects the heart of God in everything she does.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--off);">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">FAQs</p>
+        <h2>Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Who can join the Women's Ministry? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Any woman is welcome — regardless of age, background, or where you are in your faith journey. Whether you are a long-time believer or just beginning to explore faith, you belong here.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">When does the Women's Ministry meet? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>We gather for regular Bible studies, special events, and retreats throughout the year. Fill out the form below to get connected and receive updates on all upcoming gatherings.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">I'm going through a difficult season — is this still for me? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Especially for you. This ministry was built for real women in real seasons of life. You do not need to have it all together to show up. Come as you are — there is love, prayer, and community waiting for you.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I get involved? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Simply show up on Sunday and introduce yourself, or fill out the connect form below. Our ministry team will personally reach out to welcome you and help you find your place in the sisterhood.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT FORM -->
+  <section id="connect">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Get Connected</p>
+        <h2>Join the Women's Ministry</h2>
+        <p class="sub">Fill out this form and our team will reach out to welcome you in.</p>
+      </div>
+      <div style="max-width:640px;margin:2.5rem auto 0;">
+        <form class="contact-form" onsubmit="handleForm(event)" style="background:#fff;padding:2.5rem;border-radius:12px;box-shadow:var(--shadow);">
+          <div class="form-row">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="Jane" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="jane@example.com" required /></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
+          <div class="fg"><label>Anything you'd like us to know? (optional)</label><textarea rows="3" placeholder="Where are you in your faith journey? What are you looking for in this ministry?"></textarea></div>
+          <button type="submit" class="btn-dark full" style="background:#880e4f;border-color:#880e4f;">Join the Sisterhood <i class="fa-solid fa-paper-plane"></i></button>
+          <p id="formNote" style="text-align:center;margin-top:1rem;color:green;font-weight:600;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>About Us</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="index.html#services">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="childrens-ministry.html">Children's Ministry</a></li><li><a href="youth-ministry.html">Youth &amp; Young Adults</a></li><li><a href="mens-ministry.html">Men's Ministry</a></li><li><a href="womens-ministry.html">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFaq(btn) { const item = btn.parentElement; const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open')); if (!isOpen) item.classList.add('open'); }
+    function handleForm(e) { e.preventDefault(); document.getElementById('formNote').textContent = 'Thank you! Our team will reach out to you soon.'; e.target.reset(); }
+  </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69ebf31bab915d1c35765065/1jn0qr8gs';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
