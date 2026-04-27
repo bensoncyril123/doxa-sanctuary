@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join the Men's Ministry — DOXA Sanctuary</title>
+  <title>Volunteer — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-
-  <!-- NAV -->
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
       <a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a>
@@ -28,88 +26,24 @@
     </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero" style="background-image:url('assets/mens-group.jpg');background-position:center 30%;">
+  <div class="page-hero" style="background-image:url('assets/pillar-missions.jpg');background-position:center top;">
     <div class="page-hero-dim"></div>
     <div class="page-hero-body">
-      <p class="eyebrow light-gold">Men's Ministry</p>
-      <h1>Join the Brotherhood</h1>
-      <p>Fill out the form below and our Men's Ministry team will personally reach out to welcome you in.</p>
+      <p class="eyebrow light-gold">DOXA Sanctuary</p>
+      <h1>Volunteer</h1>
+      <p>Use your gifts to serve God and make a difference in the lives of others.</p>
     </div>
   </div>
 
-  <!-- FORM SECTION -->
-  <section>
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;">
-
-        <!-- Left info -->
-        <div>
-          <p class="eyebrow gold">Built for Brotherhood</p>
-          <h2 style="margin:.4rem 0 1.2rem;">Iron Sharpening Iron</h2>
-          <p style="color:var(--muted);line-height:1.8;text-align:justify;">The Men's Ministry at DOXA Sanctuary is a brotherhood committed to building men of God — men who lead their homes with wisdom, serve the church with humility, and walk with integrity. Through fellowship, accountability, and time in the Word, we grow stronger together.</p>
-
-          <div style="display:flex;flex-direction:column;gap:1rem;margin-top:2rem;">
-            <div style="display:flex;align-items:flex-start;gap:.9rem;">
-              <div style="width:38px;height:38px;border-radius:50%;background:#2e7d32;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <i class="fa-solid fa-bible" style="color:#fff;font-size:.85rem;"></i>
-              </div>
-              <div>
-                <strong style="color:var(--navy);font-size:.93rem;">Bible Study & Fellowship</strong>
-                <p style="color:var(--muted);font-size:.85rem;margin:.2rem 0 0;">Grounded in Scripture, growing as men of God</p>
-              </div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:.9rem;">
-              <div style="width:38px;height:38px;border-radius:50%;background:#2e7d32;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <i class="fa-solid fa-shield-halved" style="color:#fff;font-size:.85rem;"></i>
-              </div>
-              <div>
-                <strong style="color:var(--navy);font-size:.93rem;">Accountability & Brotherhood</strong>
-                <p style="color:var(--muted);font-size:.85rem;margin:.2rem 0 0;">A community where no man walks alone</p>
-              </div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:.9rem;">
-              <div style="width:38px;height:38px;border-radius:50%;background:#2e7d32;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <i class="fa-solid fa-hands-holding-circle" style="color:#fff;font-size:.85rem;"></i>
-              </div>
-              <div>
-                <strong style="color:var(--navy);font-size:.93rem;">Service & Leadership</strong>
-                <p style="color:var(--muted);font-size:.85rem;margin:.2rem 0 0;">Building men who serve their family, church, and community</p>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top:2.5rem;padding:1.2rem 1.5rem;background:var(--off);border-left:4px solid #2e7d32;border-radius:0 8px 8px 0;">
-            <p style="font-size:.88rem;color:var(--navy);font-weight:600;margin-bottom:.3rem;"><i class="fa-solid fa-clock" style="color:#2e7d32;margin-right:.4rem;"></i>We respond within 24 – 48 hours</p>
-            <p style="font-size:.85rem;color:var(--muted);margin:0;">You can also simply show up on Sunday — our team will be ready to welcome you into the brotherhood.</p>
-          </div>
-
-          <a href="mens-ministry.html" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;color:var(--navy);font-weight:600;font-size:.9rem;text-decoration:none;">
-            <i class="fa-solid fa-arrow-left" style="color:#2e7d32;"></i> Back to Men's Ministry
-          </a>
-        </div>
-
-        <!-- Form -->
-        <div style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:var(--shadowM);">
-          <h3 style="color:var(--navy);margin-bottom:1.5rem;font-size:1.3rem;">Men's Ministry Connect Form</h3>
-          <form onsubmit="handleJoin(event)">
-            <div class="form-row">
-              <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
-              <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
-            </div>
-            <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
-            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
-            <div class="fg"><label>Anything you'd like us to know? (optional)</label><textarea rows="3" placeholder="Where are you in your faith journey? What are you looking for in this ministry?"></textarea></div>
-            <button type="submit" class="btn-dark full" style="background:#1b5e20;border-color:#1b5e20;">Join the Brotherhood <i class="fa-solid fa-paper-plane"></i></button>
-            <p id="joinNote" style="text-align:center;margin-top:1rem;color:green;font-weight:600;"></p>
-          </form>
-        </div>
-
-      </div>
+  <section style="background:var(--navy);padding:4rem 0;">
+    <div class="container" style="text-align:center;max-width:700px;margin:0 auto;">
+      <p class="eyebrow gold">Coming Soon</p>
+      <h2 style="color:#fff;margin:.5rem 0 1.2rem;">This Page Is Being Built</h2>
+      <p style="color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.9;">We are putting together a full list of volunteer opportunities at DOXA Sanctuary. Check back soon — there is a place for you to serve.</p>
+      <a href="contact.html" class="btn-gold" style="display:inline-flex;margin-top:2rem;">Contact Us to Volunteer <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
@@ -124,13 +58,6 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    function handleJoin(e) {
-      e.preventDefault();
-      document.getElementById('joinNote').textContent = "Thank you! Our Men's Ministry team will reach out to you soon. God bless you!";
-      e.target.reset();
-    }
-  </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
