@@ -7,25 +7,6 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    .prayer-section { background: var(--navy); padding: 5rem 0; }
-    .prayer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    @media (max-width: 820px) { .prayer-grid { grid-template-columns: 1fr; gap: 2rem; } }
-    .prayer-form-wrap { background: rgba(255,255,255,.06); border: 1px solid rgba(201,168,76,.25); border-radius: 16px; padding: 2.2rem; }
-    .prayer-fg { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
-    .prayer-fg label { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); }
-    .prayer-fg input, .prayer-fg textarea { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 8px; padding: .75rem 1rem; font-size: .93rem; font-family: 'Inter', sans-serif; color: #fff; outline: none; transition: border-color .2s; width: 100%; box-sizing: border-box; }
-    .prayer-fg input::placeholder, .prayer-fg textarea::placeholder { color: rgba(255,255,255,.3); }
-    .prayer-fg input:focus, .prayer-fg textarea:focus { border-color: var(--gold); }
-    .prayer-fg textarea { resize: vertical; min-height: 110px; }
-    .prayer-success { display: none; background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.4); border-radius: 8px; padding: 1rem; color: var(--gold); font-weight: 600; text-align: center; margin-top: 1rem; font-size: .9rem; }
-    .prayer-points { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-    .prayer-point { display: flex; align-items: flex-start; gap: 1rem; }
-    .prayer-point-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .prayer-point-icon i { color: var(--gold); font-size: 1rem; }
-    .prayer-point h5 { color: #fff; font-size: .95rem; margin: 0 0 .2rem; }
-    .prayer-point p { color: rgba(255,255,255,.6); font-size: .85rem; line-height: 1.6; margin: 0; }
-  </style>
 </head>
 <body>
 
@@ -137,64 +118,6 @@
     </div>
   </section>
 
-  <!-- PRAYER REQUEST -->
-  <section class="prayer-section">
-    <div class="container">
-      <div class="prayer-grid">
-        <div>
-          <p class="eyebrow gold">Need Prayer?</p>
-          <h2 style="color:#fff;margin:.5rem 0 1rem;">We Are Believing<br>With You</h2>
-          <p style="color:rgba(255,255,255,.7);font-size:1rem;line-height:1.85;max-width:420px;">No request is too big or too small. Our team prays over every submission, and we believe God moves when His people come together in faith.</p>
-          <div class="prayer-points">
-            <div class="prayer-point">
-              <div class="prayer-point-icon"><i class="fa-solid fa-hands-praying"></i></div>
-              <div>
-                <h5>Prayed Over Personally</h5>
-                <p>Every request is lifted before God by our prayer team each week.</p>
-              </div>
-            </div>
-            <div class="prayer-point">
-              <div class="prayer-point-icon"><i class="fa-solid fa-lock"></i></div>
-              <div>
-                <h5>Completely Confidential</h5>
-                <p>Your request stays private. We handle every submission with care and respect.</p>
-              </div>
-            </div>
-            <div class="prayer-point">
-              <div class="prayer-point-icon"><i class="fa-solid fa-heart"></i></div>
-              <div>
-                <h5>You Are Not Alone</h5>
-                <p>Whatever you are carrying, the DOXA family is standing with you in prayer.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="prayer-form-wrap">
-          <form onsubmit="handlePrayer(event)">
-            <div class="prayer-fg">
-              <label for="prayerName">Your Name</label>
-              <input type="text" id="prayerName" placeholder="John Doe" required />
-            </div>
-            <div class="prayer-fg">
-              <label for="prayerEmail">Email (optional)</label>
-              <input type="email" id="prayerEmail" placeholder="you@example.com" />
-            </div>
-            <div class="prayer-fg">
-              <label for="prayerRequest">Your Prayer Request</label>
-              <textarea id="prayerRequest" placeholder="Share what is on your heart…" required></textarea>
-            </div>
-            <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:.9rem;font-size:.95rem;">
-              Submit Prayer Request <i class="fa-solid fa-hands-praying"></i>
-            </button>
-            <div class="prayer-success" id="prayerSuccess">
-              <i class="fa-solid fa-check-circle"></i> &nbsp;Thank you. We are praying with you.
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
@@ -210,18 +133,6 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    function handlePrayer(e) {
-      e.preventDefault();
-      document.getElementById('prayerSuccess').style.display = 'block';
-      e.target.reset();
-    }
-    function handleForm(e) {
-      e.preventDefault();
-      document.getElementById('formNote').textContent = 'Message sent! We will get back to you shortly.';
-      e.target.reset();
-    }
-  </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
