@@ -52,6 +52,28 @@
     .btn-story i { transition:transform .25s; }
     .btn-story:hover { background:var(--gold); color:var(--navy); gap:.9rem; }
     .btn-story:hover i { transform:translateX(4px); }
+
+    /* TOP icon cards */
+    .top-cards { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-top:2.5rem; }
+    .top-card {
+      text-align:center; color:#fff;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(201,168,76,.2);
+      border-radius:12px;
+      padding:1.6rem 1.4rem;
+      min-width:160px; flex:1; max-width:200px;
+      opacity:0; transform:translateY(28px);
+      transition:opacity .6s ease, transform .6s ease, background .25s;
+    }
+    .top-card.visible { opacity:1; transform:translateY(0); }
+    .top-card:hover { background:rgba(201,168,76,.1); }
+    .top-card i { font-size:2rem; color:var(--gold); display:block; margin-bottom:.7rem; }
+    .top-card strong { font-size:1rem; display:block; margin-bottom:.3rem; }
+    .top-card p { color:rgba(255,255,255,.6); font-size:.82rem; margin:0; }
+
+    /* Stats band counting */
+    .stat-item .stat-n { font-size:2.2rem; font-weight:900; font-family:'Playfair Display',serif; }
+    .stat-item .stat-l { font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-top:.2rem; }
   </style>
 </head>
 <body>
@@ -115,26 +137,26 @@
       <p class="eyebrow gold">Our Covering</p>
       <h2 style="color:#fff;margin-bottom:1rem;">A Branch of TOP Ministries International</h2>
       <p style="color:rgba(255,255,255,.7);max-width:680px;margin:0 auto 2rem;font-size:1.05rem;line-height:1.8;">DOXA Sanctuary Bronx is a daughter church of TOP Ministries International, a global apostolic ministry committed to raising leaders, planting churches, and advancing the Kingdom of God across the nations. Our foundation is built on the same fire, the same doctrine, and the same unwavering vision.</p>
-      <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:2rem;">
-        <div style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-earth-americas" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+      <div class="top-cards">
+        <div class="top-card" style="transition-delay:.0s;">
+          <i class="fa-solid fa-earth-americas"></i>
           <strong>Global Reach</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Ministry across nations</p>
+          <p>Ministry across nations</p>
         </div>
-        <div style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-church" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+        <div class="top-card" style="transition-delay:.12s;">
+          <i class="fa-solid fa-church"></i>
           <strong>Apostolic Foundation</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Rooted in sound doctrine</p>
+          <p>Rooted in sound doctrine</p>
         </div>
-        <div style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-fire" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+        <div class="top-card" style="transition-delay:.24s;">
+          <i class="fa-solid fa-fire"></i>
           <strong>Spirit-Empowered</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Moving in the power of God</p>
+          <p>Moving in the power of God</p>
         </div>
-        <div style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-seedling" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
+        <div class="top-card" style="transition-delay:.36s;">
+          <i class="fa-solid fa-seedling"></i>
           <strong>Church Planting</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Expanding His Kingdom</p>
+          <p>Expanding His Kingdom</p>
         </div>
       </div>
     </div>
@@ -142,22 +164,22 @@
 
   <!-- PHOTO STRIP -->
   <div class="photo-strip">
-    <div class="ps-item"><img src="assets/pastor-alex-strip.jpg" alt="Rev. Alex Owusu Jnr." style="object-position:center top;" /></div>
-    <div class="ps-item"><img src="assets/worship-2.jpg" alt="DOXA Worship" style="object-position:center top;" /></div>
-    <div class="ps-item"><img src="assets/youth-2.jpg" alt="DOXA Youth" style="object-position:center top;" /></div>
-    <div class="ps-item"><img src="assets/community-1.jpg" alt="DOXA Community" style="object-position:center top;" /></div>
-    <div class="ps-item"><img src="assets/worship-1.jpg" alt="DOXA Worship" style="object-position:center top;" /></div>
-    <div class="ps-item"><img src="assets/youth-3.jpg" alt="DOXA Youth" style="object-position:center top;" /></div>
+    <div class="ps-item"><img src="assets/gal-1.jpg" alt="DOXA Joy" style="object-position:center top;" /></div>
+    <div class="ps-item"><img src="assets/gal-2.jpg" alt="DOXA Community" style="object-position:center top;" /></div>
+    <div class="ps-item"><img src="assets/gal-5.jpg" alt="DOXA Prayer" style="object-position:center top;" /></div>
+    <div class="ps-item"><img src="assets/gal-3.jpg" alt="DOXA Community" style="object-position:center top;" /></div>
+    <div class="ps-item"><img src="assets/gal-6.jpg" alt="DOXA Worship" style="object-position:center center;" /></div>
+    <div class="ps-item"><img src="assets/gal-4.jpg" alt="Life at DOXA" style="object-position:center 20%;" /></div>
   </div>
 
   <!-- STATS BAND -->
   <div class="stats-band">
     <div class="container stats-row">
-      <div class="stat-item"><span class="stat-n">Bronx</span><span class="stat-l">New York, USA</span></div>
+      <div class="stat-item"><span class="stat-n" data-count="26">0</span><span class="stat-l">Years of Ministry</span></div>
       <div class="stat-divider"></div>
-      <div class="stat-item"><span class="stat-n">TOP</span><span class="stat-l">Ministries International</span></div>
+      <div class="stat-item"><span class="stat-n" data-count="5">0</span><span class="stat-l">Mandate Pillars</span></div>
       <div class="stat-divider"></div>
-      <div class="stat-item"><span class="stat-n">5</span><span class="stat-l">Mandate Pillars</span></div>
+      <div class="stat-item"><span class="stat-n" data-count="4">0</span><span class="stat-l">Weekly Services</span></div>
       <div class="stat-divider"></div>
       <div class="stat-item"><span class="stat-n">1</span><span class="stat-l">Mission, His Glory</span></div>
     </div>
@@ -363,10 +385,40 @@
 
   <script src="js/main.js"></script>
   <script>
+    // Story slide-in
     const storyObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); storyObs.unobserve(e.target); } });
     }, { threshold: 0.15 });
     document.querySelectorAll('.story-img-side, .story-text-side').forEach(el => storyObs.observe(el));
+
+    // TOP icon cards fade-up
+    const cardObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); cardObs.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.top-card').forEach(el => cardObs.observe(el));
+
+    // Stats count-up
+    function countUp(el) {
+      const target = +el.dataset.count;
+      const suffix = el.dataset.suffix || '';
+      const dur = 1600;
+      const step = dur / target;
+      let current = 0;
+      const timer = setInterval(() => {
+        current++;
+        el.textContent = current + suffix;
+        if (current >= target) clearInterval(timer);
+      }, step);
+    }
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && e.target.dataset.count) {
+          countUp(e.target);
+          statObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-n[data-count]').forEach(el => statObs.observe(el));
   </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
