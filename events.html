@@ -515,11 +515,7 @@
     });
 
     document.getElementById('btnCal').addEventListener('click', () => {
-      listView.style.display = 'none'; calView.style.display = 'block';
-      document.getElementById('btnCal').classList.add('active');
-      document.getElementById('btnList').classList.remove('active');
-      if (!calendar) initCalendar();
-      else { calendar.render(); setTimeout(() => calendar.updateSize(), 50); }
+      window.location.href = 'calendar.html';
     });
 
     // ── FULLCALENDAR INIT ──
