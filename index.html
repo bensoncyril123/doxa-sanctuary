@@ -54,6 +54,32 @@
       flex-shrink: 0;
     }
 
+    /* ── WELCOME BANNER ANIMATIONS ── */
+    @keyframes wbSlideUp {
+      from { opacity:0; transform:translateY(30px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes wbPhotoIn {
+      from { opacity:0; transform:translateX(50px); }
+      to   { opacity:1; transform:translateX(0); }
+    }
+    @keyframes goldShimmer {
+      0%   { background-position:-200% center; }
+      100% { background-position:200% center; }
+    }
+    .wb-item { opacity:0; transform:translateY(30px); }
+    .wb-item.visible { animation:wbSlideUp .7s cubic-bezier(.22,.61,.36,1) forwards; }
+    .wb-photo { opacity:0; transform:translateX(50px); transition:opacity .9s ease, transform .9s ease; }
+    .wb-photo.visible { opacity:1; transform:translateX(0); }
+    .gold-shimmer {
+      background:linear-gradient(90deg, var(--gold) 0%, #f7e9a0 40%, var(--gold) 60%, #c9a84c 100%);
+      background-size:250% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation:goldShimmer 3.5s linear infinite;
+    }
+
     /* ── ANIMATED STAT COUNTERS ── */
     .mini-stats strong {
       display: block;
@@ -234,20 +260,20 @@
 
   <!-- WELCOME BANNER -->
   <section id="welcome-banner" style="background:var(--navy);position:relative;overflow:hidden;padding:5.5rem 0;">
-    <div style="position:absolute;right:0;top:0;bottom:0;width:58%;z-index:0;">
+    <div class="wb-photo" style="position:absolute;right:0;top:0;bottom:0;width:58%;z-index:0;">
       <img src="assets/welcome-community.jpg" alt="DOXA Sanctuary Community" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;" />
       <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--navy) 0%, rgba(13,27,42,.5) 18%, transparent 38%);"></div>
     </div>
     <div class="container" style="position:relative;z-index:1;">
       <div style="max-width:560px;">
-<h2 style="color:#fff;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:1.3rem;">You Have a<br><em style="color:var(--gold);font-style:normal;">Place Here.</em></h2>
-        <p style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:460px;">Where church isn't just a building or a Sunday event. It's a family. You're invited to be yourself, connect with others, and grow in faith. No matter where you are on your journey, you have a place with us.</p>
-        <div style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;margin-bottom:1.4rem;">
+        <h2 class="wb-item" style="color:#fff;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:1.3rem;">You Have a<br><em class="gold-shimmer" style="font-style:normal;">Place Here.</em></h2>
+        <p class="wb-item" style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:460px;">Where church isn't just a building or a Sunday event. It's a family. You're invited to be yourself, connect with others, and grow in faith. No matter where you are on your journey, you have a place with us.</p>
+        <div class="wb-item" style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;margin-bottom:1.4rem;">
           <p style="color:rgba(255,255,255,.5);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.3rem;">Join Us This Sunday</p>
           <p style="color:#fff;font-size:1rem;margin-bottom:.5rem;"><strong style="color:var(--gold);letter-spacing:.06em;">Celebration Service</strong> &nbsp;·&nbsp; 10:00 AM</p>
           <p style="color:rgba(255,255,255,.5);font-size:.88rem;">865 Morris Park Ave · Bronx, NY 10462 &nbsp;·&nbsp; <a href="https://maps.google.com/?q=865+Morris+Park+Ave+Bronx+NY+10462" target="_blank" style="color:var(--gold);text-decoration:underline;">View Map</a></p>
         </div>
-        <div style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;">
+        <div class="wb-item" style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;">
           <a href="new-here.html" style="display:inline-flex;align-items:center;gap:.7rem;border:2px solid rgba(255,255,255,.8);color:#fff;padding:.85rem 2rem;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;" onmouseover="this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.background='transparent'">FIND OUT <span style="color:var(--gold);">WHAT TO EXPECT</span> <i class="fa-solid fa-arrow-right" style="color:var(--gold);font-size:.8rem;"></i></a>
         </div>
       </div>
@@ -516,6 +542,22 @@
     });
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+  // ── WELCOME BANNER ANIMATIONS ──
+  const wbObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        wbObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.wb-item').forEach((el, i) => {
+    el.style.animationDelay = (i * 0.15) + 's';
+    wbObserver.observe(el);
+  });
+  const wbPhoto = document.querySelector('.wb-photo');
+  if (wbPhoto) wbObserver.observe(wbPhoto);
 
   // ── PRAYER REQUEST ──
   function handlePrayer(e) {
