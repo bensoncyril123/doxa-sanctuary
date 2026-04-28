@@ -8,6 +8,71 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    /* ── MINI CALENDAR ── */
+    @keyframes calPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(201,168,76,.7); }
+      70%  { box-shadow: 0 0 0 8px rgba(201,168,76,0); }
+      100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+    }
+    .cal-event-day {
+      position: relative;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--gold);
+      border-radius: 6px;
+      padding: .4rem;
+      cursor: pointer;
+      animation: calPulse 2s infinite;
+      transition: transform .2s;
+    }
+    .cal-event-day:hover { transform: scale(1.15); }
+    .cal-event-day .cal-tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      border: 1px solid var(--gold);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: .35rem .7rem;
+      border-radius: 6px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .cal-event-day .cal-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--gold);
+    }
+    .cal-event-day:hover .cal-tooltip { display: block; }
+    .mini-cal-card {
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
+      padding: 1.8rem;
+      position: relative;
+    }
+    .mini-cal-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, var(--gold), rgba(201,168,76,.1) 50%, var(--gold));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
     /* ── VERSE OF THE DAY ── */
     .verse-strip {
       background: #fffbf0;
@@ -394,7 +459,7 @@
         </div>
 
         <!-- Mini Calendar -->
-        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.8rem;">
+        <div class="mini-cal-card">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
             <h4 style="color:#fff;font-size:1.1rem;font-weight:700;margin:0;">May 2026</h4>
             <a href="calendar.html" style="color:var(--gold);font-size:.8rem;font-weight:600;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;">Full Calendar <i class="fa-solid fa-arrow-right"></i></a>
@@ -412,7 +477,7 @@
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">1</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">2</span>
             <!-- Week 2 -->
-            <span style="font-size:.85rem;font-weight:700;color:var(--navy);background:var(--gold);border-radius:6px;padding:.4rem;">3</span>
+            <span class="cal-event-day">3<span class="cal-tooltip">Community Outreach</span></span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">4</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">5</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">6</span>
@@ -420,7 +485,7 @@
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">8</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">9</span>
             <!-- Week 3 -->
-            <span style="font-size:.85rem;font-weight:700;color:var(--navy);background:var(--gold);border-radius:6px;padding:.4rem;">10</span>
+            <span class="cal-event-day">10<span class="cal-tooltip">HALAL Service · Youth Kickoff</span></span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">11</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">12</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">13</span>
@@ -428,7 +493,7 @@
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">15</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">16</span>
             <!-- Week 4 -->
-            <span style="font-size:.85rem;font-weight:700;color:var(--navy);background:var(--gold);border-radius:6px;padding:.4rem;">17</span>
+            <span class="cal-event-day">17<span class="cal-tooltip">Marriage Enrichment Retreat</span></span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">18</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">19</span>
             <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">20</span>
