@@ -415,7 +415,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
 .value-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:2rem 1.5rem;position:relative;transition:var(--t);}
 .value-card:hover{border-color:var(--gold);box-shadow:var(--shadowM);transform:translateY(-4px);}
-.value-num{position:absolute;top:1.2rem;right:1.2rem;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:rgba(201,168,76,.4);line-height:1;}
+.value-num{position:absolute;top:1.2rem;right:1.2rem;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;}
 .value-card i{font-size:1.8rem;color:var(--gold);margin-bottom:.8rem;}
 .value-card h3{color:var(--navy);margin-bottom:.6rem;font-size:1.2rem;}
 
