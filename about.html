@@ -7,6 +7,52 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Story slide-in animations */
+    @keyframes storySlideLeft {
+      from { opacity:0; transform:translateX(-48px); }
+      to   { opacity:1; transform:translateX(0); }
+    }
+    @keyframes storySlideRight {
+      from { opacity:0; transform:translateX(48px); }
+      to   { opacity:1; transform:translateX(0); }
+    }
+    .story-img-side  { opacity:0; transform:translateX(-48px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+    .story-text-side { opacity:0; transform:translateX(48px);  transition:opacity .8s cubic-bezier(.22,.61,.36,1) .15s, transform .8s cubic-bezier(.22,.61,.36,1) .15s; }
+    .story-img-side.visible, .story-text-side.visible { opacity:1; transform:translateX(0); }
+
+    /* Gold pull-quote */
+    .story-pull-quote {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(90deg, rgba(201,168,76,.08), transparent);
+      padding: .9rem 1.2rem;
+      margin: 1.2rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .story-pull-quote p {
+      margin: 0;
+      font-style: italic;
+      font-size: 1.02rem;
+      color: var(--navy);
+      font-weight: 500;
+      line-height: 1.65;
+    }
+    .story-pull-quote span {
+      display: block;
+      margin-top: .4rem;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Visit Us button hover arrow */
+    .btn-story { display:inline-flex; align-items:center; gap:.5rem; margin-top:1.8rem; background:var(--navy); color:#fff; padding:.75rem 1.8rem; border-radius:4px; font-weight:600; text-decoration:none; transition:background .25s, gap .25s; }
+    .btn-story i { transition:transform .25s; }
+    .btn-story:hover { background:var(--gold); color:var(--navy); gap:.9rem; }
+    .btn-story:hover i { transform:translateX(4px); }
+  </style>
 </head>
 <body>
 
@@ -42,17 +88,22 @@
   <section id="story">
     <div class="container">
       <div class="two-col">
-        <div class="tc-img">
+        <div class="tc-img story-img-side">
           <img src="assets/about-group.jpg" alt="DOXA Sanctuary" style="object-fit:cover;object-position:center top;" />
           <div class="about-stamp"><span>Bronx</span><strong>NY</strong></div>
         </div>
-        <div class="tc-copy">
+        <div class="tc-copy story-text-side">
           <p class="eyebrow gold">Our Story</p>
           <h2>Born Out of a Vision,<br>Planted in the Bronx</h2>
           <p style="text-align:justify;">DOXA Sanctuary is a vibrant, Spirit-filled church located in the Bronx, New York, proudly part of the global family of <strong>TOP Ministries International</strong>. We are not just a congregation; we are a movement of believers who have been called, commissioned, and sent to bring the glory of God to one of the most dynamic cities in the world.</p>
-          <p style="text-align:justify;">The name DOXA comes from the Greek word meaning <em>"Glory,"</em> and that is the very heartbeat of everything we do. We exist to express God's glory in worship, in service, in leadership, and in every corner of our community. From the streets of the Bronx to the nations of the earth, DOXA Sanctuary carries a mandate that is both local and global.</p>
+
+          <div class="story-pull-quote">
+            <p>"DOXA means Glory — and that is the very heartbeat of everything we do."</p>
+            <span>From the Bronx to the Nations</span>
+          </div>
+
           <p style="text-align:justify;">As a branch of TOP Ministries International, we are rooted in a legacy of apostolic vision, sound doctrine, and Spirit-empowered ministry. We stand on the shoulders of a ministry that has touched countless lives across the globe, and we carry that same fire right here in New York.</p>
-          <a href="contact.html" class="btn-dark" style="margin-top:1.5rem;display:inline-flex;">Visit Us in the Bronx <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn-story">Visit Us in the Bronx <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -311,6 +362,12 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    const storyObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); storyObs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.story-img-side, .story-text-side').forEach(el => storyObs.observe(el));
+  </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
