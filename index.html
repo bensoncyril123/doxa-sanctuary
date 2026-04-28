@@ -389,17 +389,19 @@
   <section id="featured-sermon" style="background:var(--off);">
     <div class="container">
       <div class="sermon-feature-grid" style="grid-template-columns:1fr 1.2fr;">
-        <div class="sermon-feature-info">
-          <p class="eyebrow gold">Latest Message</p>
-          <h2>Sunday Service — April 19, 2026</h2>
+        <div class="sermon-feature-info sermon-slide-left" style="opacity:0;transform:translateX(-40px);transition:opacity .8s ease, transform .8s ease;">
+          <span style="display:inline-block;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:1rem;">Latest Message</span>
+          <div style="border-left:3px solid var(--gold);padding-left:1rem;margin-bottom:.8rem;">
+            <h2 style="margin:0;">Sunday Service — April 19, 2026</h2>
+          </div>
           <p class="sermon-meta-line"><i class="fa-solid fa-user"></i> Rev. Alex Owusu Jnr. &nbsp;·&nbsp; <i class="fa-regular fa-calendar"></i> April 19, 2026</p>
           <span class="sermon-series-tag">TOP Ministries NYC</span>
           <p>Join us for a powerful Sunday Celebration Service at DOXA Sanctuary. Spirit-filled worship, unadulterated Word, and the presence of God on full display.</p>
           <div class="sermon-feature-btns">
-            <a href="sermons.html" class="btn-dark">All Sermons <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="sermons.html" class="btn-dark" style="transition:gap .3s ease;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='.5rem'">All Sermons <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="sermon-player">
+        <div class="sermon-player sermon-slide-right" style="opacity:0;transform:translateX(40px);transition:opacity .8s ease .2s, transform .8s ease .2s;">
           <div class="yt-wrapper">
             <iframe src="https://www.youtube.com/embed/6Co_kjxWXUQ?rel=0" title="Latest Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
@@ -766,6 +768,18 @@
   });
   const wbPhoto = document.querySelector('.wb-photo');
   if (wbPhoto) wbObserver.observe(wbPhoto);
+
+  // ── SERMON SECTION SLIDE-IN ──
+  const sermonObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateX(0)';
+        sermonObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.sermon-slide-left, .sermon-slide-right').forEach(el => sermonObserver.observe(el));
 
   // ── ABOUT SECTION SLIDE-IN ──
   const aboutObserver = new IntersectionObserver((entries) => {
