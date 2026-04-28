@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — DOXA Sanctuary</title>
+  <title>Service Times — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -18,7 +18,6 @@
         <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li><li class="has-dropdown"><a href="#">About Us <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="leadership.html"><i class="fa-solid fa-users"></i> Leadership</a></li><li><a href="new-here.html"><i class="fa-solid fa-star"></i> I'm New</a></li><li><a href="service-times.html"><i class="fa-solid fa-clock"></i> Service Times</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
         <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="bible-reading-plan.html"><i class="fa-solid fa-book-open"></i> Daily Bible Reading Plan</a></li></ul></li>
         <li class="has-dropdown"><a href="events.html">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> All Events</a></li><li><a href="calendar.html"><i class="fa-regular fa-calendar"></i> Calendar</a></li></ul></li>
-        
         <li class="has-dropdown"><a href="#">Ministries <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="childrens-ministry.html"><i class="fa-solid fa-child"></i> Children's Ministry</a></li><li><a href="youth-ministry.html"><i class="fa-solid fa-users"></i> Youth &amp; Young Adults</a></li><li><a href="mens-ministry.html"><i class="fa-solid fa-person"></i> Men's Ministry</a></li><li><a href="womens-ministry.html"><i class="fa-solid fa-heart"></i> Women's Ministry</a></li></ul></li><li><a href="volunteer.html">Volunteer</a></li>
       </ul>
       <div class="nav-right">
@@ -29,80 +28,78 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <div class="page-hero" style="background-image:url('assets/contact-hero.jpg');">
+  <div class="page-hero" style="background-image:url('assets/hero-congregation.jpg');">
     <div class="page-hero-dim"></div>
     <div class="page-hero-body">
-      <p class="eyebrow light-gold">Reach Out</p>
-      <h1>Contact Us</h1>
-      <p>We'd love to hear from you. We're here to help.</p>
+      <p class="eyebrow light-gold">Come as You Are</p>
+      <h1>Service Times</h1>
+      <p>Everyone is welcome. Find a time that works for you.</p>
     </div>
   </div>
 
-  <!-- CONTACT -->
-  <section id="contact-main">
+  <!-- SERVICE TIMES -->
+  <section id="service-times-main">
     <div class="container">
-      <div class="contact-layout">
-        <form class="contact-form" onsubmit="handleForm(event)">
-          <h3 style="color:var(--navy);margin-bottom:1.5rem;">Send Us a Message</h3>
-          <div class="form-row">
-            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
-            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
-          </div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com" required /></div>
-          <div class="fg"><label>Phone (optional)</label><input type="tel" placeholder="(404) 000-0000" /></div>
-          <div class="fg">
-            <label>How can we help?</label>
-            <select>
-              <option value="">Select a topic...</option>
-              <option>General Inquiry</option>
-              <option>Prayer Request</option>
-              <option>Volunteer Opportunities</option>
-              <option>Pastoral Care</option>
-              <option>Membership / New Here</option>
-              <option>Small Groups</option>
-              <option>Baptism</option>
-            </select>
-          </div>
-          <div class="fg"><label>Message</label><textarea rows="5" placeholder="Tell us how we can help..." required></textarea></div>
-          <button type="submit" class="btn-dark full">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-          <p class="form-note" id="formNote"></p>
-        </form>
-
-        <div class="contact-side">
-          <div class="cinfo-block">
-            <h4>Get In Touch</h4>
-            <ul>
-              <li><i class="fa-solid fa-location-dot"></i><span>Church Auditorium · 865 Morris Park Ave<br>Bronx, NY 10462</span></li>
-              <li><i class="fa-solid fa-phone"></i><span>(631) 492-8609</span></li>
-              <li><i class="fa-solid fa-envelope"></i><span>hello@doxasanctuary.org</span></li>
-              <li><i class="fa-regular fa-clock"></i><span>Office Hours: Mon–Fri, 9AM–5PM</span></li>
-            </ul>
-          </div>
-          <div class="cinfo-block">
-            <h4>Service Times</h4>
-            <ul>
-              <li><i class="fa-solid fa-sun"></i><span><strong>Sunday</strong> — Celebration Service · 10:00 AM</span></li>
-              <li><i class="fa-solid fa-book-open"></i><span><strong>Tuesday</strong> — Word Encounter · 7:00 PM–8:00 PM (Zoom)</span></li><li><i class="fa-solid fa-hands-praying"></i><span><strong>Friday</strong> — Prayer Service · 7:00 PM–8:00 PM (Zoom)</span></li><li><i class="fa-solid fa-cloud-sun"></i><span><strong>Mon–Fri</strong> — Morning Dew · 6:00 AM–6:30 AM (Zoom)</span></li>
-            </ul>
-          </div>
-          <div class="cinfo-block">
-            <h4>Follow Us</h4>
-            <div class="socials">
-              <a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-              <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+      <div class="section-hd center">
+        <p class="eyebrow gold">Weekly Services</p>
+        <h2>When We Gather</h2>
+        <p class="sub">Whether you join us in person or online, there's a place for you every week at DOXA Sanctuary.</p>
+      </div>
+      <div class="svc-times-row">
+        <div class="svc-time-card">
+          <h3>Morning Dew</h3>
+          <p class="t">Mon – Fri · 6:00 AM – 6:30 AM</p>
+          <p>Start every morning in God's presence. Join us online via Zoom for daily devotion and prayer.</p>
+          <span>Zoom — All Welcome</span>
+        </div>
+        <div class="svc-time-card">
+          <h3>Word Encounter</h3>
+          <p class="t">Tuesday · 7:00 PM – 8:00 PM</p>
+          <p>A midweek deep dive into the Word of God. Come hungry for truth and leave transformed.</p>
+          <span>Zoom — All Welcome</span>
+        </div>
+        <div class="svc-time-card">
+          <h3>Prayer Service</h3>
+          <p class="t">Friday · 7:00 PM – 8:00 PM</p>
+          <p>End your week in the place of prayer. We believe in a praying church that moves mountains.</p>
+          <span>Zoom — All Welcome</span>
+        </div>
+        <div class="svc-time-card featured">
+          <h3>Celebration Service</h3>
+          <p class="t">Sunday · 10:00 AM</p>
+          <p>Our flagship in-person service. Spirit-filled worship, unadulterated Word, and the power of God on display.</p>
+          <span>In Person · Bronx, NY</span>
+        </div>
+        <div class="svc-info-panel">
+          <div class="loc-strip">
+            <div class="loc-strip-info">
+              <i class="fa-brands fa-zoom" style="font-size:1.4rem;"></i>
+              <div>
+                <p style="font-weight:600;color:#fff;">Join Online via Zoom</p>
+                <p>Meeting ID: <strong style="color:var(--gold);">854 7376 0852</strong> &nbsp;·&nbsp; Password: <strong style="color:var(--gold);">ALLOW</strong></p>
+              </div>
             </div>
+            <a href="https://zoom.us/join" target="_blank" class="btn-gold">Join Zoom <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <div class="cinfo-block new-here">
-            <h4>New Here?</h4>
-            <p>We'd love to meet you. Fill out this form and our team will reach out to help you get connected.</p>
+          <div class="loc-strip">
+            <div class="loc-strip-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <p>Church Auditorium · 865 Morris Park Ave, Bronx, NY 10462</p>
+                <p>(631) 492-8609 &nbsp;·&nbsp; hello@doxasanctuary.org</p>
+              </div>
+            </div>
+            <a href="contact.html" class="btn-gold">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- MAP -->
-      <div class="contact-map" style="position:relative;height:420px;border-radius:12px;overflow:hidden;margin-top:3rem;">
+  <!-- MAP -->
+  <section style="padding:0 0 5rem;">
+    <div class="container">
+      <div class="contact-map" style="position:relative;height:420px;border-radius:12px;overflow:hidden;">
         <iframe
           src="https://maps.google.com/maps?q=865+Morris+Park+Ave,+Bronx,+NY+10462&t=&z=16&ie=UTF8&iwloc=&output=embed"
           width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -118,14 +115,23 @@
     </div>
   </section>
 
+  <!-- CTA -->
+  <section style="background:var(--gold);padding:4rem 0;text-align:center;">
+    <div class="container">
+      <h2 style="color:var(--navy);margin-bottom:.8rem;">Plan Your First Visit</h2>
+      <p style="color:var(--navy);opacity:.8;max-width:520px;margin:0 auto 2rem;font-size:1.05rem;">We'd love to welcome you in person. Reach out and our team will help you get connected.</p>
+      <a href="contact.html" class="btn-dark">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
         <div class="ft-brand"><a href="index.html" class="logo-img-link"><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
         <div class="ft-col"><h5>About Us</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="service-times.html">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li><li><a href="bible-reading-plan.html">Daily Bible Reading Plan</a></li></ul></div>
-        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="ministries.html">Children's Ministry</a></li><li><a href="ministries.html">Youth &amp; Young Adults</a></li><li><a href="ministries.html">Men's Ministry</a></li><li><a href="ministries.html">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="bible-reading-plan.html">Daily Bible Reading Plan</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="childrens-ministry.html">Children's Ministry</a></li><li><a href="youth-ministry.html">Youth &amp; Young Adults</a></li><li><a href="mens-ministry.html">Men's Ministry</a></li><li><a href="womens-ministry.html">Women's Ministry</a></li></ul></div>
         <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
       </div>
       <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
