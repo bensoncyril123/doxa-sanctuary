@@ -7,6 +7,153 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── VERSE OF THE DAY ── */
+    .verse-strip {
+      background: #fffbf0;
+      border-top: 3px solid var(--gold);
+      border-bottom: 1px solid rgba(201,168,76,.2);
+      padding: 1rem 0;
+    }
+    .verse-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .verse-label {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .verse-text {
+      font-size: .93rem;
+      color: var(--navy);
+      font-style: italic;
+      line-height: 1.55;
+      flex: 1;
+      min-width: 200px;
+    }
+    .verse-ref {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--gold);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── ANIMATED STAT COUNTERS ── */
+    .mini-stats strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--navy);
+      transition: color .3s;
+    }
+
+    /* ── PRAYER REQUEST ── */
+    .prayer-section {
+      background: var(--navy);
+      padding: 5rem 0;
+    }
+    .prayer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 820px) {
+      .prayer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .prayer-form-wrap {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 16px;
+      padding: 2.2rem;
+    }
+    .prayer-fg {
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+      margin-bottom: 1rem;
+    }
+    .prayer-fg label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+    }
+    .prayer-fg input,
+    .prayer-fg textarea {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      font-size: .93rem;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .prayer-fg input::placeholder,
+    .prayer-fg textarea::placeholder { color: rgba(255,255,255,.3); }
+    .prayer-fg input:focus,
+    .prayer-fg textarea:focus { border-color: var(--gold); }
+    .prayer-fg textarea { resize: vertical; min-height: 100px; }
+    .prayer-success {
+      display: none;
+      background: rgba(201,168,76,.15);
+      border: 1px solid rgba(201,168,76,.4);
+      border-radius: 8px;
+      padding: 1rem;
+      color: var(--gold);
+      font-weight: 600;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: .9rem;
+    }
+    .prayer-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .prayer-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .prayer-point-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.15);
+      border: 1px solid rgba(201,168,76,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .prayer-point-icon i { color: var(--gold); font-size: 1rem; }
+    .prayer-point h5 { color: #fff; font-size: .95rem; margin: 0 0 .2rem; }
+    .prayer-point p { color: rgba(255,255,255,.6); font-size: .85rem; line-height: 1.6; margin: 0; }
+  </style>
 </head>
 <body>
 
@@ -82,6 +229,15 @@
     </div>
   </div>
 
+  <!-- VERSE OF THE DAY -->
+  <div class="verse-strip">
+    <div class="verse-strip-inner">
+      <span class="verse-label"><i class="fa-solid fa-book-open"></i> Verse of the Day</span>
+      <p class="verse-text" id="votdText"></p>
+      <span class="verse-ref" id="votdRef"></span>
+    </div>
+  </div>
+
   <!-- ABOUT TEASER -->
   <section id="about-teaser">
     <div class="container">
@@ -96,9 +252,9 @@
           <p style="text-align:justify;">DOXA Sanctuary is a Spirit-filled, apostolic church planted in the heart of the Bronx, New York, and a proud branch of <strong>TOP Ministries International</strong>. DOXA, the Greek word for <em>Glory</em>, is not just our name, it is our assignment. We exist to express the glory of God in worship, in leadership, in outreach, and in the everyday lives of the people He has entrusted to us.</p>
           <p style="text-align:justify;">We are a church where the Holy Spirit moves freely, where the Word of God is preached without compromise, and where every single person who walks through our doors is seen, valued, and equipped to fulfill their God-given calling. From raising Spirit-filled leaders to reaching the world through missions, the Bronx is our starting point, and the nations are our mission field.</p>
           <div class="mini-stats">
-            <div><strong>Bronx</strong><span>New York, USA</span></div>
-            <div><strong>TOP</strong><span>Ministries Int'l</span></div>
-            <div><strong>5</strong><span>Mandate Pillars</span></div>
+            <div><strong data-count="26" data-suffix="+">26+</strong><span>Years of Ministry</span></div>
+            <div><strong data-count="5">5</strong><span>Mandate Pillars</span></div>
+            <div><strong data-count="4">4</strong><span>Active Ministries</span></div>
           </div>
           <a href="about.html" class="btn-dark">Our Full Story <i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -273,6 +429,64 @@
     </div>
   </section>
 
+  <!-- PRAYER REQUEST -->
+  <section class="prayer-section">
+    <div class="container">
+      <div class="prayer-grid">
+        <div>
+          <p class="eyebrow gold">Need Prayer?</p>
+          <h2 style="color:#fff;margin:.5rem 0 1rem;">We Are Believing<br>With You</h2>
+          <p style="color:rgba(255,255,255,.7);font-size:1rem;line-height:1.85;max-width:420px;">No request is too big or too small. Our team prays over every submission, and we believe God moves when His people come together in faith.</p>
+          <div class="prayer-points">
+            <div class="prayer-point">
+              <div class="prayer-point-icon"><i class="fa-solid fa-hands-praying"></i></div>
+              <div>
+                <h5>Prayed Over Personally</h5>
+                <p>Every request is lifted before God by our prayer team each week.</p>
+              </div>
+            </div>
+            <div class="prayer-point">
+              <div class="prayer-point-icon"><i class="fa-solid fa-lock"></i></div>
+              <div>
+                <h5>Completely Confidential</h5>
+                <p>Your request stays private. We handle every submission with care and respect.</p>
+              </div>
+            </div>
+            <div class="prayer-point">
+              <div class="prayer-point-icon"><i class="fa-solid fa-heart"></i></div>
+              <div>
+                <h5>You Are Not Alone</h5>
+                <p>Whatever you are carrying, the DOXA family is standing with you in prayer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="prayer-form-wrap">
+          <form onsubmit="handlePrayer(event)">
+            <div class="prayer-fg">
+              <label for="prayerName">Your Name</label>
+              <input type="text" id="prayerName" placeholder="John Doe" required />
+            </div>
+            <div class="prayer-fg">
+              <label for="prayerEmail">Email (optional)</label>
+              <input type="email" id="prayerEmail" placeholder="you@example.com" />
+            </div>
+            <div class="prayer-fg">
+              <label for="prayerRequest">Your Prayer Request</label>
+              <textarea id="prayerRequest" placeholder="Share what is on your heart…" required></textarea>
+            </div>
+            <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:.9rem;font-size:.95rem;">
+              Submit Prayer Request <i class="fa-solid fa-hands-praying"></i>
+            </button>
+            <div class="prayer-success" id="prayerSuccess">
+              <i class="fa-solid fa-check-circle"></i> &nbsp;Thank you. We are praying with you.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- GIVE CTA BAND -->
   <section id="give-band">
     <div class="give-band-bg"></div>
@@ -405,6 +619,76 @@
       } else { homeCal.render(); setTimeout(() => homeCal.updateSize(), 50); }
     });
   </script>
+<script>
+  // ── VERSE OF THE DAY ──
+  const VERSES = [
+    { text: "The Lord is my strength and my shield; my heart trusts in him, and he helps me.", ref: "Psalm 28:7" },
+    { text: "I can do all this through him who gives me strength.", ref: "Philippians 4:13" },
+    { text: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.", ref: "John 3:16" },
+    { text: "Trust in the Lord with all your heart and lean not on your own understanding.", ref: "Proverbs 3:5" },
+    { text: "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.", ref: "Joshua 1:9" },
+    { text: "The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you.", ref: "Numbers 6:24-25" },
+    { text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.", ref: "Jeremiah 29:11" },
+    { text: "Come to me, all you who are weary and burdened, and I will give you rest.", ref: "Matthew 11:28" },
+    { text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.", ref: "Romans 8:28" },
+    { text: "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.", ref: "Philippians 4:6" },
+    { text: "The Lord is my shepherd, I lack nothing.", ref: "Psalm 23:1" },
+    { text: "But those who hope in the Lord will renew their strength. They will soar on wings like eagles.", ref: "Isaiah 40:31" },
+    { text: "Create in me a pure heart, O God, and renew a steadfast spirit within me.", ref: "Psalm 51:10" },
+    { text: "No weapon formed against you shall prosper.", ref: "Isaiah 54:17" },
+    { text: "I praise you because I am fearfully and wonderfully made; your works are wonderful.", ref: "Psalm 139:14" },
+    { text: "The name of the Lord is a fortified tower; the righteous run to it and are safe.", ref: "Proverbs 18:10" },
+    { text: "Delight yourself in the Lord, and he will give you the desires of your heart.", ref: "Psalm 37:4" },
+    { text: "If God is for us, who can be against us?", ref: "Romans 8:31" },
+    { text: "Cast all your anxiety on him because he cares for you.", ref: "1 Peter 5:7" },
+    { text: "Let everything that has breath praise the Lord.", ref: "Psalm 150:6" },
+    { text: "Greater is he that is in you, than he that is in the world.", ref: "1 John 4:4" },
+    { text: "This is the day the Lord has made; we will rejoice and be glad in it.", ref: "Psalm 118:24" },
+    { text: "Your word is a lamp for my feet, a light on my path.", ref: "Psalm 119:105" },
+    { text: "The joy of the Lord is your strength.", ref: "Nehemiah 8:10" },
+    { text: "Draw near to God, and he will draw near to you.", ref: "James 4:8" },
+    { text: "With God all things are possible.", ref: "Matthew 19:26" },
+    { text: "Seek first his kingdom and his righteousness, and all these things will be given to you as well.", ref: "Matthew 6:33" },
+    { text: "The steadfast love of the Lord never ceases; his mercies never come to an end.", ref: "Lamentations 3:22" },
+    { text: "I will lift up my eyes to the mountains — where does my help come from? My help comes from the Lord.", ref: "Psalm 121:1-2" },
+    { text: "In the beginning was the Word, and the Word was with God, and the Word was God.", ref: "John 1:1" },
+  ];
+  const doy = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+  const v = VERSES[doy % VERSES.length];
+  document.getElementById('votdText').textContent = '“' + v.text + '”';
+  document.getElementById('votdRef').textContent = v.ref;
+
+  // ── ANIMATED STAT COUNTERS ──
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    function update(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+  // ── PRAYER REQUEST ──
+  function handlePrayer(e) {
+    e.preventDefault();
+    document.getElementById('prayerSuccess').style.display = 'block';
+    e.target.reset();
+  }
+</script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
