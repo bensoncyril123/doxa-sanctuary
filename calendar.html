@@ -64,6 +64,23 @@
     .dot-youth     { background: rgba(27,94,32,.4); }
     .dot-growth    { background: rgba(136,14,79,.4); }
 
+    /* ── PRINT ── */
+    @media print {
+      *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      #navbar, footer, .page-hero, .cal-popup-overlay, .no-print { display: none !important; }
+      body, section { background: #fff !important; padding: 0 !important; margin: 0 !important; }
+      .container { max-width: 100% !important; padding: 0 !important; }
+      .section-hd { margin-bottom: .5rem !important; }
+      #cal-wrapper { box-shadow: none !important; border: none !important; padding: .5rem 0 !important; }
+      .fc .fc-toolbar-title { font-size: 1.1rem !important; }
+      .fc .fc-button { display: none !important; }
+      .fc .fc-daygrid-day-frame { min-height: 70px !important; }
+      .print-header { display: block !important; text-align: center; padding: 1rem 0 .5rem; border-bottom: 2px solid #1a243c; margin-bottom: .5rem; }
+      .print-header img { height: 48px; }
+      .print-header p { font-size: .8rem; color: #555; margin: .2rem 0 0; }
+    }
+    .print-header { display: none; }
+
     /* ── POPUP ── */
     .cal-popup-overlay {
       display: none;
@@ -137,10 +154,17 @@
           <p class="eyebrow gold">Plan Ahead</p>
           <h2>Monthly Calendar</h2>
         </div>
-        <a href="events.html" class="btn-outline-dark"><i class="fa-solid fa-list"></i> List View</a>
+        <div style="display:flex;gap:.8rem;align-items:center;">
+          <a href="events.html" class="btn-outline-dark no-print"><i class="fa-solid fa-list"></i> List View</a>
+          <button onclick="window.print()" class="btn-outline-dark no-print" style="cursor:pointer;font-family:inherit;"><i class="fa-solid fa-print"></i> Print Calendar</button>
+        </div>
       </div>
 
       <div id="cal-wrapper">
+        <div class="print-header">
+          <img src="assets/logo.png" alt="DOXA Sanctuary" />
+          <p>DOXA Sanctuary · 865 Morris Park Ave, Bronx, NY · doxasanctuary.com</p>
+        </div>
         <div id="fullcalendar"></div>
         <div class="cal-legend">
           <div class="legend-item"><div class="legend-dot dot-worship"></div> Worship</div>
