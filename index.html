@@ -206,7 +206,7 @@
     <div class="hero-body">
       <p class="hero-label">Welcome to DOXA Sanctuary</p>
       <h1>Expressing His Glory,<br><em>Displaying His Power</em></h1>
-      <p class="hero-verse">"The Lord is my strength and my shield; my heart trusts in him, and he helps me."<br><span>— Psalm 28:7</span></p>
+      <p class="hero-verse" id="heroVerseText"></p><br><span class="hero-verse" id="heroVerseRef" style="font-size:.9rem;font-style:normal;letter-spacing:.06em;"></span>
       <div class="hero-cta">
         <a href="service-times.html" class="btn-white">Join Us Sunday</a>
         <a href="sermons.html" class="btn-ghost"><i class="fa-solid fa-play"></i> Watch Latest Sermon</a>
@@ -229,14 +229,6 @@
     </div>
   </div>
 
-  <!-- VERSE OF THE DAY -->
-  <div class="verse-strip">
-    <div class="verse-strip-inner">
-      <span class="verse-label"><i class="fa-solid fa-book-open"></i> Verse of the Day</span>
-      <p class="verse-text" id="votdText"></p>
-      <span class="verse-ref" id="votdRef"></span>
-    </div>
-  </div>
 
   <!-- WELCOME BANNER -->
   <section id="welcome-banner" style="background:var(--navy);position:relative;overflow:hidden;padding:5.5rem 0;">
@@ -510,8 +502,8 @@
   ];
   const doy = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
   const v = VERSES[doy % VERSES.length];
-  document.getElementById('votdText').textContent = '“' + v.text + '”';
-  document.getElementById('votdRef').textContent = v.ref;
+  document.getElementById('heroVerseText').textContent = '“' + v.text + '”';
+  document.getElementById('heroVerseRef').textContent = '— ' + v.ref;
 
   // ── ANIMATED STAT COUNTERS ──
   function animateCounter(el) {
