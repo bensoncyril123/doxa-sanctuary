@@ -161,9 +161,11 @@
     @media print {
       *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       #navbar, footer, .page-hero, .brp-dl, .brp-top, .brp-today, .no-print { display: none !important; }
-      body, section, .brp-main { background: #fff !important; padding: 0 !important; margin: 0 !important; }
-      .container { max-width: 100% !important; padding: 0 !important; }
-      .brp-month-nav { margin-bottom: .6rem !important; }
+      body, section, .brp-main { background: #fff !important; padding: 0 !important; margin: 0 auto !important; text-align: center; }
+      .container { max-width: 100% !important; padding: 0 1rem !important; }
+      .brp-month-nav { margin-bottom: .6rem !important; justify-content: center !important; gap: 2rem !important; }
+      .brp-month-title { text-align: center !important; }
+      .cal-head, .cal-grid { text-align: left; }
       .brp-nav-btn { display: none !important; }
       .print-header { display: block !important; text-align: center; padding: .8rem 0 .5rem; border-bottom: 2px solid #1a243c; margin-bottom: .8rem; }
       .print-header img { height: 44px; }
@@ -235,7 +237,7 @@
       <!-- Print header (hidden on screen, shown when printing) -->
       <div class="print-header">
         <img src="assets/logo.png" alt="DOXA Sanctuary" />
-        <p>DOXA Sanctuary · 865 Morris Park Ave, Bronx, NY · doxasanctuary.com</p>
+        <p>DOXA Sanctuary · 865 Morris Park Ave, Bronx, NY</p>
       </div>
 
       <!-- Today's reading -->

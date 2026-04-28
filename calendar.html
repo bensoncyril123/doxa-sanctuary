@@ -68,9 +68,11 @@
     @media print {
       *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       #navbar, footer, .page-hero, .cal-popup-overlay, .no-print { display: none !important; }
-      body, section { background: #fff !important; padding: 0 !important; margin: 0 !important; }
-      .container { max-width: 100% !important; padding: 0 !important; }
-      .section-hd { margin-bottom: .5rem !important; }
+      body, section { background: #fff !important; padding: 0 !important; margin: 0 auto !important; text-align: center; }
+      .container { max-width: 100% !important; padding: 0 1rem !important; }
+      .section-hd { margin-bottom: .5rem !important; justify-content: center !important; }
+      .fc .fc-toolbar { justify-content: center !important; }
+      .cal-legend { justify-content: center !important; }
       #cal-wrapper { box-shadow: none !important; border: none !important; padding: .5rem 0 !important; }
       .fc .fc-toolbar-title { font-size: 1.1rem !important; }
       .fc .fc-button { display: none !important; }
@@ -163,7 +165,7 @@
       <div id="cal-wrapper">
         <div class="print-header">
           <img src="assets/logo.png" alt="DOXA Sanctuary" />
-          <p>DOXA Sanctuary · 865 Morris Park Ave, Bronx, NY · doxasanctuary.com</p>
+          <p>DOXA Sanctuary · 865 Morris Park Ave, Bronx, NY</p>
         </div>
         <div id="fullcalendar"></div>
         <div class="cal-legend">
