@@ -277,98 +277,105 @@
   </section>
 
   <!-- GROUPS GRID -->
-  <section style="background:var(--off);">
+  <section style="background:#fff;padding:5.5rem 0;">
     <div class="container">
       <div class="section-hd center">
         <p class="eyebrow gold">Find Your Group</p>
-        <h2>Our Small Groups</h2>
-        <p class="sub">Six intentional communities, each one a place to belong, grow, and make a difference.</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">Our <span style="color:var(--gold);">Small Groups</span></p>
+        <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
+        <p style="color:var(--muted);max-width:500px;margin:0 auto;">Six intentional communities, each one a place to belong, grow, and make a difference.</p>
       </div>
 
-      <div class="sg-grid">
+      <div style="display:flex;flex-direction:column;gap:1.2rem;margin-top:3rem;">
 
         <!-- 1. Bible Study -->
-        <div class="sg-card">
-          <div class="sg-icon"><i class="fa-solid fa-book-open"></i></div>
-          <span class="sg-tag tag-faith">Faith</span>
-          <h3>Bible Study &amp; Discussion</h3>
-          <p style="text-align:justify;">Dive deep into God's Word in a relaxed, interactive setting. We explore books of the Bible, unpack Sunday sermons, and apply truth to everyday life. No Bible degree required, just a hunger to know God more.</p>
-          <ul class="sg-meta">
-            <li><i class="fa-regular fa-clock"></i> Weekly · Weekday evenings</li>
-            <li><i class="fa-solid fa-users"></i> Open to all ages</li>
-            <li><i class="fa-solid fa-location-dot"></i> In person &amp; Zoom</li>
-          </ul>
-          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;background:#faf8f4;border-radius:12px;padding:1.8rem 2rem;border-left:4px solid var(--gold);transition:box-shadow .3s,transform .3s;" onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,.09)';this.style.transform='translateX(4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateX(0)'">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-book-open" style="color:var(--navy);font-size:1.3rem;"></i></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem;"><span style="background:rgba(201,168,76,.15);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.2rem .7rem;border-radius:50px;text-transform:uppercase;">Faith</span></div>
+            <h3 style="color:var(--navy);font-size:1.1rem;margin-bottom:.4rem;">Bible Study &amp; Discussion</h3>
+            <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;">Dive deep into God's Word in a relaxed, interactive setting. We explore books of the Bible, unpack Sunday sermons, and apply truth to everyday life.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;flex-shrink:0;text-align:right;">
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-regular fa-clock" style="color:var(--gold);margin-right:.3rem;"></i>Weekly · Weekday evenings</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.3rem;"></i>Open to all ages</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-location-dot" style="color:var(--gold);margin-right:.3rem;"></i>In person &amp; Zoom</span>
+          </div>
         </div>
 
         <!-- 2. Prayer Circles -->
-        <div class="sg-card">
-          <div class="sg-icon"><i class="fa-solid fa-hands-praying"></i></div>
-          <span class="sg-tag tag-prayer">Prayer</span>
-          <h3>Prayer Circles</h3>
-          <p style="text-align:justify;">A small, intimate group built entirely around prayer. We come together to worship, intercede for one another, and pray for our church, city, and nation. These groups build some of the deepest spiritual bonds you'll ever experience.</p>
-          <ul class="sg-meta">
-            <li><i class="fa-regular fa-clock"></i> Weekly · Early mornings or evenings</li>
-            <li><i class="fa-solid fa-users"></i> 5 – 12 people per circle</li>
-            <li><i class="fa-solid fa-location-dot"></i> In person &amp; Zoom</li>
-          </ul>
-          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;background:#faf8f4;border-radius:12px;padding:1.8rem 2rem;border-left:4px solid var(--gold);transition:box-shadow .3s,transform .3s;" onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,.09)';this.style.transform='translateX(4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateX(0)'">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-hands-praying" style="color:var(--navy);font-size:1.3rem;"></i></div>
+          <div>
+            <div style="margin-bottom:.4rem;"><span style="background:rgba(201,168,76,.15);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.2rem .7rem;border-radius:50px;text-transform:uppercase;">Prayer</span></div>
+            <h3 style="color:var(--navy);font-size:1.1rem;margin-bottom:.4rem;">Prayer Circles</h3>
+            <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;">A small, intimate group built entirely around prayer. We intercede for one another and pray for our church, city, and nation. These groups build the deepest spiritual bonds.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;flex-shrink:0;text-align:right;">
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-regular fa-clock" style="color:var(--gold);margin-right:.3rem;"></i>Weekly · Early mornings or evenings</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.3rem;"></i>5 – 12 people per circle</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-location-dot" style="color:var(--gold);margin-right:.3rem;"></i>In person &amp; Zoom</span>
+          </div>
         </div>
 
-        <!-- 3. Life Stage Groups -->
-        <div class="sg-card">
-          <div class="sg-icon"><i class="fa-solid fa-person-half-dress"></i></div>
-          <span class="sg-tag tag-life">Life Stage</span>
-          <h3>Life Stage Groups</h3>
-          <p style="text-align:justify;">People open up more when they feel understood. Our life stage groups bring together people in similar seasons, Young Adults, Married Couples, Men's Group, and Women's Group. Show up as you are and find people who get it.</p>
-          <ul class="sg-meta">
-            <li><i class="fa-regular fa-clock"></i> Bi-weekly or monthly</li>
-            <li><i class="fa-solid fa-users"></i> Grouped by life season</li>
-            <li><i class="fa-solid fa-location-dot"></i> In person · Bronx</li>
-          </ul>
-          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- 3. Life Stage -->
+        <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;background:var(--navy);border-radius:12px;padding:1.8rem 2rem;border-left:4px solid var(--gold);transition:box-shadow .3s,transform .3s;" onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,.2)';this.style.transform='translateX(4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateX(0)'">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-person-half-dress" style="color:var(--navy);font-size:1.3rem;"></i></div>
+          <div>
+            <div style="margin-bottom:.4rem;"><span style="background:rgba(201,168,76,.2);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.2rem .7rem;border-radius:50px;text-transform:uppercase;">Life Stage</span></div>
+            <h3 style="color:#fff;font-size:1.1rem;margin-bottom:.4rem;">Life Stage Groups</h3>
+            <p style="font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0;">People open up more when they feel understood. Young Adults, Married Couples, Men's Group, and Women's Group — show up as you are and find people who get it.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;flex-shrink:0;text-align:right;">
+            <span style="font-size:.78rem;color:rgba(255,255,255,.6);white-space:nowrap;"><i class="fa-regular fa-clock" style="color:var(--gold);margin-right:.3rem;"></i>Bi-weekly or monthly</span>
+            <span style="font-size:.78rem;color:rgba(255,255,255,.6);white-space:nowrap;"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.3rem;"></i>Grouped by life season</span>
+            <span style="font-size:.78rem;color:rgba(255,255,255,.6);white-space:nowrap;"><i class="fa-solid fa-location-dot" style="color:var(--gold);margin-right:.3rem;"></i>In person · Bronx</span>
+          </div>
         </div>
 
         <!-- 4. Accountability & Growth -->
-        <div class="sg-card">
-          <div class="sg-icon"><i class="fa-solid fa-seedling"></i></div>
-          <span class="sg-tag tag-growth">Growth</span>
-          <h3>Accountability &amp; Growth</h3>
-          <p style="text-align:justify;">Small, focused, and intentional. These groups of 3 to 5 people commit together to spiritual discipline, consistent prayer, daily Bible reading, and personal growth goals. If you want to go deep, this is the group for you.</p>
-          <ul class="sg-meta">
-            <li><i class="fa-regular fa-clock"></i> Weekly · Flexible times</li>
-            <li><i class="fa-solid fa-users"></i> 3 – 5 people per group</li>
-            <li><i class="fa-solid fa-location-dot"></i> In person or Zoom</li>
-          </ul>
-          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;background:#faf8f4;border-radius:12px;padding:1.8rem 2rem;border-left:4px solid var(--gold);transition:box-shadow .3s,transform .3s;" onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,.09)';this.style.transform='translateX(4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateX(0)'">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-seedling" style="color:var(--navy);font-size:1.3rem;"></i></div>
+          <div>
+            <div style="margin-bottom:.4rem;"><span style="background:rgba(201,168,76,.15);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.2rem .7rem;border-radius:50px;text-transform:uppercase;">Growth</span></div>
+            <h3 style="color:var(--navy);font-size:1.1rem;margin-bottom:.4rem;">Accountability &amp; Growth</h3>
+            <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;">Small, focused, and intentional. Groups of 3 to 5 commit together to spiritual discipline, prayer, Bible reading, and personal growth goals. If you want to go deep, this is for you.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;flex-shrink:0;text-align:right;">
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-regular fa-clock" style="color:var(--gold);margin-right:.3rem;"></i>Weekly · Flexible times</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.3rem;"></i>3 – 5 people per group</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-location-dot" style="color:var(--gold);margin-right:.3rem;"></i>In person or Zoom</span>
+          </div>
         </div>
 
-        <!-- 5. Leadership Development (my addition) -->
-        <div class="sg-card">
-          <div class="sg-icon"><i class="fa-solid fa-crown"></i></div>
-          <span class="sg-tag tag-leader">Leadership</span>
-          <h3>Leadership Development</h3>
-          <p style="text-align:justify;">Built for those who sense a call to lead. This group develops servant leaders through teaching, mentorship, and hands-on ministry training. Learn how to lead prayer, facilitate discussions, and eventually shepherd your own group.</p>
-          <ul class="sg-meta">
-            <li><i class="fa-regular fa-clock"></i> Bi-weekly · Evenings</li>
-            <li><i class="fa-solid fa-users"></i> Application-based · Limited spots</li>
-            <li><i class="fa-solid fa-location-dot"></i> In person · Bronx</li>
-          </ul>
-          <a href="#join-form" class="sg-join-btn">Apply to Join <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- 5. Leadership Development -->
+        <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;background:var(--navy);border-radius:12px;padding:1.8rem 2rem;border-left:4px solid var(--gold);transition:box-shadow .3s,transform .3s;" onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,.2)';this.style.transform='translateX(4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateX(0)'">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-crown" style="color:var(--navy);font-size:1.3rem;"></i></div>
+          <div>
+            <div style="margin-bottom:.4rem;"><span style="background:rgba(201,168,76,.2);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.2rem .7rem;border-radius:50px;text-transform:uppercase;">Leadership</span></div>
+            <h3 style="color:#fff;font-size:1.1rem;margin-bottom:.4rem;">Leadership Development</h3>
+            <p style="font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0;">Built for those who sense a call to lead. This group develops servant leaders through teaching, mentorship, and hands-on ministry training.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;flex-shrink:0;text-align:right;">
+            <span style="font-size:.78rem;color:rgba(255,255,255,.6);white-space:nowrap;"><i class="fa-regular fa-clock" style="color:var(--gold);margin-right:.3rem;"></i>Bi-weekly · Evenings</span>
+            <span style="font-size:.78rem;color:rgba(255,255,255,.6);white-space:nowrap;"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.3rem;"></i>Application-based · Limited spots</span>
+            <span style="font-size:.78rem;color:rgba(255,255,255,.6);white-space:nowrap;"><i class="fa-solid fa-location-dot" style="color:var(--gold);margin-right:.3rem;"></i>In person · Bronx</span>
+          </div>
         </div>
 
-        <!-- 6. Outreach & Evangelism (my addition) -->
-        <div class="sg-card">
-          <div class="sg-icon"><i class="fa-solid fa-earth-americas"></i></div>
-          <span class="sg-tag tag-outreach">Outreach</span>
-          <h3>Outreach &amp; Evangelism</h3>
-          <p style="text-align:justify;">For those who want to take the Gospel beyond the walls of the church. This group goes out together, into neighborhoods, schools, and streets of the Bronx, to pray, serve, and invite people to encounter Jesus.</p>
-          <ul class="sg-meta">
-            <li><i class="fa-regular fa-clock"></i> Monthly outreach days</li>
-            <li><i class="fa-solid fa-users"></i> Open to all</li>
-            <li><i class="fa-solid fa-location-dot"></i> Bronx &amp; surrounding areas</li>
-          </ul>
-          <a href="#join-form" class="sg-join-btn">Join This Group <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- 6. Outreach & Evangelism -->
+        <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;background:#faf8f4;border-radius:12px;padding:1.8rem 2rem;border-left:4px solid var(--gold);transition:box-shadow .3s,transform .3s;" onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,.09)';this.style.transform='translateX(4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateX(0)'">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-earth-americas" style="color:var(--navy);font-size:1.3rem;"></i></div>
+          <div>
+            <div style="margin-bottom:.4rem;"><span style="background:rgba(201,168,76,.15);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.2rem .7rem;border-radius:50px;text-transform:uppercase;">Outreach</span></div>
+            <h3 style="color:var(--navy);font-size:1.1rem;margin-bottom:.4rem;">Outreach &amp; Evangelism</h3>
+            <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;">For those who want to take the Gospel beyond the walls of the church into neighborhoods, schools, and streets of the Bronx, to pray, serve, and invite people to encounter Jesus.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;flex-shrink:0;text-align:right;">
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-regular fa-clock" style="color:var(--gold);margin-right:.3rem;"></i>Monthly outreach days</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.3rem;"></i>Open to all</span>
+            <span style="font-size:.78rem;color:var(--muted);white-space:nowrap;"><i class="fa-solid fa-location-dot" style="color:var(--gold);margin-right:.3rem;"></i>Bronx &amp; surrounding areas</span>
+          </div>
         </div>
 
       </div>
