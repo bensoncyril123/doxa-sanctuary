@@ -16,6 +16,17 @@
     .expect-step h4 { color:var(--navy); margin-bottom:.5rem; }
     .expect-step p { font-size:.88rem; line-height:1.7; text-align:justify; }
 
+    /* EXPECT STEP CARDS (new) */
+    .expect-card-new { position:relative; background:rgba(255,255,255,.05); border:1px solid rgba(201,168,76,.2); border-left:3px solid var(--gold); border-radius:10px; padding:2rem 1.5rem 1.8rem; text-align:center; overflow:hidden; transition:background .3s,transform .3s; }
+    .expect-card-new:hover { background:rgba(201,168,76,.08); transform:translateY(-6px); }
+    .ecn-num { position:absolute; top:10px; right:14px; font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:900; color:rgba(201,168,76,.12); line-height:1; pointer-events:none; }
+    .ecn-icon { width:56px; height:56px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; }
+    .ecn-icon i { font-size:1.3rem; color:var(--navy); }
+    .expect-card-new h4 { color:#fff; margin-bottom:.7rem; font-size:1.05rem; }
+    .expect-card-new p { color:rgba(255,255,255,.65); font-size:.87rem; line-height:1.75; }
+    @media(max-width:860px){ .expect-card-new { grid-column:span 2; } }
+    @media(max-width:540px){ .expect-card-new { grid-column:span 4; } }
+
     /* SERVICE TIMES CARDS */
     .times-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
     .time-card { background:rgba(255,255,255,.07); border:1px solid rgba(201,168,76,.25); border-radius:10px; padding:1.8rem; text-align:center; }
@@ -108,33 +119,53 @@
   </section>
 
   <!-- WHAT TO EXPECT -->
-  <section id="expect">
+  <section id="expect" style="background:var(--navy);padding:5rem 0;">
     <div class="container">
       <div class="section-hd center">
         <p class="eyebrow gold">Your First Sunday</p>
-        <h2>What to Expect When You Arrive</h2>
-        <p class="sub">Here's a simple walkthrough of what your first visit at DOXA Sanctuary will look like.</p>
+        <h2 style="color:#fff;">What to Expect When You Arrive</h2>
+        <p class="sub" style="color:rgba(255,255,255,.6);">Here's a simple walkthrough of what your first visit at DOXA Sanctuary will look like.</p>
       </div>
-      <div class="expect-steps">
-        <div class="expect-step" data-num="ARRIVE">
-          <i class="fa-solid fa-location-dot"></i>
-          <h4>Find Us</h4>
-          <p>We meet at 865 Morris Park Ave, Bronx, NY 10462. Street parking is available nearby. Arrive a few minutes early to settle in comfortably.</p>
-        </div>
-        <div class="expect-step" data-num="WELCOME">
-          <i class="fa-solid fa-handshake"></i>
-          <h4>Be Welcomed</h4>
-          <p>Our friendly welcome team will greet you at the door, answer any questions, and help you find a seat. You will never feel alone walking in.</p>
-        </div>
-        <div class="expect-step" data-num="WORSHIP">
-          <i class="fa-solid fa-music"></i>
-          <h4>Worship Together</h4>
-          <p>We begin with powerful praise and worship. Feel free to sing along, clap, or simply soak it in. There is no pressure, just freedom to encounter God.</p>
-        </div>
-        <div class="expect-step" data-num="THE WORD">
-          <i class="fa-solid fa-book-open"></i>
-          <h4>Hear the Word</h4>
-          <p>Our pastor delivers a practical, Spirit-led message straight from the Bible. You will leave feeling encouraged, challenged, and full of hope.</p>
+
+      <!-- Timeline -->
+      <div style="position:relative;margin-top:3.5rem;">
+        <!-- connecting line -->
+        <div style="position:absolute;top:44px;left:calc(12.5% - 1px);right:calc(12.5% - 1px);height:3px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3));z-index:0;border-radius:2px;"></div>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative;z-index:1;">
+
+          <!-- Step 1 -->
+          <div class="expect-card-new">
+            <div class="ecn-num">01</div>
+            <div class="ecn-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h4>Find Us</h4>
+            <p>We meet at 865 Morris Park Ave, Bronx, NY 10462. Street parking is available nearby. Arrive a few minutes early to settle in comfortably.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="expect-card-new">
+            <div class="ecn-num">02</div>
+            <div class="ecn-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h4>Be Welcomed</h4>
+            <p>Our friendly welcome team will greet you at the door, answer any questions, and help you find a seat. You will never feel alone walking in.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="expect-card-new">
+            <div class="ecn-num">03</div>
+            <div class="ecn-icon"><i class="fa-solid fa-music"></i></div>
+            <h4>Worship Together</h4>
+            <p>We begin with powerful praise and worship. Feel free to sing along, clap, or simply soak it in. There is no pressure, just freedom to encounter God.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="expect-card-new">
+            <div class="ecn-num">04</div>
+            <div class="ecn-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h4>Hear the Word</h4>
+            <p>Our pastor delivers a practical, Spirit-led message straight from the Bible. You will leave feeling encouraged, challenged, and full of hope.</p>
+          </div>
+
         </div>
       </div>
     </div>
