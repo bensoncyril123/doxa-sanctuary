@@ -221,7 +221,10 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section style="background:var(--navy);padding:5.5rem 0;">
+  <section style="position:relative;padding:5.5rem 0;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:var(--navy);z-index:0;"></div>
+    <div style="position:absolute;inset:0;background-image:url('assets/gold-bokeh.jpg');background-size:cover;background-position:center;opacity:0.06;z-index:1;"></div>
+    <div style="position:relative;z-index:2;">
     <div class="container">
       <div class="section-hd center">
         <p class="eyebrow gold">Getting Started</p>
@@ -269,6 +272,7 @@
 
         </div>
       </div>
+    </div>
     </div>
   </section>
 
