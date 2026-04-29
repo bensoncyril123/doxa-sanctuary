@@ -103,24 +103,30 @@
     </div>
   </section>
 
-  <!-- AGE PROGRAMS -->
-  <section id="programs">
+  <!-- PROGRAMS + WHAT WE DO (merged) -->
+  <section id="programs" style="background:#faf8f4;padding:5.5rem 0;">
     <div class="container">
+
+      <!-- Heading -->
       <div class="section-hd center">
         <p class="eyebrow gold">Programs</p>
         <h2>Something for Every Age</h2>
+        <div style="width:60px;height:3px;background:var(--gold);border-radius:2px;margin:1rem auto 1.2rem;"></div>
         <p class="sub">We have age-appropriate programs running every Sunday so the whole family can experience God together.</p>
       </div>
-      <div class="age-grid">
 
-        <div class="age-card">
-          <div style="height:8px;background:linear-gradient(90deg,#f9a825,#fbc02d);"></div>
+      <!-- Program Cards -->
+      <div class="age-grid">
+        <div class="age-card" style="border:1px solid #eee;">
+          <div style="height:6px;background:linear-gradient(90deg,var(--gold),#fbc02d);"></div>
           <div class="age-card-top">
-            <div class="age-badge" style="background:rgba(249,168,37,.15);color:#b7860a;">Birth – Age 3</div>
-            <h3>Nursery</h3>
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-baby" style="color:var(--gold);font-size:1.1rem;"></i></div>
+              <div><div class="age-badge" style="background:rgba(201,168,76,.12);color:#9a7630;margin-bottom:.2rem;">Birth – Age 3</div><h3 style="margin:0;">Nursery</h3></div>
+            </div>
             <p>A warm, loving, and safe space for your littlest ones. Our dedicated nursery team provides attentive care for infants and toddlers while parents enjoy the service. Your baby is in good hands.</p>
           </div>
-          <div class="age-card-foot">
+          <div class="age-card-foot" style="border-top:1px solid #f0f0f0;">
             <div style="display:flex;align-items:center;gap:.5rem;">
               <i class="fa-solid fa-clock" style="color:var(--gold);font-size:.85rem;"></i>
               <span style="font-size:.83rem;color:var(--muted);">Every Sunday · During Service</span>
@@ -128,52 +134,55 @@
           </div>
         </div>
 
-        <div class="age-card">
-          <div style="height:8px;background:linear-gradient(90deg,#f9a825,#fbc02d);"></div>
+        <div class="age-card" style="border:1px solid #eee;">
+          <div style="height:6px;background:linear-gradient(90deg,var(--gold),#fbc02d);"></div>
           <div class="age-card-top">
-            <div class="age-badge" style="background:rgba(249,168,37,.15);color:#b7860a;">Ages 4 – 8</div>
-            <h3>Children's Church</h3>
-            <p>A fun, gospel-centred program where preschoolers through early elementary children worship, discover Bible stories, and learn who they are in Christ through engaging, hands-on activities made just for them.</p>
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-child" style="color:var(--gold);font-size:1.1rem;"></i></div>
+              <div><div class="age-badge" style="background:rgba(201,168,76,.12);color:#9a7630;margin-bottom:.2rem;">Ages 4 – 8</div><h3 style="margin:0;">Children's Church</h3></div>
+            </div>
+            <p>A fun, gospel-centred program where children worship, discover Bible stories, and learn who they are in Christ through engaging, hands-on activities made just for them.</p>
           </div>
-          <div class="age-card-foot">
+          <div class="age-card-foot" style="border-top:1px solid #f0f0f0;">
             <div style="display:flex;align-items:center;gap:.5rem;">
               <i class="fa-solid fa-clock" style="color:var(--gold);font-size:.85rem;"></i>
               <span style="font-size:.83rem;color:var(--muted);">Every Sunday · During Service</span>
             </div>
           </div>
         </div>
-
-
       </div>
-    </div>
-  </section>
 
-  <!-- WHAT WE DO -->
-  <section style="background:var(--off);">
-    <div class="container">
-      <div class="section-hd center">
-        <p class="eyebrow gold">What We Do</p>
-        <h2>How We Raise the Next Generation</h2>
-        <p class="sub">Every Sunday we create an experience that kids actually look forward to.</p>
+      <!-- Divider -->
+      <div style="display:flex;align-items:center;gap:1.2rem;margin:3.5rem 0 2.5rem;">
+        <div style="flex:1;height:1px;background:#e2ddd6;"></div>
+        <span style="font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);">What We Do Every Sunday</span>
+        <div style="flex:1;height:1px;background:#e2ddd6;"></div>
       </div>
-      <div class="activities-grid">
-        <div class="activity-item">
-          <h4>Bible Teaching</h4>
-          <p>Age-appropriate lessons straight from the Word of God, taught in ways children understand and remember.</p>
+
+      <!-- Activity Items -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+        <div style="background:#fff;border-radius:12px;padding:1.6rem 1.4rem;box-shadow:0 4px 16px rgba(0,0,0,.05);border-bottom:3px solid var(--gold);text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fa-solid fa-book-open" style="color:var(--gold);font-size:1.2rem;"></i></div>
+          <h4 style="color:var(--navy);font-size:.98rem;margin-bottom:.5rem;">Bible Teaching</h4>
+          <p style="color:var(--muted);font-size:.86rem;line-height:1.65;">Age-appropriate lessons from the Word, taught in ways children understand and remember.</p>
         </div>
-        <div class="activity-item">
-          <h4>Praise &amp; Worship</h4>
-          <p>Children learn to worship from an early age — with joy, energy, and a heart for God's presence.</p>
+        <div style="background:#fff;border-radius:12px;padding:1.6rem 1.4rem;box-shadow:0 4px 16px rgba(0,0,0,.05);border-bottom:3px solid var(--gold);text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fa-solid fa-music" style="color:var(--gold);font-size:1.2rem;"></i></div>
+          <h4 style="color:var(--navy);font-size:.98rem;margin-bottom:.5rem;">Praise &amp; Worship</h4>
+          <p style="color:var(--muted);font-size:.86rem;line-height:1.65;">Children learn to worship from an early age — with joy, energy, and a heart for God.</p>
         </div>
-        <div class="activity-item">
-          <h4>Creative Activities</h4>
-          <p>Crafts, drawing, and creative projects that reinforce biblical truths in a fun and memorable way.</p>
+        <div style="background:#fff;border-radius:12px;padding:1.6rem 1.4rem;box-shadow:0 4px 16px rgba(0,0,0,.05);border-bottom:3px solid var(--gold);text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fa-solid fa-palette" style="color:var(--gold);font-size:1.2rem;"></i></div>
+          <h4 style="color:var(--navy);font-size:.98rem;margin-bottom:.5rem;">Creative Activities</h4>
+          <p style="color:var(--muted);font-size:.86rem;line-height:1.65;">Crafts and creative projects that reinforce biblical truths in a fun and memorable way.</p>
         </div>
-        <div class="activity-item">
-          <h4>Games &amp; Fellowship</h4>
-          <p>Building friendships and community through games and activities that make church a place kids love.</p>
+        <div style="background:#fff;border-radius:12px;padding:1.6rem 1.4rem;box-shadow:0 4px 16px rgba(0,0,0,.05);border-bottom:3px solid var(--gold);text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fa-solid fa-people-group" style="color:var(--gold);font-size:1.2rem;"></i></div>
+          <h4 style="color:var(--navy);font-size:.98rem;margin-bottom:.5rem;">Games &amp; Fellowship</h4>
+          <p style="color:var(--muted);font-size:.86rem;line-height:1.65;">Building friendships through games and activities that make church a place kids love.</p>
         </div>
       </div>
+
     </div>
   </section>
 
