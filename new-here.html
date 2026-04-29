@@ -45,6 +45,15 @@
     .faq-item.open .faq-a { max-height:300px; }
     .faq-item.open .faq-q i { transform:rotate(180deg); }
 
+    /* FAQ DARK */
+    .faq-dark { border-bottom:1px solid rgba(255,255,255,.1); }
+    .faq-q-dark { color:#fff; }
+    .faq-q-dark:hover { color:var(--gold); }
+    .faq-dark .faq-a p { color:rgba(255,255,255,.65); }
+    .faq-dark.open { background:rgba(201,168,76,.07); border-left:3px solid var(--gold); padding-left:1rem; border-radius:0 6px 6px 0; }
+    .faq-dark.open .faq-q-dark { color:var(--gold); }
+    .faq-num { font-family:'Playfair Display',serif; font-size:.8rem; font-weight:700; color:var(--gold); opacity:.6; margin-right:.9rem; letter-spacing:.05em; flex-shrink:0; }
+
     /* CONNECT FORM */
     .connect-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
     .connect-info h2 { margin-bottom:1rem; }
@@ -228,40 +237,41 @@
   </section>
 
   <!-- FAQ -->
-  <section style="background:#fff;">
+  <section style="background:var(--navy);padding:5rem 0;">
     <div class="container">
       <div class="section-hd center">
         <p class="eyebrow gold">Common Questions</p>
-        <h2>First Timer FAQs</h2>
-        <p class="sub">Everything you need to know before your first visit.</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">First Timer <span style="color:var(--gold);">FAQs</span></p>
+        <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
+        <p style="color:rgba(255,255,255,.6);max-width:500px;margin:0 auto;">Everything you need to know before your first visit.</p>
       </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Do I need to be a Christian to attend? <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="faq-list" style="margin-top:3rem;">
+        <div class="faq-item faq-dark">
+          <button class="faq-q faq-q-dark" onclick="toggleFaq(this)"><span class="faq-num">01</span>Do I need to be a Christian to attend? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a"><p>Absolutely not. DOXA Sanctuary is a place for everyone, regardless of where you are on your faith journey. Whether you are a committed believer, a curious seeker, or someone who has never set foot in a church before, you are welcome here. Come with your questions and an open heart.</p></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">How long is the service? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-item faq-dark">
+          <button class="faq-q faq-q-dark" onclick="toggleFaq(this)"><span class="faq-num">02</span>How long is the service? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a"><p>Our Sunday Celebration Service typically runs about 90 minutes to 2 hours. We believe in giving the Holy Spirit room to move, so we don't rush. However, the time always flies by because of the energy of worship and the power of the Word.</p></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Is there anything for my children? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-item faq-dark">
+          <button class="faq-q faq-q-dark" onclick="toggleFaq(this)"><span class="faq-num">03</span>Is there anything for my children? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a"><p>Yes! We have a Children's Ministry that runs during the Sunday service so your little ones can learn about God in a fun, age-appropriate environment. Our team will guide you to the children's area when you arrive. Your kids are just as important to us as you are.</p></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Will I be asked to give money? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-item faq-dark">
+          <button class="faq-q faq-q-dark" onclick="toggleFaq(this)"><span class="faq-num">04</span>Will I be asked to give money? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a"><p>We do receive tithes and offerings as part of our service, but as a first-time guest you are under absolutely no obligation to give. Giving at DOXA is always a personal, Spirit-led decision. We never want anyone to feel pressured.</p></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What if I come late? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-item faq-dark">
+          <button class="faq-q faq-q-dark" onclick="toggleFaq(this)"><span class="faq-num">05</span>What if I come late? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a"><p>Don't let that stop you from coming! We would rather you arrive late than not at all. Our welcome team will quietly help you find a seat without any fuss. You are always welcome, no matter what time you walk through the door.</p></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Can I watch online if I can't make it in person? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-item faq-dark">
+          <button class="faq-q faq-q-dark" onclick="toggleFaq(this)"><span class="faq-num">06</span>Can I watch online if I can't make it in person? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a"><p>Yes! We stream live on our YouTube channel at <strong>youtube.com/@TOPMinistriesNYC</strong>. We also have Zoom services on Tuesdays and Fridays from 7:00 PM to 8:00 PM, and Morning Dew prayer Monday through Friday from 6:00 AM to 6:30 AM. Reach out to us for the Zoom links.</p></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">How do I get more connected after my first visit? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-item faq-dark">
+          <button class="faq-q faq-q-dark" onclick="toggleFaq(this)"><span class="faq-num">07</span>How do I get more connected after my first visit? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a"><p>The best next step is to fill out the connect card below, join one of our Small Groups, and follow us on social media. Our pastoral team will personally reach out to you and help you find your place in the DOXA family. We are very intentional about making sure no one falls through the cracks.</p></div>
         </div>
       </div>
