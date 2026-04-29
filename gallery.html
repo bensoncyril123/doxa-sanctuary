@@ -50,6 +50,12 @@
       </div>
 
       <div class="gallery-masonry" id="galleryGrid">
+        <!-- Community -->
+        <div class="gm-item" data-cat="community"><img src="assets/comm-new-1.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Church Family</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="assets/comm-new-2.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Fellowship</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="assets/comm-new-3.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Community Retreat</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="assets/comm-new-4.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Sunday Service</span></div></div>
+        <div class="gm-item" data-cat="community"><img src="assets/comm-new-5.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>After Service</span></div></div>
         <!-- Worship -->
         <div class="gm-item" data-cat="worship"><img src="assets/worship-1.jpg" alt="DOXA Worship" /><div class="gm-overlay"><span>Sunday Worship</span></div></div>
         <div class="gm-item" data-cat="worship"><img src="assets/worship-2.jpg" alt="DOXA Worship" /><div class="gm-overlay"><span>Praise &amp; Worship</span></div></div>
@@ -60,18 +66,11 @@
         <div class="gm-item" data-cat="worship"><img src="assets/worship-8.jpg" alt="DOXA Worship" /><div class="gm-overlay"><span>Praise Night</span></div></div>
         <div class="gm-item" data-cat="worship"><img src="assets/worship-9.jpg" alt="DOXA Worship" /><div class="gm-overlay"><span>Wednesday Service</span></div></div>
         <div class="gm-item" data-cat="worship"><img src="assets/worship-10.jpg" alt="DOXA Worship" /><div class="gm-overlay"><span>Sunday Service</span></div></div>
-        <!-- Community (old placeholder removed — real photos below) -->
         <!-- Youth -->
         <div class="gm-item" data-cat="youth"><img src="assets/youth-1.jpg" alt="DOXA Youth" /><div class="gm-overlay"><span>Live Worship</span></div></div>
         <div class="gm-item" data-cat="youth"><img src="assets/youth-2.jpg" alt="DOXA Youth" /><div class="gm-overlay"><span>Youth Night</span></div></div>
         <div class="gm-item" data-cat="youth"><img src="assets/youth-3.jpg" alt="DOXA Youth" /><div class="gm-overlay"><span>Youth Ministry</span></div></div>
         <div class="gm-item" data-cat="youth"><img src="assets/worship-7.jpg" alt="DOXA Youth" /><div class="gm-overlay"><span>Praise Night</span></div></div>
-        <!-- Community -->
-        <div class="gm-item" data-cat="community"><img src="assets/comm-new-1.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Church Family</span></div></div>
-        <div class="gm-item" data-cat="community"><img src="assets/comm-new-2.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Fellowship</span></div></div>
-        <div class="gm-item" data-cat="community"><img src="assets/comm-new-3.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Community Retreat</span></div></div>
-        <div class="gm-item" data-cat="community"><img src="assets/comm-new-4.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>Sunday Service</span></div></div>
-        <div class="gm-item" data-cat="community"><img src="assets/comm-new-5.jpg" alt="DOXA Community" /><div class="gm-overlay"><span>After Service</span></div></div>
       </div>
     </div>
   </section>
@@ -105,9 +104,12 @@
         document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const cat = btn.dataset.cat;
+        const grid = document.getElementById('galleryGrid');
+        grid.style.display = 'none';
         document.querySelectorAll('.gm-item').forEach(item => {
           item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
         });
+        grid.style.display = '';
       });
     });
     // Lightbox
