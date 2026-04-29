@@ -39,11 +39,15 @@
   </div>
 
   <!-- CONTACT -->
-  <section id="contact-main">
+  <section id="contact-main" style="background:#faf8f4;padding:5.5rem 0;">
     <div class="container">
       <div class="contact-layout">
-        <form class="contact-form" onsubmit="handleForm(event)">
-          <h3 style="color:var(--navy);margin-bottom:1.5rem;">Send Us a Message</h3>
+
+        <!-- FORM CARD -->
+        <form class="contact-form" onsubmit="handleForm(event)" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08);border-top:4px solid var(--gold);border-left:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee;">
+          <p class="eyebrow gold" style="margin-bottom:.4rem;">Get in Touch</p>
+          <h3 style="color:var(--navy);margin-bottom:.4rem;font-size:1.6rem;">Send Us a Message</h3>
+          <div style="width:40px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:1.8rem;"></div>
           <div class="form-row">
             <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
             <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
@@ -64,46 +68,60 @@
             </select>
           </div>
           <div class="fg"><label>Message</label><textarea rows="5" placeholder="Tell us how we can help..." required></textarea></div>
-          <button type="submit" class="btn-dark full">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          <button type="submit" class="btn-gold full">Send Message <i class="fa-solid fa-paper-plane"></i></button>
           <p class="form-note" id="formNote"></p>
         </form>
 
-        <div class="contact-side">
-          <div class="cinfo-block">
-            <h4>Get In Touch</h4>
-            <ul>
-              <li><i class="fa-solid fa-location-dot"></i><span>Church Auditorium · 865 Morris Park Ave<br>Bronx, NY 10462</span></li>
-              <li><i class="fa-solid fa-phone"></i><span>(631) 492-8609</span></li>
-              <li><i class="fa-solid fa-envelope"></i><span>hello@doxasanctuary.org</span></li>
-              <li><i class="fa-regular fa-clock"></i><span>Office Hours: Mon–Fri, 9AM–5PM</span></li>
+        <!-- SIDEBAR -->
+        <div class="contact-side" style="display:flex;flex-direction:column;gap:1.2rem;">
+
+          <!-- Get In Touch -->
+          <div style="background:#fff;border-radius:14px;padding:1.8rem 1.6rem;box-shadow:0 4px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold);">
+            <h4 style="color:var(--navy);font-size:1rem;font-weight:700;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:.06em;">Get In Touch</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.9rem;">
+              <li style="display:flex;align-items:flex-start;gap:.9rem;"><div style="width:34px;height:34px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-location-dot" style="color:var(--gold);font-size:.85rem;"></i></div><span style="color:var(--muted);font-size:.9rem;line-height:1.6;">Church Auditorium · 865 Morris Park Ave<br>Bronx, NY 10462</span></li>
+              <li style="display:flex;align-items:center;gap:.9rem;"><div style="width:34px;height:34px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-phone" style="color:var(--gold);font-size:.85rem;"></i></div><span style="color:var(--muted);font-size:.9rem;">(631) 492-8609</span></li>
+              <li style="display:flex;align-items:center;gap:.9rem;"><div style="width:34px;height:34px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-envelope" style="color:var(--gold);font-size:.85rem;"></i></div><span style="color:var(--muted);font-size:.9rem;">hello@doxasanctuary.org</span></li>
+              <li style="display:flex;align-items:center;gap:.9rem;"><div style="width:34px;height:34px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-regular fa-clock" style="color:var(--gold);font-size:.85rem;"></i></div><span style="color:var(--muted);font-size:.9rem;">Mon–Fri, 9AM–5PM</span></li>
             </ul>
           </div>
-          <div class="cinfo-block">
-            <h4>Service Times</h4>
-            <ul>
-              <li><i class="fa-solid fa-sun"></i><span><strong>Sunday</strong> — Celebration Service · 10:00 AM</span></li>
-              <li><i class="fa-solid fa-book-open"></i><span><strong>Tuesday</strong> — Word Encounter · 7:00 PM–8:00 PM (Zoom)</span></li><li><i class="fa-solid fa-hands-praying"></i><span><strong>Friday</strong> — Prayer Service · 7:00 PM–8:00 PM (Zoom)</span></li><li><i class="fa-solid fa-cloud-sun"></i><span><strong>Mon–Fri</strong> — Morning Dew · 6:00 AM–6:30 AM (Zoom)</span></li>
-            </ul>
-            <div style="margin-top:1.2rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:1rem 1.2rem;">
-              <p style="color:var(--navy);font-weight:600;font-size:.88rem;margin-bottom:.5rem;"><i class="fa-brands fa-zoom" style="color:var(--gold);margin-right:.5rem;"></i>Join Online via Zoom</p>
-              <p style="font-size:.83rem;color:var(--muted);margin-bottom:.3rem;">Meeting ID: <strong style="color:var(--navy);">854 7376 0852</strong></p>
+
+          <!-- Service Times -->
+          <div style="background:#fff;border-radius:14px;padding:1.8rem 1.6rem;box-shadow:0 4px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold);">
+            <h4 style="color:var(--navy);font-size:1rem;font-weight:700;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:.06em;">Service Times</h4>
+            <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem;">
+              <div style="display:flex;align-items:center;gap:.8rem;padding:.65rem .9rem;background:#faf8f4;border-radius:8px;"><i class="fa-solid fa-sun" style="color:var(--gold);width:16px;text-align:center;"></i><span style="font-size:.88rem;color:var(--navy);"><strong>Sunday</strong> — Celebration Service · 10:00 AM</span></div>
+              <div style="display:flex;align-items:center;gap:.8rem;padding:.65rem .9rem;background:#faf8f4;border-radius:8px;"><i class="fa-solid fa-book-open" style="color:var(--gold);width:16px;text-align:center;"></i><span style="font-size:.88rem;color:var(--navy);"><strong>Tuesday</strong> — Word Encounter · 7:00 PM (Zoom)</span></div>
+              <div style="display:flex;align-items:center;gap:.8rem;padding:.65rem .9rem;background:#faf8f4;border-radius:8px;"><i class="fa-solid fa-hands-praying" style="color:var(--gold);width:16px;text-align:center;"></i><span style="font-size:.88rem;color:var(--navy);"><strong>Friday</strong> — Prayer Service · 7:00 PM (Zoom)</span></div>
+              <div style="display:flex;align-items:center;gap:.8rem;padding:.65rem .9rem;background:#faf8f4;border-radius:8px;"><i class="fa-solid fa-cloud-sun" style="color:var(--gold);width:16px;text-align:center;"></i><span style="font-size:.88rem;color:var(--navy);"><strong>Mon–Fri</strong> — Morning Dew · 6:00 AM (Zoom)</span></div>
+            </div>
+            <div style="background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.25);border-radius:10px;padding:1rem 1.2rem;">
+              <p style="color:var(--navy);font-weight:700;font-size:.88rem;margin-bottom:.5rem;"><i class="fa-solid fa-video" style="color:var(--gold);margin-right:.5rem;"></i>Join Online via Zoom</p>
+              <p style="font-size:.83rem;color:var(--muted);margin-bottom:.2rem;">Meeting ID: <strong style="color:var(--navy);">854 7376 0852</strong></p>
               <p style="font-size:.83rem;color:var(--muted);margin-bottom:.8rem;">Password: <strong style="color:var(--navy);">ALLOW</strong></p>
               <a href="https://zoom.us/join" target="_blank" class="btn-gold" style="font-size:.8rem;padding:.45rem 1rem;">Join Zoom <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
-          <div class="cinfo-block">
-            <h4>Follow Us</h4>
-            <div class="socials">
-              <a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-              <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+
+          <!-- Follow Us -->
+          <div style="background:#fff;border-radius:14px;padding:1.8rem 1.6rem;box-shadow:0 4px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold);">
+            <h4 style="color:var(--navy);font-size:1rem;font-weight:700;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:.06em;">Follow Us</h4>
+            <div style="display:flex;gap:.8rem;">
+              <a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank" style="width:44px;height:44px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='rgba(201,168,76,.1)';this.style.color='var(--gold)'"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/topchurch_nyc/" target="_blank" style="width:44px;height:44px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='rgba(201,168,76,.1)';this.style.color='var(--gold)'"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank" style="width:44px;height:44px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='rgba(201,168,76,.1)';this.style.color='var(--gold)'"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" style="width:44px;height:44px;border-radius:50%;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='rgba(201,168,76,.1)';this.style.color='var(--gold)'"><i class="fa-brands fa-tiktok"></i></a>
             </div>
           </div>
-          <div class="cinfo-block new-here">
-            <h4>New Here?</h4>
-            <p>We'd love to meet you. Fill out this form and our team will reach out to help you get connected.</p>
+
+          <!-- New Here -->
+          <div style="background:var(--navy);border-radius:14px;padding:1.8rem 1.6rem;box-shadow:0 4px 20px rgba(13,27,42,.2);">
+            <p class="eyebrow gold" style="margin-bottom:.3rem;font-size:.72rem;">First Visit?</p>
+            <h4 style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">New Here?</h4>
+            <p style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.6;margin-bottom:1.2rem;">We'd love to meet you. Let our team help you get connected to the right community.</p>
+            <a href="new-here.html" class="btn-gold" style="font-size:.85rem;padding:.55rem 1.3rem;">Plan Your Visit <i class="fa-solid fa-arrow-right"></i></a>
           </div>
+
         </div>
       </div>
 
