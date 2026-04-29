@@ -221,28 +221,52 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section>
+  <section style="background:var(--navy);padding:5.5rem 0;">
     <div class="container">
       <div class="section-hd center">
         <p class="eyebrow gold">Getting Started</p>
-        <h2>How to Join a Group</h2>
-        <p class="sub">Three simple steps to find your community at DOXA Sanctuary.</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">How to Join <span style="color:var(--gold);">a Group</span></p>
+        <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
+        <p style="color:rgba(255,255,255,.6);max-width:480px;margin:0 auto;">Three simple steps to find your community at DOXA Sanctuary.</p>
       </div>
-      <div class="how-steps">
-        <div class="how-step">
-          <div class="how-step-num">1</div>
-          <h4>Browse the Groups</h4>
-          <p style="text-align:justify;">Explore our six small groups below and find the one that fits your season, gifts, or interests.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">2</div>
-          <h4>Submit Your Interest</h4>
-          <p style="text-align:justify;">Fill out the short form at the bottom of this page and select the group you'd like to join.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">3</div>
-          <h4>We'll Connect You</h4>
-          <p style="text-align:justify;">A group leader will reach out within 48 hours to welcome you and share next steps.</p>
+
+      <!-- Steps with connector -->
+      <div style="position:relative;margin-top:4rem;">
+        <!-- Connector line -->
+        <div style="position:absolute;top:56px;left:calc(16.6% + 28px);right:calc(16.6% + 28px);height:2px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3),var(--gold));z-index:0;display:none;" class="step-connector"></div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;position:relative;z-index:1;">
+
+          <!-- Step 1 -->
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;transition:background .3s,transform .3s;" onmouseover="this.style.background='rgba(201,168,76,.08)';this.style.transform='translateY(-6px)'" onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.transform='translateY(0)'">
+            <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.08);line-height:1;pointer-events:none;">01</div>
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;">
+              <i class="fa-solid fa-magnifying-glass" style="color:var(--navy);font-size:1.2rem;"></i>
+            </div>
+            <h4 style="color:#fff;margin-bottom:.7rem;">Browse the Groups</h4>
+            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.75;">Explore our six small groups and find the one that fits your season, gifts, or interests.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.35);border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;transition:background .3s,transform .3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.12);line-height:1;pointer-events:none;">02</div>
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;">
+              <i class="fa-solid fa-pen-to-square" style="color:var(--navy);font-size:1.2rem;"></i>
+            </div>
+            <h4 style="color:#fff;margin-bottom:.7rem;">Submit Your Interest</h4>
+            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.75;">Fill out the short form at the bottom of this page and select the group you'd like to join.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;transition:background .3s,transform .3s;" onmouseover="this.style.background='rgba(201,168,76,.08)';this.style.transform='translateY(-6px)'" onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.transform='translateY(0)'">
+            <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.08);line-height:1;pointer-events:none;">03</div>
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;">
+              <i class="fa-solid fa-handshake" style="color:var(--navy);font-size:1.2rem;"></i>
+            </div>
+            <h4 style="color:#fff;margin-bottom:.7rem;">We'll Connect You</h4>
+            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.75;">A group leader will reach out within 48 hours to welcome you and share next steps.</p>
+          </div>
+
         </div>
       </div>
     </div>
