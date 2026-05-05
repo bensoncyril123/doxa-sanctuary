@@ -637,10 +637,10 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .container{padding:0 1rem;}
   section{padding:2.5rem 0;}
 
-  /* Nav dual logo — hide circle on very small screens */
-  .logo-img-link img[alt="TOP Logo"],
-  .logo-img-link span{display:none!important;}
-  .nav-logo{height:52px!important;margin-left:0!important;}
+  /* Nav dual logo — scale down on very small screens */
+  .logo-img-link img[alt="TOP Logo"]{height:26px!important;width:26px!important;}
+  .logo-img-link span{height:28px!important;}
+  .nav-logo{height:46px!important;margin-left:0!important;}
 
   /* Hero */
   .page-hero{height:220px;}
