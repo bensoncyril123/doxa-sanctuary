@@ -349,6 +349,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .sermons-grid{grid-template-columns:1fr;}
   .gallery-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
+  .slide-1{background-position:38% 30%;}
   .about-pillars{grid-template-columns:1fr;}
 }
 
@@ -574,6 +575,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Nav dual logo — shrink on mobile */
   .logo-img-link img[alt="TOP Logo"]{height:28px!important;width:28px!important;}
   .nav-logo{height:55px!important;margin-left:-20px!important;}
+  .slide-1{background-position:38% 30%;}
 
   /* Hero */
   .page-hero{height:260px;}
