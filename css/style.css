@@ -722,3 +722,105 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
   [style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important;}
 }
+
+/* ══════════════════════════════════════
+   DEEP MOBILE POLISH
+══════════════════════════════════════ */
+
+/* Better touch targets for buttons */
+@media(max-width:768px){
+  .btn-gold,.btn-ghost,.btn-give,.btn-white{
+    padding:.85rem 1.4rem;
+    font-size:.9rem;
+    min-height:44px;
+  }
+  .filter-btn{min-height:38px;padding:.5rem 1rem;}
+
+  /* Footer: stack everything cleanly */
+  .footer-top{grid-template-columns:1fr!important;gap:2rem;}
+  .ft-brand{text-align:center;}
+  .ft-brand .socials{justify-content:center;}
+  .footer-bottom{flex-direction:column;text-align:center;gap:.5rem;}
+
+  /* Form inputs: bigger on mobile */
+  input,textarea,select{
+    font-size:16px!important; /* prevents iOS auto-zoom */
+    padding:.85rem 1rem!important;
+  }
+
+  /* Section header sub text */
+  .section-hd .sub{font-size:.9rem;}
+
+  /* Sermon feature: stack video below text */
+  .sermon-feature-grid{grid-template-columns:1fr!important;gap:2rem!important;}
+
+  /* Team card photo taller on single col */
+  .team-photo{height:320px;}
+
+  /* Event card image */
+  .ev-card-img img{height:180px;}
+
+  /* Give impact grid */
+  .give-impact-grid{grid-template-columns:1fr!important;}
+
+  /* Service time cards */
+  .svc-time-card{padding:1.4rem;}
+
+  /* Scroll ticker font */
+  .ticker{font-size:.82rem;}
+
+  /* Page hero body padding */
+  .page-hero-body{padding:5rem 1.2rem 2.5rem;}
+
+  /* Sermons filter: wrap nicely */
+  .filter-bar{flex-wrap:wrap;}
+
+  /* Small groups form */
+  .sg-form-wrap{padding:2rem 1.2rem!important;}
+
+  /* Loc strip: stack */
+  .loc-strip{flex-direction:column!important;text-align:center;gap:1rem;}
+  .loc-strip-info{flex-direction:column;text-align:center;}
+}
+
+@media(max-width:480px){
+  /* Nav inner padding */
+  .nav-inner{padding:0 1rem;}
+
+  /* Give cards: full width with proper padding */
+  .give-big-card > div:last-child{padding:1.4rem 1.2rem 1.6rem!important;}
+
+  /* Leadership team: 1 col */
+  .team-grid{grid-template-columns:1fr!important;}
+
+  /* Gallery masonry: 1 col */
+  .gallery-masonry{columns:1!important;}
+
+  /* Page hero min-height on tiny screens */
+  .page-hero{min-height:200px!important;}
+
+  /* Eyebrow text */
+  .eyebrow{font-size:.68rem;}
+
+  /* Footer columns: center links */
+  .ft-col ul{text-align:center;}
+  .ft-col h5{text-align:center;}
+
+  /* Event cards full padding */
+  .ev-card-body{padding:1.2rem;}
+  .ev-card-date{min-width:52px;}
+
+  /* Sermon cards: ensure full width */
+  .sermons-grid{grid-template-columns:1fr!important;}
+
+  /* Values grid */
+  .values-grid{grid-template-columns:1fr!important;}
+
+  /* Hide decorative large numbers on small screens */
+  [style*="font-size:6rem"]{display:none!important;}
+  [style*="font-size:3.5rem"][style*="color:rgba"]{font-size:2rem!important;}
+
+  /* Ensure section headings don't overflow */
+  h2{word-break:break-word;}
+  h3{word-break:break-word;}
+}

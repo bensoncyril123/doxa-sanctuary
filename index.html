@@ -245,6 +245,36 @@
     .prayer-point-icon i { color: var(--gold); font-size: 1rem; }
     .prayer-point h5 { color: #fff; font-size: .95rem; margin: 0 0 .2rem; }
     .prayer-point p { color: rgba(255,255,255,.6); font-size: .85rem; line-height: 1.6; margin: 0; }
+
+    @media(max-width:768px){
+      /* Welcome banner: hide side photo, full-width text */
+      .wb-photo { display:none; }
+      #welcome-banner { padding:3.5rem 0; }
+      #welcome-banner .container > div { max-width:100%; }
+
+      /* About teaser: fix decorative overflow */
+      .about-img-side > div:first-child { display:none; }
+
+      /* Events 2-col → stack */
+      #upcoming-events .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr!important; gap:1.5rem!important; }
+
+      /* Give band buttons */
+      .give-band-btns { flex-direction:column; width:100%; }
+    }
+    @media(max-width:480px){
+      /* Hero text */
+      .hero-body h1 { font-size:clamp(2rem,9vw,2.8rem); }
+      /* Welcome banner heading */
+      #welcome-banner h2 { font-size:clamp(1.8rem,7vw,2.5rem)!important; }
+      /* FIND OUT button full width */
+      #welcome-banner a[style*="inline-flex"] { width:100%; justify-content:center; box-sizing:border-box; }
+      /* About teaser image height */
+      .about-img-side [style*="height:400px"] { height:240px!important; }
+      /* Prayer form wrap padding */
+      .prayer-form-wrap { padding:1.5rem 1rem; }
+      /* Mini cal card */
+      .mini-cal-card { display:none; }
+    }
   </style>
 </head>
 <body>
