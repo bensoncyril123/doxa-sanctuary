@@ -492,7 +492,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 .impact-label strong{color:var(--navy);}
 
 /* FAQ */
-.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:.8rem;}
+.faq-list{max-width:100%;margin:0 auto;display:flex;flex-direction:column;gap:.8rem;}
 .faq-item{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
 .faq-q{width:100%;text-align:left;padding:1.2rem 1.5rem;background:#fff;border:none;font-size:.97rem;font-weight:600;font-family:'Inter',sans-serif;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:var(--t);}
 .faq-q:hover{background:var(--off);}
