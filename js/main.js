@@ -12,7 +12,16 @@ if (navbar) {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  let toggled = false;
+  hamburger.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    toggled = true;
+    navLinks.classList.toggle('open');
+  }, { passive: false });
+  hamburger.addEventListener('click', () => {
+    if (toggled) { toggled = false; return; }
+    navLinks.classList.toggle('open');
+  });
 
   // Mobile accordion: toggle submenus on parent click
   navLinks.querySelectorAll('.has-dropdown>a').forEach(a => {
