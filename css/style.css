@@ -573,7 +573,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
   /* Nav dual logo — shrink on mobile */
   .logo-img-link img[alt="TOP Logo"]{height:28px!important;width:28px!important;}
-  .nav-logo{height:60px!important;}
+  .nav-logo{height:55px!important;margin-left:0!important;}
 
   /* Hero */
   .page-hero{height:260px;}
