@@ -13,7 +13,26 @@ const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a =>
+
+  // Mobile accordion: toggle submenus on parent click
+  navLinks.querySelectorAll('.has-dropdown>a').forEach(a => {
+    a.addEventListener('click', e => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const li = a.parentElement;
+        const wasOpen = li.classList.contains('mob-open');
+        navLinks.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('mob-open'));
+        if (!wasOpen) li.classList.add('mob-open');
+      }
+    });
+  });
+
+  // Close menu when a leaf link is clicked
+  navLinks.querySelectorAll('.dropdown a').forEach(a =>
+    a.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+  // Close menu when non-dropdown links clicked
+  navLinks.querySelectorAll('li:not(.has-dropdown)>a').forEach(a =>
     a.addEventListener('click', () => navLinks.classList.remove('open'))
   );
 }
