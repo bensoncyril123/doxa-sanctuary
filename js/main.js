@@ -12,14 +12,7 @@ if (navbar) {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 if (hamburger && navLinks) {
-  let toggled = false;
-  hamburger.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    toggled = true;
-    navLinks.classList.toggle('open');
-  }, { passive: false });
   hamburger.addEventListener('click', () => {
-    if (toggled) { toggled = false; return; }
     navLinks.classList.toggle('open');
   });
 
