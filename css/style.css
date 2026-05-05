@@ -373,9 +373,9 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 ══════════════════════════════════════ */
 
 /* ── PAGE HERO (inner pages) ── */
-.page-hero{height:420px;position:relative;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;}
+.page-hero{min-height:420px;position:relative;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;}
 .page-hero-dim{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,33,.65),rgba(10,20,33,.82));}
-.page-hero-body{position:relative;z-index:2;text-align:center;color:#fff;padding:0 2rem;}
+.page-hero-body{position:relative;z-index:2;text-align:center;color:#fff;padding:4rem 2rem;}
 .page-hero-body h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:#fff;margin:.4rem 0 .8rem;}
 .page-hero-body p{color:rgba(255,255,255,.75);font-size:1rem;font-style:italic;}
 
@@ -547,7 +547,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 @media(max-width:480px){
   .gallery-masonry{columns:1;}
   .values-grid{grid-template-columns:1fr;}
-  .page-hero{height:300px;}
+  .page-hero{min-height:300px;}
 }
 
 /* ── PHOTO STRIP (About page) ── */
@@ -593,7 +593,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .slide-1{background-position:55% 30%;}
 
   /* Hero */
-  .page-hero{height:260px;}
+  .page-hero{min-height:260px;}
   .page-hero-body h1{font-size:clamp(1.8rem,7vw,2.8rem);}
 
   /* Two-col inline grids → stack */
