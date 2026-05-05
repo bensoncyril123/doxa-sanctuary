@@ -550,3 +550,136 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 @media(max-width:480px){
   .photo-strip{grid-template-columns:repeat(2,1fr);}
 }
+
+/* ══════════════════════════════════════
+   COMPREHENSIVE RESPONSIVE OVERHAUL
+══════════════════════════════════════ */
+
+/* ── TABLET (max 900px) ── */
+@media(max-width:900px){
+  .container{padding:0 1.5rem;}
+  .give-options-grid{grid-template-columns:1fr 1fr;}
+  .give-impact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .mini-stats{gap:1.2rem;}
+  .svc-times-row{grid-template-columns:1fr 1fr;}
+  .svc-info-panel{grid-column:span 2;grid-row:auto;}
+  .events-cards-grid{grid-template-columns:1fr;}
+}
+
+/* ── MOBILE (max 768px) ── */
+@media(max-width:768px){
+  .container{padding:0 1.2rem;}
+  section{padding:3rem 0;}
+
+  /* Nav dual logo — shrink on mobile */
+  .logo-img-link img[alt="TOP Logo"]{height:28px!important;width:28px!important;}
+  .nav-logo{height:60px!important;}
+
+  /* Hero */
+  .page-hero{height:260px;}
+  .page-hero-body h1{font-size:clamp(1.8rem,7vw,2.8rem);}
+
+  /* Two-col inline grids → stack */
+  .two-col{grid-template-columns:1fr!important;gap:2rem!important;}
+
+  /* Give cards → 1 col */
+  .give-options-grid{grid-template-columns:1fr;}
+
+  /* Section headings */
+  h2{font-size:clamp(1.5rem,5vw,2rem);}
+  h3{font-size:1.2rem;}
+
+  /* Gallery */
+  .gallery-masonry{columns:2;}
+
+  /* Sermon feature */
+  .sermon-feature-grid{grid-template-columns:1fr!important;}
+
+  /* Events */
+  .events-cards-grid{grid-template-columns:1fr;}
+
+  /* Team grid */
+  .team-grid{grid-template-columns:1fr 1fr;}
+
+  /* Values */
+  .values-grid{grid-template-columns:1fr 1fr;}
+
+  /* Give band */
+  .give-band-inner{flex-direction:column;text-align:center;}
+  .give-band-btns{flex-direction:column;width:100%;}
+  .give-band-btns .btn-gold,.give-band-btns .btn-ghost{width:100%;justify-content:center;}
+
+  /* Loc strip */
+  .loc-strip{flex-direction:column;gap:1rem;text-align:center;}
+
+  /* Contact layout */
+  .contact-layout{grid-template-columns:1fr;}
+
+  /* Stats */
+  .stats-row{flex-wrap:wrap;gap:1.5rem;}
+  .stat-divider{display:none;}
+
+  /* Service times */
+  .svc-times-row{grid-template-columns:1fr;}
+  .svc-info-panel{grid-column:1;grid-row:auto;}
+
+  /* Filter bar */
+  .filter-bar{gap:.4rem;}
+  .filter-search{margin-left:0;width:100%;}
+  .filter-search input{width:100%;}
+
+  /* FAQ */
+  .faq-list{max-width:100%;}
+}
+
+/* ── SMALL MOBILE (max 480px) ── */
+@media(max-width:480px){
+  .container{padding:0 1rem;}
+  section{padding:2.5rem 0;}
+
+  /* Nav dual logo — hide circle on very small screens */
+  .logo-img-link img[alt="TOP Logo"],
+  .logo-img-link span{display:none!important;}
+  .nav-logo{height:52px!important;margin-left:0!important;}
+
+  /* Hero */
+  .page-hero{height:220px;}
+  .page-hero-body h1{font-size:clamp(1.5rem,8vw,2.2rem);}
+  .page-hero-body p{font-size:.85rem;}
+
+  /* Headings */
+  h2{font-size:clamp(1.4rem,6vw,1.8rem);}
+
+  /* Give cards */
+  .give-options-grid{grid-template-columns:1fr;}
+
+  /* Gallery */
+  .gallery-masonry{columns:1;}
+
+  /* Team */
+  .team-grid{grid-template-columns:1fr;}
+  .values-grid{grid-template-columns:1fr;}
+
+  /* Events */
+  .ev-card-body{flex-direction:column;}
+
+  /* Sermon grid */
+  .sermons-grid{grid-template-columns:1fr;}
+
+  /* Gallery preview */
+  .gallery-preview{grid-template-columns:1fr;}
+
+  /* Mini stats stack */
+  .mini-stats{flex-direction:column;gap:1rem;align-items:center;}
+
+  /* Hero CTA buttons */
+  .hero-cta{flex-direction:column;align-items:stretch;gap:.8rem;}
+  .hero-cta .btn-gold,.hero-cta .btn-ghost{width:100%;justify-content:center;}
+
+  /* Photo strip */
+  .photo-strip{grid-template-columns:repeat(2,1fr);}
+
+  /* Inline 2-col grids via data attribute workaround */
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important;}
+}
