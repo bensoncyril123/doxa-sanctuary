@@ -573,7 +573,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
   /* Nav dual logo — shrink on mobile */
   .logo-img-link img[alt="TOP Logo"]{height:28px!important;width:28px!important;}
-  .nav-logo{height:55px!important;margin-left:0!important;}
+  .nav-logo{height:55px!important;margin-left:-20px!important;}
 
   /* Hero */
   .page-hero{height:260px;}
@@ -640,7 +640,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Nav dual logo — scale down on very small screens */
   .logo-img-link img[alt="TOP Logo"]{height:26px!important;width:26px!important;}
   .logo-img-link span{height:28px!important;}
-  .nav-logo{height:46px!important;margin-left:0!important;}
+  .nav-logo{height:46px!important;margin-left:-18px!important;}
 
   /* Hero */
   .page-hero{height:220px;}
