@@ -77,6 +77,13 @@
     @media(max-width:580px){
       .expect-steps { grid-template-columns:1fr; }
     }
+    @media(max-width:768px){
+      [style*="grid-template-columns:repeat(4,1fr)"]{ grid-template-columns:1fr 1fr!important; }
+      [style*="grid-template-columns:1fr 1fr"]{ grid-template-columns:1fr!important; }
+    }
+    @media(max-width:480px){
+      [style*="grid-template-columns:repeat(4,1fr)"]{ grid-template-columns:1fr!important; }
+    }
   </style>
 </head>
 <body>

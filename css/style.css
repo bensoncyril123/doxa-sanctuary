@@ -652,6 +652,27 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
 /* ── SMALL MOBILE (max 480px) ── */
 @media(max-width:480px){
+  /* Fix inline section padding */
+  section[style*="padding:5"]{padding:2.5rem 0!important;}
+  section[style*="padding:6"]{padding:2.5rem 0!important;}
+  /* Fix inline 3-col grids */
+  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr 1fr!important;}
+  /* Fix flex rows that don't wrap */
+  .loc-strip{flex-direction:column!important;}
+  /* Sermon feature iframe */
+  .yt-wrapper{border-radius:8px;overflow:hidden;}
+}
+/* ── TABLET INLINE GRID FIXES (max 768px) ── */
+@media(max-width:768px){
+  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr 1fr!important;}
+  [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr 1fr!important;}
+  [style*="grid-template-columns:1fr 1.2fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns:1fr 1fr;gap:5rem"]{grid-template-columns:1fr!important;gap:2rem!important;}
+  [style*="grid-template-columns:1fr 1fr;gap:3rem"]{grid-template-columns:1fr!important;gap:2rem!important;}
+  [style*="grid-template-columns:1fr 1fr;gap:4rem"]{grid-template-columns:1fr!important;gap:2rem!important;}
+}
+@media(max-width:480px){
   .container{padding:0 1rem;}
   section{padding:2.5rem 0;}
 
