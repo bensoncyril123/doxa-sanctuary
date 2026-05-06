@@ -15,11 +15,9 @@ if (hamburger && navLinks) {
   function openMenu() {
     navLinks.style.top = navbar.offsetHeight + 'px';
     navLinks.classList.add('open');
-    document.body.style.overflow = 'hidden';
   }
   function closeMenu() {
     navLinks.classList.remove('open');
-    document.body.style.overflow = '';
     navLinks.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('mob-open'));
   }
 
