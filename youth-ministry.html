@@ -33,6 +33,16 @@
 
     @media(max-width:900px){ .pillars-grid { grid-template-columns:repeat(2,1fr); } .leader-block { flex-direction:column; text-align:center; } .leader-info p { text-align:center; } }
     @media(max-width:480px){ .pillars-grid { grid-template-columns:1fr; } }
+    @media(max-width:768px){
+      .page-hero-body{ padding-top:130px!important; }
+      .page-hero-body a[href="#about"]{ display:none; }
+      .page-hero-body a[href="join-youth-ministry.html"]{
+        background:var(--gold)!important;color:var(--navy)!important;
+        border-color:var(--gold)!important;font-weight:700!important;
+      }
+      .leader-block{ padding:2rem 1.2rem!important;gap:1.5rem!important; }
+      .leader-photo{ width:120px!important;height:120px!important; }
+    }
   </style>
 </head>
 <body>
