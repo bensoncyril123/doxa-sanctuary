@@ -12,8 +12,19 @@ if (navbar) {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 if (hamburger && navLinks) {
+  function openMenu() {
+    navLinks.style.top = navbar.offsetHeight + 'px';
+    navLinks.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+    navLinks.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('mob-open'));
+  }
+
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
   });
 
   // Mobile accordion: toggle submenus on parent click
@@ -31,11 +42,11 @@ if (hamburger && navLinks) {
 
   // Close menu when a leaf link is clicked
   navLinks.querySelectorAll('.dropdown a').forEach(a =>
-    a.addEventListener('click', () => navLinks.classList.remove('open'))
+    a.addEventListener('click', () => closeMenu())
   );
   // Close menu when non-dropdown links clicked
   navLinks.querySelectorAll('li:not(.has-dropdown)>a').forEach(a =>
-    a.addEventListener('click', () => navLinks.classList.remove('open'))
+    a.addEventListener('click', () => closeMenu())
   );
 }
 
