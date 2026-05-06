@@ -608,7 +608,6 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
   /* Hero */
   .page-hero{min-height:260px;}
-  .page-hero-body{padding-top:90px;}
   .page-hero-body h1{font-size:clamp(1.8rem,7vw,2.8rem);}
 
   /* Two-col inline grids → stack */
@@ -815,8 +814,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Scroll ticker font */
   .ticker{font-size:.82rem;}
 
-  /* Page hero body padding */
-  .page-hero-body{padding:5rem 1.2rem 2.5rem;}
+  /* Page hero body padding — single source of truth, clears 60px fixed navbar */
+  .page-hero-body{padding:6rem 1.2rem 2.5rem;}
 
   /* Sermons filter: wrap nicely */
   .filter-bar{flex-wrap:wrap;}
@@ -866,4 +865,16 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Ensure section headings don't overflow */
   h2{word-break:break-word;}
   h3{word-break:break-word;}
+}
+
+/* ── VERY SMALL SCREENS (max 360px) ── */
+@media(max-width:360px){
+  .logo-img-link img[alt="TOP Logo"]{height:22px!important;width:22px!important;}
+  .logo-img-link span{height:24px!important;}
+  .nav-logo{height:40px!important;margin-left:-14px!important;}
+  .nav-inner{padding:0 .75rem;}
+  .container{padding:0 .85rem;}
+  h2{font-size:clamp(1.3rem,7vw,1.6rem);}
+  .page-hero-body{padding:5rem 1rem 2rem;}
+  .btn-gold,.btn-ghost,.btn-white{padding:.8rem 1.1rem;font-size:.82rem;}
 }
