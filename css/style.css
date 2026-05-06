@@ -598,7 +598,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Hard-stop any element from exceeding viewport width */
   img,video,iframe,table{max-width:100%;}
   /* Push homepage hero content below fixed navbar */
-  #hero{padding-top:64px;box-sizing:border-box;}
+  #hero{align-items:flex-start;padding-top:80px;}
+  #hero .hero-body{padding-top:2rem;}
 
   /* Nav dual logo — shrink on mobile */
   .logo-img-link img[alt="TOP Logo"]{height:28px!important;width:28px!important;}
