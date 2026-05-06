@@ -616,6 +616,28 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* About teaser: full-width image, no overflow */
   .about-img-side{overflow:hidden;border-radius:12px;}
 
+  /* About teaser text side: center + polish on mobile */
+  .about-text-side{text-align:center;}
+  .about-text-side p{text-align:center!important;}
+  .about-text-side a[href="about.html"]{
+    display:flex!important;justify-content:center;
+    background:var(--navy);color:#fff!important;
+    border-bottom:none!important;padding:.9rem 1.5rem!important;
+    border-radius:4px;letter-spacing:.08em;width:100%;box-sizing:border-box;
+  }
+  /* Mini stats: evenly spread with dividers */
+  .about-text-side .mini-stats{
+    justify-content:space-around;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:1.2rem 0;
+  }
+  .about-text-side .mini-stats>div{flex:1;position:relative;}
+  .about-text-side .mini-stats>div+div::before{
+    content:'';position:absolute;left:0;top:15%;bottom:15%;
+    width:1px;background:var(--border);
+  }
+  .about-text-side .mini-stats strong{font-size:2rem;}
+
   /* Give cards → 1 col */
   .give-options-grid{grid-template-columns:1fr;}
 
