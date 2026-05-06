@@ -12,8 +12,13 @@ if (navbar) {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 if (hamburger && navLinks) {
-  hamburger.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
+  let lastTouch = 0;
+  hamburger.addEventListener('touchstart', () => {
+    lastTouch = Date.now();
+    navLinks.classList.toggle('open');
+  }, { passive: true });
+  hamburger.addEventListener('click', () => {
+    if (Date.now() - lastTouch < 600) return;
     navLinks.classList.toggle('open');
   });
 

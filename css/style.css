@@ -739,7 +739,12 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Footer: stack everything cleanly */
   .footer-top{grid-template-columns:1fr!important;gap:2rem;}
   .ft-brand{text-align:center;}
+  .ft-brand .logo-img-link{justify-content:center;}
+  .ft-brand .nav-logo{margin-left:-18px!important;}
   .ft-brand .socials{justify-content:center;}
+  .ft-col{text-align:center;}
+  .ft-col ul{align-items:center;}
+  .ft-col .btn-gold{display:flex;justify-content:center;width:100%;}
   .footer-bottom{flex-direction:column;text-align:center;gap:.5rem;}
 
   /* Form inputs: bigger on mobile */
