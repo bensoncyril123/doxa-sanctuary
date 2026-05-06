@@ -251,6 +251,10 @@
       .wb-photo { display:none; }
       #welcome-banner { padding:3.5rem 0; }
       #welcome-banner .container > div { max-width:100%; }
+      /* Hide service info block — ticker already shows it */
+      .wb-service-info { display:none; }
+      /* Remove top border from button since service block is gone */
+      #welcome-banner .wb-item:last-child { border-top:none; padding-top:0; }
 
       /* About teaser: fix decorative overflow */
       .about-img-side > div:first-child { display:none; }
@@ -365,7 +369,7 @@
       <div style="max-width:560px;">
         <h2 class="wb-item" style="color:#fff;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:1.3rem;">You Have a<br><em class="gold-shimmer" style="font-style:normal;">Place Here.</em></h2>
         <p class="wb-item" style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:460px;text-align:justify;">Where church isn't just a building or a Sunday event. It's a family. You're invited to be yourself, connect with others, and grow in faith. No matter where you are on your journey, you have a place with us.</p>
-        <div class="wb-item" style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;margin-bottom:1.4rem;">
+        <div class="wb-item wb-service-info" style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;margin-bottom:1.4rem;">
           <p style="color:rgba(255,255,255,.5);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.3rem;">Join Us This Sunday</p>
           <p style="color:#fff;font-size:1rem;margin-bottom:.5rem;"><strong style="color:var(--gold);letter-spacing:.06em;">Celebration Service</strong> &nbsp;·&nbsp; 10:00 AM</p>
           <p style="color:rgba(255,255,255,.5);font-size:.88rem;">865 Morris Park Ave · Bronx, NY 10462 &nbsp;·&nbsp; <a href="https://maps.google.com/?q=865+Morris+Park+Ave+Bronx+NY+10462" target="_blank" style="color:var(--gold);text-decoration:underline;">View Map</a></p>
