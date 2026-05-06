@@ -157,6 +157,29 @@
       .cal-head-cell { font-size: .58rem; }
       .brp-nav-btn { font-size: .78rem; padding: .5rem .9rem; }
     }
+    @media(max-width:768px){
+      /* Hide hero eyebrow */
+      .page-hero-body .eyebrow{ display:none; }
+      /* Tabs — full width, equal, centered */
+      .brp-tabs{ width:100%; max-width:360px; box-sizing:border-box; }
+      .brp-tab{ flex:1; padding:.6rem .4rem; font-size:.82rem; text-align:center; }
+      /* Month nav — hide print, tighten */
+      .brp-nav-btn.no-print{ display:none!important; }
+      .brp-month-nav{ gap:.4rem; }
+      .brp-month-title{ font-size:.88rem; text-align:center; flex:1; }
+      .brp-nav-btn{ font-size:.72rem; padding:.4rem .65rem; white-space:nowrap; }
+      /* Compact grid to fit 7 columns */
+      .cal-head{ gap:2px!important; }
+      .cal-grid{ gap:2px!important; }
+      .cal-cell{ min-height:46px!important; padding:.28rem .2rem!important; border-radius:6px!important; gap:.1rem; }
+      .cal-head-cell{ font-size:.56rem!important; padding:.25rem 0!important; letter-spacing:0!important; }
+      .cal-day-num{ font-size:.68rem; }
+      a.cal-reading{ font-size:.55rem!important; line-height:1.25; }
+      /* Today card tighten */
+      .brp-today{ padding:1rem 1.2rem; gap:1rem; }
+      .brp-today-icon{ width:40px; height:40px; }
+      .brp-today-reading{ font-size:1.05rem; }
+    }
 
     /* ── PRINT ── */
     @media print {
