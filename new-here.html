@@ -27,6 +27,13 @@
     .expect-card-new p { color:rgba(255,255,255,.65); font-size:.87rem; line-height:1.75; }
     @media(max-width:860px){ .expect-card-new { grid-column:span 2; } }
     @media(max-width:540px){ .expect-card-new { grid-column:span 4; } }
+    @media(max-width:768px){
+      /* Stack cards to 1 column, hide the horizontal connecting line */
+      .expect-card-new { grid-column:span 1!important; }
+      [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr!important;}
+      /* Hide the decorative connecting line — only works in 4-col layout */
+      [style*="position:absolute;top:44px"]{ display:none!important; }
+    }
 
     /* SERVICE TIMES CARDS */
     .times-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
