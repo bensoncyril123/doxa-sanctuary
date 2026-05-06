@@ -32,7 +32,7 @@
       .expect-card-new { grid-column:span 1!important; }
       [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr!important;}
       /* Hide the decorative connecting line — only works in 4-col layout */
-      [style*="position:absolute;top:44px"]{ display:none!important; }
+      .steps-connector{ display:none!important; }
     }
 
     /* SERVICE TIMES CARDS */
@@ -149,7 +149,7 @@
       <!-- Timeline -->
       <div style="position:relative;margin-top:3.5rem;">
         <!-- connecting line -->
-        <div style="position:absolute;top:44px;left:calc(12.5% - 1px);right:calc(12.5% - 1px);height:3px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3));z-index:0;border-radius:2px;"></div>
+        <div class="steps-connector" style="position:absolute;top:44px;left:calc(12.5% - 1px);right:calc(12.5% - 1px);height:3px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3));z-index:0;border-radius:2px;"></div>
 
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative;z-index:1;">
 
