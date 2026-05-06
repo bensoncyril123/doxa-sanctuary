@@ -8,6 +8,20 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @media(max-width:768px){
+      /* Push hero below fixed navbar */
+      .page-hero-body{ padding-top:130px!important; }
+      /* Stack info + form columns */
+      [style*="grid-template-columns:1fr 1.4fr"]{ grid-template-columns:1fr!important; gap:2rem!important; }
+      /* Form box: tighter padding, contained */
+      [style*="padding:2.5rem"][style*="border-radius:12px"]{ padding:1.5rem 1.2rem!important; box-sizing:border-box; width:100%; }
+      /* Full-width inputs */
+      .fg input,.fg select,.fg textarea{ width:100%!important; box-sizing:border-box!important; }
+      /* Section breathing room */
+      section{ padding:2.5rem 0!important; }
+    }
+  </style>
 </head>
 <body>
 
