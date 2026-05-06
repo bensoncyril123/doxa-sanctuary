@@ -745,13 +745,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
   /* Footer: stack everything cleanly */
   .footer-top{grid-template-columns:1fr!important;gap:2rem;}
-  .ft-brand{text-align:center;}
-  .ft-brand .logo-img-link{justify-content:center;}
   .ft-brand .nav-logo{margin-left:-18px!important;}
-  .ft-brand .socials{justify-content:center;}
-  .ft-col{text-align:center;}
-  .ft-col ul{align-items:center;}
-  .ft-col .btn-gold{display:flex;justify-content:center;width:100%;}
+  .ft-brand .socials{flex-wrap:wrap;}
   .footer-bottom{flex-direction:column;text-align:center;gap:.5rem;}
 
   /* Form inputs: bigger on mobile */
@@ -814,9 +809,6 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Eyebrow text */
   .eyebrow{font-size:.68rem;}
 
-  /* Footer columns: center links */
-  .ft-col ul{text-align:center;}
-  .ft-col h5{text-align:center;}
 
   /* Event cards full padding */
   .ev-card-body{padding:1.2rem;}
