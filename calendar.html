@@ -65,6 +65,21 @@
     .dot-youth     { background: rgba(27,94,32,.4); }
     .dot-growth    { background: rgba(136,14,79,.4); }
 
+    /* ── MOBILE ── */
+    @media(max-width:768px){
+      .page-hero-body{ padding-top:130px!important; }
+      #cal-wrapper{ padding:.9rem .6rem; }
+      .fc .fc-toolbar-title{ font-size:1rem!important; }
+      .fc .fc-toolbar{ gap:.4rem!important; flex-wrap:wrap; }
+      .fc .fc-button{ font-size:.75rem!important; padding:.3rem .55rem!important; }
+      .fc .fc-col-header-cell-cushion{ font-size:.65rem!important; padding:.5rem 0!important; }
+      .fc .fc-daygrid-day-frame{ min-height:60px!important; }
+      .fc .fc-daygrid-day-number{ font-size:.75rem!important; }
+      .cal-legend{ gap:.6rem; }
+      .legend-item{ font-size:.72rem; }
+      .btn-outline-dark.no-print:last-child{ display:none; }
+    }
+
     /* ── PRINT ── */
     @media print {
       *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -215,10 +230,13 @@
       { title:'Marriage Enrichment Retreat',start:'2026-05-17', end:'2026-05-19', cat:'growth', desc:'A weekend designed to strengthen and refresh marriages through teaching, fellowship, and focused time.', time:'Fri 6PM – Sun 2PM', location:'Retreat Center',     ticket:'Registration required · Limited space' },
     ];
 
+    const isMobile = window.innerWidth < 768;
     const calendar = new FullCalendar.Calendar(document.getElementById('fullcalendar'), {
-      initialView: 'dayGridMonth',
+      initialView: isMobile ? 'listMonth' : 'dayGridMonth',
       initialDate: '2026-05-01',
-      headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' },
+      headerToolbar: isMobile
+        ? { left: 'prev,next', center: 'title', right: 'today' }
+        : { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' },
       buttonText: { today: 'Today', month: 'Month', list: 'Agenda' },
       height: 'auto',
       events: EVENTS.map(e => ({
