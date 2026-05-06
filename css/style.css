@@ -747,6 +747,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .footer-top{grid-template-columns:1fr!important;gap:2rem;}
   .ft-brand .nav-logo{margin-left:-18px!important;}
   .ft-brand .socials{flex-wrap:wrap;}
+  /* Hide link columns on mobile — nav menu covers them */
+  .ft-col:not(:last-child){display:none;}
   .footer-bottom{flex-direction:column;text-align:center;gap:.5rem;}
 
   /* Form inputs: bigger on mobile */
