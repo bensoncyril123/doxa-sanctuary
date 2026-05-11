@@ -181,16 +181,17 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/youtube.js"></script>
   <script>
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.sm-card').forEach(card => {
-          card.style.display = (f === 'all' || card.dataset.series === f) ? '' : 'none';
-        });
+    // Filter buttons (work on both static fallback and dynamic cards)
+    document.querySelector('#sermon-archive').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.sm-card').forEach(card => {
+        card.style.display = (f === 'all' || card.dataset.series === f) ? '' : 'none';
       });
     });
     // Search
