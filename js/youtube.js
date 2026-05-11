@@ -1,6 +1,6 @@
 // ── YouTube Auto-Update ──
 const YT_KEY     = 'AIzaSyCCAydvAClrhaZJzCcAJekFUH4Y0ogWFR0';
-const YT_CHANNEL = 'UChzYnfFd7EI4XzbEPNnb9IQ';
+const YT_CHANNEL = 'UChzYnfFd7El4XzbEPNnb9IQ';
 
 function fmtDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
