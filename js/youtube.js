@@ -76,7 +76,9 @@ async function loadYouTubeVideos() {
     }).join('');
 
   } catch (err) {
-    console.warn('YouTube feed unavailable — showing cached sermons.', err);
+    console.warn('YouTube feed unavailable.', err);
+    const grid = document.getElementById('sermonsGrid');
+    if (grid) grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--muted);">Could not load sermons. <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank" style="color:var(--gold);">Watch on YouTube</a>.</p>`;
   }
 }
 
