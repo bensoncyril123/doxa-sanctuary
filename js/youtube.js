@@ -30,7 +30,11 @@ async function loadYouTubeVideos() {
     const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylist}&maxResults=10&key=${YT_KEY}`;
     const res  = await fetch(url);
     const data = await res.json();
-    if (!data.items || !data.items.length) return;
+    if (data.error || !data.items || !data.items.length) {
+      const grid = document.getElementById('sermonsGrid');
+      if (grid) grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--muted);">Watch our latest sermons on <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank" style="color:var(--gold);font-weight:600;">YouTube <i class="fa-brands fa-youtube"></i></a>.</p>`;
+      return;
+    }
 
     const seen = new Set();
     const videos = data.items.filter(v => {
