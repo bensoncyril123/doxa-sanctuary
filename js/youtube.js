@@ -32,7 +32,13 @@ async function loadYouTubeVideos() {
     const data = await res.json();
     if (!data.items || !data.items.length) return;
 
-    const videos = data.items;
+    const seen = new Set();
+    const videos = data.items.filter(v => {
+      const id = v.snippet.resourceId.videoId;
+      if (seen.has(id)) return false;
+      seen.add(id);
+      return true;
+    });
     const latest = videos[0];
     const latestId    = latest.snippet.resourceId.videoId;
     const latestTitle = latest.snippet.title;
