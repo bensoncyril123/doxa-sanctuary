@@ -27,7 +27,7 @@ async function loadYouTubeVideos() {
   try {
     // playlistItems costs 1 quota unit vs 100 for search
     const uploadsPlaylist = YT_CHANNEL.replace(/^UC/, 'UU');
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylist}&maxResults=16&key=${YT_KEY}`;
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylist}&maxResults=10&key=${YT_KEY}`;
     const res  = await fetch(url);
     const data = await res.json();
     if (!data.items || !data.items.length) return;
