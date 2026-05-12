@@ -25,14 +25,16 @@ function getSeriesLabel(title) {
 
 async function loadYouTubeVideos() {
   try {
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YT_CHANNEL}&maxResults=16&order=date&type=video&key=${YT_KEY}`;
+    // playlistItems costs 1 quota unit vs 100 for search
+    const uploadsPlaylist = YT_CHANNEL.replace(/^UC/, 'UU');
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylist}&maxResults=16&key=${YT_KEY}`;
     const res  = await fetch(url);
     const data = await res.json();
     if (!data.items || !data.items.length) return;
 
     const videos = data.items;
     const latest = videos[0];
-    const latestId    = latest.id.videoId;
+    const latestId    = latest.snippet.resourceId.videoId;
     const latestTitle = latest.snippet.title;
     const latestDate  = latest.snippet.publishedAt;
 
@@ -55,7 +57,7 @@ async function loadYouTubeVideos() {
     if (!grid) return;
 
     grid.innerHTML = videos.map((v, i) => {
-      const vid   = v.id.videoId;
+      const vid   = v.snippet.resourceId.videoId;
       const title = v.snippet.title;
       const date  = v.snippet.publishedAt;
       const thumb = v.snippet.thumbnails.high?.url || `https://img.youtube.com/vi/${vid}/hqdefault.jpg`;
