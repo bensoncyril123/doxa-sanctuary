@@ -4,68 +4,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
-  <title>Volunteer — DOXA Sanctuary</title>
+  <title>Serve — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .vol-grid {
+    /* ── FLIP CARDS ── */
+    .teams-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
       margin-top: 3rem;
     }
-    @media (max-width: 900px) {
-      .vol-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 1024px) { .teams-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .teams-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px)  { .teams-grid { grid-template-columns: 1fr; } }
+
+    .flip-card {
+      height: 220px;
+      perspective: 1000px;
+      cursor: pointer;
     }
-    @media (max-width: 580px) {
-      .vol-grid { grid-template-columns: 1fr; }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform .6s cubic-bezier(.4,0,.2,1);
+      transform-style: preserve-3d;
     }
-    .vol-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      padding: 2rem;
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       display: flex;
       flex-direction: column;
-      gap: .8rem;
-      transition: transform .25s, box-shadow .25s;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
     }
-    .vol-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,.12);
+    .flip-front {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      border: 1px solid rgba(201,168,76,.15);
+      gap: 1rem;
     }
-    .vol-icon {
-      width: 56px;
-      height: 56px;
+    .flip-front .f-icon {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       background: var(--navy);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: .4rem;
+      flex-shrink: 0;
     }
-    .vol-icon i {
-      color: var(--gold);
-      font-size: 1.3rem;
-    }
-    .vol-card h3 {
+    .flip-front .f-icon i { color: var(--gold); font-size: 1.4rem; }
+    .flip-front h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-size: 1rem;
       color: var(--navy);
       margin: 0;
+      line-height: 1.3;
     }
-    .vol-card p {
-      color: #555;
-      font-size: .93rem;
-      line-height: 1.75;
-      margin: 0;
-      flex: 1;
+    .flip-front .f-hint {
+      font-size: .72rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
-    .vol-connect {
+    .flip-back {
       background: var(--navy);
-      padding: 5rem 0;
+      transform: rotateY(180deg);
+      gap: .9rem;
     }
+    .flip-back p {
+      color: rgba(255,255,255,.85);
+      font-size: .84rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .flip-back a {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .5rem 1.1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity .2s;
+      flex-shrink: 0;
+    }
+    .flip-back a:hover { opacity: .85; }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 260px;
+      overflow: hidden;
+    }
+    .photo-strip div {
+      background-size: cover;
+      background-position: center;
+      transition: transform .4s;
+    }
+    .photo-strip div:hover { transform: scale(1.04); }
+    @media (max-width: 700px) {
+      .photo-strip { grid-template-columns: repeat(2, 1fr); height: 200px; }
+    }
+
+    /* ── FORM ── */
+    .vol-connect { background: var(--navy); padding: 5rem 0; }
     .vol-form {
       background: #fff;
       border-radius: 16px;
@@ -74,58 +136,41 @@
       margin: 2.5rem auto 0;
       box-shadow: 0 8px 32px rgba(0,0,0,.15);
     }
-    .vol-form .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .vol-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 540px) { .vol-form .form-row { grid-template-columns: 1fr; } }
+    .vol-form .fg { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
+    .vol-form label { font-size: .82rem; font-weight: 600; color: var(--navy); letter-spacing: .04em; text-transform: uppercase; }
+    .vol-form input, .vol-form select, .vol-form textarea {
+      border: 1.5px solid #ddd; border-radius: 8px; padding: .75rem 1rem;
+      font-size: .95rem; font-family: inherit; color: #222; outline: none;
+      transition: border-color .2s; width: 100%; box-sizing: border-box;
     }
-    @media (max-width: 540px) {
-      .vol-form .form-row { grid-template-columns: 1fr; }
-    }
-    .vol-form .fg {
-      display: flex;
-      flex-direction: column;
-      gap: .35rem;
-      margin-bottom: 1rem;
-    }
-    .vol-form label {
-      font-size: .82rem;
-      font-weight: 600;
-      color: var(--navy);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .vol-form input,
-    .vol-form select,
-    .vol-form textarea {
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      padding: .75rem 1rem;
-      font-size: .95rem;
-      font-family: inherit;
-      color: #222;
-      outline: none;
-      transition: border-color .2s;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .vol-form input:focus,
-    .vol-form select:focus,
-    .vol-form textarea:focus {
-      border-color: var(--gold);
-    }
+    .vol-form input:focus, .vol-form select:focus, .vol-form textarea:focus { border-color: var(--gold); }
     .vol-form textarea { resize: vertical; min-height: 90px; }
     .vol-success {
-      display: none;
-      background: #e8f5e9;
-      border: 1px solid #a5d6a7;
-      border-radius: 8px;
-      padding: 1rem 1.2rem;
-      color: #2e7d32;
-      font-weight: 500;
-      margin-top: 1rem;
-      text-align: center;
+      display: none; background: #e8f5e9; border: 1px solid #a5d6a7;
+      border-radius: 8px; padding: 1rem 1.2rem; color: #2e7d32;
+      font-weight: 500; margin-top: 1rem; text-align: center;
     }
+
+    /* ── WHY SERVE PILLARS ── */
+    .why-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) { .why-pillars { grid-template-columns: 1fr; } }
+    .why-pillar {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(201,168,76,.2);
+    }
+    .why-pillar i { font-size: 2rem; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .why-pillar h4 { color: #fff; font-size: 1.05rem; margin: 0 0 .6rem; }
+    .why-pillar p { color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.7; margin: 0; }
   </style>
 </head>
 <body>
@@ -153,64 +198,225 @@
     <div class="page-hero-dim"></div>
     <div class="page-hero-body">
       <p class="eyebrow light-gold">DOXA Sanctuary</p>
-      <h1>Volunteer</h1>
-      <p>Use your gifts to serve God and make a difference in the lives of others.</p>
+      <h1>Where You Can Make<br>a Difference</h1>
+      <p>God placed gifts inside you for a reason. Find your team and start living your purpose.</p>
+      <a href="#teams" style="display:inline-flex;align-items:center;gap:.6rem;margin-top:1.5rem;background:var(--gold);color:var(--navy);font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 2rem;border-radius:50px;text-decoration:none;">Explore Our Teams <i class="fa-solid fa-arrow-down"></i></a>
     </div>
   </div>
 
   <!-- WHY SERVE -->
-  <section style="background:var(--navy);padding:4.5rem 0;">
-    <div class="container" style="max-width:780px;margin:0 auto;text-align:center;">
-      <p class="eyebrow gold">Why Serve?</p>
-      <h2 style="color:#fff;margin:.5rem 0 1.2rem;">Every Gift Has a Place</h2>
-      <p style="color:rgba(255,255,255,.78);font-size:1.05rem;line-height:1.9;">At DOXA Sanctuary, we believe every believer is called to serve. When you volunteer, you are not just helping run a program. You are building the church, touching lives, and fulfilling your God-given purpose. There is a team for you, and we would love to have you on it.</p>
+  <section style="background:var(--navy);padding:5rem 0;">
+    <div class="container">
+      <div style="text-align:center;max-width:680px;margin:0 auto;">
+        <p class="eyebrow gold">Why Serve?</p>
+        <h2 style="color:#fff;margin:.5rem 0 1rem;">Your Life Makes Sense When You Serve</h2>
+        <p style="color:rgba(255,255,255,.75);font-size:1rem;line-height:1.85;">At DOXA Sanctuary, we believe every believer is called to serve. When you step into your gift, you are not just helping run a program — you are building the church, touching lives, and fulfilling your God-given purpose.</p>
+      </div>
+      <div class="why-pillars">
+        <div class="why-pillar">
+          <i class="fa-solid fa-seedling"></i>
+          <h4>Grow in Your Gift</h4>
+          <p>Serving sharpens the gifts God placed in you. Every Sunday is an opportunity to develop and grow into who He called you to be.</p>
+        </div>
+        <div class="why-pillar">
+          <i class="fa-solid fa-people-arrows"></i>
+          <h4>Build Community</h4>
+          <p>Your deepest friendships at DOXA will be formed through serving together. There is nothing like being on a team with people chasing the same mission.</p>
+        </div>
+        <div class="why-pillar">
+          <i class="fa-solid fa-globe"></i>
+          <h4>Impact the World</h4>
+          <p>What happens at DOXA goes beyond these walls. Every role you fill contributes to a mission that reaches families, the Bronx, and the nations.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- VOLUNTEER TEAMS -->
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <div style="background-image:url('assets/worship-crowd.jpg');"></div>
+    <div style="background-image:url('assets/comm-new-1.jpg');"></div>
+    <div style="background-image:url('assets/community-2.jpg');"></div>
+    <div style="background-image:url('assets/comm-new-3.jpg');"></div>
+  </div>
+
+  <!-- TEAMS -->
   <section id="teams" style="padding:5rem 0;background:#f8f6f1;">
     <div class="container">
       <div class="section-hd center">
         <p class="eyebrow gold">Get Involved</p>
-        <h2>Volunteer Teams</h2>
-        <p class="sub">Find your team and start making an impact every Sunday.</p>
+        <h2>Explore Our Teams</h2>
+        <p class="sub">Hover over a team to learn more — then sign up below.</p>
       </div>
-      <div class="vol-grid">
 
-        <div class="vol-card">
-          <div class="vol-icon"><i class="fa-solid fa-baby"></i></div>
-          <h3>Nursery</h3>
-          <p>Care for our youngest members during Sunday service so their parents can worship freely. If you have a heart for babies and toddlers, this team is for you.</p>
+      <div class="teams-grid">
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-music"></i></div>
+              <h3>Worship Team</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Lead the congregation in Spirit-filled praise and worship. Whether you sing or play an instrument, bring your gift to the altar every Sunday.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
         </div>
 
-        <div class="vol-card">
-          <div class="vol-icon"><i class="fa-solid fa-child"></i></div>
-          <h3>Children's Ministry</h3>
-          <p>Teach, mentor, and pour into children aged 3 to 12 through Bible lessons, games, and creative activities. Help lay a faith foundation that lasts a lifetime.</p>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-handshake"></i></div>
+              <h3>Welcome Team</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Be the first smile someone sees walking through our doors. Greet, usher, and help every guest feel at home from the moment they arrive.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
         </div>
 
-        <div class="vol-card">
-          <div class="vol-icon"><i class="fa-solid fa-display"></i></div>
-          <h3>Media &amp; Slides</h3>
-          <p>Run the presentation slides during Sunday service: lyrics, scriptures, and announcements. Keep the congregation connected to every moment of worship.</p>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-hands-praying"></i></div>
+              <h3>Prayer Team</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Intercede for the church and minister to people at the altar after service. Your prayers change lives and shift atmospheres.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
         </div>
 
-        <div class="vol-card">
-          <div class="vol-icon"><i class="fa-solid fa-sliders"></i></div>
-          <h3>Sound Team</h3>
-          <p>Operate the sound board and ensure every voice and instrument is heard clearly. Your work behind the scenes sets the atmosphere for the entire service.</p>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-child"></i></div>
+              <h3>Children's Ministry</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Teach, mentor, and pour into children aged 3–12 through Bible lessons and activities. Help lay a faith foundation that lasts a lifetime.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
         </div>
 
-        <div class="vol-card">
-          <div class="vol-icon"><i class="fa-solid fa-handshake"></i></div>
-          <h3>Welcome Team</h3>
-          <p>Be the first smile someone sees when they walk through our doors. Greet, usher, and help guests and members feel at home from the moment they arrive.</p>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-baby"></i></div>
+              <h3>Nursery</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Care for our youngest members during Sunday service so their parents can worship freely. A heart for babies and toddlers is all you need.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
         </div>
 
-        <div class="vol-card">
-          <div class="vol-icon"><i class="fa-solid fa-broom"></i></div>
-          <h3>Cleaning &amp; Facilities</h3>
-          <p>Keep our sanctuary clean, orderly, and ready for worship. A tidy house honours God and creates a welcoming environment for everyone who walks in.</p>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-users"></i></div>
+              <h3>Youth Ministry</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Walk alongside teenagers and young adults as a mentor, leader, or helper. Invest in the next generation and help shape their faith and future.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-display"></i></div>
+              <h3>Media &amp; Slides</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Run the presentation slides and livestream during Sunday service. Your work behind the screen keeps the congregation connected to every moment.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-sliders"></i></div>
+              <h3>Sound Team</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Operate the soundboard and ensure every voice and instrument is heard clearly. Your work behind the scenes sets the atmosphere for the entire service.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-camera"></i></div>
+              <h3>Photography &amp; Media</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Capture the moments that tell DOXA's story — services, events, and community life. Share the vision of this house with the world through content and social media.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-calendar-check"></i></div>
+              <h3>Events Team</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Plan, organise, and execute church events from start to finish. If you love bringing people together and making things happen, this is your team.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+              <h3>Outreach</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Take the love of God beyond our walls into the Bronx community. Serve at outreaches, community events, and missions initiatives throughout the year.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="f-icon"><i class="fa-solid fa-broom"></i></div>
+              <h3>Cleaning &amp; Facilities</h3>
+              <span class="f-hint">Hover to learn more</span>
+            </div>
+            <div class="flip-back">
+              <p>Keep our sanctuary clean, orderly, and ready for worship. A tidy house honours God and creates a welcoming environment for every person who walks in.</p>
+              <a href="#serve-form"><i class="fa-solid fa-arrow-right"></i> Join This Team</a>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -218,12 +424,12 @@
   </section>
 
   <!-- CONNECT FORM -->
-  <section class="vol-connect">
+  <section class="vol-connect" id="serve-form">
     <div class="container">
       <div style="text-align:center;">
         <p class="eyebrow gold">Join a Team</p>
         <h2 style="color:#fff;margin:.5rem 0 .6rem;">Ready to Serve?</h2>
-        <p style="color:rgba(255,255,255,.75);font-size:1rem;max-width:560px;margin:0 auto;">Fill out the form below and we will get in touch with you about the next steps to join your chosen team.</p>
+        <p style="color:rgba(255,255,255,.75);font-size:1rem;max-width:560px;margin:0 auto;">Fill out the form below and we will personally reach out to welcome you onto your team and walk you through the next steps.</p>
       </div>
       <div class="vol-form">
         <form onsubmit="handleVolunteer(event)">
@@ -251,22 +457,28 @@
             <label for="vTeam">Which Team Are You Interested In?</label>
             <select id="vTeam" required>
               <option value="" disabled selected>Select a team…</option>
-              <option>Nursery</option>
+              <option>Worship Team</option>
+              <option>Welcome Team</option>
+              <option>Prayer Team</option>
               <option>Children's Ministry</option>
+              <option>Nursery</option>
+              <option>Youth Ministry</option>
               <option>Media &amp; Slides</option>
               <option>Sound Team</option>
-              <option>Welcome Team</option>
+              <option>Photography &amp; Media</option>
+              <option>Events Team</option>
+              <option>Outreach</option>
               <option>Cleaning &amp; Facilities</option>
               <option>Not Sure Yet — Open to Anything</option>
             </select>
           </div>
           <div class="fg">
             <label for="vMessage">Anything You'd Like Us to Know? (optional)</label>
-            <textarea id="vMessage" placeholder="Tell us a bit about yourself or any questions you have…"></textarea>
+            <textarea id="vMessage" placeholder="Tell us about your gifts, availability, or any questions you have…"></textarea>
           </div>
-          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:.9rem;">Submit <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:.9rem;">I Want to Serve <i class="fa-solid fa-arrow-right"></i></button>
           <div class="vol-success" id="volSuccess">
-            Thank you! We have received your information and will be in touch shortly.
+            🙌 Thank you! We have received your information and will be in touch shortly.
           </div>
         </form>
       </div>
@@ -277,18 +489,23 @@
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
-        <div class="ft-brand"><a href="index.html" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-34px;" /></a><p>A Spirit-filled community in the Bronx, NY, committed to glorifying God, raising leaders, and reaching the world.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="https://www.tiktok.com/@psquamejjnr?_r=1&_t=ZS-95wTzv9Ku6Z" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-brand"><a href="index.html" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-34px;" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="https://www.tiktok.com/@psquamejjnr?_r=1&_t=ZS-95wTzv9Ku6Z" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div></div>
         <div class="ft-col"><h5>About Us</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="service-times.html">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
         <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li><li><a href="bible-reading-plan.html">Daily Bible Reading Plan</a></li></ul></div>
         <div class="ft-col"><h5>Ministries</h5><ul><li><a href="childrens-ministry.html">Children's Ministry</a></li><li><a href="youth-ministry.html">Youth &amp; Young Adults</a></li><li><a href="mens-ministry.html">Men's Ministry</a></li><li><a href="womens-ministry.html">Women's Ministry</a></li></ul></div>
         <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary, Bronx, NY. All rights reserved.</p><p>A branch of TOP Ministries International &nbsp;·&nbsp; Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
+    // Touch support for flip cards on mobile
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
+
     function handleVolunteer(e) {
       e.preventDefault();
       document.getElementById('volSuccess').style.display = 'block';
