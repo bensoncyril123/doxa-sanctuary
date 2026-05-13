@@ -137,7 +137,7 @@
 
     /* ── WELCOME BANNER ANIMATIONS ── */
     @keyframes wbSlideUp {
-      from { opacity:0; transform:translateY(30px); }
+      from { opacity:0; transform:translateY(-24px); }
       to   { opacity:1; transform:translateY(0); }
     }
     @keyframes wbPhotoIn {
@@ -803,20 +803,22 @@
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
   // ── WELCOME BANNER ANIMATIONS ──
+  // Observe the section; stagger each wb-item as section enters view
+  const wbItems = document.querySelectorAll('.wb-item');
+  const wbPhoto = document.querySelector('.wb-photo');
   const wbObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        wbObserver.unobserve(entry.target);
+        wbItems.forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), i * 200);
+        });
+        if (wbPhoto) setTimeout(() => wbPhoto.classList.add('visible'), 100);
+        wbObserver.disconnect();
       }
     });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.wb-item').forEach((el, i) => {
-    el.style.animationDelay = (i * 0.15) + 's';
-    wbObserver.observe(el);
-  });
-  const wbPhoto = document.querySelector('.wb-photo');
-  if (wbPhoto) wbObserver.observe(wbPhoto);
+  }, { threshold: 0.15 });
+  const wbSection = document.getElementById('welcome-banner');
+  if (wbSection) wbObserver.observe(wbSection);
 
   // ── SERMON SECTION SLIDE-IN ──
   const sermonObserver = new IntersectionObserver((entries) => {
