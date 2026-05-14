@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
+  <title>Baptism — DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* EXPECT STEPS */
+    .expect-step-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+      border-top: 3px solid var(--gold);
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .expect-step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    }
+    .step-num-bg {
+      position: absolute;
+      top: -10px;
+      right: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem;
+      font-weight: 900;
+      color: rgba(201,168,76,.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .step-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .step-icon i { color: var(--gold); font-size: 1.2rem; }
+    .expect-step-card h4 { color: var(--navy); margin-bottom: .6rem; font-size: 1.05rem; }
+    .expect-step-card p { color: var(--muted); font-size: .9rem; line-height: 1.75; margin: 0; }
+
+    /* FAQ */
+    .bap-faq-item { border-bottom: 1px solid #e8e8e8; }
+    .bap-faq-q {
+      width: 100%; background: none; border: none; text-align: left;
+      padding: 1.2rem 0; font-size: .97rem; font-weight: 600;
+      color: var(--navy); cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Inter', sans-serif; gap: 1rem;
+    }
+    .bap-faq-q i { color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+    .bap-faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .bap-faq-a p { padding: 0 0 1.2rem; color: var(--muted); font-size: .92rem; line-height: 1.8; }
+    .bap-faq-item.open .bap-faq-a { max-height: 300px; }
+    .bap-faq-item.open .bap-faq-q i { transform: rotate(180deg); }
+    .bap-faq-item.open .bap-faq-q { color: var(--gold); }
+
+    /* WHY PILLARS */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-top: 3rem;
+    }
+    .why-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 14px;
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      transition: background .3s, transform .3s;
+    }
+    .why-card:hover { background: rgba(201,168,76,.08); transform: translateY(-4px); }
+    .why-card i { font-size: 2rem; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .why-card h4 { color: #fff; margin-bottom: .6rem; font-size: 1.05rem; }
+    .why-card p { color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.75; margin: 0; }
+
+    @media(max-width: 860px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+    @media(max-width: 768px) {
+      .page-hero-body { padding-top: 130px !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; }
+      [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+      .fg input, .fg select, .fg textarea { width: 100% !important; box-sizing: border-box !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-34px;" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+        <li class="has-dropdown"><a href="#">About Us <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about.html"><i class="fa-solid fa-church"></i> Who We Are</a></li><li><a href="leadership.html"><i class="fa-solid fa-users"></i> Leadership</a></li><li><a href="small-groups.html"><i class="fa-solid fa-people-group"></i> Small Groups</a></li><li><a href="baptism.html"><i class="fa-solid fa-droplet"></i> Baptism</a></li><li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li></ul></li>
+        <li><a href="new-here.html" class="nav-im-new">I'm New</a></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons.html"><i class="fa-solid fa-play"></i> Sermons</a></li><li><a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a></li><li><a href="bible-reading-plan.html"><i class="fa-solid fa-book-open"></i> Daily Bible Reading Plan</a></li></ul></li>
+        <li class="has-dropdown"><a href="events.html">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> All Events</a></li><li><a href="calendar.html"><i class="fa-regular fa-calendar"></i> Calendar</a></li></ul></li>
+        <li class="has-dropdown"><a href="#">Ministries <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="childrens-ministry.html"><i class="fa-solid fa-child"></i> Children's Ministry</a></li><li><a href="youth-ministry.html"><i class="fa-solid fa-users"></i> Youth &amp; Young Adults</a></li><li><a href="mens-ministry.html"><i class="fa-solid fa-person"></i> Men's Ministry</a></li><li><a href="womens-ministry.html"><i class="fa-solid fa-heart"></i> Women's Ministry</a></li></ul></li>
+        <li><a href="volunteer.html">Serve</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give.html" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero" style="background-image:url('assets/worship-crowd.jpg');background-position:center 30%;">
+    <div class="page-hero-dim"></div>
+    <div class="page-hero-body">
+      <p class="eyebrow light-gold">Take the Next Step</p>
+      <h1>Baptism</h1>
+      <p>A public declaration of your faith — your story, your moment, your next step with God.</p>
+      <a href="#signup" class="btn-gold" style="margin-top:1.5rem;display:inline-flex;">I Want to Be Baptized <i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+  </div>
+
+  <!-- WHAT IS BAPTISM -->
+  <section style="background:#faf8f4;padding:5.5rem 0;">
+    <div class="container">
+      <div class="two-col" style="align-items:center;gap:5rem;">
+
+        <!-- Left: Text -->
+        <div class="tc-copy">
+          <p class="eyebrow gold">Understanding Baptism</p>
+          <p style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">What Is <span style="color:var(--gold);">Baptism?</span></p>
+          <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem 0 1.4rem;border-radius:2px;"></div>
+          <p style="color:var(--muted);line-height:1.9;text-align:justify;">Baptism is an outward expression of an inward decision. It is your public declaration that you have placed your faith in Jesus Christ — that you have died to your old self and risen to a new life in Him.</p>
+          <p style="color:var(--muted);line-height:1.9;margin-top:1rem;text-align:justify;">Just as Jesus was buried and raised from the dead, going under the water and coming back up is a picture of that same story — your old life buried and your new life in Christ celebrated.</p>
+          <div style="border-left:3px solid var(--gold);padding:.9rem 1.2rem;margin:1.8rem 0;background:rgba(201,168,76,.07);border-radius:0 8px 8px 0;">
+            <p style="color:var(--gold);font-style:italic;font-family:'Playfair Display',serif;font-size:1.05rem;margin:0;">"We were therefore buried with him through baptism into death in order that, just as Christ was raised from the dead... we too may live a new life." — Romans 6:4</p>
+          </div>
+          <p style="color:var(--muted);line-height:1.9;text-align:justify;">You don't need to be perfect. You just need to have said yes to Jesus. If you have, baptism is your next step.</p>
+        </div>
+
+        <!-- Right: Image -->
+        <div style="border-radius:16px;overflow:hidden;box-shadow:0 16px 60px rgba(0,0,0,.15);position:relative;">
+          <img src="assets/community-1.jpg" alt="Baptism at DOXA Sanctuary" style="width:100%;height:420px;object-fit:cover;display:block;" />
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,27,42,.7));padding:2rem 1.8rem;">
+            <p style="color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;margin:0;font-style:italic;">"Today is the best day to take your next step."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY GET BAPTIZED -->
+  <section style="background:var(--navy);padding:5.5rem 0;">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Three Reasons</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">Why Get <span style="color:var(--gold);">Baptized?</span></p>
+        <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
+        <p style="color:rgba(255,255,255,.6);max-width:520px;margin:0 auto;">Baptism is not about earning God's love — it's about responding to it.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <i class="fa-solid fa-book-open-reader"></i>
+          <h4>Jesus Did It First</h4>
+          <p>Jesus himself was baptized at the start of his ministry. When we follow him into the water, we are following his example and identifying with his death and resurrection.</p>
+        </div>
+        <div class="why-card">
+          <i class="fa-solid fa-flag"></i>
+          <h4>It's a Public Declaration</h4>
+          <p>Baptism is your way of telling the world — your family, friends, and church — that you belong to Jesus. It is your faith made visible.</p>
+        </div>
+        <div class="why-card">
+          <i class="fa-solid fa-people-group"></i>
+          <h4>It's a Celebration</h4>
+          <p>At DOXA, we cheer for every person who goes into that water. Baptism is a moment of celebration for you and for the whole church family.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section style="background:#fff;padding:5.5rem 0;">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">Step by Step</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">What to <span style="color:var(--gold);">Expect</span></p>
+        <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
+        <p style="color:var(--muted);max-width:520px;margin:0 auto;">Here is everything you need to know so you can show up ready and confident.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;">
+
+        <div class="expect-step-card">
+          <div class="step-num-bg">01</div>
+          <div class="step-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+          <h4>Sign Up</h4>
+          <p>Fill out the form below. Our team will reach out to confirm your date and answer any questions.</p>
+        </div>
+
+        <div class="expect-step-card">
+          <div class="step-num-bg">02</div>
+          <div class="step-icon"><i class="fa-solid fa-shirt"></i></div>
+          <h4>What to Wear</h4>
+          <p>Wear comfortable, dark-colored clothing you don't mind getting wet. You'll change into a provided robe if needed.</p>
+        </div>
+
+        <div class="expect-step-card">
+          <div class="step-num-bg">03</div>
+          <div class="step-icon"><i class="fa-solid fa-water"></i></div>
+          <h4>Go Under the Water</h4>
+          <p>A pastor will pray with you and guide you into the water. You'll go under once and come back up — it takes just a few seconds.</p>
+        </div>
+
+        <div class="expect-step-card">
+          <div class="step-num-bg">04</div>
+          <div class="step-icon"><i class="fa-solid fa-hands-clapping"></i></div>
+          <h4>Celebrate!</h4>
+          <p>Your church family will celebrate with you. This is your moment — embrace it, share it, and enjoy it.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:#faf8f4;padding:5.5rem 0;">
+    <div class="container">
+      <div class="section-hd center" style="margin-bottom:3rem;">
+        <p class="eyebrow gold">Common Questions</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">Frequently Asked <span style="color:var(--gold);">Questions</span></p>
+        <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 0;border-radius:2px;"></div>
+      </div>
+
+      <div style="max-width:780px;margin:0 auto;">
+
+        <div class="bap-faq-item">
+          <button class="bap-faq-q" onclick="toggleBapFaq(this)">
+            Do I need to be a perfect Christian to be baptized?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="bap-faq-a">
+            <p>Not at all. Baptism is not a reward for being a good Christian — it is a response to grace. If you have put your faith in Jesus, you are ready. You don't need to have everything figured out. Come as you are.</p>
+          </div>
+        </div>
+
+        <div class="bap-faq-item">
+          <button class="bap-faq-q" onclick="toggleBapFaq(this)">
+            I was baptized as a baby — do I need to be baptized again?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="bap-faq-a">
+            <p>At DOXA Sanctuary, we practice believer's baptism — baptism by full immersion as a personal, conscious decision to follow Jesus. If you made that personal decision and want to declare it publicly, we encourage you to be baptized as a believer, regardless of what happened in infancy.</p>
+          </div>
+        </div>
+
+        <div class="bap-faq-item">
+          <button class="bap-faq-q" onclick="toggleBapFaq(this)">
+            How old do you need to be?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="bap-faq-a">
+            <p>There is no minimum age requirement, but we do ask that the person being baptized understands what they are doing and has made a personal decision to follow Jesus. For younger children, we encourage a conversation with one of our pastors first.</p>
+          </div>
+        </div>
+
+        <div class="bap-faq-item">
+          <button class="bap-faq-q" onclick="toggleBapFaq(this)">
+            When does DOXA hold baptisms?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="bap-faq-a">
+            <p>Baptisms are held periodically throughout the year, typically during Sunday services. Once you fill out the form, our team will reach out to let you know the next available date and walk you through what to expect.</p>
+          </div>
+        </div>
+
+        <div class="bap-faq-item">
+          <button class="bap-faq-q" onclick="toggleBapFaq(this)">
+            Can I invite my family and friends?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="bap-faq-a">
+            <p>Absolutely — please do! Baptism is a celebration and the more people who can share in your moment, the better. Invite everyone who matters to you.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGN-UP FORM -->
+  <section id="signup" style="background:var(--navy);padding:5.5rem 0;">
+    <div class="container">
+      <div class="section-hd center" style="margin-bottom:3rem;">
+        <p class="eyebrow gold">Ready?</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">I Want to Be <span style="color:var(--gold);">Baptized</span></p>
+        <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
+        <p style="color:rgba(255,255,255,.6);max-width:500px;margin:0 auto;">Fill out the form and one of our pastors will reach out to you personally within 48 hours.</p>
+      </div>
+
+      <div style="max-width:680px;margin:0 auto;">
+        <form name="baptism" data-netlify="true" onsubmit="handleBaptismForm(event)" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 16px 60px rgba(0,0,0,.25);">
+          <input type="hidden" name="form-name" value="baptism" />
+          <div class="form-row">
+            <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(631) 000-0000" /></div>
+          <div class="fg">
+            <label>Age Group</label>
+            <select name="age-group" required>
+              <option value="">Select one...</option>
+              <option>Under 18 (parental consent required)</option>
+              <option>18 – 25</option>
+              <option>26 – 40</option>
+              <option>41 – 60</option>
+              <option>60+</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Have you accepted Jesus as your Lord and Savior?</label>
+            <select name="accepted-jesus" required>
+              <option value="">Select one...</option>
+              <option>Yes, I have</option>
+              <option>Recently — I just gave my life to Christ</option>
+              <option>I'm not 100% sure yet — I'd like to talk to someone</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Tell us your story (optional)</label>
+            <textarea name="testimony" rows="4" placeholder="How did you come to faith? Why do you want to be baptized?"></textarea>
+          </div>
+          <button type="submit" class="btn-gold full">Submit My Request <i class="fa-solid fa-paper-plane"></i></button>
+          <p id="baptismNote" style="text-align:center;margin-top:1rem;color:var(--gold);font-weight:600;font-size:.95rem;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section style="position:relative;padding:5.5rem 0;text-align:center;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;"></div>
+    <div style="position:absolute;inset:0;background:rgba(13,27,42,.82);z-index:1;"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <p class="eyebrow gold">Still Have Questions?</p>
+      <h2 style="color:#fff;margin-bottom:.8rem;">We'd Love to Talk With You</h2>
+      <p style="color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 2rem;font-size:1.05rem;">Not sure if you're ready? That's okay. Reach out and one of our pastors will walk with you through it.</p>
+      <a href="contact.html" class="btn-gold">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="index.html" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-34px;" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/topchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="https://www.tiktok.com/@doxa.sanctuary" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>About Us</h5><ul><li><a href="about.html">Who We Are</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="service-times.html">Service Times</a></li><li><a href="small-groups.html">Small Groups</a></li><li><a href="baptism.html">Baptism</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons.html">Sermons</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li><li><a href="bible-reading-plan.html">Daily Bible Reading Plan</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="childrens-ministry.html">Children's Ministry</a></li><li><a href="youth-ministry.html">Youth &amp; Young Adults</a></li><li><a href="mens-ministry.html">Men's Ministry</a></li><li><a href="womens-ministry.html">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleBapFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.bap-faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    function handleBaptismForm(e) {
+      e.preventDefault();
+      const note = document.getElementById('baptismNote');
+      note.textContent = 'Sending…';
+      netlifySubmit(e.target, function() {
+        note.textContent = 'Thank you! A pastor will reach out to you within 48 hours. God bless you!';
+      });
+    }
+  </script>
+
+</body>
+</html>
