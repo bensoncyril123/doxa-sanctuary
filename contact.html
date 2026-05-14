@@ -51,19 +51,20 @@
       <div class="contact-layout">
 
         <!-- FORM CARD -->
-        <form class="contact-form" onsubmit="handleForm(event)" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08);border-top:4px solid var(--gold);border-left:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee;">
+        <form class="contact-form" name="contact" data-netlify="true" onsubmit="handleForm(event)" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08);border-top:4px solid var(--gold);border-left:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee;">
+          <input type="hidden" name="form-name" value="contact" />
           <p class="eyebrow gold" style="margin-bottom:.4rem;">Get in Touch</p>
           <h3 style="color:var(--navy);margin-bottom:.4rem;font-size:1.6rem;">Send Us a Message</h3>
           <div style="width:40px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:1.8rem;"></div>
           <div class="form-row">
-            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
-            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+            <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
           </div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com" required /></div>
-          <div class="fg"><label>Phone (optional)</label><input type="tel" placeholder="(404) 000-0000" /></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(404) 000-0000" /></div>
           <div class="fg">
             <label>How can we help?</label>
-            <select>
+            <select name="topic">
               <option value="">Select a topic...</option>
               <option>General Inquiry</option>
               <option>Prayer Request</option>
@@ -74,7 +75,7 @@
               <option>Baptism</option>
             </select>
           </div>
-          <div class="fg"><label>Message</label><textarea rows="5" placeholder="Tell us how we can help..." required></textarea></div>
+          <div class="fg"><label>Message</label><textarea name="message" rows="5" placeholder="Tell us how we can help..." required></textarea></div>
           <button type="submit" class="btn-gold full">Send Message <i class="fa-solid fa-paper-plane"></i></button>
           <p class="form-note" id="formNote"></p>
         </form>

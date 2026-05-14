@@ -378,16 +378,17 @@
         <p class="sub">Fill out the form below and a group leader will reach out to you within 48 hours.</p>
       </div>
       <div class="sg-form-wrap">
-        <form onsubmit="handleSGForm(event)" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08);border:1px solid #eee;">
+        <form name="small-group-join" data-netlify="true" onsubmit="handleSGForm(event)" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08);border:1px solid #eee;">
+          <input type="hidden" name="form-name" value="small-group-join" />
           <div class="form-row">
-            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
-            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+            <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
           </div>
-          <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
-          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
+          <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(631) 000-0000" /></div>
           <div class="fg">
             <label>Which group are you interested in?</label>
-            <select required>
+            <select name="group" required>
               <option value="">Select a group...</option>
               <option>Bible Study &amp; Discussion</option>
               <option>Prayer Circles</option>
@@ -400,7 +401,7 @@
           </div>
           <div class="fg">
             <label>Tell us a little about yourself (optional)</label>
-            <textarea rows="4" placeholder="How long have you been attending DOXA? What are you hoping to get out of a small group?"></textarea>
+            <textarea name="message" rows="4" placeholder="How long have you been attending DOXA? What are you hoping to get out of a small group?"></textarea>
           </div>
           <button type="submit" class="btn-gold full">Request to Join <i class="fa-solid fa-paper-plane"></i></button>
           <p class="form-note" id="sgNote" style="margin-top:1rem;text-align:center;"></p>
@@ -441,8 +442,10 @@
       e.preventDefault();
       const note = document.getElementById('sgNote');
       note.style.color = 'var(--gold)';
-      note.textContent = 'Thank you! A group leader will reach out to you within 48 hours.';
-      e.target.reset();
+      note.textContent = 'Sending…';
+      netlifySubmit(e.target, function() {
+        note.textContent = 'Thank you! A group leader will reach out to you within 48 hours.';
+      });
     }
 
     // Scroll-triggered animations

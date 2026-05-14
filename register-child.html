@@ -98,23 +98,24 @@
         <!-- Form -->
         <div style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:var(--shadowM);">
           <h3 style="color:var(--navy);margin-bottom:1.5rem;font-size:1.3rem;">Child Registration Form</h3>
-          <form onsubmit="handleRegister(event)">
+          <form name="childrens-registration" data-netlify="true" onsubmit="handleRegister(event)">
+            <input type="hidden" name="form-name" value="childrens-registration" />
             <div class="form-row">
-              <div class="fg"><label>Parent / Guardian First Name</label><input type="text" placeholder="John" required /></div>
-              <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+              <div class="fg"><label>Parent / Guardian First Name</label><input type="text" name="parent-first-name" placeholder="John" required /></div>
+              <div class="fg"><label>Last Name</label><input type="text" name="parent-last-name" placeholder="Doe" required /></div>
             </div>
-            <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
-            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
-            <div class="fg"><label>Child's Full Name</label><input type="text" placeholder="Child's full name" required /></div>
+            <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(631) 000-0000" /></div>
+            <div class="fg"><label>Child's Full Name</label><input type="text" name="child-name" placeholder="Child's full name" required /></div>
             <div class="fg">
               <label>Child's Age Group</label>
-              <select required>
+              <select name="age-group" required>
                 <option value="">Select age group...</option>
                 <option>Nursery — Birth to Age 3</option>
                 <option>Children's Church — Ages 4 to 8</option>
               </select>
             </div>
-            <div class="fg"><label>Anything we should know? (optional)</label><textarea rows="3" placeholder="Allergies, special needs, or anything that helps us serve your child better..."></textarea></div>
+            <div class="fg"><label>Anything we should know? (optional)</label><textarea name="notes" rows="3" placeholder="Allergies, special needs, or anything that helps us serve your child better..."></textarea></div>
             <button type="submit" class="btn-dark full">Submit Registration <i class="fa-solid fa-paper-plane"></i></button>
             <p id="registerNote" style="text-align:center;margin-top:1rem;color:green;font-weight:600;"></p>
           </form>
@@ -142,8 +143,11 @@
   <script>
     function handleRegister(e) {
       e.preventDefault();
-      document.getElementById('registerNote').textContent = "Thank you! Our Children's Ministry team will reach out to you soon. God bless your family!";
-      e.target.reset();
+      const note = document.getElementById('registerNote');
+      note.textContent = 'Sending…';
+      netlifySubmit(e.target, function() {
+        note.textContent = "Thank you! Our Children's Ministry team will reach out to you soon. God bless your family!";
+      });
     }
   </script>
 

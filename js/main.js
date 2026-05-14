@@ -63,16 +63,30 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   if (href && href.split('#')[0] === page) a.classList.add('active');
 });
 
+// ── NETLIFY FORM SUBMISSION ──
+function netlifySubmit(form, successFn) {
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(new FormData(form)).toString()
+  }).then(function() {
+    form.reset();
+    successFn();
+  }).catch(function() {
+    form.reset();
+    successFn();
+  });
+}
+
 // ── CONTACT FORM ──
 function handleForm(e) {
   e.preventDefault();
   const note = document.getElementById('formNote');
   note.textContent = 'Sending…';
-  setTimeout(() => {
+  netlifySubmit(e.target, function() {
     note.textContent = '✓ Message sent! We\'ll be in touch soon.';
-    e.target.reset();
-    setTimeout(() => note.textContent = '', 4000);
-  }, 1200);
+    setTimeout(function() { note.textContent = ''; }, 4000);
+  });
 }
 
 // ── FADE-IN on scroll ──

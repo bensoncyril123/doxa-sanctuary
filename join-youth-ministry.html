@@ -102,22 +102,23 @@
         <!-- Form -->
         <div style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:var(--shadowM);">
           <h3 style="color:var(--navy);margin-bottom:1.5rem;font-size:1.3rem;">Youth & Young Adults Connect Form</h3>
-          <form onsubmit="handleJoin(event)">
+          <form name="youth-ministry" data-netlify="true" onsubmit="handleJoin(event)">
+            <input type="hidden" name="form-name" value="youth-ministry" />
             <div class="form-row">
-              <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
-              <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+              <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
+              <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
             </div>
-            <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
-            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
+            <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(631) 000-0000" /></div>
             <div class="fg">
               <label>Age Group</label>
-              <select required>
+              <select name="age-group" required>
                 <option value="">Select your age group...</option>
                 <option>Teen — Ages 13 to 17</option>
                 <option>Young Adult — Ages 18 to 35</option>
               </select>
             </div>
-            <div class="fg"><label>Anything you'd like us to know? (optional)</label><textarea rows="3" placeholder="Where are you in your faith journey? What are you looking for in this ministry?"></textarea></div>
+            <div class="fg"><label>Anything you'd like us to know? (optional)</label><textarea name="message" rows="3" placeholder="Where are you in your faith journey? What are you looking for in this ministry?"></textarea></div>
             <button type="submit" class="btn-dark full" style="background:#1565c0;border-color:#1565c0;">Connect With Us <i class="fa-solid fa-paper-plane"></i></button>
             <p id="joinNote" style="text-align:center;margin-top:1rem;color:green;font-weight:600;"></p>
           </form>
@@ -145,8 +146,11 @@
   <script>
     function handleJoin(e) {
       e.preventDefault();
-      document.getElementById('joinNote').textContent = "Thank you! Our Youth Ministry team will reach out to you soon. God bless you!";
-      e.target.reset();
+      const note = document.getElementById('joinNote');
+      note.textContent = 'Sending…';
+      netlifySubmit(e.target, function() {
+        note.textContent = "Thank you! Our Youth Ministry team will reach out to you soon. God bless you!";
+      });
     }
   </script>
 

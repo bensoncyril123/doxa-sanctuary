@@ -276,16 +276,17 @@
         <p class="sub">Fill out the form below and the leader of your chosen ministry will reach out to welcome you.</p>
       </div>
       <div style="max-width:680px;margin:2.5rem auto 0;">
-        <form class="contact-form" onsubmit="handleMinistryForm(event)" style="background:#fff;padding:2.5rem;border-radius:12px;box-shadow:var(--shadow);">
+        <form class="contact-form" name="ministry-interest" data-netlify="true" onsubmit="handleMinistryForm(event)" style="background:#fff;padding:2.5rem;border-radius:12px;box-shadow:var(--shadow);">
+          <input type="hidden" name="form-name" value="ministry-interest" />
           <div class="form-row">
-            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
-            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+            <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
+            <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
           </div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com" required /></div>
-          <div class="fg"><label>Phone (optional)</label><input type="tel" placeholder="(404) 000-0000" /></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+          <div class="fg"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(404) 000-0000" /></div>
           <div class="fg">
             <label>Which Ministry Are You Interested In?</label>
-            <select id="ministrySelect" required>
+            <select id="ministrySelect" name="ministry" required>
               <option value="">Select a ministry...</option>
               <option value="children">Children's Ministry</option>
               <option value="youth">Youth &amp; Young Adults</option>
@@ -293,7 +294,7 @@
               <option value="women">Women's Ministry</option>
             </select>
           </div>
-          <div class="fg"><label>Tell Us About Yourself (optional)</label><textarea rows="4" placeholder="Share anything that would help us connect you to the right ministry..."></textarea></div>
+          <div class="fg"><label>Tell Us About Yourself (optional)</label><textarea name="message" rows="4" placeholder="Share anything that would help us connect you to the right ministry..."></textarea></div>
           <button type="submit" class="btn-dark full">Submit <i class="fa-solid fa-paper-plane"></i></button>
           <p class="form-note" id="ministryFormNote"></p>
         </form>
@@ -326,9 +327,11 @@
     function handleMinistryForm(e) {
       e.preventDefault();
       const note = document.getElementById('ministryFormNote');
-      note.style.color = 'green';
-      note.textContent = 'Thank you! A ministry leader will reach out to you soon.';
-      e.target.reset();
+      note.style.color = 'var(--gold)';
+      note.textContent = 'Sending…';
+      netlifySubmit(e.target, function() {
+        note.textContent = 'Thank you! A ministry leader will reach out to you soon.';
+      });
     }
   </script>
   

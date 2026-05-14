@@ -415,30 +415,31 @@
         <p style="color:rgba(255,255,255,.75);font-size:1rem;max-width:560px;margin:0 auto;">Fill out the form below and we will personally reach out to welcome you onto your team and walk you through the next steps.</p>
       </div>
       <div class="vol-form">
-        <form onsubmit="handleVolunteer(event)">
+        <form name="volunteer" data-netlify="true" onsubmit="handleVolunteer(event)">
+          <input type="hidden" name="form-name" value="volunteer" />
           <div class="form-row">
             <div class="fg">
               <label for="vFirstName">First Name</label>
-              <input type="text" id="vFirstName" placeholder="John" required />
+              <input type="text" id="vFirstName" name="first-name" placeholder="John" required />
             </div>
             <div class="fg">
               <label for="vLastName">Last Name</label>
-              <input type="text" id="vLastName" placeholder="Doe" required />
+              <input type="text" id="vLastName" name="last-name" placeholder="Doe" required />
             </div>
           </div>
           <div class="form-row">
             <div class="fg">
               <label for="vEmail">Email</label>
-              <input type="email" id="vEmail" placeholder="you@example.com" required />
+              <input type="email" id="vEmail" name="email" placeholder="you@example.com" required />
             </div>
             <div class="fg">
               <label for="vPhone">Phone (optional)</label>
-              <input type="tel" id="vPhone" placeholder="+1 (000) 000-0000" />
+              <input type="tel" id="vPhone" name="phone" placeholder="+1 (000) 000-0000" />
             </div>
           </div>
           <div class="fg">
             <label for="vTeam">Which Team Are You Interested In?</label>
-            <select id="vTeam" required>
+            <select id="vTeam" name="team" required>
               <option value="" disabled selected>Select a team…</option>
               <option>Worship Team</option>
               <option>Welcome Team</option>
@@ -457,7 +458,7 @@
           </div>
           <div class="fg">
             <label for="vMessage">Anything You'd Like Us to Know? (optional)</label>
-            <textarea id="vMessage" placeholder="Tell us about your gifts, availability, or any questions you have…"></textarea>
+            <textarea id="vMessage" name="message" placeholder="Tell us about your gifts, availability, or any questions you have…"></textarea>
           </div>
           <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:.9rem;">I Want to Serve <i class="fa-solid fa-arrow-right"></i></button>
           <div class="vol-success" id="volSuccess">
@@ -495,8 +496,9 @@
 
     function handleVolunteer(e) {
       e.preventDefault();
-      document.getElementById('volSuccess').style.display = 'block';
-      e.target.reset();
+      netlifySubmit(e.target, function() {
+        document.getElementById('volSuccess').style.display = 'block';
+      });
     }
   </script>
 

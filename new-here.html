@@ -335,16 +335,17 @@
         </div>
         <div class="connect-form-box">
           <h3>We'd Love to Meet You</h3>
-          <form onsubmit="handleConnect(event)">
+          <form name="stay-connected" data-netlify="true" onsubmit="handleConnect(event)">
+            <input type="hidden" name="form-name" value="stay-connected" />
             <div class="form-row">
-              <div class="fg"><label>First Name</label><input type="text" placeholder="John" required /></div>
-              <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+              <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
+              <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
             </div>
-            <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required /></div>
-            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(631) 000-0000" /></div>
+            <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(631) 000-0000" /></div>
             <div class="fg">
               <label>Is this your first time at DOXA?</label>
-              <select required>
+              <select name="visit-status" required>
                 <option value="">Select one...</option>
                 <option>Yes, this is my first time</option>
                 <option>I've visited a couple of times</option>
@@ -353,7 +354,7 @@
             </div>
             <div class="fg">
               <label>How did you hear about us?</label>
-              <select>
+              <select name="referral">
                 <option value="">Select one...</option>
                 <option>A friend or family member</option>
                 <option>Social media (Instagram, Facebook)</option>
@@ -363,7 +364,7 @@
                 <option>Other</option>
               </select>
             </div>
-            <div class="fg"><label>Anything you'd like us to know? (optional)</label><textarea rows="3" placeholder="Questions, prayer requests, or just a hello..."></textarea></div>
+            <div class="fg"><label>Anything you'd like us to know? (optional)</label><textarea name="message" rows="3" placeholder="Questions, prayer requests, or just a hello..."></textarea></div>
             <button type="submit" class="btn-gold full" style="margin-top:.5rem;">Send My Connect Card <i class="fa-solid fa-paper-plane"></i></button>
             <p id="connectNote" style="text-align:center;margin-top:1rem;color:var(--gold);font-weight:600;"></p>
           </form>
@@ -412,8 +413,11 @@
     }
     function handleConnect(e) {
       e.preventDefault();
-      document.getElementById('connectNote').textContent = 'Thank you! Our team will reach out to you within 24 hours. God bless you!';
-      e.target.reset();
+      const note = document.getElementById('connectNote');
+      note.textContent = 'Sending…';
+      netlifySubmit(e.target, function() {
+        note.textContent = 'Thank you! Our team will reach out to you within 24 hours. God bless you!';
+      });
     }
   </script>
 
