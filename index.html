@@ -488,59 +488,13 @@
         <!-- Events List (rendered by JS, filtered to today+) -->
         <div id="homeEventList" style="display:flex;flex-direction:column;gap:1rem;"></div>
 
-        <!-- Mini Calendar -->
+        <!-- Mini Calendar (dynamic) -->
         <div class="mini-cal-card">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
-            <h4 style="color:#fff;font-size:1.1rem;font-weight:700;margin:0;">May 2026</h4>
+            <h4 id="miniCalTitle" style="color:#fff;font-size:1.1rem;font-weight:700;margin:0;"></h4>
             <a href="calendar.html" style="color:var(--gold);font-size:.8rem;font-weight:600;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;">Full Calendar <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;">
-            <span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">Sun</span>
-            <span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">Mon</span>
-            <span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">Tue</span>
-            <span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">Wed</span>
-            <span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">Thu</span>
-            <span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">Fri</span>
-            <span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">Sat</span>
-            <!-- Week 1: May starts on Friday -->
-            <span></span><span></span><span></span><span></span><span></span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">1</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">2</span>
-            <!-- Week 2 -->
-            <span class="cal-event-day">3<span class="cal-tooltip">Community Outreach</span></span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">4</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">5</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">6</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">7</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">8</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">9</span>
-            <!-- Week 3 -->
-            <span class="cal-event-day">10<span class="cal-tooltip">HALAL Service · Youth Kickoff</span></span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">11</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">12</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">13</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">14</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">15</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">16</span>
-            <!-- Week 4 -->
-            <span class="cal-event-day">17<span class="cal-tooltip">Marriage Enrichment Retreat</span></span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">18</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">19</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">20</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">21</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">22</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">23</span>
-            <!-- Week 5 -->
-            <span class="cal-event-day">24<span class="cal-tooltip">Invite Your Friends to Church</span></span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">25</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">26</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">27</span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">28</span>
-            <span class="cal-event-day">29<span class="cal-tooltip">Half Night</span></span>
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">30</span>
-            <!-- Week 6 -->
-            <span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">31</span>
-          </div>
+          <div id="miniCalGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;"></div>
           <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.1);">
             <p style="color:rgba(255,255,255,.5);font-size:.78rem;margin-bottom:.6rem;"><i class="fa-solid fa-circle" style="color:var(--gold);font-size:.5rem;vertical-align:middle;margin-right:.4rem;"></i> Highlighted dates have events</p>
             <a href="calendar.html" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.83rem;">Open Full Calendar <i class="fa-solid fa-arrow-right"></i></a>
@@ -692,6 +646,52 @@
           + '<p style="color:rgba(255,255,255,.5);font-size:.8rem;margin:0;"><i class="fa-regular fa-clock"></i> ' + e.time + ' &nbsp;&middot;&nbsp; <i class="fa-solid fa-location-dot"></i> ' + e.location + '</p>'
           + '</div></div>';
       }).join('');
+    })();
+
+    // ── DYNAMIC MINI CALENDAR ──
+    (function() {
+      var now = new Date();
+      var year = now.getFullYear();
+      var month = now.getMonth();
+      var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var SHORT_MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+      // Build map: day -> [event titles] for this month
+      var eventMap = {};
+      HOME_EVENTS.forEach(function(e) {
+        var p = e.start.split('-');
+        var ey = +p[0], em = +p[1]-1, ed = +p[2];
+        if (ey === year && em === month) {
+          if (!eventMap[ed]) eventMap[ed] = [];
+          eventMap[ed].push(e.title);
+        }
+      });
+
+      // Set title
+      var titleEl = document.getElementById('miniCalTitle');
+      if (titleEl) titleEl.textContent = MONTH_NAMES[month] + ' ' + year;
+
+      // Build grid
+      var grid = document.getElementById('miniCalGrid');
+      if (!grid) return;
+      var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      var html = days.map(function(d){ return '<span style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.3rem 0;">' + d + '</span>'; }).join('');
+
+      // Blank cells before first day
+      var firstDay = new Date(year, month, 1).getDay();
+      for (var i = 0; i < firstDay; i++) html += '<span></span>';
+
+      // Day cells
+      var daysInMonth = new Date(year, month + 1, 0).getDate();
+      for (var d = 1; d <= daysInMonth; d++) {
+        if (eventMap[d]) {
+          var tooltip = eventMap[d].map(function(t){ return t.length > 22 ? t.slice(0,22)+'…' : t; }).join(' · ');
+          html += '<span class="cal-event-day">' + d + '<span class="cal-tooltip">' + tooltip + '</span></span>';
+        } else {
+          html += '<span style="font-size:.85rem;color:rgba(255,255,255,.6);padding:.4rem;border-radius:6px;">' + d + '</span>';
+        }
+      }
+      grid.innerHTML = html;
     })();
 
     const hListView = document.getElementById('homeListView');
