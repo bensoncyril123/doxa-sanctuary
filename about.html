@@ -122,12 +122,6 @@
       transition: opacity .8s ease, transform .8s ease;
     }
     .stats-band.sb-visible { opacity: 1; transform: translateY(0); }
-    @keyframes goldShimmer {
-      0%   { color: inherit; text-shadow: none; }
-      45%  { color: var(--gold); text-shadow: 0 0 20px rgba(201,168,76,.55); }
-      100% { color: inherit; text-shadow: none; }
-    }
-    .stat-n.shimmer { animation: goldShimmer 1.2s ease forwards; }
 
     /* ── GENERAL FADE-UP ── */
     .ab-fade {
@@ -505,9 +499,6 @@
       const sbObs = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
           statsBand.classList.add('sb-visible');
-          setTimeout(() => {
-            document.querySelectorAll('.stat-n').forEach(el => el.classList.add('shimmer'));
-          }, 900);
           sbObs.disconnect();
         }
       }, { threshold: 0.25 });
