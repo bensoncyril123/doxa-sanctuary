@@ -80,6 +80,20 @@
       .page-hero-body{ padding-top:130px!important; }
     }
 
+    /* ── OUR COVERING ANIMATION ── */
+    .cov-fade {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .cov-fade.visible { opacity: 1; transform: translateY(0); }
+    .cov-item {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .cov-item.visible { opacity: 1; transform: translateY(0); }
+
     /* ── TESTIMONY CARDS ANIMATION ── */
     .testimony-card {
       opacity: 0;
@@ -152,26 +166,26 @@
     <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,27,42,.82),rgba(13,27,42,.82));z-index:1;"></div>
     <div style="position:relative;z-index:2;" class="hidden-wrapper">
     <div class="container" style="text-align:center;">
-      <p class="eyebrow gold">Our Covering</p>
-      <h2 style="color:#fff;margin-bottom:1rem;">A Branch of TOP Ministries International</h2>
-      <p style="color:rgba(255,255,255,.7);max-width:680px;margin:0 auto 2rem;font-size:1.05rem;line-height:1.8;">A daughter church of TOP Ministries International, rooted in the same fire, the same doctrine, and the same unwavering vision to advance the Kingdom of God across the nations.</p>
+      <p class="eyebrow gold cov-fade">Our Covering</p>
+      <h2 class="cov-fade" style="color:#fff;margin-bottom:1rem;">A Branch of TOP Ministries International</h2>
+      <p class="cov-fade" style="color:rgba(255,255,255,.7);max-width:680px;margin:0 auto 2rem;font-size:1.05rem;line-height:1.8;">A daughter church of TOP Ministries International, rooted in the same fire, the same doctrine, and the same unwavering vision to advance the Kingdom of God across the nations.</p>
       <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:2rem;">
-        <div style="text-align:center;color:#fff;">
+        <div class="cov-item" style="text-align:center;color:#fff;">
           <i class="fa-solid fa-earth-americas" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
           <strong>Global Reach</strong>
           <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Ministry across nations</p>
         </div>
-        <div style="text-align:center;color:#fff;">
+        <div class="cov-item" style="text-align:center;color:#fff;">
           <i class="fa-solid fa-church" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
           <strong>Apostolic Foundation</strong>
           <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Rooted in sound doctrine</p>
         </div>
-        <div style="text-align:center;color:#fff;">
+        <div class="cov-item" style="text-align:center;color:#fff;">
           <i class="fa-solid fa-fire" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
           <strong>Spirit-Empowered</strong>
           <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Moving in the power of God</p>
         </div>
-        <div style="text-align:center;color:#fff;">
+        <div class="cov-item" style="text-align:center;color:#fff;">
           <i class="fa-solid fa-seedling" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
           <strong>Church Planting</strong>
           <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Expanding His Kingdom</p>
@@ -349,6 +363,25 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); cardObs.unobserve(e.target); } });
     }, { threshold: 0.2 });
     document.querySelectorAll('.top-card').forEach(el => cardObs.observe(el));
+
+    // ── OUR COVERING ANIMATION ──
+    const covWrapper = document.querySelector('.hidden-wrapper');
+    if (covWrapper) {
+      const covObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            covWrapper.querySelectorAll('.cov-fade').forEach((el, i) => {
+              setTimeout(() => el.classList.add('visible'), i * 160);
+            });
+            covWrapper.querySelectorAll('.cov-item').forEach((el, i) => {
+              setTimeout(() => el.classList.add('visible'), 350 + i * 150);
+            });
+            covObs.disconnect();
+          }
+        });
+      }, { threshold: 0.2 });
+      covObs.observe(covWrapper);
+    }
 
     // Stats count-up
     function countUp(el) {
