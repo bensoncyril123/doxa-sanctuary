@@ -94,6 +94,68 @@
       [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
       .fg input, .fg select, .fg textarea { width: 100% !important; box-sizing: border-box !important; }
     }
+
+    /* ── HERO ENTRANCE ── */
+    @keyframes bapEyebrowIn { from{opacity:0;letter-spacing:.35em;} to{opacity:1;letter-spacing:.12em;} }
+    @keyframes bapTitleIn   { from{opacity:0;transform:translateY(36px) scale(.96);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes bapSubIn     { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes bapBtnIn     { from{opacity:0;transform:translateY(14px);} to{opacity:1;transform:translateY(0);} }
+    .page-hero-body .eyebrow.light-gold { animation: bapEyebrowIn .6s ease .1s both; }
+    .page-hero-body h1                  { animation: bapTitleIn .9s cubic-bezier(.34,1.4,.64,1) .35s both; }
+    .page-hero-body > p                 { animation: bapSubIn .7s ease .85s both; }
+    .page-hero-body .btn-gold           { animation: bapBtnIn .6s ease 1.15s both; }
+
+    /* ── GENERAL FADE-UP ── */
+    .bap-fade { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+    .bap-fade.visible { opacity:1; transform:translateY(0); }
+
+    /* ── TWO-COL SLIDE ── */
+    .bap-left  { opacity:0; transform:translateX(-52px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+    .bap-right { opacity:0; transform:translateX(52px);  transition:opacity .8s cubic-bezier(.22,.61,.36,1) .18s, transform .8s cubic-bezier(.22,.61,.36,1) .18s; }
+    .bap-left.visible, .bap-right.visible { opacity:1; transform:none; }
+
+    /* ── WHY CARDS (upgraded) ── */
+    .why-card {
+      opacity:0;
+      transform:translateY(44px) scale(.97);
+      transition:opacity .7s cubic-bezier(.34,1.4,.64,1), transform .7s cubic-bezier(.34,1.4,.64,1), background .3s, box-shadow .3s;
+    }
+    .why-card.visible { opacity:1; transform:translateY(0) scale(1); }
+    .why-card:hover {
+      background: rgba(201,168,76,.1) !important;
+      transform: translateY(-7px) scale(1) !important;
+      box-shadow: 0 0 0 1.5px rgba(201,168,76,.4), 0 24px 52px rgba(0,0,0,.35);
+    }
+
+    /* ── EXPECT STEP CARDS (upgraded) ── */
+    .expect-step-card {
+      opacity:0;
+      transform:translateY(44px) scale(.97);
+      transition:opacity .7s cubic-bezier(.34,1.4,.64,1), transform .7s cubic-bezier(.34,1.4,.64,1), box-shadow .3s;
+    }
+    .expect-step-card.visible { opacity:1; transform:translateY(0) scale(1); }
+    .expect-step-card:hover {
+      transform: translateY(-7px) scale(1) !important;
+      box-shadow: 0 0 0 2px rgba(201,168,76,.4), 0 20px 48px rgba(13,27,42,.15) !important;
+    }
+    .step-icon { transition: transform .3s cubic-bezier(.34,1.4,.64,1); }
+    .expect-step-card:hover .step-icon { transform: scale(1.15) rotate(-5deg); }
+
+    /* ── FAQ ITEMS ── */
+    .bap-faq-item {
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .6s ease, transform .6s ease;
+    }
+    .bap-faq-item.visible { opacity:1; transform:translateY(0); }
+
+    /* ── FORM ── */
+    .bap-form-ani { opacity:0; transform:translateY(36px); transition:opacity .8s ease, transform .8s ease; }
+    .bap-form-ani.visible { opacity:1; transform:translateY(0); }
+
+    /* ── CTA ── */
+    .bap-cta { opacity:0; transform:translateY(28px); transition:opacity .8s ease .1s, transform .8s ease .1s; }
+    .bap-cta.visible { opacity:1; transform:translateY(0); }
   </style>
 </head>
 <body>
@@ -135,7 +197,7 @@
       <div class="two-col" style="align-items:center;gap:5rem;">
 
         <!-- Left: Text -->
-        <div class="tc-copy">
+        <div class="tc-copy bap-left">
           <p class="eyebrow gold">Understanding Baptism</p>
           <p style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">What Is <span style="color:var(--gold);">Baptism?</span></p>
           <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem 0 1.4rem;border-radius:2px;"></div>
@@ -148,7 +210,7 @@
         </div>
 
         <!-- Right: Image -->
-        <div style="border-radius:16px;overflow:hidden;box-shadow:0 16px 60px rgba(0,0,0,.15);position:relative;">
+        <div class="bap-right" style="border-radius:16px;overflow:hidden;box-shadow:0 16px 60px rgba(0,0,0,.15);position:relative;">
           <img src="assets/baptism-hero.jpg" alt="Baptism at DOXA Sanctuary" style="width:100%;height:420px;object-fit:cover;display:block;" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,27,42,.7));padding:2rem 1.8rem;">
             <p style="color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;margin:0;font-style:italic;">"Today is the best day to take your next step."</p>
@@ -162,7 +224,7 @@
   <!-- WHY GET BAPTIZED -->
   <section style="background:var(--navy);padding:5.5rem 0;">
     <div class="container">
-      <div class="section-hd center">
+      <div class="section-hd center bap-fade">
         <p class="eyebrow gold">Three Reasons</p>
         <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">Why Get <span style="color:var(--gold);">Baptized?</span></p>
         <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
@@ -192,7 +254,7 @@
   <!-- WHAT TO EXPECT -->
   <section style="background:#fff;padding:5.5rem 0;">
     <div class="container">
-      <div class="section-hd center">
+      <div class="section-hd center bap-fade">
         <p class="eyebrow gold">Step by Step</p>
         <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">What to <span style="color:var(--gold);">Expect</span></p>
         <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
@@ -236,7 +298,7 @@
   <!-- FAQ -->
   <section style="background:#faf8f4;padding:5.5rem 0;">
     <div class="container">
-      <div class="section-hd center" style="margin-bottom:3rem;">
+      <div class="section-hd center bap-fade" style="margin-bottom:3rem;">
         <p class="eyebrow gold">Common Questions</p>
         <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">Frequently Asked <span style="color:var(--gold);">Questions</span></p>
         <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 0;border-radius:2px;"></div>
@@ -301,14 +363,14 @@
   <!-- SIGN-UP FORM -->
   <section id="signup" style="background:var(--navy);padding:5.5rem 0;">
     <div class="container">
-      <div class="section-hd center" style="margin-bottom:3rem;">
+      <div class="section-hd center bap-fade" style="margin-bottom:3rem;">
         <p class="eyebrow gold">Ready?</p>
         <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">I Want to Be <span style="color:var(--gold);">Baptized</span></p>
         <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
         <p style="color:rgba(255,255,255,.6);max-width:500px;margin:0 auto;">Fill out the form and one of our pastors will reach out to you personally within 48 hours.</p>
       </div>
 
-      <div style="max-width:680px;margin:0 auto;">
+      <div class="bap-form-ani" style="max-width:680px;margin:0 auto;">
         <form name="baptism" data-netlify="true" onsubmit="handleBaptismForm(event)" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 16px 60px rgba(0,0,0,.25);">
           <input type="hidden" name="form-name" value="baptism" />
           <div class="form-row">
@@ -352,7 +414,7 @@
   <section style="position:relative;padding:5.5rem 0;text-align:center;overflow:hidden;">
     <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;"></div>
     <div style="position:absolute;inset:0;background:rgba(13,27,42,.82);z-index:1;"></div>
-    <div class="container" style="position:relative;z-index:2;">
+    <div class="container bap-cta" style="position:relative;z-index:2;">
       <p class="eyebrow gold">Still Have Questions?</p>
       <h2 style="color:#fff;margin-bottom:.8rem;">We'd Love to Talk With You</h2>
       <p style="color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 2rem;font-size:1.05rem;">Not sure if you're ready? That's okay. Reach out and one of our pastors will walk with you through it.</p>
@@ -391,6 +453,64 @@
         note.textContent = 'Thank you! A pastor will reach out to you within 48 hours. God bless you!';
       });
     }
+
+    function obs(el, fn, threshold) {
+      if (!el) return;
+      new IntersectionObserver(function(entries, o) {
+        if (entries[0].isIntersecting) { fn(); o.disconnect(); }
+      }, { threshold: threshold || 0.15 }).observe(el);
+    }
+
+    // Two-col: What Is Baptism
+    obs(document.querySelector('.bap-left'), function() {
+      document.querySelector('.bap-left').classList.add('visible');
+      document.querySelector('.bap-right').classList.add('visible');
+    });
+
+    // Section headings
+    document.querySelectorAll('.bap-fade').forEach(function(el) {
+      obs(el, function() { el.classList.add('visible'); }, 0.2);
+    });
+
+    // Why cards stagger
+    var whyCards = document.querySelectorAll('.why-card');
+    if (whyCards.length) {
+      obs(whyCards[0].closest('section'), function() {
+        whyCards.forEach(function(el, i) {
+          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 140);
+        });
+      }, 0.1);
+    }
+
+    // Expect step cards stagger
+    var stepCards = document.querySelectorAll('.expect-step-card');
+    if (stepCards.length) {
+      obs(stepCards[0].closest('section'), function() {
+        stepCards.forEach(function(el, i) {
+          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 120);
+        });
+      }, 0.1);
+    }
+
+    // FAQ items stagger
+    var faqItems = document.querySelectorAll('.bap-faq-item');
+    if (faqItems.length) {
+      obs(faqItems[0].closest('section'), function() {
+        faqItems.forEach(function(el, i) {
+          setTimeout(function() { el.classList.add('visible'); }, i * 100);
+        });
+      }, 0.1);
+    }
+
+    // Form
+    obs(document.querySelector('.bap-form-ani'), function() {
+      document.querySelector('.bap-form-ani').classList.add('visible');
+    }, 0.1);
+
+    // CTA
+    obs(document.querySelector('.bap-cta'), function() {
+      document.querySelector('.bap-cta').classList.add('visible');
+    }, 0.2);
   </script>
 
 </body>
