@@ -8,6 +8,105 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── HERO ENTRANCE ── */
+    @keyframes heroTitleIn  { from{opacity:0;transform:translateY(36px) scale(.96);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes heroSubIn    { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes goldLineGrow { from{width:0;opacity:0;} to{width:72px;opacity:1;} }
+
+    .page-hero-body h1 { animation: heroTitleIn .9s cubic-bezier(.34,1.4,.64,1) .25s both; }
+    .page-hero-body > p { animation: heroSubIn .7s ease .8s both; }
+    .hero-gold-line {
+      display: block;
+      width: 0; height: 3px;
+      background: var(--gold);
+      margin: .6rem auto 0;
+      border-radius: 2px;
+      animation: goldLineGrow .8s ease 1.1s forwards;
+    }
+
+    /* ── SECTION HEADING ── */
+    .ld-hd { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+    .ld-hd.visible { opacity:1; transform:translateY(0); }
+
+    /* ── DECORATIVE GLOWS ── */
+    #pastors { position:relative; overflow:visible; }
+    #pastors::before {
+      content:''; position:absolute; pointer-events:none;
+      width:700px; height:700px; border-radius:50%;
+      background:radial-gradient(circle, rgba(201,168,76,.07), transparent 65%);
+      top:-120px; left:-200px; z-index:0;
+    }
+    #pastors::after {
+      content:''; position:absolute; pointer-events:none;
+      width:600px; height:600px; border-radius:50%;
+      background:radial-gradient(circle, rgba(201,168,76,.06), transparent 65%);
+      bottom:-80px; right:-180px; z-index:0;
+    }
+    #pastors .container { position:relative; z-index:1; }
+
+    /* ── TEAM CARD ENTRANCE ── */
+    .team-card {
+      opacity: 0;
+      transform: translateY(50px) scale(.97);
+      transition:
+        opacity .7s cubic-bezier(.34,1.4,.64,1),
+        transform .7s cubic-bezier(.34,1.4,.64,1),
+        box-shadow .3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    .team-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      border: 2px solid transparent;
+      border-radius: inherit;
+      transition: border-color .3s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .team-card.visible { opacity:1; transform:translateY(0) scale(1); }
+
+    /* ── TEAM CARD HOVER ── */
+    .team-card:hover {
+      transform: translateY(-10px) scale(1) !important;
+      box-shadow: 0 0 0 2px rgba(201,168,76,.5), 0 32px 64px rgba(13,27,42,.22) !important;
+    }
+    .team-card:hover::after { border-color: rgba(201,168,76,.3); }
+
+    /* ── PHOTO ZOOM ── */
+    .team-photo {
+      transition: transform .55s cubic-bezier(.22,.61,.36,1), filter .4s ease;
+    }
+    .team-card:hover .team-photo {
+      transform: scale(1.07);
+      filter: brightness(1.06);
+    }
+
+    /* ── ROLE + NAME HIGHLIGHT ── */
+    .team-info span { transition: color .3s ease; display:block; }
+    .team-card:hover .team-info span { color: var(--gold); }
+    .team-info h4 { transition: color .3s ease; }
+    .team-card:hover .team-info h4 { color: var(--navy); }
+
+    /* ── SOCIAL ICONS ── */
+    .team-socials a { transition: background .25s, color .25s, transform .25s; }
+    .team-socials a:hover { transform: translateY(-3px) scale(1.12); }
+
+    /* ── GOLD TOP ACCENT LINE ON CARD ── */
+    .team-photo::before {
+      content: '';
+      position: absolute; top:0; left:0; right:0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      z-index: 3;
+      transform: scaleX(0);
+      transition: transform .4s ease;
+    }
+    .team-card:hover .team-photo::before { transform: scaleX(1); }
+
+    @media(max-width:768px){ .page-hero-body{ padding-top:130px!important; } }
+  </style>
 </head>
 <body>
 
@@ -33,8 +132,7 @@
   <div class="page-hero" style="background-image:url('assets/pillar-leadership.jpg');background-position:center top;">
     <div class="page-hero-dim"></div>
     <div class="page-hero-body">
-      <p class="eyebrow light-gold">DOXA Sanctuary</p>
-      <h1>Leadership</h1>
+      <h1>Leadership<span class="hero-gold-line"></span></h1>
       <p>Servant leaders committed to the mission of DOXA Sanctuary.</p>
     </div>
   </div>
@@ -42,7 +140,7 @@
   <!-- PASTORS -->
   <section id="pastors">
     <div class="container">
-      <div class="section-hd center">
+      <div class="section-hd center ld-hd">
         <p class="eyebrow gold">Leadership</p>
         <h2>Meet Our Leaders</h2>
         <p class="sub">Servants of God, leading with love, wisdom, and the Spirit of God.</p>
@@ -137,6 +235,30 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Section heading
+    const ldHd = document.querySelector('.ld-hd');
+    if (ldHd) {
+      new IntersectionObserver(([e], o) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
+      }, { threshold: 0.2 }).observe(ldHd);
+    }
 
+    // Team cards stagger entrance
+    const teamCards = document.querySelectorAll('.team-card');
+    if (teamCards.length) {
+      const tcObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            teamCards.forEach((card, i) => {
+              setTimeout(() => card.classList.add('visible'), i * 120);
+            });
+            tcObs.disconnect();
+          }
+        });
+      }, { threshold: 0.08 });
+      tcObs.observe(teamCards[0]);
+    }
+  </script>
 </body>
 </html>
