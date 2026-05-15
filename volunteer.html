@@ -148,6 +148,30 @@
     .why-pillar i { font-size: 2rem; color: var(--gold); margin-bottom: 1rem; display: block; }
     .why-pillar h4 { color: #fff; font-size: 1.05rem; margin: 0 0 .6rem; }
     .why-pillar p { color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.7; margin: 0; }
+
+    /* ── ANIMATIONS ── */
+    .page-hero-body h1{animation:vH 1s cubic-bezier(.34,1.4,.64,1) both;}
+    .page-hero-body p{animation:vSub .9s ease both .35s;}
+    .page-hero-body>a{animation:vSub .9s ease both .55s;}
+    .hero-gold-line{display:block;width:0;height:3px;background:var(--gold);border-radius:2px;margin:.6rem auto 0;animation:vGL .8s ease both .7s;}
+    @keyframes vH{from{opacity:0;transform:translateY(32px) scale(.96);}to{opacity:1;transform:none;}}
+    @keyframes vSub{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+    @keyframes vGL{from{width:0;opacity:0;}to{width:72px;opacity:1;}}
+
+    /* scroll-triggered */
+    .vs-fade,.flip-card,.vol-form{opacity:0;transform:translateY(32px);transition:opacity 1s ease,transform 1s cubic-bezier(.34,1.4,.64,1);}
+    .vs-fade.visible,.flip-card.visible,.vol-form.visible{opacity:1;transform:none;}
+
+    .why-pillar{opacity:0;transform:translateY(32px);transition:opacity 1s ease,transform 1s cubic-bezier(.34,1.4,.64,1),border-color .3s,box-shadow .3s;}
+    .why-pillar.visible{opacity:1;transform:none;}
+    .why-pillar.visible:hover{border-color:rgba(201,168,76,.55);box-shadow:0 0 28px rgba(201,168,76,.14);}
+
+    .vs-strip{opacity:0;transform:scale(.94) translateY(16px);transition:opacity .9s ease,transform .9s cubic-bezier(.34,1.4,.64,1);}
+    .vs-strip.visible{opacity:1;transform:none;}
+
+    /* flip card icon lift on hover */
+    .flip-front .f-icon{transition:transform .35s cubic-bezier(.34,1.4,.64,1),box-shadow .3s;}
+    .flip-card.visible .flip-front:hover .f-icon{transform:scale(1.18) translateY(-3px);box-shadow:0 8px 24px rgba(201,168,76,.28);}
   </style>
 </head>
 <body>
@@ -502,5 +526,51 @@
     }
   </script>
 
+  <script>
+  (function(){
+    // Hero gold line
+    const h1=document.querySelector('.page-hero-body h1');
+    if(h1) h1.innerHTML+='<span class="hero-gold-line"></span>';
+
+    function obs(els,cb){const io=new IntersectionObserver(ee=>ee.forEach(e=>{if(e.isIntersecting){cb(e.target);io.unobserve(e.target);}}),{threshold:.12});els.forEach(el=>io.observe(el));}
+
+    // Why Serve heading
+    const whySec=document.querySelector('section[style*="background:var(--navy)"][style*="padding:5rem"]');
+    if(whySec){const hd=whySec.querySelector('.container>div');if(hd){hd.classList.add('vs-fade');obs([hd],el=>el.classList.add('visible'));}}
+
+    // Why pillars — stagger 3 cards
+    const wp=[...document.querySelectorAll('.why-pillar')];
+    if(wp.length) obs([wp[0]],()=>wp.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*190)));
+
+    // Photo strip — scale-fade each panel
+    const strips=[...document.querySelectorAll('.photo-strip div')];
+    strips.forEach(el=>el.classList.add('vs-strip'));
+    if(strips.length) obs([strips[0]],()=>strips.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*120)));
+
+    // Teams section heading
+    const teamsHd=document.querySelector('#teams .section-hd');
+    if(teamsHd){teamsHd.classList.add('vs-fade');obs([teamsHd],el=>el.classList.add('visible'));}
+
+    // Flip cards — row-by-row stagger (4 per row)
+    const fc=[...document.querySelectorAll('.flip-card')];
+    if(fc.length){
+      obs([fc[0]],()=>fc.slice(0,4).forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*90)));
+      if(fc[4]) obs([fc[4]],()=>fc.slice(4,8).forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*90)));
+      if(fc[8]) obs([fc[8]],()=>fc.slice(8,12).forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*90)));
+    }
+
+    // Sign-up nudge below grid
+    const nudge=document.querySelector('.teams-grid+div');
+    if(nudge){nudge.classList.add('vs-fade');obs([nudge],el=>el.classList.add('visible'));}
+
+    // Form section heading
+    const formHd=document.querySelector('#serve-form .container>div');
+    if(formHd){formHd.classList.add('vs-fade');obs([formHd],el=>el.classList.add('visible'));}
+
+    // Vol form card
+    const vf=document.querySelector('.vol-form');
+    if(vf) obs([vf],el=>el.classList.add('visible'));
+  })();
+  </script>
 </body>
 </html>
