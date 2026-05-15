@@ -48,6 +48,22 @@
       .leader-block{ padding:2rem 1.2rem!important;gap:1.5rem!important; }
       .leader-photo{ width:120px!important;height:120px!important; }
     }
+    /* ── ANIMATIONS ── */
+    .page-hero-body h1{animation:wmH 1s cubic-bezier(.34,1.4,.64,1) both;}
+    .page-hero-body p{animation:wmSub .9s ease both .35s;}
+    .page-hero-body>div[style*="flex"]{animation:wmSub .9s ease both .55s;}
+    .hero-gold-line{display:block;width:0;height:3px;background:var(--gold);border-radius:2px;margin:.6rem auto 0;animation:wmGL .8s ease both .7s;}
+    @keyframes wmH{from{opacity:0;transform:translateY(32px) scale(.96);}to{opacity:1;transform:none;}}
+    @keyframes wmSub{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+    @keyframes wmGL{from{width:0;opacity:0;}to{width:72px;opacity:1;}}
+    .wm-fade,.pillar-item,.val-card,.leader-block,.faq-item{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s cubic-bezier(.34,1.4,.64,1);}
+    .wm-fade.visible,.pillar-item.visible,.val-card.visible,.leader-block.visible,.faq-item.visible{opacity:1;transform:none;}
+    .wm-left{opacity:0;transform:translateX(-44px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.61,.36,1);}
+    .wm-left.visible{opacity:1;transform:none;}
+    .wm-right{opacity:0;transform:translateX(44px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.61,.36,1);}
+    .wm-right.visible{opacity:1;transform:none;}
+    .wm-cta{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease;}
+    .wm-cta.visible{opacity:1;transform:none;}
   </style>
 </head>
 <body>
@@ -243,5 +259,29 @@
     function handleForm(e) { e.preventDefault(); document.getElementById('formNote').textContent = 'Thank you! Our team will reach out to you soon.'; e.target.reset(); }
   </script>
 
+  <script>
+  (function(){
+    const h1=document.querySelector('.page-hero-body h1');
+    if(h1) h1.innerHTML+='<span class="hero-gold-line"></span>';
+    function obs(els,cb){const io=new IntersectionObserver(ee=>ee.forEach(e=>{if(e.isIntersecting){cb(e.target);io.unobserve(e.target);}}),{threshold:.12});els.forEach(el=>io.observe(el));}
+    const openSec=document.querySelector('section[style*="background:var(--navy)"][style*="padding:4rem"] .container');
+    if(openSec){openSec.classList.add('wm-fade');obs([openSec],el=>el.classList.add('visible'));}
+    document.querySelectorAll('.section-hd.center').forEach(el=>{el.classList.add('wm-fade');obs([el],e=>e.classList.add('visible'));});
+    const pi=[...document.querySelectorAll('.pillar-item')];
+    if(pi.length) obs([pi[0]],()=>pi.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*160)));
+    const tcImg=document.querySelector('.tc-img');
+    const tcCopy=document.querySelector('.tc-copy');
+    if(tcImg){tcImg.classList.add('wm-left');obs([tcImg],el=>el.classList.add('visible'));}
+    if(tcCopy){tcCopy.classList.add('wm-right');obs([tcCopy],el=>el.classList.add('visible'));}
+    const vc=[...document.querySelectorAll('.val-card')];
+    if(vc.length) obs([vc[0]],()=>vc.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*180)));
+    const lb=document.querySelector('.leader-block');
+    if(lb) obs([lb],el=>el.classList.add('visible'));
+    const fq=[...document.querySelectorAll('.faq-item')];
+    if(fq.length) obs([fq[0]],()=>fq.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*160)));
+    const ctaInner=document.querySelector('#connect .container');
+    if(ctaInner){ctaInner.classList.add('wm-cta');obs([ctaInner],el=>el.classList.add('visible'));}
+  })();
+  </script>
 </body>
 </html>

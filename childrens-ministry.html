@@ -87,6 +87,18 @@
       .leader-block{ padding:2rem 1.2rem!important; gap:1.5rem!important; }
       .leader-photo{ width:120px!important; height:120px!important; }
     }
+    /* ── ANIMATIONS ── */
+    .page-hero-body h1{animation:cmH 1s cubic-bezier(.34,1.4,.64,1) both;}
+    .page-hero-body p{animation:cmSub .9s ease both .35s;}
+    .page-hero-body>div[style*="flex"]{animation:cmSub .9s ease both .55s;}
+    .hero-gold-line{display:block;width:0;height:3px;background:var(--gold);border-radius:2px;margin:.6rem auto 0;animation:cmGL .8s ease both .7s;}
+    @keyframes cmH{from{opacity:0;transform:translateY(32px) scale(.96);}to{opacity:1;transform:none;}}
+    @keyframes cmSub{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+    @keyframes cmGL{from{width:0;opacity:0;}to{width:72px;opacity:1;}}
+    .cm-fade,.age-card,.leader-block,.parent-card,.faq-item{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s cubic-bezier(.34,1.4,.64,1);}
+    .cm-fade.visible,.age-card.visible,.leader-block.visible,.parent-card.visible,.faq-item.visible{opacity:1;transform:none;}
+    .cm-act{opacity:0;transform:translateY(28px) scale(.95);transition:opacity .95s ease,transform .95s cubic-bezier(.34,1.4,.64,1);}
+    .cm-act.visible{opacity:1;transform:none;}
   </style>
 </head>
 <body>
@@ -322,5 +334,25 @@
     }
   </script>
 
+  <script>
+  (function(){
+    const h1=document.querySelector('.page-hero-body h1');
+    if(h1) h1.innerHTML+='<span class="hero-gold-line"></span>';
+    function obs(els,cb){const io=new IntersectionObserver(ee=>ee.forEach(e=>{if(e.isIntersecting){cb(e.target);io.unobserve(e.target);}}),{threshold:.12});els.forEach(el=>io.observe(el));}
+    const openSec=document.querySelector('section[style*="background:var(--navy)"] .container');
+    if(openSec){openSec.classList.add('cm-fade');obs([openSec],el=>el.classList.add('visible'));}
+    document.querySelectorAll('.section-hd.center').forEach(el=>{el.classList.add('cm-fade');obs([el],e=>e.classList.add('visible'));});
+    const ac=[...document.querySelectorAll('.age-card')];
+    if(ac.length) obs([ac[0]],()=>ac.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*180)));
+    const actGrid=document.querySelector('[style*="grid-template-columns:repeat(4,1fr)"]');
+    if(actGrid){const items=[...actGrid.children];items.forEach(el=>el.classList.add('cm-act'));if(items[0])obs([items[0]],()=>items.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150)));}
+    const lb=document.querySelector('.leader-block');
+    if(lb) obs([lb],el=>el.classList.add('visible'));
+    const pc=[...document.querySelectorAll('.parent-card')];
+    if(pc.length) obs([pc[0]],()=>pc.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*180)));
+    const fq=[...document.querySelectorAll('.faq-item')];
+    if(fq.length) obs([fq[0]],()=>fq.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*160)));
+  })();
+  </script>
 </body>
 </html>
