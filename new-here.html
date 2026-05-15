@@ -107,6 +107,16 @@
     @media(max-width:480px){
       [style*="grid-template-columns:repeat(4,1fr)"]{ grid-template-columns:1fr!important; }
     }
+
+    /* ── PAGE ANIMATIONS ── */
+    .nh-fade { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+    .nh-fade.visible { opacity:1; transform:translateY(0); }
+    .nh-drop { opacity:0; transform:translateY(-32px); transition:opacity .6s ease, transform .6s ease; }
+    .nh-drop.visible { opacity:1; transform:translateY(0); }
+    .nh-left { opacity:0; transform:translateX(-44px); transition:opacity .8s ease, transform .8s ease; }
+    .nh-left.visible { opacity:1; transform:translateX(0); }
+    .nh-right { opacity:0; transform:translateX(44px); transition:opacity .8s ease .15s, transform .8s ease .15s; }
+    .nh-right.visible { opacity:1; transform:translateX(0); }
   </style>
 </head>
 <body>
@@ -148,9 +158,9 @@
   <section id="expect" style="background:var(--navy);padding:5rem 0;">
     <div class="container">
       <div class="section-hd center">
-        <p class="eyebrow gold">Your First Sunday</p>
-        <h2 style="color:#fff;">What to Expect When You Arrive</h2>
-        <p class="sub" style="color:rgba(255,255,255,.6);">Here's a simple walkthrough of what your first visit at DOXA Sanctuary will look like.</p>
+        <p class="eyebrow gold nh-fade">Your First Sunday</p>
+        <h2 class="nh-fade" style="color:#fff;">What to Expect When You Arrive</h2>
+        <p class="sub nh-fade" style="color:rgba(255,255,255,.6);">Here's a simple walkthrough of what your first visit at DOXA Sanctuary will look like.</p>
       </div>
 
       <!-- Timeline -->
@@ -161,7 +171,7 @@
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative;z-index:1;">
 
           <!-- Step 1 -->
-          <div class="expect-card-new">
+          <div class="expect-card-new nh-drop">
             <div class="ecn-num">01</div>
             <div class="ecn-icon"><i class="fa-solid fa-location-dot"></i></div>
             <h4>Find Us</h4>
@@ -169,7 +179,7 @@
           </div>
 
           <!-- Step 2 -->
-          <div class="expect-card-new">
+          <div class="expect-card-new nh-drop">
             <div class="ecn-num">02</div>
             <div class="ecn-icon"><i class="fa-solid fa-handshake"></i></div>
             <h4>Be Welcomed</h4>
@@ -177,7 +187,7 @@
           </div>
 
           <!-- Step 3 -->
-          <div class="expect-card-new">
+          <div class="expect-card-new nh-drop">
             <div class="ecn-num">03</div>
             <div class="ecn-icon"><i class="fa-solid fa-music"></i></div>
             <h4>Worship Together</h4>
@@ -185,7 +195,7 @@
           </div>
 
           <!-- Step 4 -->
-          <div class="expect-card-new">
+          <div class="expect-card-new nh-drop">
             <div class="ecn-num">04</div>
             <div class="ecn-icon"><i class="fa-solid fa-book-open"></i></div>
             <h4>Hear the Word</h4>
@@ -201,10 +211,10 @@
   <section style="padding:5rem 0;background:#faf8f4;">
     <div class="container">
       <div class="two-col" style="align-items:center;gap:4rem;">
-        <div class="tc-img" style="overflow:hidden;border-radius:12px;">
+        <div class="tc-img nh-left" style="overflow:hidden;border-radius:12px;">
           <img src="assets/dresscode.jpg" alt="DOXA Dress Code" style="width:100%;display:block;margin-top:-120px;" />
         </div>
-        <div class="tc-copy">
+        <div class="tc-copy nh-right">
           <p class="eyebrow gold">Dress Code</p>
           <p style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--navy);line-height:1.1;margin:.3rem 0 0;">Come Exactly<br><span style="color:var(--gold);">As You Are</span></p>
           <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem 0 1.4rem;border-radius:2px;"></div>
@@ -225,7 +235,7 @@
   <section style="background:#fffdf7;padding:5rem 0;">
     <div class="container">
       <div class="two-col" style="align-items:center;gap:4rem;">
-        <div class="tc-copy">
+        <div class="tc-copy nh-left">
           <p class="eyebrow gold">Bring the Kids</p>
           <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">Your Children Are<br><span style="color:var(--gold);">Welcome Here</span></p>
           <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem 0 1.4rem;border-radius:2px;"></div>
@@ -259,7 +269,7 @@
             <a href="childrens-ministry.html" class="btn-dark" style="white-space:nowrap;">Children's Ministry <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="tc-img" style="border-radius:12px;overflow:hidden;">
+        <div class="tc-img nh-right" style="border-radius:12px;overflow:hidden;">
           <img src="assets/bring-the-kids.jpg" alt="DOXA Children's Ministry" style="object-position:center top;" />
         </div>
       </div>
@@ -312,7 +322,7 @@
   <section id="connect">
     <div class="container">
       <div class="connect-wrap">
-        <div class="connect-info">
+        <div class="connect-info nh-left">
           <p class="eyebrow gold">Stay Connected</p>
           <h2>Fill Out a Connect Card</h2>
           <p>We would love to know you were here. Fill out this short form and our team will personally reach out to welcome you, answer your questions, and help you take your next step at DOXA Sanctuary.</p>
@@ -333,7 +343,7 @@
             <a href="contact.html" class="btn-dark">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="connect-form-box">
+        <div class="connect-form-box nh-right">
           <h3>We'd Love to Meet You</h3>
           <form name="stay-connected" data-netlify="true" onsubmit="handleConnect(event)">
             <input type="hidden" name="form-name" value="stay-connected" />
@@ -377,7 +387,7 @@
   <section style="position:relative;padding:6rem 0;text-align:center;overflow:hidden;">
     <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;"></div>
     <div style="position:absolute;inset:0;background:rgba(13,27,42,.82);z-index:1;"></div>
-    <div class="container" style="position:relative;z-index:2;">
+    <div class="container nh-fade" style="position:relative;z-index:2;">
       <p class="eyebrow gold">Your Next Step</p>
       <p style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.15;margin:.4rem 0 0;">Ready to Take the <span style="color:var(--gold);">Next Step?</span></p>
       <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1.5rem;border-radius:2px;"></div>
@@ -405,6 +415,46 @@
 
   <script src="js/main.js"></script>
   <script>
+    // ── PAGE ANIMATIONS ──
+    (function() {
+      // Generic observer for fade, slide-left, slide-right
+      var genObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); genObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.nh-fade, .nh-left, .nh-right').forEach(function(el) { genObs.observe(el); });
+
+      // Step cards — stagger drop-in
+      var expectSec = document.getElementById('expect');
+      if (expectSec) {
+        new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              expectSec.querySelectorAll('.nh-drop').forEach(function(el, i) {
+                setTimeout(function() { el.classList.add('visible'); }, i * 160);
+              });
+            }
+          });
+        }, { threshold: 0.1 }).observe(expectSec);
+      }
+
+      // FAQ items — stagger fade-up
+      var faqList = document.querySelector('.faq-list');
+      if (faqList) {
+        new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              faqList.querySelectorAll('.faq-item').forEach(function(el, i) {
+                el.style.cssText += 'opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;';
+                setTimeout(function() { el.style.opacity='1'; el.style.transform='translateY(0)'; }, i * 80);
+              });
+            }
+          });
+        }, { threshold: 0.1 }).observe(faqList);
+      }
+    })();
+
     function toggleFaq(btn) {
       const item = btn.parentElement;
       const isOpen = item.classList.contains('open');
