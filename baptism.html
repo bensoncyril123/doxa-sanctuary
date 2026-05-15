@@ -106,19 +106,19 @@
     .page-hero-body .btn-gold           { animation: bapBtnIn .6s ease 1.15s both; }
 
     /* ── GENERAL FADE-UP ── */
-    .bap-fade { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+    .bap-fade { opacity:0; transform:translateY(24px); transition:opacity 1s ease, transform 1s ease; }
     .bap-fade.visible { opacity:1; transform:translateY(0); }
 
     /* ── TWO-COL SLIDE ── */
-    .bap-left  { opacity:0; transform:translateX(-52px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
-    .bap-right { opacity:0; transform:translateX(52px);  transition:opacity .8s cubic-bezier(.22,.61,.36,1) .18s, transform .8s cubic-bezier(.22,.61,.36,1) .18s; }
+    .bap-left  { opacity:0; transform:translateX(-52px); transition:opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1); }
+    .bap-right { opacity:0; transform:translateX(52px);  transition:opacity 1.1s cubic-bezier(.22,.61,.36,1) .25s, transform 1.1s cubic-bezier(.22,.61,.36,1) .25s; }
     .bap-left.visible, .bap-right.visible { opacity:1; transform:none; }
 
     /* ── WHY CARDS (upgraded) ── */
     .why-card {
       opacity:0;
       transform:translateY(44px) scale(.97);
-      transition:opacity .7s cubic-bezier(.34,1.4,.64,1), transform .7s cubic-bezier(.34,1.4,.64,1), background .3s, box-shadow .3s;
+      transition:opacity 1s cubic-bezier(.34,1.4,.64,1), transform 1s cubic-bezier(.34,1.4,.64,1), background .3s, box-shadow .3s;
     }
     .why-card.visible { opacity:1; transform:translateY(0) scale(1); }
     .why-card:hover {
@@ -131,7 +131,7 @@
     .expect-step-card {
       opacity:0;
       transform:translateY(44px) scale(.97);
-      transition:opacity .7s cubic-bezier(.34,1.4,.64,1), transform .7s cubic-bezier(.34,1.4,.64,1), box-shadow .3s;
+      transition:opacity 1s cubic-bezier(.34,1.4,.64,1), transform 1s cubic-bezier(.34,1.4,.64,1), box-shadow .3s;
     }
     .expect-step-card.visible { opacity:1; transform:translateY(0) scale(1); }
     .expect-step-card:hover {
@@ -145,16 +145,16 @@
     .bap-faq-item {
       opacity:0;
       transform:translateY(18px);
-      transition:opacity .6s ease, transform .6s ease;
+      transition:opacity .9s ease, transform .9s ease;
     }
     .bap-faq-item.visible { opacity:1; transform:translateY(0); }
 
     /* ── FORM ── */
-    .bap-form-ani { opacity:0; transform:translateY(36px); transition:opacity .8s ease, transform .8s ease; }
+    .bap-form-ani { opacity:0; transform:translateY(36px); transition:opacity 1.1s ease, transform 1.1s ease; }
     .bap-form-ani.visible { opacity:1; transform:translateY(0); }
 
     /* ── CTA ── */
-    .bap-cta { opacity:0; transform:translateY(28px); transition:opacity .8s ease .1s, transform .8s ease .1s; }
+    .bap-cta { opacity:0; transform:translateY(28px); transition:opacity 1.1s ease .15s, transform 1.1s ease .15s; }
     .bap-cta.visible { opacity:1; transform:translateY(0); }
   </style>
 </head>
@@ -477,7 +477,7 @@
     if (whyCards.length) {
       obs(whyCards[0].closest('section'), function() {
         whyCards.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 140);
+          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 210);
         });
       }, 0.1);
     }
@@ -487,7 +487,7 @@
     if (stepCards.length) {
       obs(stepCards[0].closest('section'), function() {
         stepCards.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 120);
+          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 190);
         });
       }, 0.1);
     }
@@ -497,7 +497,7 @@
     if (faqItems.length) {
       obs(faqItems[0].closest('section'), function() {
         faqItems.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('visible'); }, i * 100);
+          setTimeout(function() { el.classList.add('visible'); }, i * 160);
         });
       }, 0.1);
     }

@@ -26,7 +26,7 @@
     }
 
     /* ── SECTION HEADING ── */
-    .ld-hd { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+    .ld-hd { opacity:0; transform:translateY(24px); transition:opacity 1s ease, transform 1s ease; }
     .ld-hd.visible { opacity:1; transform:translateY(0); }
 
     /* ── DECORATIVE GLOWS ── */
@@ -50,8 +50,8 @@
       opacity: 0;
       transform: translateY(50px) scale(.97);
       transition:
-        opacity .7s cubic-bezier(.34,1.4,.64,1),
-        transform .7s cubic-bezier(.34,1.4,.64,1),
+        opacity 1s cubic-bezier(.34,1.4,.64,1),
+        transform 1s cubic-bezier(.34,1.4,.64,1),
         box-shadow .3s ease;
       overflow: hidden;
       position: relative;
@@ -251,7 +251,7 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             teamCards.forEach((card, i) => {
-              setTimeout(() => card.classList.add('visible'), i * 120);
+              setTimeout(() => card.classList.add('visible'), i * 190);
             });
             tcObs.disconnect();
           }

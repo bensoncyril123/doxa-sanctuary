@@ -109,16 +109,16 @@
     }
 
     /* ── PAGE ANIMATIONS ── */
-    .nh-fade { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+    .nh-fade { opacity:0; transform:translateY(28px); transition:opacity 1s ease, transform 1s ease; }
     .nh-fade.visible { opacity:1; transform:translateY(0); }
 
     /* Spring bounce for step cards */
-    .nh-drop { opacity:0; transform:translateY(-40px) scale(.95); transition:opacity .65s cubic-bezier(.34,1.4,.64,1), transform .65s cubic-bezier(.34,1.4,.64,1); }
+    .nh-drop { opacity:0; transform:translateY(-40px) scale(.95); transition:opacity 1s cubic-bezier(.34,1.4,.64,1), transform 1s cubic-bezier(.34,1.4,.64,1); }
     .nh-drop.visible { opacity:1; transform:translateY(0) scale(1); }
 
-    .nh-left { opacity:0; transform:translateX(-48px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+    .nh-left { opacity:0; transform:translateX(-48px); transition:opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1); }
     .nh-left.visible { opacity:1; transform:translateX(0); }
-    .nh-right { opacity:0; transform:translateX(48px); transition:opacity .8s cubic-bezier(.22,.61,.36,1) .18s, transform .8s cubic-bezier(.22,.61,.36,1) .18s; }
+    .nh-right { opacity:0; transform:translateX(48px); transition:opacity 1.1s cubic-bezier(.22,.61,.36,1) .25s, transform 1.1s cubic-bezier(.22,.61,.36,1) .25s; }
     .nh-right.visible { opacity:1; transform:translateX(0); }
 
     /* Step card gold glow hover */
@@ -140,7 +140,7 @@
     .dc-badge.popped { animation:badgePop .5s cubic-bezier(.34,1.56,.64,1) forwards; }
 
     /* Connect highlights stagger slide */
-    .connect-highlight { opacity:0; transform:translateX(-20px); transition:opacity .5s ease, transform .5s ease; }
+    .connect-highlight { opacity:0; transform:translateX(-20px); transition:opacity .9s ease, transform .9s ease; }
     .connect-highlight.visible { opacity:1; transform:translateX(0); }
 
     /* Gold bar expand */
@@ -472,7 +472,7 @@
           var line = expectSec.querySelector('.steps-connector');
           if (line) line.classList.add('drawn');
           expectSec.querySelectorAll('.nh-drop').forEach(function(el, i) {
-            setTimeout(function() { el.classList.add('visible'); }, 200 + i * 180);
+            setTimeout(function() { el.classList.add('visible'); }, 200 + i * 260);
           });
         });
       }
@@ -482,7 +482,7 @@
       if (dcSection) {
         obs(dcSection, 0.2, function() {
           dcSection.querySelectorAll('.dc-badge').forEach(function(el, i) {
-            setTimeout(function() { el.classList.add('popped'); }, 400 + i * 100);
+            setTimeout(function() { el.classList.add('popped'); }, 400 + i * 160);
           });
         });
       }
@@ -492,7 +492,7 @@
       if (connectInfo) {
         obs(connectInfo, 0.2, function() {
           connectInfo.querySelectorAll('.connect-highlight').forEach(function(el, i) {
-            setTimeout(function() { el.classList.add('visible'); }, 300 + i * 140);
+            setTimeout(function() { el.classList.add('visible'); }, 300 + i * 210);
           });
         });
       }
@@ -503,7 +503,7 @@
         obs(faqList, 0.1, function() {
           faqList.querySelectorAll('.faq-item').forEach(function(el, i) {
             el.style.cssText += 'opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;';
-            setTimeout(function() { el.style.opacity='1'; el.style.transform='translateY(0)'; }, i * 90);
+            setTimeout(function() { el.style.opacity='1'; el.style.transform='translateY(0)'; }, i * 150);
           });
         });
       }

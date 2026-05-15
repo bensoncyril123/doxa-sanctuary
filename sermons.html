@@ -26,20 +26,20 @@
     }
 
     /* ── FEATURED SERMON TWO-COL ── */
-    .srm-left  { opacity:0; transform:translateX(-52px); transition:opacity .85s cubic-bezier(.22,.61,.36,1), transform .85s cubic-bezier(.22,.61,.36,1); }
-    .srm-right { opacity:0; transform:translateX(52px);  transition:opacity .85s cubic-bezier(.22,.61,.36,1) .2s, transform .85s cubic-bezier(.22,.61,.36,1) .2s; }
+    .srm-left  { opacity:0; transform:translateX(-52px); transition:opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1); }
+    .srm-right { opacity:0; transform:translateX(52px);  transition:opacity 1.1s cubic-bezier(.22,.61,.36,1) .25s, transform 1.1s cubic-bezier(.22,.61,.36,1) .25s; }
     .srm-left.visible, .srm-right.visible { opacity:1; transform:none; }
 
     /* ── ARCHIVE HEADING + FILTER ── */
-    .srm-fade { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+    .srm-fade { opacity:0; transform:translateY(22px); transition:opacity 1s ease, transform 1s ease; }
     .srm-fade.visible { opacity:1; transform:translateY(0); }
 
     /* ── SERMON CARDS ── */
     .sm-card {
       opacity:0;
       transform:translateY(44px) scale(.97);
-      transition: opacity .7s cubic-bezier(.34,1.4,.64,1),
-                  transform .7s cubic-bezier(.34,1.4,.64,1),
+      transition: opacity 1s cubic-bezier(.34,1.4,.64,1),
+                  transform 1s cubic-bezier(.34,1.4,.64,1),
                   box-shadow .3s ease;
     }
     .sm-card.visible { opacity:1; transform:translateY(0) scale(1); }
@@ -249,7 +249,7 @@
     // Archive heading + filter bar
     document.querySelectorAll('.srm-fade').forEach(function(el, i) {
       obs(el, function() {
-        setTimeout(function() { el.classList.add('visible'); }, i * 120);
+        setTimeout(function() { el.classList.add('visible'); }, i * 190);
       }, 0.15);
     });
 
@@ -258,7 +258,7 @@
     if (cards.length) {
       obs(cards[0].closest('section'), function() {
         cards.forEach(function(card, i) {
-          setTimeout(function() { card.classList.add('visible'); }, i * 90);
+          setTimeout(function() { card.classList.add('visible'); }, i * 150);
         });
       }, 0.05);
     }
