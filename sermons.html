@@ -12,6 +12,62 @@
     @media(max-width:768px){
       .page-hero-body{ padding-top:130px!important; }
     }
+
+    /* ── HERO ENTRANCE ── */
+    @keyframes srmTitleIn  { from{opacity:0;transform:translateY(36px) scale(.96);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes srmSubIn    { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes srmLineGrow { from{width:0;opacity:0;} to{width:72px;opacity:1;} }
+    .page-hero-body h1    { animation: srmTitleIn .9s cubic-bezier(.34,1.4,.64,1) .25s both; }
+    .page-hero-body > p   { animation: srmSubIn .7s ease .8s both; }
+    .hero-gold-line {
+      display:block; width:0; height:3px; background:var(--gold);
+      margin:.6rem auto 0; border-radius:2px;
+      animation: srmLineGrow .8s ease 1.05s forwards;
+    }
+
+    /* ── FEATURED SERMON TWO-COL ── */
+    .srm-left  { opacity:0; transform:translateX(-52px); transition:opacity .85s cubic-bezier(.22,.61,.36,1), transform .85s cubic-bezier(.22,.61,.36,1); }
+    .srm-right { opacity:0; transform:translateX(52px);  transition:opacity .85s cubic-bezier(.22,.61,.36,1) .2s, transform .85s cubic-bezier(.22,.61,.36,1) .2s; }
+    .srm-left.visible, .srm-right.visible { opacity:1; transform:none; }
+
+    /* ── ARCHIVE HEADING + FILTER ── */
+    .srm-fade { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+    .srm-fade.visible { opacity:1; transform:translateY(0); }
+
+    /* ── SERMON CARDS ── */
+    .sm-card {
+      opacity:0;
+      transform:translateY(44px) scale(.97);
+      transition: opacity .7s cubic-bezier(.34,1.4,.64,1),
+                  transform .7s cubic-bezier(.34,1.4,.64,1),
+                  box-shadow .3s ease;
+    }
+    .sm-card.visible { opacity:1; transform:translateY(0) scale(1); }
+    .sm-card:hover {
+      transform: translateY(-6px) scale(1) !important;
+      box-shadow: 0 0 0 2px rgba(201,168,76,.35), 0 20px 50px rgba(13,27,42,.18) !important;
+    }
+
+    /* ── PLAY BUTTON PULSE ── */
+    @keyframes playPulse {
+      0%,100% { box-shadow:0 0 0 0 rgba(201,168,76,.6); }
+      50%      { box-shadow:0 0 0 12px rgba(201,168,76,0); }
+    }
+    .sm-play { animation: playPulse 2.4s ease infinite; }
+    .sm-card:hover .sm-play { transform:scale(1.15); }
+
+    /* ── FEATURED PLAYER GLOW ── */
+    .yt-wrapper {
+      transition: box-shadow .4s ease;
+    }
+    .yt-wrapper:hover {
+      box-shadow: 0 0 0 3px rgba(201,168,76,.4), 0 28px 60px rgba(0,0,0,.25);
+    }
+
+    /* ── WATCH BUTTON HOVER ARROW ── */
+    .btn-dark { transition: background .25s, gap .25s; display:inline-flex; align-items:center; gap:.5rem; }
+    .btn-dark i { transition: transform .25s; }
+    .btn-dark:hover i { transform: translateX(3px); }
   </style>
 </head>
 <body>
@@ -38,8 +94,7 @@
   <div class="page-hero" style="background-image:url('assets/sermons-hero.jpg');">
     <div class="page-hero-dim"></div>
     <div class="page-hero-body">
-      <p class="eyebrow light-gold">The Word</p>
-      <h1>Sermons</h1>
+      <h1>Sermons<span class="hero-gold-line"></span></h1>
       <p>Powerful messages to strengthen your faith — wherever you are.</p>
     </div>
   </div>
@@ -48,12 +103,12 @@
   <section id="featured-sermon">
     <div class="container">
       <div class="sermon-feature-grid">
-        <div class="sermon-player">
+        <div class="sermon-player srm-left">
           <div class="yt-wrapper">
             <iframe src="https://www.youtube.com/embed/GbQTIqdjcVY?rel=0" title="Latest Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="sermon-feature-info">
+        <div class="sermon-feature-info srm-right">
           <p class="eyebrow gold">Latest Message</p>
           <h2>Sunday Service — April 26, 2026</h2>
           <p class="sermon-meta-line"><i class="fa-solid fa-user"></i> Rev. Alex Owusu Jnr. &nbsp;·&nbsp; <i class="fa-regular fa-calendar"></i> April 26, 2026</p>
@@ -70,12 +125,12 @@
   <!-- FILTER + ARCHIVE -->
   <section id="sermon-archive" style="background:var(--off);">
     <div class="container">
-      <div class="section-hd">
+      <div class="section-hd srm-fade">
         <div><p class="eyebrow gold">Archive</p><h2>All Sermons</h2></div>
       </div>
 
       <!-- Filter Bar -->
-      <div class="filter-bar">
+      <div class="filter-bar srm-fade">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="sunday">Sunday Services</button>
         <button class="filter-btn" data-filter="special">Special Services</button>
@@ -176,6 +231,37 @@
         card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
       });
     });
+
+    // ── ANIMATIONS ──
+    function obs(el, fn, threshold) {
+      if (!el) return;
+      new IntersectionObserver(function(entries, o) {
+        if (entries[0].isIntersecting) { fn(); o.disconnect(); }
+      }, { threshold: threshold || 0.15 }).observe(el);
+    }
+
+    // Featured sermon two-col
+    obs(document.querySelector('.srm-left'), function() {
+      document.querySelector('.srm-left').classList.add('visible');
+      document.querySelector('.srm-right').classList.add('visible');
+    }, 0.1);
+
+    // Archive heading + filter bar
+    document.querySelectorAll('.srm-fade').forEach(function(el, i) {
+      obs(el, function() {
+        setTimeout(function() { el.classList.add('visible'); }, i * 120);
+      }, 0.15);
+    });
+
+    // Sermon cards stagger
+    var cards = document.querySelectorAll('.sm-card');
+    if (cards.length) {
+      obs(cards[0].closest('section'), function() {
+        cards.forEach(function(card, i) {
+          setTimeout(function() { card.classList.add('visible'); }, i * 90);
+        });
+      }, 0.05);
+    }
   </script>
 
 </body>
