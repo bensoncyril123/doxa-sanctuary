@@ -664,8 +664,12 @@
       var today = new Date(); today.setHours(0,0,0,0);
       var MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
       var CAT_LABEL = { community:'Community', worship:'Worship', youth:'Youth', growth:'Growth' };
-      var upcoming = HOME_EVENTS.filter(function(e){ return new Date(e.start) >= today; })
-                                .sort(function(a,b){ return new Date(a.start) - new Date(b.start); });
+      function parseLocalDate(s) {
+        var p = s.split('-');
+        return new Date(+p[0], +p[1]-1, +p[2]);
+      }
+      var upcoming = HOME_EVENTS.filter(function(e){ return parseLocalDate(e.start) >= today; })
+                                .sort(function(a,b){ return parseLocalDate(a.start) - parseLocalDate(b.start); });
       var list = document.getElementById('homeEventList');
       if (!list) return;
       if (!upcoming.length) {
@@ -673,7 +677,7 @@
         return;
       }
       list.innerHTML = upcoming.map(function(e) {
-        var d = new Date(e.start);
+        var d = parseLocalDate(e.start);
         var month = MONTHS[d.getMonth()];
         var day = d.getDate();
         var label = CAT_LABEL[e.cat] || e.cat;
