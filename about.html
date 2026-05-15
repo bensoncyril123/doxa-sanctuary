@@ -104,6 +104,74 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── PHOTO STRIP ── */
+    .ps-item {
+      opacity: 0;
+      transform: translateY(30px) scale(.97);
+      transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+    }
+    .ps-item.visible { opacity: 1; transform: translateY(0) scale(1); }
+    .ps-item img { transition: transform .5s ease; }
+    .ps-item:hover img { transform: scale(1.05); }
+
+    /* ── STATS BAND ENTRANCE ── */
+    .stats-band {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .stats-band.sb-visible { opacity: 1; transform: translateY(0); }
+    @keyframes goldShimmer {
+      0%   { color: inherit; text-shadow: none; }
+      45%  { color: var(--gold); text-shadow: 0 0 20px rgba(201,168,76,.55); }
+      100% { color: inherit; text-shadow: none; }
+    }
+    .stat-n.shimmer { animation: goldShimmer 1.2s ease forwards; }
+
+    /* ── GENERAL FADE-UP ── */
+    .ab-fade {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .ab-fade.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MANDATE VALUE CARDS ── */
+    .value-card {
+      opacity: 0;
+      transform: translateY(40px) scale(.97);
+      transition: opacity .65s cubic-bezier(.34,1.4,.64,1), transform .65s cubic-bezier(.34,1.4,.64,1), box-shadow .25s, border-color .25s;
+    }
+    .value-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+    .value-card:hover {
+      box-shadow: 0 0 0 2px rgba(201,168,76,.45), 0 18px 42px rgba(13,27,42,.13) !important;
+      transform: translateY(-5px) scale(1) !important;
+      border-color: rgba(201,168,76,.6) !important;
+    }
+    .value-num { transition: color .25s; }
+    .value-card:hover .value-num { color: var(--gold); }
+
+    /* ── CONVICTION CARDS ── */
+    .conv-card {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .65s cubic-bezier(.34,1.4,.64,1), transform .65s cubic-bezier(.34,1.4,.64,1), background .25s, border-color .25s;
+    }
+    .conv-card.visible { opacity: 1; transform: translateY(0); }
+    .conv-card:hover {
+      background: rgba(201,168,76,.1) !important;
+      border-color: rgba(201,168,76,.5) !important;
+      transform: translateY(-5px) !important;
+    }
+
+    /* ── CTA BAND ── */
+    .ab-cta {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease .1s, transform .8s ease .1s;
+    }
+    .ab-cta.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -221,7 +289,7 @@
   <!-- MANDATE -->
   <section id="mandate" style="background:var(--off);">
     <div class="container">
-      <div class="section-hd center">
+      <div class="section-hd center ab-fade">
         <p class="eyebrow gold">Our Foundation</p>
         <h2>The Mandate of DOXA Sanctuary</h2>
         <p class="sub">Five non-negotiable pillars that define who we are and what we stand for as a church. This is the heartbeat of everything we do.</p>
@@ -261,28 +329,28 @@
     <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center 40%;z-index:0;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,27,42,.88),rgba(13,27,42,.88));z-index:1;"></div>
     <div class="container" style="position:relative;z-index:2;">
-      <div class="section-hd center">
+      <div class="section-hd center ab-fade">
         <p class="eyebrow gold">What Drives Us</p>
         <h2 style="color:#fff;">Our Four Convictions</h2>
         <p class="sub" style="color:rgba(255,255,255,.65);">Every service, every program, and every outreach at DOXA Sanctuary flows from these four foundational convictions.</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:1rem;">
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
+        <div class="conv-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
           <span style="background:var(--gold);color:var(--navy);font-weight:700;font-size:.75rem;padding:.25rem .8rem;border-radius:50px;letter-spacing:.1em;">CONVICTION 01</span>
           <h3 style="margin:1rem 0 .6rem;color:#fff;font-size:1.1rem;">Raising Spirit-Filled Leaders</h3>
           <p style="color:rgba(255,255,255,.65);font-size:.92rem;line-height:1.7;">We are intentional about identifying, training, and releasing men and women who carry the Spirit of God into every sphere of life. Every person who walks through our doors is a leader in the making.</p>
         </div>
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
+        <div class="conv-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
           <span style="background:var(--gold);color:var(--navy);font-weight:700;font-size:.75rem;padding:.25rem .8rem;border-radius:50px;letter-spacing:.1em;">CONVICTION 02</span>
           <h3 style="margin:1rem 0 .6rem;color:#fff;font-size:1.1rem;">Missions &amp; Outreach</h3>
           <p style="color:rgba(255,255,255,.65);font-size:.92rem;line-height:1.7;">The Great Commission is not a suggestion, it is a mandate. From street evangelism in the Bronx to global missions through TOP Ministries International, the Bronx is our starting point and the world is our mission field.</p>
         </div>
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
+        <div class="conv-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
           <span style="background:var(--gold);color:var(--navy);font-weight:700;font-size:.75rem;padding:.25rem .8rem;border-radius:50px;letter-spacing:.1em;">CONVICTION 03</span>
           <h3 style="margin:1rem 0 .6rem;color:#fff;font-size:1.1rem;">Holy Ghost-Impacted Services</h3>
           <p style="color:rgba(255,255,255,.65);font-size:.92rem;line-height:1.7;">Every service is designed for one thing, an encounter with the living God. Spirit-led worship, unadulterated Word, and unceasing prayer are not programs; they are our heartbeat.</p>
         </div>
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
+        <div class="conv-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:2rem;border-top:3px solid var(--gold);">
           <span style="background:var(--gold);color:var(--navy);font-weight:700;font-size:.75rem;padding:.25rem .8rem;border-radius:50px;letter-spacing:.1em;">CONVICTION 04</span>
           <h3 style="margin:1rem 0 .6rem;color:#fff;font-size:1.1rem;">A Place Where Everyone Belongs</h3>
           <p style="color:rgba(255,255,255,.65);font-size:.92rem;line-height:1.7;">DOXA Sanctuary is a place of safety, belonging, and encounter. Whether you are a first-time visitor or a seasoned saint, there is a seat at the table for you. You were made to participate in the glory of God.</p>
@@ -329,7 +397,7 @@
   <section style="position:relative;padding:5rem 0;text-align:center;overflow:hidden;">
     <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center 40%;z-index:0;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,27,42,.72),rgba(13,27,42,.72));z-index:1;"></div>
-    <div class="container" style="position:relative;z-index:2;">
+    <div class="container ab-cta" style="position:relative;z-index:2;">
       <h2 style="color:#fff;margin-bottom:.6rem;">Ready to Be Part of the Family?</h2>
       <p style="color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 1.5rem;font-size:.95rem;">Whether you're new to faith or looking for a church home in the Bronx, there is a place for you at DOXA Sanctuary.</p>
       <a href="contact.html" class="btn-gold">Plan Your Visit <i class="fa-solid fa-arrow-right"></i></a>
@@ -420,6 +488,82 @@
     }, { threshold: 0.15 });
     const testimonySection = document.getElementById('testimonies');
     if (testimonySection) testimonyObserver.observe(testimonySection);
+
+    // ── PHOTO STRIP STAGGER ──
+    const psItems = document.querySelectorAll('.ps-item');
+    const psObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        psItems.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 90));
+        psObs.disconnect();
+      }
+    }, { threshold: 0.1 });
+    if (psItems.length) psObs.observe(psItems[0]);
+
+    // ── STATS BAND ENTRANCE ──
+    const statsBand = document.querySelector('.stats-band');
+    if (statsBand) {
+      const sbObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          statsBand.classList.add('sb-visible');
+          setTimeout(() => {
+            document.querySelectorAll('.stat-n').forEach(el => el.classList.add('shimmer'));
+          }, 900);
+          sbObs.disconnect();
+        }
+      }, { threshold: 0.25 });
+      sbObs.observe(statsBand);
+    }
+
+    // ── MANDATE HEADING + VALUE CARDS ──
+    const mandateHd = document.querySelector('#mandate .ab-fade');
+    if (mandateHd) {
+      new IntersectionObserver(([e], o) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
+      }, { threshold: 0.2 }).observe(mandateHd);
+    }
+    const valueCards = document.querySelectorAll('.value-card');
+    if (valueCards.length) {
+      const vcObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          valueCards.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 110));
+          vcObs.disconnect();
+        }
+      }, { threshold: 0.1 });
+      vcObs.observe(valueCards[0]);
+    }
+
+    // ── CONVICTIONS HEADING + CARDS ──
+    const pillarsHd = document.querySelector('#pillars .ab-fade');
+    if (pillarsHd) {
+      new IntersectionObserver(([e], o) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
+      }, { threshold: 0.2 }).observe(pillarsHd);
+    }
+    const convCards = document.querySelectorAll('.conv-card');
+    if (convCards.length) {
+      const ccObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          convCards.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 130));
+          ccObs.disconnect();
+        }
+      }, { threshold: 0.1 });
+      ccObs.observe(convCards[0]);
+    }
+
+    // ── CTA BAND ──
+    const ctaEl = document.querySelector('.ab-cta');
+    if (ctaEl) {
+      new IntersectionObserver(([e], o) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
+      }, { threshold: 0.2 }).observe(ctaEl);
+    }
+
+    // ── GENERAL AB-FADE ──
+    document.querySelectorAll('.ab-fade:not(#mandate .ab-fade):not(#pillars .ab-fade)').forEach(el => {
+      new IntersectionObserver(([e], o) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
+      }, { threshold: 0.2 }).observe(el);
+    });
   </script>
 
 </body>
