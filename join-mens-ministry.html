@@ -102,8 +102,10 @@
         <!-- Form -->
         <div style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:var(--shadowM);">
           <h3 style="color:var(--navy);margin-bottom:1.5rem;font-size:1.3rem;">Men's Ministry Connect Form</h3>
-          <form name="mens-ministry" data-netlify="true" onsubmit="handleJoin(event)">
-            <input type="hidden" name="form-name" value="mens-ministry" />
+          <form action="https://api.web3forms.com/submit" method="POST" name="mens-ministry">
+          <input type="hidden" name="access_key" value="612a9abd-31db-41e8-8345-22ec5db63163" />
+          <input type="hidden" name="subject" value="New message from DOXA Sanctuary website" />
+          <input type="hidden" name="redirect" value="https://doxatopchurch.org/thank-you" />
             <div class="form-row">
               <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
               <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
@@ -136,13 +138,7 @@
 
   <script src="js/main.js"></script>
   <script>
-    function handleJoin(e) {
-      e.preventDefault();
-      const note = document.getElementById('joinNote');
-      note.textContent = 'Sending…';
-      netlifySubmit(e.target, function() {
-        note.textContent = "Thank you! Our Men's Ministry team will reach out to you soon. God bless you!";
-      });
+    );
     }
   </script>
 

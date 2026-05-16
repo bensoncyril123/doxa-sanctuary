@@ -379,8 +379,10 @@
         </div>
         <div class="connect-form-box nh-right">
           <h3>We'd Love to Meet You</h3>
-          <form name="stay-connected" data-netlify="true" onsubmit="handleConnect(event)">
-            <input type="hidden" name="form-name" value="stay-connected" />
+          <form action="https://api.web3forms.com/submit" method="POST" name="stay-connected">
+          <input type="hidden" name="access_key" value="612a9abd-31db-41e8-8345-22ec5db63163" />
+          <input type="hidden" name="subject" value="New message from DOXA Sanctuary website" />
+          <input type="hidden" name="redirect" value="https://doxatopchurch.org/thank-you" />
             <div class="form-row">
               <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
               <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
@@ -515,13 +517,7 @@
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     }
-    function handleConnect(e) {
-      e.preventDefault();
-      const note = document.getElementById('connectNote');
-      note.textContent = 'Sending…';
-      netlifySubmit(e.target, function() {
-        note.textContent = 'Thank you! Our team will reach out to you within 24 hours. God bless you!';
-      });
+    );
     }
   </script>
 

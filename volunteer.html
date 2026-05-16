@@ -439,8 +439,10 @@
         <p style="color:rgba(255,255,255,.75);font-size:1rem;max-width:560px;margin:0 auto;">Fill out the form below and we will personally reach out to welcome you onto your team and walk you through the next steps.</p>
       </div>
       <div class="vol-form">
-        <form name="volunteer" data-netlify="true" onsubmit="handleVolunteer(event)">
-          <input type="hidden" name="form-name" value="volunteer" />
+        <form action="https://api.web3forms.com/submit" method="POST" name="volunteer">
+          <input type="hidden" name="access_key" value="612a9abd-31db-41e8-8345-22ec5db63163" />
+          <input type="hidden" name="subject" value="New message from DOXA Sanctuary website" />
+          <input type="hidden" name="redirect" value="https://doxatopchurch.org/thank-you" />
           <div class="form-row">
             <div class="fg">
               <label for="vFirstName">First Name</label>
@@ -518,11 +520,7 @@
       });
     });
 
-    function handleVolunteer(e) {
-      e.preventDefault();
-      netlifySubmit(e.target, function() {
-        document.getElementById('volSuccess').style.display = 'block';
-      });
+    );
     }
   </script>
 
