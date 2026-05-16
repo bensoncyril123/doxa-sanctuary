@@ -54,14 +54,55 @@
     </div>
   </div>
 
-  <!-- GIVE OPTIONS -->
-  <section id="give-options" style="background:#faf8f4;padding:5.5rem 0;">
+  <!-- GIVE ONLINE — FEATURED -->
+  <section id="give-online" style="background:#fff;padding:5.5rem 0 4rem;">
     <div class="container">
       <div class="section-hd center">
-        <p class="eyebrow gold">Partner With Us</p>
-        <h2>Ways to Give</h2>
+        <p class="eyebrow gold">Give Online</p>
+        <h2>Credit Card &amp; Bank Transfer</h2>
         <div style="width:60px;height:3px;background:var(--gold);border-radius:2px;margin:1rem auto 1.2rem;"></div>
-        <p class="sub">Your generosity fuels the mission — worship, outreach, discipleship, and community impact.</p>
+        <p class="sub">The safest and easiest way to give — one-time or recurring. Your card or bank account, processed securely.</p>
+      </div>
+
+      <div class="give-featured-card gv-fade" style="margin-top:2.8rem;background:var(--navy);border-radius:20px;overflow:hidden;max-width:780px;margin-left:auto;margin-right:auto;">
+        <div style="display:flex;flex-wrap:wrap;align-items:stretch;">
+          <!-- Left panel -->
+          <div style="flex:1;min-width:260px;padding:3rem 2.4rem;border-right:1px solid rgba(255,255,255,.08);">
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(201,168,76,.14);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;">
+              <i class="fa-solid fa-credit-card" style="color:var(--gold);font-size:1.4rem;"></i>
+            </div>
+            <h3 style="color:#fff;font-size:1.4rem;margin-bottom:.8rem;">Give Securely Online</h3>
+            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.8;margin-bottom:1.6rem;">Use any credit card, debit card, or bank account. Set up a one-time gift or automate recurring giving — weekly, bi-weekly, or monthly.</p>
+            <a href="#" id="give-online-btn" class="btn-gold" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-size:1rem;">Give Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <!-- Right panel — features list -->
+          <div style="flex:1;min-width:220px;padding:3rem 2.4rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+            <div style="display:flex;align-items:flex-start;gap:.9rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem;"><i class="fa-solid fa-shield-halved" style="color:var(--gold);font-size:.8rem;"></i></div>
+              <div><p style="color:#fff;font-weight:600;font-size:.92rem;margin-bottom:.2rem;">Bank-level Security</p><p style="color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.6;">256-bit SSL encryption on every transaction.</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.9rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem;"><i class="fa-solid fa-rotate" style="color:var(--gold);font-size:.8rem;"></i></div>
+              <div><p style="color:#fff;font-weight:600;font-size:.92rem;margin-bottom:.2rem;">Recurring Giving</p><p style="color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.6;">Set it once and give automatically every week or month.</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.9rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem;"><i class="fa-solid fa-receipt" style="color:var(--gold);font-size:.8rem;"></i></div>
+              <div><p style="color:#fff;font-weight:600;font-size:.92rem;margin-bottom:.2rem;">Automatic Tax Receipts</p><p style="color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.6;">Year-end giving statement sent to your email automatically.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER WAYS TO GIVE -->
+  <section id="give-options" style="background:#faf8f4;padding:4rem 0 5.5rem;">
+    <div class="container">
+      <div class="section-hd center">
+        <p class="eyebrow gold">More Ways to Give</p>
+        <h2>Other Options</h2>
+        <div style="width:60px;height:3px;background:var(--gold);border-radius:2px;margin:1rem auto 1.2rem;"></div>
+        <p class="sub">Prefer a different method? We've got you covered.</p>
       </div>
 
       <div class="give-options-grid" style="margin-top:3rem;align-items:stretch;">
@@ -206,9 +247,15 @@
 
     function obs(els,cb){const io=new IntersectionObserver(ee=>ee.forEach(e=>{if(e.isIntersecting){cb(e.target);io.unobserve(e.target);}}),{threshold:.12});els.forEach(el=>io.observe(el));}
 
-    // Ways to Give heading
+    // Featured Give Online card
+    const featCard=document.querySelector('.give-featured-card');
+    if(featCard) obs([featCard],el=>el.classList.add('visible'));
+
+    // Ways to Give headings
     const givHd=document.querySelector('#give-options .section-hd');
     if(givHd){givHd.classList.add('gv-fade');obs([givHd],el=>el.classList.add('visible'));}
+    const givOnlineHd=document.querySelector('#give-online .section-hd');
+    if(givOnlineHd){givOnlineHd.classList.add('gv-fade');obs([givOnlineHd],el=>el.classList.add('visible'));}
 
     // Give cards — stagger
     const gc=[...document.querySelectorAll('.give-big-card')];
