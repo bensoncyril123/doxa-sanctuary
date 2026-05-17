@@ -172,6 +172,10 @@
     /* flip card icon lift on hover */
     .flip-front .f-icon{transition:transform .35s cubic-bezier(.34,1.4,.64,1),box-shadow .3s;}
     .flip-card.visible .flip-front:hover .f-icon{transform:scale(1.18) translateY(-3px);box-shadow:0 8px 24px rgba(201,168,76,.28);}
+
+    /* Mobile: push hero content down so it clears the nav/logo */
+    @media(max-width:768px){.page-hero-body{padding-top:9rem;}}
+    @media(max-width:360px){.page-hero-body{padding-top:8rem;}}
   </style>
 </head>
 <body>
