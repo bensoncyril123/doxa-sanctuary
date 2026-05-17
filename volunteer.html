@@ -577,10 +577,13 @@
     // Tap-to-flip on touch devices
     if('ontouchstart' in window){
       document.querySelectorAll('.flip-card').forEach(card=>{
-        card.addEventListener('click',()=>{
-          const isFlipped=card.classList.contains('flipped');
-          document.querySelectorAll('.flip-card').forEach(c=>c.classList.remove('flipped'));
-          if(!isFlipped) card.classList.add('flipped');
+        card.addEventListener('click',function(){
+          if(this.classList.contains('flipped')){
+            this.classList.remove('flipped');
+          } else {
+            document.querySelectorAll('.flip-card').forEach(c=>c.classList.remove('flipped'));
+            this.classList.add('flipped');
+          }
         });
       });
     }
