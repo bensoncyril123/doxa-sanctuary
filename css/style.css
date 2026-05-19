@@ -683,10 +683,10 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Contact layout */
   .contact-layout{grid-template-columns:1fr;}
 
-  /* Stats — 2×2 grid on mobile */
-  .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+  /* Stats — 2×2 on mobile */
+  .stats-row{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;}
   .stat-divider{display:none;}
-  .stat-item{padding:1.2rem 1rem;}
+  .stat-item{flex:0 0 calc(50% - .5rem);padding:1.2rem .5rem;}
 
   /* Service times */
   .svc-times-row{grid-template-columns:1fr;}
