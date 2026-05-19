@@ -683,9 +683,10 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Contact layout */
   .contact-layout{grid-template-columns:1fr;}
 
-  /* Stats */
-  .stats-row{flex-wrap:wrap;gap:1.5rem;}
+  /* Stats — 2×2 grid on mobile */
+  .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
   .stat-divider{display:none;}
+  .stat-item{padding:1.2rem 1rem;}
 
   /* Service times */
   .svc-times-row{grid-template-columns:1fr;}
