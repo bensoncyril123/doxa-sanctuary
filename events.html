@@ -667,14 +667,17 @@
           const filtered = activeFilter === 'all'
             ? EVENTS
             : EVENTS.filter(e => e.cat === activeFilter);
-          success(filtered.map(e => ({
-            id: e.id,
-            title: e.title,
-            start: e.start,
-            end: e.end || null,
-            classNames: ['fc-event-' + e.cat],
-            extendedProps: e
-          })));
+          success(filtered.map(e => {
+            const ev = {
+              id: e.id,
+              title: e.title,
+              classNames: ['fc-event-' + e.cat],
+              extendedProps: e
+            };
+            if (e.startRecur)  { ev.startRecur = e.startRecur; ev.daysOfWeek = e.daysOfWeek; }
+            else               { ev.start = e.start; ev.end = e.end || null; }
+            return ev;
+          }));
         },
         eventClick: function(info) {
           showPopup(info.event.extendedProps);
