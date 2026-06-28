@@ -606,8 +606,10 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Hard-stop any element from exceeding viewport width */
   img,video,iframe,table{max-width:100%;}
   /* Push homepage hero content below fixed navbar */
-  #hero{align-items:flex-start;padding-top:80px;}
-  #hero .hero-body{padding-top:2rem;}
+  #hero{min-height:auto;align-items:center;padding:6.5rem 0 4.5rem;}
+  #hero .hero-body{padding-top:0;}
+  .hero-scroll{bottom:0.6rem;}
+  .hero-scroll span{height:32px;}
 
   /* Nav dual logo — shrink on mobile */
   .logo-img-link img[alt="TOP Logo"]{height:28px!important;width:28px!important;}
@@ -703,6 +705,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
 /* ── SMALL MOBILE (max 480px) ── */
 @media(max-width:480px){
+  #hero{padding:5.5rem 0 3rem;}
   /* Fix inline section padding */
   section[style*="padding:5"]{padding:2.5rem 0!important;}
   section[style*="padding:6"]{padding:2.5rem 0!important;}
