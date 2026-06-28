@@ -149,6 +149,8 @@
       100% { background-position:200% center; }
     }
     .wb-line, .wb-line-h { display:block; }
+    .wb-body { opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+    .wb-body.wb-visible { opacity:1; transform:translateY(0); }
     .wb-photo { opacity:1; }
     .gold-shimmer {
       background:linear-gradient(90deg, var(--gold) 0%, #f7e9a0 40%, var(--gold) 60%, #c9a84c 100%);
@@ -325,7 +327,7 @@
       <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--navy) 0%, rgba(13,27,42,.5) 18%, transparent 38%);"></div>
     </div>
     <div class="container" style="position:relative;z-index:1;">
-      <div style="max-width:560px;">
+      <div class="wb-body" style="max-width:560px;">
         <h2 style="color:#fff;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.2;margin-bottom:1.3rem;">
           <span class="wb-line-h" data-wi="0">You Have a</span>
           <span class="wb-line-h" data-wi="1"><em class="gold-shimmer" style="font-style:normal;">Place Here.</em></span>
@@ -729,6 +731,17 @@
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
+
+  // ── WELCOME BANNER ANIMATION ──
+  const wbBody = document.querySelector('.wb-body');
+  if (wbBody) {
+    const wbObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { wbBody.classList.add('wb-visible'); wbObserver.disconnect(); }
+      });
+    }, { threshold: 0.15 });
+    wbObserver.observe(document.getElementById('welcome-banner'));
+  }
 
   // ── SERMON SECTION SLIDE-IN ──
   const sermonObserver = new IntersectionObserver((entries) => {
