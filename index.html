@@ -148,13 +148,7 @@
       0%   { background-position:-200% center; }
       100% { background-position:200% center; }
     }
-    .wb-line, .wb-line-h { opacity:0; transform:translateY(32px); transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); display:block; }
-    .wb-line.wb-visible, .wb-line-h.wb-visible { opacity:1; transform:translateY(0); }
-    [data-wi="0"].wb-visible { transition-delay:0s; }
-    [data-wi="1"].wb-visible { transition-delay:.18s; }
-    [data-wi="2"].wb-visible { transition-delay:.36s; }
-    [data-wi="3"].wb-visible { transition-delay:.54s; }
-    [data-wi="4"].wb-visible { transition-delay:.72s; }
+    .wb-line, .wb-line-h { display:block; }
     .wb-photo { opacity:1; }
     .gold-shimmer {
       background:linear-gradient(90deg, var(--gold) 0%, #f7e9a0 40%, var(--gold) 60%, #c9a84c 100%);
@@ -735,31 +729,6 @@
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-  // ── WELCOME BANNER ANIMATION ──
-  // Heading lines fire as soon as the section enters view (with the image)
-  const wbHeadingObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        document.querySelectorAll('.wb-line-h').forEach((el, i) => {
-          setTimeout(() => el.classList.add('wb-visible'), i * 180);
-        });
-        wbHeadingObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.15 });
-  const wbSection = document.getElementById('welcome-banner');
-  if (wbSection) wbHeadingObserver.observe(wbSection);
-
-  // Remaining lines animate individually as scrolled into view
-  const wbLineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('wb-visible');
-        wbLineObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2, rootMargin: '0px 0px -25% 0px' });
-  document.querySelectorAll('.wb-line').forEach(el => wbLineObserver.observe(el));
 
   // ── SERMON SECTION SLIDE-IN ──
   const sermonObserver = new IntersectionObserver((entries) => {
