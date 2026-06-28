@@ -148,13 +148,13 @@
       0%   { background-position:-200% center; }
       100% { background-position:200% center; }
     }
-    .wb-line { opacity:0; transform:translateY(32px); transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); display:block; }
-    .wb-line.wb-visible { opacity:1; transform:translateY(0); }
-    .wb-line[data-wi="0"].wb-visible { transition-delay:0s; }
-    .wb-line[data-wi="1"].wb-visible { transition-delay:.18s; }
-    .wb-line[data-wi="2"].wb-visible { transition-delay:.36s; }
-    .wb-line[data-wi="3"].wb-visible { transition-delay:.54s; }
-    .wb-line[data-wi="4"].wb-visible { transition-delay:.72s; }
+    .wb-line, .wb-line-h { opacity:0; transform:translateY(32px); transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); display:block; }
+    .wb-line.wb-visible, .wb-line-h.wb-visible { opacity:1; transform:translateY(0); }
+    [data-wi="0"].wb-visible { transition-delay:0s; }
+    [data-wi="1"].wb-visible { transition-delay:.18s; }
+    [data-wi="2"].wb-visible { transition-delay:.36s; }
+    [data-wi="3"].wb-visible { transition-delay:.54s; }
+    [data-wi="4"].wb-visible { transition-delay:.72s; }
     .wb-photo { opacity:1; }
     .gold-shimmer {
       background:linear-gradient(90deg, var(--gold) 0%, #f7e9a0 40%, var(--gold) 60%, #c9a84c 100%);
@@ -325,7 +325,7 @@
 
 
   <!-- WELCOME BANNER -->
-  <section id="welcome-banner" style="background:var(--navy);position:relative;overflow:hidden;padding:5.5rem 0;">
+  <section id="welcome-banner" style="background:var(--navy);position:relative;overflow:hidden;padding:5rem 0 5.5rem;">
     <div class="wb-photo" style="position:absolute;right:0;top:0;bottom:0;width:58%;z-index:0;">
       <img src="assets/welcome-community.jpg" alt="DOXA Sanctuary Community" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;" />
       <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--navy) 0%, rgba(13,27,42,.5) 18%, transparent 38%);"></div>
@@ -333,8 +333,8 @@
     <div class="container" style="position:relative;z-index:1;">
       <div style="max-width:560px;">
         <h2 style="color:#fff;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.2;margin-bottom:1.3rem;">
-          <span class="wb-line" data-wi="0">You Have a</span>
-          <span class="wb-line" data-wi="1"><em class="gold-shimmer" style="font-style:normal;">Place Here.</em></span>
+          <span class="wb-line-h" data-wi="0">You Have a</span>
+          <span class="wb-line-h" data-wi="1"><em class="gold-shimmer" style="font-style:normal;">Place Here.</em></span>
         </h2>
         <p class="wb-line" data-wi="2" style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:460px;text-align:justify;">Where church isn't just a building or a Sunday event. It's a family. You're invited to be yourself, connect with others, and grow in faith. No matter where you are on your journey, you have a place with us.</p>
         <div class="wb-line wb-service-info" data-wi="3" style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;margin-bottom:1.4rem;">
@@ -735,8 +735,22 @@
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-  // ── WELCOME BANNER LINE-BY-LINE ANIMATION ──
-  const wbPhoto = document.querySelector('.wb-photo');
+  // ── WELCOME BANNER ANIMATION ──
+  // Heading lines fire as soon as the section enters view (with the image)
+  const wbHeadingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.wb-line-h').forEach((el, i) => {
+          setTimeout(() => el.classList.add('wb-visible'), i * 180);
+        });
+        wbHeadingObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.15 });
+  const wbSection = document.getElementById('welcome-banner');
+  if (wbSection) wbHeadingObserver.observe(wbSection);
+
+  // Remaining lines animate individually as scrolled into view
   const wbLineObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -744,7 +758,7 @@
         wbLineObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2, rootMargin: '0px 0px -35% 0px' });
+  }, { threshold: 0.2, rootMargin: '0px 0px -25% 0px' });
   document.querySelectorAll('.wb-line').forEach(el => wbLineObserver.observe(el));
 
   // ── SERMON SECTION SLIDE-IN ──
