@@ -155,8 +155,7 @@
     .wb-line[data-wi="2"].wb-visible { transition-delay:.36s; }
     .wb-line[data-wi="3"].wb-visible { transition-delay:.54s; }
     .wb-line[data-wi="4"].wb-visible { transition-delay:.72s; }
-    .wb-photo { opacity:0; transform:translateX(50px); transition:opacity .9s ease, transform .9s ease; }
-    .wb-photo.visible { opacity:1; transform:translateX(0); }
+    .wb-photo { opacity:1; }
     .gold-shimmer {
       background:linear-gradient(90deg, var(--gold) 0%, #f7e9a0 40%, var(--gold) 60%, #c9a84c 100%);
       background-size:250% auto;
@@ -747,13 +746,6 @@
     });
   }, { threshold: 0.2, rootMargin: '0px 0px -35% 0px' });
   document.querySelectorAll('.wb-line').forEach(el => wbLineObserver.observe(el));
-  const wbSection = document.getElementById('welcome-banner');
-  if (wbSection && wbPhoto) {
-    const wbPhotoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) { wbPhoto.classList.add('visible'); wbPhotoObserver.disconnect(); } });
-    }, { threshold: 0.15 });
-    wbPhotoObserver.observe(wbSection);
-  }
 
   // ── SERMON SECTION SLIDE-IN ──
   const sermonObserver = new IntersectionObserver((entries) => {
