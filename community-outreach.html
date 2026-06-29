@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
+  <title>Community Outreach | DOXA Sanctuary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* HERO */
+    .or-hero {
+      position: relative;
+      height: 56vh;
+      min-height: 360px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .or-hero img.bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .or-hero-dim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(13,27,42,.5) 0%, rgba(13,27,42,.78) 100%);
+    }
+    .or-hero-body {
+      position: relative;
+      z-index: 1;
+      padding: 0 1.5rem;
+    }
+    .or-eyebrow {
+      display: inline-block;
+      background: rgba(201,168,76,.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.1rem;
+    }
+    .or-hero-body h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: .8rem;
+    }
+    .or-hero-body p {
+      color: rgba(255,255,255,.72);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .or-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+    .or-meta span {
+      color: rgba(255,255,255,.6);
+      font-size: .82rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .or-meta span i { color: var(--gold); }
+
+    /* STORY */
+    .or-story { padding: 5rem 0; background: #fff; }
+    .or-lead {
+      font-size: 1.1rem;
+      line-height: 1.95;
+      color: var(--muted);
+      max-width: 740px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    /* STATS */
+    .or-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+    }
+    .or-stat {
+      text-align: center;
+      background: #fffbf0;
+      border: 1px solid rgba(201,168,76,.25);
+      border-top: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 1.2rem 2rem;
+      min-width: 120px;
+    }
+    .or-stat strong {
+      display: block;
+      font-size: 1.9rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .or-stat span {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--navy);
+    }
+
+    /* BODY TEXT */
+    .or-body {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .or-body p {
+      font-size: 1rem;
+      line-height: 1.95;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+    .or-body strong { color: var(--navy); }
+    .or-pull {
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(90deg, rgba(201,168,76,.07), transparent);
+      padding: 1rem 1.4rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2rem 0;
+    }
+    .or-pull p {
+      margin: 0;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--navy);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .or-pull cite {
+      display: block;
+      margin-top: .5rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* PHOTO GRID */
+    .or-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 3.5rem;
+    }
+    .or-grid-item {
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .or-grid-item.wide { grid-column: span 2; }
+    .or-grid-item img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s ease;
+    }
+    .or-grid-item.wide img { height: 280px; }
+    .or-grid-item:hover img { transform: scale(1.05); }
+
+    /* LIGHTBOX */
+    #or-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #or-lightbox.open { display: flex; }
+    #or-lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    #or-lb-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    /* CTA */
+    .or-cta {
+      background: var(--navy);
+      padding: 4.5rem 0;
+      text-align: center;
+    }
+    .or-cta h2 {
+      color: #fff;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900;
+      margin-bottom: .8rem;
+    }
+    .or-cta p {
+      color: rgba(255,255,255,.6);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .or-cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media(max-width: 767px) {
+      .or-grid { grid-template-columns: 1fr 1fr; }
+      .or-grid-item.wide { grid-column: span 2; }
+      .or-grid-item img, .or-grid-item.wide img { height: 180px; }
+    }
+    @media(max-width: 480px) {
+      .or-grid { grid-template-columns: 1fr; }
+      .or-grid-item.wide { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;">
+        <img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" />
+        <span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span>
+        <img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-34px;" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
+        <li class="has-dropdown"><a href="#">About Us <i class="fa-solid fa-chevron-down fa-xs"></i></a>
+          <ul class="dropdown">
+            <li><a href="about"><i class="fa-solid fa-church"></i> Who We Are</a></li>
+            <li><a href="leadership"><i class="fa-solid fa-users"></i> Leadership</a></li>
+            <li><a href="small-groups"><i class="fa-solid fa-people-group"></i> Small Groups</a></li>
+            <li><a href="contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="new-here" class="nav-im-new">I'm New</a></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a>
+          <ul class="dropdown">
+            <li><a href="sermons"><i class="fa-solid fa-play"></i> Sermons</a></li>
+            <li><a href="gallery"><i class="fa-solid fa-images"></i> Gallery</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown"><a href="events">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a>
+          <ul class="dropdown">
+            <li><a href="events"><i class="fa-solid fa-calendar-days"></i> All Events</a></li>
+            <li><a href="calendar"><i class="fa-regular fa-calendar"></i> Calendar</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown"><a href="#">Ministries <i class="fa-solid fa-chevron-down fa-xs"></i></a>
+          <ul class="dropdown">
+            <li><a href="youth-ministry"><i class="fa-solid fa-users"></i> Youth and Young Adults</a></li>
+            <li><a href="mens-ministry"><i class="fa-solid fa-person"></i> Men's Ministry</a></li>
+            <li><a href="womens-ministry"><i class="fa-solid fa-heart"></i> Women's Ministry</a></li>
+          </ul>
+        </li>
+        <li><a href="volunteer">Serve</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="or-hero">
+    <img class="bg" src="assets/outreach/8.JPG" alt="DOXA Sanctuary Community Outreach" />
+    <div class="or-hero-dim"></div>
+    <div class="or-hero-body">
+      <span class="or-eyebrow">Community Outreach</span>
+      <h1>Taking the Love of Christ<br>to the Streets</h1>
+      <p>DOXA Sanctuary brought food, fellowship, and the Gospel of Jesus Christ to the people of Co-op City, Bronx.</p>
+      <div class="or-meta">
+        <span><i class="fa-regular fa-calendar"></i> June 6, 2026</span>
+        <span><i class="fa-solid fa-location-dot"></i> Co-op City Park, Bronx NY</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="or-story">
+    <div class="container">
+
+      <p class="or-lead">
+        On June 6, 2026, DOXA Sanctuary stepped outside the four walls of the church and brought the love of God to Co-op City Park, near 140 Benchley Place in the Bronx. Armed with food, warm smiles, and the Gospel of Jesus Christ, our team went into the community to serve, connect, and introduce people to the family of God.
+      </p>
+
+      <!-- STATS -->
+      <div class="or-stats">
+        <div class="or-stat"><strong>100+</strong><span>People Reached</span></div>
+        <div class="or-stat"><strong>40+</strong><span>Volunteers</span></div>
+        <div class="or-stat"><strong>1</strong><span>Community</span></div>
+        <div class="or-stat"><strong>1</strong><span>God's Glory</span></div>
+      </div>
+
+      <!-- STORY TEXT -->
+      <div class="or-body">
+        <p>
+          The outreach was more than a food distribution. It was a declaration that <strong>the Church is alive and present in this city.</strong> Members of DOXA Sanctuary showed up in full force, wearing their uniforms with pride, setting up tables, preparing meals, and most importantly, talking with people, praying with them, and sharing the hope that is found in Jesus Christ.
+        </p>
+
+        <div class="or-pull">
+          <p>"We are not just a building on Morris Park Ave. We are a family, and this city is our mission field."</p>
+          <cite>DOXA Sanctuary</cite>
+        </div>
+
+        <p>
+          Families, elderly residents, children, and passersby stopped at our booth. Every person who came received not just food, but a warm welcome, a church flyer, and a personal invitation to be part of something greater. Many had conversations that went deeper than food, conversations about life, faith, and belonging.
+        </p>
+        <p>
+          This is what DOXA Sanctuary is about: <strong>Souls. Apostles Doctrine. Pure Worship.</strong> We believe that reaching our community starts right here in the Bronx, one person at a time. The Bronx is our starting point. The nations are our mission field.
+        </p>
+        <p>
+          We are grateful for every volunteer who gave their time, every hand that served food, every voice that shared the Gospel, and every heart that was open to receive it. This is just the beginning.
+        </p>
+      </div>
+
+      <!-- PHOTO GRID -->
+      <div class="or-grid">
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/16.JPG" alt="DOXA volunteer at outreach" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/4.JPG" alt="TOP Ladies volunteer smiling" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/11.JPG" alt="Volunteer at the outreach" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item wide" onclick="orLightbox(this)">
+          <img src="assets/outreach/6.JPG" alt="Food distribution under the tent" style="object-position:center center;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/12.JPG" alt="Gospel conversation at the outreach" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/1.JPG" alt="Sharing the Gospel one on one" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/17.JPG" alt="Mother and children at the outreach" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item wide" onclick="orLightbox(this)">
+          <img src="assets/outreach/18.jpg" alt="Food table loaded with meals" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/8.JPG" alt="DOXA ladies holding welcome banner" style="object-position:center 15%;" />
+        </div>
+        <div class="or-grid-item wide" onclick="orLightbox(this)">
+          <img src="assets/outreach/10.JPG" alt="Pastor with outreach team members" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/3.JPG" alt="DOXA team at the outreach booth" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/7.JPG" alt="TOP Ladies volunteers" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/21.jpg" alt="Community members at the park" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item wide" onclick="orLightbox(this)">
+          <img src="assets/outreach/19.jpg" alt="Welcoming families to the outreach" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/13.JPG" alt="Preparing food for the community" style="object-position:center top;" />
+        </div>
+        <div class="or-grid-item" onclick="orLightbox(this)">
+          <img src="assets/outreach/14.JPG" alt="Serving children at the outreach" style="object-position:center top;" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="or-cta">
+    <div class="container">
+      <h2>Want to Serve With Us?</h2>
+      <p>Join our team and be part of reaching the Bronx and the world with the love of Christ.</p>
+      <div class="or-cta-btns">
+        <a href="volunteer" class="btn-gold" style="padding:.85rem 2rem;font-size:.9rem;">Become a Volunteer <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="contact" style="display:inline-flex;align-items:center;gap:.5rem;border:2px solid rgba(255,255,255,.45);color:#fff;padding:.85rem 2rem;font-size:.9rem;font-weight:600;border-radius:4px;text-decoration:none;transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(255,255,255,.45)'">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="/" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-34px;" /></a><p>A Spirit-filled community in the Bronx, NY, committed to glorifying God, raising leaders, and reaching the world.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/doxatopchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="https://www.tiktok.com/@doxa.sanctuary" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>About Us</h5><ul><li><a href="about">Who We Are</a></li><li><a href="leadership">Leadership</a></li><li><a href="service-times">Service Times</a></li><li><a href="small-groups">Small Groups</a></li><li><a href="contact">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons">Sermons</a></li><li><a href="gallery">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li><li><a href="bible-reading-plan">Daily Bible Reading Plan</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="ministries">Children's Ministry</a></li><li><a href="ministries">Youth &amp; Young Adults</a></li><li><a href="ministries">Men's Ministry</a></li><li><a href="ministries">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service &middot; 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom &middot; 7:00 PM &ndash; 8:00 PM</p><a href="give" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary, Bronx, NY. All rights reserved.</p><p>A branch of TOP Ministries International &nbsp;&middot;&nbsp; Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="or-lightbox">
+    <button id="or-lb-close" onclick="orCloseLb()">&times;</button>
+    <img id="or-lb-img" src="" alt="Outreach photo" />
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function orLightbox(el) {
+      document.getElementById('or-lb-img').src = el.querySelector('img').src;
+      document.getElementById('or-lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function orCloseLb() {
+      document.getElementById('or-lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('or-lightbox').addEventListener('click', function(e) {
+      if (e.target === this) orCloseLb();
+    });
+  </script>
+</body>
+</html>
