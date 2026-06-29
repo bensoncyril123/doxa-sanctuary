@@ -28,7 +28,7 @@ a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
 img{max-width:100%;display:block;object-fit:cover;}
 section{padding:5.5rem 0;position:relative;}
-.container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+.container{max-width:1320px;margin:0 auto;padding:0 1.2rem;}
 .center{text-align:center;}
 .mt3{margin-top:2.5rem;}
 
@@ -58,7 +58,7 @@ section{padding:5.5rem 0;position:relative;}
 /* ── NAVBAR ── */
 #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.15rem 0;background:var(--navy);border-bottom:1px solid rgba(201,168,76,.2);transition:var(--t);}
 #navbar.scrolled{background:var(--navy);padding:.15rem 0;box-shadow:0 4px 24px rgba(0,0,0,.35);border-bottom:1px solid rgba(201,168,76,.25);}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:2.5rem;}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 1.2rem;display:flex;align-items:center;gap:2.5rem;}
 .logo{display:flex;align-items:center;gap:.55rem;color:#fff;white-space:nowrap;}
 .logo-cross{font-size:1.3rem;color:var(--gold);}
 .logo-text{font-family:'Playfair Display',serif;font-size:1.05rem;letter-spacing:.03em;}
