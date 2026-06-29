@@ -396,7 +396,7 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
         <div style="min-width:0;">
           <span style="display:inline-block;background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:1.1rem;">Community Outreach</span>
-          <h2 style="color:var(--navy);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.15;margin-bottom:1rem;">We Don't Just Preach It.<br>We Live It.</h2>
+          <h2 style="color:var(--navy);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.15;margin-bottom:1rem;">We Don't Just Preach It.<br>We Live It.</h2>
           <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.6rem;text-align:justify;">At DOXA Sanctuary, the church doesn't wait for the community to come to us — we go to them. We take the love of Christ to the streets, showing up with food, fellowship, and the Gospel of Jesus Christ right where people are. Because we believe that faith without action is incomplete, and love without presence means nothing. We are not content to simply hold services on Sunday and close our doors on Monday. We are a church on the move — alive, active, and deeply invested in the wellbeing of the people around us. The Bronx is not just the neighborhood we occupy. It is the community we are called to serve, to love, and to pour into with everything we have. And beyond the tangible, we bring something that cannot be packaged or handed out — genuine human connection. We sit with people. We listen. We pray. We look them in the eyes and remind them that they are not invisible, that their life has value, and that there is a community right here in the Bronx that has room for them.</p>
           <a href="community-outreach" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;padding:.8rem 1.8rem;border-radius:4px;font-weight:700;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .25s,gap .25s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='#fff'">Read the Full Story <i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -430,10 +430,15 @@
   </section>
 
   <!-- FEATURED SERMON -->
-  <section id="featured-sermon" style="background:var(--off);">
+  <section id="featured-sermon" style="background:#fdfaf4;">
     <div class="container">
-      <div class="sermon-feature-grid" style="grid-template-columns:1fr 1.2fr;">
-        <div class="sermon-feature-info sermon-slide-left" style="opacity:0;transform:translateX(-40px);transition:opacity .8s ease, transform .8s ease;">
+      <div class="sermon-feature-grid" style="grid-template-columns:1.2fr 1fr;">
+        <div class="sermon-player sermon-slide-left" style="opacity:0;transform:translateX(-40px);transition:opacity .8s ease, transform .8s ease;">
+          <div class="yt-wrapper">
+            <iframe src="https://www.youtube.com/embed/h_3lbPJhB9E?rel=0" title="Latest Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="sermon-feature-info sermon-slide-right" style="opacity:0;transform:translateX(40px);transition:opacity .8s ease .2s, transform .8s ease .2s;">
           <span class="sr" style="display:inline-block;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:1rem;">Latest Message</span>
           <div style="border-left:3px solid var(--gold);padding-left:1rem;margin-bottom:.8rem;">
             <h2 style="margin:0;">Celebration Service — June 28, 2026</h2>
@@ -441,13 +446,13 @@
           <p class="sermon-meta-line"><i class="fa-solid fa-user"></i> Rev. Alex Owusu Jnr. &nbsp;·&nbsp; <i class="fa-regular fa-calendar"></i> June 28, 2026</p>
           <span class="sermon-series-tag">TOP Ministries NYC</span>
           <p style="text-align:justify;">Join us for a powerful Sunday Celebration Service at DOXA Sanctuary. Spirit-filled worship, unadulterated Word, and the presence of God on full display.</p>
+          <blockquote style="border-left:3px solid var(--gold);padding:.6rem 1rem;margin:1rem 0;background:rgba(201,168,76,.06);border-radius:0 6px 6px 0;">
+            <p style="color:var(--navy);font-style:italic;font-size:.93rem;margin:0;line-height:1.7;">"The Lord is my shepherd; I shall not want."</p>
+            <cite style="color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.08em;font-style:normal;margin-top:.3rem;display:block;">— Psalm 23:1</cite>
+          </blockquote>
           <div class="sermon-feature-btns">
+            <a href="https://www.youtube.com/live/h_3lbPJhB9E?si=FhfMHS0U7AJP3L2G" target="_blank" class="btn-gold" style="transition:gap .3s ease;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='.5rem'"><i class="fa-brands fa-youtube"></i> Watch Now</a>
             <a href="sermons" class="btn-dark" style="transition:gap .3s ease;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='.5rem'">All Sermons <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="sermon-player sermon-slide-right" style="opacity:0;transform:translateX(40px);transition:opacity .8s ease .2s, transform .8s ease .2s;">
-          <div class="yt-wrapper">
-            <iframe src="https://www.youtube.com/embed/h_3lbPJhB9E?rel=0" title="Latest Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
