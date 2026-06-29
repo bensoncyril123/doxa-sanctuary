@@ -187,14 +187,8 @@
       position: relative;
     }
     .about-text-side .mini-stats > div:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
-    .about-text-side .mini-stats > div:nth-child(1) { border-color: var(--gold); background: rgba(201,168,76,.06); }
-    .about-text-side .mini-stats > div:nth-child(2) { border-color: #1d4ed8; background: rgba(29,78,216,.06); }
-    .about-text-side .mini-stats > div:nth-child(3) { border-color: var(--navy); background: rgba(13,27,42,.06); }
-    .about-text-side .mini-stats > div:nth-child(4) { border-color: #991b1b; background: rgba(153,27,27,.06); }
-    .about-text-side .mini-stats > div:nth-child(1) strong { color: var(--gold) !important; font-size: 1.7rem; white-space:nowrap; }
-    .about-text-side .mini-stats > div:nth-child(2) strong { color: #1d4ed8 !important; font-size: 1.7rem; white-space:nowrap; }
-    .about-text-side .mini-stats > div:nth-child(3) strong { color: var(--navy) !important; font-size: 1.7rem; white-space:nowrap; }
-    .about-text-side .mini-stats > div:nth-child(4) strong { color: #991b1b !important; font-size: 1.7rem; white-space:nowrap; }
+    .about-text-side .mini-stats > div { border-color: var(--gold); background: rgba(201,168,76,.06); }
+    .about-text-side .mini-stats > div strong { color: var(--gold) !important; font-size: 1.7rem; white-space:nowrap; }
     .about-text-side .mini-stats > div + div::before { display: none; }
     .about-text-side .mini-stats span { font-size: .72rem; }
 
@@ -357,13 +351,15 @@
             <img src="assets/about-leadership-3.jpg" alt="DOXA Sanctuary Leadership" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.15);transform-origin:center 30%;display:block;" />
             <!-- Name label overlay -->
             <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,27,42,.85));padding:1.2rem 1.4rem;">
-              <p style="color:#fff;font-weight:800;font-size:.9rem;margin:0;letter-spacing:.04em;text-shadow:0 1px 4px rgba(0,0,0,.5);">Our Leadership Team</p>
-              <p style="color:var(--gold);font-size:.75rem;margin:0;letter-spacing:.08em;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.5);">DOXA Sanctuary · Bronx, NY</p>
+              <div style="border-left:3px solid var(--gold);padding-left:.75rem;">
+                <p style="color:#fff;font-weight:800;font-size:.9rem;margin:0;letter-spacing:.04em;text-shadow:0 1px 4px rgba(0,0,0,.5);">Our Leadership Team</p>
+                <p style="color:var(--gold);font-size:.75rem;margin:0;letter-spacing:.08em;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.5);">DOXA Sanctuary · Bronx, NY</p>
+              </div>
             </div>
           </div>
           <!-- Pastor quote -->
-          <div style="position:absolute;bottom:-24px;left:-24px;background:var(--navy);border-radius:12px;padding:1rem 1.2rem;max-width:220px;z-index:2;box-shadow:0 8px 30px rgba(13,27,42,.25);">
-            <div style="position:absolute;top:-1px;left:-1px;right:-1px;bottom:-1px;border-radius:12px;border:1px solid rgba(201,168,76,.25);pointer-events:none;"></div>
+          <div style="position:absolute;top:-65px;right:-28px;background:#1a2d42;border-radius:12px;padding:1rem 1.2rem;max-width:200px;z-index:2;box-shadow:0 8px 30px rgba(0,0,0,.35);border:1.5px solid var(--gold);">
+
             <i class="fa-solid fa-quote-left" style="color:var(--gold);font-size:.9rem;margin-bottom:.4rem;display:block;"></i>
             <p style="color:#fff;font-size:.78rem;line-height:1.6;margin:0;font-style:italic;">"The Bronx is our starting point. The nations are our mission field."</p>
           </div>
