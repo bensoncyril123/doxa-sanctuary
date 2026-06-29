@@ -224,20 +224,17 @@
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
   <script>
     const EVENTS = [
-      { title:'Community Outreach Day',     start:'2026-05-03', cat:'community', desc:'Join us as we serve our city — food distribution, neighborhood cleanup, and free prayer for all who come.',           time:'8:00 AM – 2:00 PM',  location:'Church Parking Lot', ticket:'Volunteer signup encouraged' },
-      { title:'HALAL (Praise) Service',     start:'2026-05-10', cat:'worship',   desc:'An evening of extravagant praise and worship as we lift up the name of the Lord. Come ready to glorify God!',       time:'10:00 AM',            location:'Church Auditorium',  ticket:'Free — All Welcome' },
-      { title:'Youth Summer Kickoff',       start:'2026-05-10', cat:'youth',     desc:'Games, worship, and real connection for teens and young adults. The best summer starts right here at DOXA!',         time:'6:00 PM – 9:00 PM',  location:'Youth Hall',         ticket:'Free — Ages 13–25' },
-      { title:'Marriage Enrichment Retreat',start:'2026-05-17', end:'2026-05-19', cat:'growth', desc:'A weekend designed to strengthen and refresh marriages through teaching, fellowship, and focused time.', time:'Fri 6PM – Sun 2PM', location:'Retreat Center',     ticket:'Registration required · Limited space' },
-      { title:'Invite Your Friends to Church Day', start:'2026-05-24', cat:'community', desc:'Bring someone you love to experience God\'s presence and the warmth of our DOXA family. Everyone is welcome!', time:'10:00 AM', location:'Church Auditorium', ticket:'Free — Bring a Friend!' },
-      { title:'Half Night',                 start:'2026-05-29', cat:'worship',   desc:'A powerful night of prayer, worship, and the Word. Come seek the face of God with us as we press into His presence together.', time:'10:00 PM', location:'Church Auditorium', ticket:'Free — All Welcome' },
-      { title:"Women's Ministry Outreach",  start:'2026-06-06', cat:'community', desc:'Our women go into the community to reach the unsaved and unchurched with the love of Christ.', time:'10:00 AM', location:'Co-Op City, Bronx', ticket:'Free — All Welcome' },
-      { title:'Youth Camp — Ignited for Impact', start:'2026-06-25', end:'2026-06-28', cat:'youth', desc:'"Stir up the gift of God which is in you." — 2 Tim. 1:6. A 3-day camp to ignite the next generation for God\'s purpose, power, and mission.', time:'June 25 – 27, 2026', location:'Contact us for venue details', ticket:'Youth Ministry — Ages 13–35' },
+      { title:'Barbecue with Pastor',           start:'2026-07-04', cat:'community', desc:'Join us for a fun-filled barbecue with our pastor. Great food, great fellowship, and great company — all are welcome!', time:'TBA', location:'TBA', ticket:'Free — All Welcome' },
+      { title:"Women's Ministry Health Walk",   start:'2026-07-11', cat:'community', desc:'Our women come together for a health walk promoting wellness in body, mind, and spirit. Lace up and join us!', time:'TBA', location:'TBA', ticket:'Free — Women Welcome' },
+      { title:'Kingdom Impact',                 start:'2026-07-12', cat:'worship',   desc:'A powerful service with Rev. Azigiza Jnr as we come together to make an impact for the Kingdom of God.', time:'TBA', location:'Church Auditorium', ticket:'Free — All Welcome' },
+      { title:'2 Weeks Fasting & Prayers',      start:'2026-07-13', end:'2026-07-27', cat:'growth', desc:'Two weeks of dedicated fasting and prayer as we seek the face of God together. Come hungry for a move of God.', time:'July 13 – 26, 2026', location:'Church Auditorium', ticket:'Free — All Welcome' },
+      { title:'Recharge',                       start:'2026-07-24', end:'2026-07-27', cat:'youth',  desc:'A 3-day youth and young adult conference to refresh, refocus, and reignite your passion for God.', time:'July 24 – 26, 2026', location:'TBA', ticket:'Free — All Welcome' },
     ];
 
     const isMobile = window.innerWidth < 768;
     const calendar = new FullCalendar.Calendar(document.getElementById('fullcalendar'), {
       initialView: isMobile ? 'listMonth' : 'dayGridMonth',
-      initialDate: '2026-05-01',
+      initialDate: '2026-07-01',
       headerToolbar: isMobile
         ? { left: 'prev,next', center: 'title', right: 'today' }
         : { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' },
