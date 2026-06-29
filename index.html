@@ -21,7 +21,7 @@
   <meta name="twitter:image" content="https://doxatopchurch.org/assets/og-image.jpg" />
 
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ── MINI CALENDAR ── */
@@ -148,6 +148,8 @@
       0%   { background-position:-200% center; }
       100% { background-position:200% center; }
     }
+    .outreach-pagination .swiper-pagination-bullet { width:10px;height:10px;background:rgba(13,27,42,.2);opacity:1;border-radius:50%;transition:all .3s; }
+    .outreach-pagination .swiper-pagination-bullet-active { width:28px;border-radius:6px;background:var(--gold); }
     .wb-line, .wb-line-h { display:block; }
     #welcome-banner p, #welcome-banner a { font-family:'Plus Jakarta Sans',sans-serif; }
     /* Apply Plus Jakarta Sans to all non-heading text on homepage */
@@ -392,32 +394,36 @@
   <section style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:4rem 0;">
     <div class="container">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
-        <div>
+        <div style="min-width:0;">
           <span style="display:inline-block;background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:1.1rem;">Community Outreach</span>
-          <h2 style="color:var(--navy);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.15;margin-bottom:1rem;">We Don't Just Preach It.<br>We Live It.</h2>
+          <h2 style="color:var(--navy);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.15;margin-bottom:1rem;">We Don't Just Preach It.<br>We Live It.</h2>
           <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.6rem;text-align:justify;">At DOXA Sanctuary, the church doesn't wait for the community to come to us — we go to them. We take the love of Christ to the streets, showing up with food, fellowship, and the Gospel of Jesus Christ right where people are. Because we believe that faith without action is incomplete, and love without presence means nothing. We are not content to simply hold services on Sunday and close our doors on Monday. We are a church on the move — alive, active, and deeply invested in the wellbeing of the people around us. The Bronx is not just the neighborhood we occupy. It is the community we are called to serve, to love, and to pour into with everything we have. And beyond the tangible, we bring something that cannot be packaged or handed out — genuine human connection. We sit with people. We listen. We pray. We look them in the eyes and remind them that they are not invisible, that their life has value, and that there is a community right here in the Bronx that has room for them.</p>
           <a href="community-outreach" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;padding:.8rem 1.8rem;border-radius:4px;font-weight:700;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .25s,gap .25s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='#fff'">Read the Full Story <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-        <div style="position:relative;border-radius:14px;overflow:hidden;height:460px;">
-          <div class="swiper outreach-swiper" style="width:100%;height:100%;">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="assets/outreach/8b.JPG"   alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/3b.JPG"    alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/28.jpg"   alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/24b.jpg"  alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/img2088.jpg" alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/12b.JPG"  alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/15b.JPG"  alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/img2388.jpg" alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/18b.jpg"  alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/13b.JPG"  alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/53.jpg"   alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-              <div class="swiper-slide"><img src="assets/outreach/6b.JPG"   alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+        <div style="min-width:0;display:flex;flex-direction:column;gap:.8rem;">
+        <div style="padding:5px;background:linear-gradient(to right,var(--navy),var(--gold),var(--navy));border-radius:18px;box-shadow:0 16px 48px rgba(13,27,42,.25);">
+          <div style="position:relative;border-radius:14px;overflow:hidden;height:460px;">
+            <div class="swiper outreach-swiper" style="width:100%;height:100%;">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="assets/outreach/8b.JPG"      alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/3b.JPG"      alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/28.jpg"      alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/24b.jpg"     alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/img2088.jpg" alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/12b.JPG"     alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/15b.JPG"     alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/img2388.jpg" alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/18b.jpg"     alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/13b.JPG"     alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/53.jpg"      alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+                <div class="swiper-slide"><img src="assets/outreach/6b.JPG"      alt="Outreach" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+              </div>
+              <div class="swiper-button-prev" style="color:#fff;background:rgba(13,27,42,.5);width:36px;height:36px;border-radius:50%;--swiper-navigation-size:16px;"></div>
+              <div class="swiper-button-next" style="color:#fff;background:rgba(13,27,42,.5);width:36px;height:36px;border-radius:50%;--swiper-navigation-size:16px;"></div>
             </div>
-            <div class="swiper-button-prev" style="color:#fff;"></div>
-            <div class="swiper-button-next" style="color:#fff;"></div>
-            <div class="swiper-pagination"></div>
           </div>
+        </div>
+        <div class="outreach-pagination" style="text-align:center;"></div>
         </div>
       </div>
     </div>
@@ -840,7 +846,7 @@
     effect: 'fade',
     fadeEffect: { crossFade: true },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    pagination: { el: '.swiper-pagination', clickable: true },
+    pagination: { el: '.outreach-pagination', clickable: true, dynamicBullets: false },
   });
 </script>
 
