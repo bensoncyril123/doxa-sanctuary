@@ -145,7 +145,7 @@ section{padding:5.5rem 0;position:relative;}
 /* ── TICKER ── */
 .ticker{background:var(--gold);color:var(--navy);padding:.7rem 0;overflow:hidden;white-space:nowrap;}
 .ticker-track{display:inline-flex;gap:3rem;animation:ticker 30s linear infinite;}
-.ticker-track span{font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.5rem;}
+.ticker-track span{font-size:.82rem;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:.5rem;}
 .ticker-track i{font-size:.5rem;}
 @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
