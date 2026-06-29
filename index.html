@@ -150,6 +150,8 @@
     }
     .wb-line, .wb-line-h { display:block; }
     #welcome-banner p, #welcome-banner a { font-family:'Plus Jakarta Sans',sans-serif; }
+    /* Apply Plus Jakarta Sans to all non-heading text on homepage */
+    body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
     .wb-body { opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
     .wb-body.wb-visible { opacity:1; transform:translateY(0); }
     .wb-photo { opacity:1; }
