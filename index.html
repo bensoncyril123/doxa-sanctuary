@@ -156,6 +156,10 @@
     body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
     .wb-body { opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
     .wb-body.wb-visible { opacity:1; transform:translateY(0); }
+    .wb-para-line { display:block; opacity:0; transform:translateY(14px); transition:opacity .65s ease, transform .65s ease; margin-bottom:.55rem; }
+    .wb-body.wb-visible .wb-para-line:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:.45s; }
+    .wb-body.wb-visible .wb-para-line:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.75s; }
+    .wb-body.wb-visible .wb-para-line:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:1.05s; }
     .wb-photo { opacity:1; }
     .gold-shimmer {
       background:linear-gradient(90deg, var(--gold) 0%, #f7e9a0 40%, var(--gold) 60%, #c9a84c 100%);
@@ -332,7 +336,10 @@
           <span class="wb-line-h" data-wi="0">You Have a</span>
           <span class="wb-line-h" data-wi="1"><em class="gold-shimmer" style="font-style:normal;">Place Here.</em></span>
         </h2>
-        <p class="wb-line" data-wi="2" style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:460px;text-align:justify;">Where church isn't just a building or a Sunday event. It's a family. You're invited to be yourself, connect with others, and grow in faith. No matter where you are on your journey, you have a place with us.</p>
+        <p class="wb-line" data-wi="2" style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:460px;text-align:justify;">
+          <span class="wb-para-line">Church is not a building, and it is not just a Sunday event. At DOXA Sanctuary, it is a family — and family means you are welcomed, known, and never on the outside looking in.</span>
+          <span class="wb-para-line">Whether you are walking in for the first time, coming back after a long time away, or still figuring out what you believe, there is a place here for you. Bring your questions, your story, and exactly who you are. No judgment, no pressure, no conditions. Just real people, walking through real life together, with room for one more.</span>
+        </p>
         <div class="wb-line wb-service-info" data-wi="3" style="border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem;margin-bottom:1.4rem;">
           <p style="color:rgba(255,255,255,.5);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.3rem;">Join Us This Sunday</p>
           <p style="color:#fff;font-size:1rem;margin-bottom:.5rem;"><strong style="color:var(--gold);letter-spacing:.06em;">Celebration Service</strong> &nbsp;·&nbsp; 10:00 AM</p>
@@ -494,6 +501,60 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE LIVE IT OUT -->
+  <section id="next-steps" style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:6rem 0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:5rem;align-items:start;">
+
+        <!-- Left: Bold statement -->
+        <div style="position:sticky;top:110px;">
+          <h2 style="color:var(--navy);font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;line-height:1.08;text-transform:uppercase;margin:0 0 1.4rem;">
+            We Exist to<br>
+            <span style="color:var(--gold);">Glorify God</span><br>
+            and Serve<br>
+            People.
+          </h2>
+          <p style="color:var(--navy);font-size:.95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.5;margin:7rem 0 0;">And Here's How</p>
+        </div>
+
+        <!-- Right: 4 ministry pathways -->
+        <div style="display:flex;flex-direction:column;">
+
+          <div class="ns-item" style="border-top:2px solid rgba(13,27,42,.1);padding:2rem 0;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;">
+            <h4 style="color:var(--navy);font-size:1.05rem;font-weight:700;margin:0 0 .6rem;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.02em;">Worship</h4>
+            <p style="color:#5a6270;font-size:.93rem;line-height:1.8;margin:0 0 1.1rem;">Join us for the Sunday Celebration Service — great music, a message that hits home, and a community ready to welcome you. Your family will feel it the moment you walk in.</p>
+            <a href="service-times" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.3rem;border-radius:4px;text-decoration:none;transition:background .3s;" onmouseover="this.style.background='#1a3050'" onmouseout="this.style.background='var(--navy)'">Plan Your Visit <span style="display:inline-block;width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid #fff;margin-left:.3rem;flex-shrink:0;"></span></a>
+          </div>
+
+          <div class="ns-item" style="border-top:2px solid rgba(13,27,42,.1);padding:2rem 0;opacity:0;transform:translateY(24px);transition:opacity .6s ease .15s,transform .6s ease .15s;">
+            <h4 style="color:var(--navy);font-size:1.05rem;font-weight:700;margin:0 0 .6rem;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.02em;">Small Groups</h4>
+            <p style="color:#5a6270;font-size:.93rem;line-height:1.8;margin:0 0 1.1rem;">Life is better together. Our small groups are built for real relationships — prayer, growth, and doing life side by side. Whether it's men, women, youth, or a life group, there is a place for you.</p>
+            <a href="small-groups" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.3rem;border-radius:4px;text-decoration:none;transition:background .3s;" onmouseover="this.style.background='#1a3050'" onmouseout="this.style.background='var(--navy)'">Explore Groups <span style="display:inline-block;width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid #fff;margin-left:.3rem;flex-shrink:0;"></span></a>
+          </div>
+
+          <div class="ns-item" style="border-top:2px solid rgba(13,27,42,.1);padding:2rem 0;opacity:0;transform:translateY(24px);transition:opacity .6s ease .3s,transform .6s ease .3s;">
+            <h4 style="color:var(--navy);font-size:1.05rem;font-weight:700;margin:0 0 .6rem;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.02em;">Growth Track</h4>
+            <p style="color:#5a6270;font-size:.93rem;line-height:1.8;margin:0 0 1.1rem;">Discover who you are, understand why you are here, and find where you fit. The Growth Track will walk you through your faith, your gifts, and your calling — one step at a time.</p>
+            <a href="growth-track" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.3rem;border-radius:4px;text-decoration:none;transition:background .3s;" onmouseover="this.style.background='#1a3050'" onmouseout="this.style.background='var(--navy)'">Get Started <span style="display:inline-block;width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid #fff;margin-left:.3rem;flex-shrink:0;"></span></a>
+          </div>
+
+          <div class="ns-item" style="border-top:2px solid rgba(13,27,42,.1);padding:2rem 0;opacity:0;transform:translateY(24px);transition:opacity .6s ease .45s,transform .6s ease .45s;">
+            <h4 style="color:var(--navy);font-size:1.05rem;font-weight:700;margin:0 0 .6rem;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.02em;">Community Outreach</h4>
+            <p style="color:#5a6270;font-size:.93rem;line-height:1.8;margin:0 0 1.1rem;">We don't just preach it — we live it. From community feeds to health walks, our outreach goes where people are and meets real needs with real love. Come be the hands and feet of Jesus.</p>
+            <a href="community-outreach" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.3rem;border-radius:4px;text-decoration:none;transition:background .3s;" onmouseover="this.style.background='#1a3050'" onmouseout="this.style.background='var(--navy)'">Get Involved <span style="display:inline-block;width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid #fff;margin-left:.3rem;flex-shrink:0;"></span></a>
+          </div>
+
+          <div class="ns-item" style="border-top:2px solid rgba(13,27,42,.1);padding:2rem 0;border-bottom:2px solid rgba(13,27,42,.1);opacity:0;transform:translateY(24px);transition:opacity .6s ease .6s,transform .6s ease .6s;">
+            <h4 style="color:var(--navy);font-size:1.05rem;font-weight:700;margin:0 0 .6rem;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.02em;">Give</h4>
+            <p style="color:#5a6270;font-size:.93rem;line-height:1.8;margin:0 0 1.1rem;">Every gift fuels the mission. When you give to DOXA, you invest in people, community, and a Kingdom that reaches beyond our walls — from the Bronx to the nations.</p>
+            <a href="give" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.3rem;border-radius:4px;text-decoration:none;transition:opacity .3s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Give Now <span style="display:inline-block;width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid var(--navy);margin-left:.3rem;flex-shrink:0;"></span></a>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -846,6 +907,23 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
+
+  // ── NEXT STEPS SECTION ANIMATION ──
+  const nsSection = document.getElementById('next-steps');
+  if (nsSection) {
+    const nsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          nsSection.querySelectorAll('.ns-item').forEach(item => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          });
+          nsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.05 });
+    nsObserver.observe(nsSection);
+  }
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
