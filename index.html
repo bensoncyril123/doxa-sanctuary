@@ -518,7 +518,30 @@
             and Serve<br>
             People.
           </h2>
-          <p style="color:var(--navy);font-size:.95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.5;margin:7rem 0 0;">And Here's How</p>
+          <p style="color:var(--navy);font-size:.95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.5;margin:1.5rem 0 0;">And Here's How</p>
+          <svg id="draw-arrow" width="340" height="120" viewBox="0 0 340 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin-top:-.5rem;overflow:visible;">
+            <path id="arrow-body" d="M10,30 C50,90 160,110 310,60" stroke="#C9A84C" stroke-width="2.8" stroke-linecap="round" fill="none" stroke-dasharray="380" stroke-dashoffset="380"/>
+            <path id="arrow-head" d="M294,42 L310,60 L296,72" stroke="#C9A84C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="50" stroke-dashoffset="50"/>
+          </svg>
+          <style>
+            @keyframes drawBody {
+              0%   { stroke-dashoffset: 380; }
+              40%  { stroke-dashoffset: 0; }
+              72%  { stroke-dashoffset: 0; }
+              88%  { stroke-dashoffset: 380; }
+              100% { stroke-dashoffset: 380; }
+            }
+            @keyframes drawHead {
+              0%   { stroke-dashoffset: 50; }
+              36%  { stroke-dashoffset: 50; }
+              50%  { stroke-dashoffset: 0; }
+              72%  { stroke-dashoffset: 0; }
+              88%  { stroke-dashoffset: 50; }
+              100% { stroke-dashoffset: 50; }
+            }
+            #arrow-body.animate { animation: drawBody 3s cubic-bezier(.4,0,.2,1) infinite; }
+            #arrow-head.animate { animation: drawHead 3s cubic-bezier(.4,0,.2,1) infinite; }
+          </style>
         </div>
 
         <!-- Right: 4 ministry pathways -->
@@ -907,6 +930,21 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
+
+  // ── DRAW ARROW ANIMATION ──
+  const arrowEl = document.getElementById('draw-arrow');
+  if (arrowEl) {
+    const arrowObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.getElementById('arrow-body').classList.add('animate');
+          document.getElementById('arrow-head').classList.add('animate');
+          arrowObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    arrowObs.observe(arrowEl);
+  }
 
   // ── NEXT STEPS SECTION ANIMATION ──
   const nsSection = document.getElementById('next-steps');
