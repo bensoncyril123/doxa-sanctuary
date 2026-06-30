@@ -397,17 +397,16 @@
   </section>
 
   <!-- OUTREACH TEASER -->
-  <div style="height:4px;background:linear-gradient(to right,var(--navy) 0%,var(--gold) 50%,var(--navy) 100%);"></div>
-  <section style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:4rem 0;">
+  <section style="background:#f7f6f3;padding:4rem 0;">
     <div class="container">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
-        <div style="min-width:0;">
+        <div id="outreach-text" style="min-width:0;opacity:0;transform:translateX(-50px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);">
           <span style="display:inline-block;background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:1.1rem;">Community Outreach</span>
           <h2 style="color:var(--navy);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.15;margin-bottom:1rem;">We Don't Just Preach It.<br>We Live It.</h2>
           <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.6rem;text-align:justify;">At DOXA Sanctuary, the church doesn't wait for the community to come to us — we go to them. We take the love of Christ to the streets, showing up with food, fellowship, and the Gospel of Jesus Christ right where people are. Because we believe that faith without action is incomplete, and love without presence means nothing. We are not content to simply hold services on Sunday and close our doors on Monday. We are a church on the move — alive, active, and deeply invested in the wellbeing of the people around us. The Bronx is not just the neighborhood we occupy. It is the community we are called to serve, to love, and to pour into with everything we have. And beyond the tangible, we bring something that cannot be packaged or handed out — genuine human connection. We sit with people. We listen. We pray. We look them in the eyes and remind them that they are not invisible, that their life has value, and that there is a community right here in the Bronx that has room for them.</p>
           <a href="community-outreach" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;padding:.8rem 1.8rem;border-radius:4px;font-weight:700;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .25s,gap .25s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='#fff'">Read the Full Story <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-        <div style="min-width:0;display:flex;flex-direction:column;gap:.8rem;">
+        <div id="outreach-image" style="min-width:0;display:flex;flex-direction:column;gap:.8rem;opacity:0;transform:scale(0.92);transition:opacity .9s cubic-bezier(.22,.61,.36,1) .15s,transform .9s cubic-bezier(.22,.61,.36,1) .15s;">
         <div style="padding:5px;background:linear-gradient(to right,var(--navy),var(--gold),var(--navy));border-radius:18px;box-shadow:0 16px 48px rgba(13,27,42,.25);">
           <div style="position:relative;border-radius:14px;overflow:hidden;height:460px;">
             <div class="swiper outreach-swiper" style="width:100%;height:100%;">
@@ -437,7 +436,7 @@
   </section>
 
   <!-- FEATURED SERMON -->
-  <section id="featured-sermon" style="background:linear-gradient(135deg,#faf7f0 0%,#f2ebe0 100%);">
+  <section id="featured-sermon" style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);">
     <div class="container">
       <div class="sermon-feature-grid" style="grid-template-columns:1.2fr 1fr;">
         <div class="sermon-player sermon-slide-left" style="opacity:0;transform:translateX(-40px);transition:opacity .8s ease, transform .8s ease;">
@@ -472,7 +471,7 @@
     <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,42,.97) 0%,rgba(13,27,42,.85) 50%,rgba(13,27,42,.97) 100%);z-index:0;"></div>
 
     <!-- Gold straight stripe at top, fading at edges -->
-    <div style="position:absolute;top:0;left:0;right:0;z-index:2;pointer-events:none;height:3px;background:linear-gradient(to right,transparent,var(--gold) 15%,#E4C060 50%,var(--gold) 85%,transparent);"></div>
+    <div style="position:absolute;top:0;left:0;right:0;z-index:2;pointer-events:none;height:1px;background:linear-gradient(to right,transparent,var(--gold) 15%,#E4C060 50%,var(--gold) 85%,transparent);"></div>
 
 
     <div class="container" style="position:relative;z-index:3;padding-top:.5rem;">
@@ -586,7 +585,7 @@
   </section>
 
   <!-- GALLERY TEASER -->
-  <section id="gallery-teaser" style="background:linear-gradient(135deg,#faf7f0 0%,#f2ebe0 100%);">
+  <section id="gallery-teaser" style="background:#f7f6f3;">
     <div class="container">
       <div class="section-hd">
         <div>
@@ -617,6 +616,11 @@
             <a href="https://www.instagram.com/doxatopchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://www.tiktok.com/@doxa.sanctuary" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+          <div style="margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.1);">
+            <p style="color:rgba(255,255,255,.5);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 .4rem;">Find Us</p>
+            <p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.6;margin:0;">865 Morris Park Ave, Bronx, NY 10462</p>
+            <a href="https://maps.google.com/?q=865+Morris+Park+Ave+Bronx+NY+10462" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;color:var(--gold);font-size:.78rem;font-weight:600;margin-top:.5rem;text-decoration:none;"><i class="fa-solid fa-location-dot"></i> Get Directions</a>
           </div>
         </div>
         <div class="ft-col">
@@ -933,6 +937,22 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
+
+  // ── OUTREACH SLIDE-IN ──
+  [['outreach-text', 'translateX(-50px)'], ['outreach-image', 'scale(1)']].forEach(([id, reset]) => {
+    const el = document.getElementById(id);
+    if (el) {
+      new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            el.style.opacity = '1';
+            el.style.transform = reset;
+            obs.disconnect();
+          }
+        });
+      }, { threshold: 0.12 }).observe(el);
+    }
+  });
 
   // ── DRAW ARROW ANIMATION ──
   const arrowEl = document.getElementById('draw-arrow');
