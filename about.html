@@ -6,9 +6,11 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>About Us, DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    body, body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
+
     /* Story slide-in animations */
     @keyframes storySlideLeft {
       from { opacity:0; transform:translateX(-48px); }
@@ -189,73 +191,73 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <div class="page-hero" style="background-image:url('assets/about-hero.jpg');background-position:center 20%;">
-    <div class="page-hero-dim"></div>
-    <div class="page-hero-body">
-      <h1>Who We Are</h1>
-      <p>A Spirit-filled sanctuary in the heart of the Bronx, raising leaders, reaching the world, and glorifying God.</p>
+  <div class="page-hero" style="background-image:url('assets/about-hero.jpg');background-position:center 25%;">
+    <div class="page-hero-dim" style="background:linear-gradient(to bottom,rgba(10,20,33,.05),rgba(10,20,33,.25));"></div>
+    <div class="page-hero-body" style="padding-top:2rem;padding-bottom:16rem;">
+      <h1 style="color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.7),0 1px 6px rgba(0,0,0,.9);">Who We Are</h1>
     </div>
   </div>
 
   <!-- OUR STORY -->
-  <section id="story">
+  <section id="story" style="padding:5rem 0;background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);">
     <div class="container">
-      <div class="two-col">
-        <div class="tc-img story-img-side">
-          <img src="assets/about-group.jpg" alt="DOXA Sanctuary" style="object-fit:cover;object-position:center top;" />
-          <div class="about-stamp"><span>Bronx</span><strong>NY</strong></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;">
+        <div>
+          <h2 style="font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:var(--navy);line-height:1.05;margin:0;">Our Story</h2>
         </div>
-        <div class="tc-copy story-text-side">
-          <p class="eyebrow gold">Our Story</p>
-          <h2>Born Out of a Vision,<br>Planted in the Bronx</h2>
-          <p style="text-align:justify;">DOXA Sanctuary is a vibrant, Spirit-filled church located in the Bronx, New York, proudly part of the global family of <strong>TOP Ministries International</strong>. We are not just a congregation; we are a movement of believers who have been called, commissioned, and sent to bring the glory of God to one of the most dynamic cities in the world.</p>
-
+        <div class="story-text-side">
+          <p style="font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.6;margin-bottom:1.4rem;">Born Out of a Vision, Planted in the Bronx</p>
+          <p style="color:var(--muted);line-height:1.85;margin-bottom:1.4rem;text-align:justify;">DOXA Sanctuary is a vibrant, Spirit-filled church in the Bronx, New York — and a proud branch of <strong>TOP Ministries International</strong>. We are not simply a congregation that gathers on weekends. We are a movement of believers who have been called, commissioned, and sent to carry the glory of God into one of the most dynamic cities in the world.</p>
           <div class="story-pull-quote">
-            <p>"DOXA means Glory, and that is the very heartbeat of everything we do."</p>
-            <span>From the Bronx to the Nations</span>
+            <p>DOXA means Glory. And that is the heartbeat of everything we do.</p>
           </div>
-
-          <p style="text-align:justify;">As a branch of TOP Ministries International, we are rooted in a legacy of apostolic vision, sound doctrine, and Spirit-empowered ministry. We stand on the shoulders of a ministry that has touched countless lives across the globe, and we carry that same fire right here in New York.</p>
-          <a href="contact" class="btn-story">Visit Us in the Bronx <i class="fa-solid fa-arrow-right"></i></a>
+          <p style="color:var(--muted);line-height:1.85;margin-top:1.4rem;text-align:justify;">We stand on the shoulders of a ministry with over 26 years of apostolic legacy, sound doctrine, and Spirit-empowered impact across the nations. That same fire, that same vision, and that same unwavering commitment to the Kingdom of God burns right here in the Bronx. From our weekly services to our streets, from our pulpit to the people — everything we do points back to one mission: His Glory. At the center of that mission is people. Reaching those who do not yet know God personally is not an afterthought for us — it is one of our greatest responsibilities. Every weekend, we create worship experiences that are open to everyone at every stage of the journey, but especially for those who have never had a genuine encounter with God. No matter where you are starting from, you are welcome in this room. And we believe that God did not create any person without a reason. Every life carries a unique design — specific gifts, specific passions, and a specific impact that only you can make on the world around you. We exist to help you find that. Because until you discover, develop, and walk in your God-given purpose, something will always feel incomplete. You were not made to just exist. You were made to matter.</p>
+          <p style="color:var(--navy);font-weight:600;line-height:1.85;margin-top:1.4rem;">That is the story of DOXA Sanctuary. And there is still room in it for yours.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TOP MINISTRIES BANNER -->
-  <div style="position:relative;padding:3rem 0;overflow:hidden;">
+
+  <!-- MANDATE -->
+  <section id="mandate" style="position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center 40%;z-index:0;"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,27,42,.82),rgba(13,27,42,.82));z-index:1;"></div>
-    <div style="position:relative;z-index:2;" class="hidden-wrapper">
-    <div class="container" style="text-align:center;">
-      <p class="eyebrow gold cov-fade">Our Covering</p>
-      <h2 class="cov-fade" style="color:#fff;margin-bottom:1rem;">A Branch of TOP Ministries International</h2>
-      <p class="cov-fade" style="color:rgba(255,255,255,.7);max-width:680px;margin:0 auto 2rem;font-size:1.05rem;line-height:1.8;">A daughter church of TOP Ministries International, rooted in the same fire, the same doctrine, and the same unwavering vision to advance the Kingdom of God across the nations.</p>
-      <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:2rem;">
-        <div class="cov-item" style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-earth-americas" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
-          <strong>Global Reach</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Ministry across nations</p>
+    <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,27,42,.88),rgba(13,27,42,.88));z-index:1;"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="section-hd center ab-fade">
+        <p class="eyebrow gold">Our Foundation</p>
+        <h2 style="color:#fff;">The Mandate of DOXA Sanctuary</h2>
+        <p class="sub" style="color:rgba(255,255,255,.65);">Five non-negotiable pillars that define who we are and what we stand for as a church. This is the heartbeat of everything we do.</p>
+      </div>
+      <div class="values-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+        <div class="value-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(0,0,0,.2);">
+          <div class="value-num" style="color:var(--gold);">01</div>
+          <h3 style="color:#fff;">Souls</h3>
+          <p style="color:rgba(255,255,255,.65);">Every soul matters to God, and therefore every soul matters to us. Salvation is our highest calling.</p>
         </div>
-        <div class="cov-item" style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-church" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
-          <strong>Apostolic Foundation</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Rooted in sound doctrine</p>
+        <div class="value-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(0,0,0,.2);">
+          <div class="value-num" style="color:var(--gold);">02</div>
+          <h3 style="color:#fff;">Apostles' Doctrine</h3>
+          <p style="color:rgba(255,255,255,.65);">Sound, apostolic doctrine that produces genuine disciples. Truth is our anchor, not tradition or opinion.</p>
         </div>
-        <div class="cov-item" style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-fire" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
-          <strong>Spirit-Empowered</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Moving in the power of God</p>
+        <div class="value-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(0,0,0,.2);">
+          <div class="value-num" style="color:var(--gold);">03</div>
+          <h3 style="color:#fff;">Pure Worship</h3>
+          <p style="color:rgba(255,255,255,.65);">Authentic, Spirit-led worship that is fully surrendered to God's presence, not a performance.</p>
         </div>
-        <div class="cov-item" style="text-align:center;color:#fff;">
-          <i class="fa-solid fa-seedling" style="font-size:2rem;color:var(--gold);margin-bottom:.6rem;display:block;"></i>
-          <strong>Church Planting</strong>
-          <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.3rem;">Expanding His Kingdom</p>
+        <div class="value-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(0,0,0,.2);">
+          <div class="value-num" style="color:var(--gold);">04</div>
+          <h3 style="color:#fff;">Leadership</h3>
+          <p style="color:rgba(255,255,255,.65);">The Church rises and falls on its leaders. We develop servant leaders of integrity, humility, and Holy Spirit power.</p>
+        </div>
+        <div class="value-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(0,0,0,.2);">
+          <div class="value-num" style="color:var(--gold);">05</div>
+          <h3 style="color:#fff;">Missions</h3>
+          <p style="color:rgba(255,255,255,.65);">From the Bronx to the ends of the earth. Missions is not a department, it is our identity.</p>
         </div>
       </div>
     </div>
-    </div>
-  </div>
+  </section>
 
   <!-- PHOTO STRIP -->
   <div class="photo-strip">
@@ -279,44 +281,6 @@
       <div class="stat-item"><span class="stat-n">1</span><span class="stat-l">Mission, His Glory</span></div>
     </div>
   </div>
-
-  <!-- MANDATE -->
-  <section id="mandate" style="background:var(--off);">
-    <div class="container">
-      <div class="section-hd center ab-fade">
-        <p class="eyebrow gold">Our Foundation</p>
-        <h2>The Mandate of DOXA Sanctuary</h2>
-        <p class="sub">Five non-negotiable pillars that define who we are and what we stand for as a church. This is the heartbeat of everything we do.</p>
-      </div>
-      <div class="values-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
-        <div class="value-card" style="background:#fff;border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(13,27,42,.07);">
-          <div class="value-num">01</div>
-          <h3 style="color:var(--navy);">Souls</h3>
-          <p style="color:var(--muted);">Every soul matters to God, and therefore every soul matters to us. Salvation is our highest calling.</p>
-        </div>
-        <div class="value-card" style="background:#fff;border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(13,27,42,.07);">
-          <div class="value-num">02</div>
-          <h3 style="color:var(--navy);">Apostles' Doctrine</h3>
-          <p style="color:var(--muted);">Sound, apostolic doctrine that produces genuine disciples. Truth is our anchor, not tradition or opinion.</p>
-        </div>
-        <div class="value-card" style="background:#fff;border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(13,27,42,.07);">
-          <div class="value-num">03</div>
-          <h3 style="color:var(--navy);">Pure Worship</h3>
-          <p style="color:var(--muted);">Authentic, Spirit-led worship that is fully surrendered to God's presence, not a performance.</p>
-        </div>
-        <div class="value-card" style="background:#fff;border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(13,27,42,.07);">
-          <div class="value-num">04</div>
-          <h3 style="color:var(--navy);">Leadership</h3>
-          <p style="color:var(--muted);">The Church rises and falls on its leaders. We develop servant leaders of integrity, humility, and Holy Spirit power.</p>
-        </div>
-        <div class="value-card" style="background:#fff;border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(13,27,42,.07);">
-          <div class="value-num">05</div>
-          <h3 style="color:var(--navy);">Missions</h3>
-          <p style="color:var(--muted);">From the Bronx to the ends of the earth. Missions is not a department, it is our identity.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- WHAT WE DO, 4 CONVICTIONS -->
   <section id="pillars" style="position:relative;overflow:hidden;">
