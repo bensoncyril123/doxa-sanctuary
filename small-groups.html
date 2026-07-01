@@ -6,9 +6,11 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Small Groups, DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    body, body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
+
     .sg-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -147,6 +149,7 @@
       .page-hero-body{ padding-top:130px!important; }
       [style*="grid-template-columns:repeat(3,1fr)"]{ grid-template-columns:1fr!important; }
       [style*="grid-template-columns:1fr 1fr"]{ grid-template-columns:1fr!important; }
+      [style*="grid-template-columns:1fr 1.4fr"]{ grid-template-columns:1fr!important; }
       .fg input,.fg select,.fg textarea{ width:100%!important; box-sizing:border-box!important; }
     }
 
@@ -184,9 +187,9 @@
     [class="sg-drop"]:not(.in-view) {}
     .sg-group-card { transition:background .3s, transform .3s, box-shadow .3s !important; }
     .sg-group-card:hover {
-      background: rgba(201,168,76,.1) !important;
+      background: rgba(201,168,76,.07) !important;
       transform: translateY(-7px) !important;
-      box-shadow: 0 0 0 1.5px rgba(201,168,76,.4), 0 24px 50px rgba(0,0,0,.35) !important;
+      box-shadow: 0 0 0 1.5px rgba(201,168,76,.4), 0 24px 50px rgba(0,0,0,.1) !important;
     }
 
     /* ── STEP CARDS ICON HOVER GLOW ── */
@@ -214,7 +217,7 @@
 <body>
 
   <!-- NAV -->
-  <nav id="navbar" class="scrolled">
+  <nav id="navbar">
     <div class="nav-inner">
       <a href="/" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-18px;" /></a>
       <ul class="nav-links" id="navLinks">
@@ -232,16 +235,15 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <div class="page-hero" style="background-image:url('assets/small-groups-hero.jpg');background-position:center 30%;">
-    <div class="page-hero-dim"></div>
-    <div class="page-hero-body">
-      <h1>Small Groups<span class="hero-gold-line"></span></h1>
-      <p>Real relationships. Real growth. Find your people at DOXA Sanctuary.</p>
+  <div class="page-hero" style="background-image:url('assets/about-hero.jpg');background-position:center 25%;">
+    <div class="page-hero-dim" style="background:linear-gradient(to bottom,rgba(10,20,33,.05),rgba(10,20,33,.25));"></div>
+    <div class="page-hero-body" style="padding-top:2rem;padding-bottom:16rem;">
+      <h1 style="color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.7),0 1px 6px rgba(0,0,0,.9);">Small Groups</h1>
     </div>
   </div>
 
   <!-- INTRO -->
-  <section style="background:#faf8f4;padding:5.5rem 0;">
+  <section style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
     <div class="container">
       <div class="two-col" style="align-items:center;gap:5rem;">
 
@@ -287,131 +289,126 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section style="position:relative;padding:5.5rem 0;overflow:hidden;">
-    <div style="position:absolute;inset:0;background:var(--navy);z-index:0;"></div>
-    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;opacity:0.15;z-index:1;"></div>
-    <div style="position:relative;z-index:2;">
+  <section style="background:#fafafa;padding:5.5rem 0;">
     <div class="container">
       <div class="section-hd center sg-hd">
         <p class="eyebrow gold">Getting Started</p>
-        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">How to Join <span style="color:var(--gold);">a Group</span></p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">How to Join <span style="color:var(--gold);">a Group</span></p>
         <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
-        <p style="color:rgba(255,255,255,.6);max-width:480px;margin:0 auto;">Three simple steps to find your community at DOXA Sanctuary.</p>
+        <p style="color:var(--muted);max-width:480px;margin:0 auto;">Three simple steps to find your community at DOXA Sanctuary.</p>
       </div>
 
       <!-- Steps with connector -->
       <div style="position:relative;margin-top:4rem;">
-        <!-- Connector line -->
         <div style="position:absolute;top:56px;left:calc(16.6% + 28px);right:calc(16.6% + 28px);height:2px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3),var(--gold));z-index:0;display:none;" class="step-connector"></div>
 
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;position:relative;z-index:1;">
 
           <!-- Step 1 -->
-          <div class="sg-drop sg-step-card" style="background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
-            <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.08);line-height:1;pointer-events:none;">01</div>
+          <div class="sg-drop sg-step-card" style="background:#faf8f4;border:1px solid #eee;border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.1);line-height:1;pointer-events:none;">01</div>
             <div class="step-icon" style="width:56px;height:56px;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;">
               <i class="fa-solid fa-magnifying-glass" style="color:var(--navy);font-size:1.2rem;"></i>
             </div>
-            <h4 style="color:#fff;margin-bottom:.7rem;">Browse the Groups</h4>
-            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.75;">Explore our six small groups and find the one that fits your season, gifts, or interests.</p>
+            <h4 style="color:var(--navy);margin-bottom:.7rem;">Browse the Groups</h4>
+            <p style="color:var(--muted);font-size:.9rem;line-height:1.75;">Explore our six small groups and find the one that fits your season, gifts, or interests.</p>
           </div>
 
           <!-- Step 2 -->
-          <div class="sg-drop sg-step-card" style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.35);border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
+          <div class="sg-drop sg-step-card" style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
             <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.12);line-height:1;pointer-events:none;">02</div>
             <div class="step-icon" style="width:56px;height:56px;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;">
               <i class="fa-solid fa-pen-to-square" style="color:var(--navy);font-size:1.2rem;"></i>
             </div>
-            <h4 style="color:#fff;margin-bottom:.7rem;">Submit Your Interest</h4>
-            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.75;">Fill out the short form at the bottom of this page and select the group you'd like to join.</p>
+            <h4 style="color:var(--navy);margin-bottom:.7rem;">Submit Your Interest</h4>
+            <p style="color:var(--muted);font-size:.9rem;line-height:1.75;">Fill out the short form at the bottom of this page and select the group you'd like to join.</p>
           </div>
 
           <!-- Step 3 -->
-          <div class="sg-drop sg-step-card" style="background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
-            <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.08);line-height:1;pointer-events:none;">03</div>
+          <div class="sg-drop sg-step-card" style="background:#faf8f4;border:1px solid #eee;border-left:3px solid var(--gold);border-radius:12px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;top:-10px;right:10px;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(201,168,76,.1);line-height:1;pointer-events:none;">03</div>
             <div class="step-icon" style="width:56px;height:56px;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;">
               <i class="fa-solid fa-handshake" style="color:var(--navy);font-size:1.2rem;"></i>
             </div>
-            <h4 style="color:#fff;margin-bottom:.7rem;">We'll Connect You</h4>
-            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.75;">A group leader will reach out within 48 hours to welcome you and share next steps.</p>
+            <h4 style="color:var(--navy);margin-bottom:.7rem;">We'll Connect You</h4>
+            <p style="color:var(--muted);font-size:.9rem;line-height:1.75;">A group leader will reach out within 48 hours to welcome you and share next steps.</p>
           </div>
 
         </div>
       </div>
     </div>
-    </div>
   </section>
 
   <!-- GROUPS GRID -->
-  <section style="background:var(--navy);padding:5.5rem 0;">
+  <section style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
     <div class="container">
       <div class="section-hd center sg-hd">
         <p class="eyebrow gold">Find Your Group</p>
-        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.15;margin:.3rem 0 0;">Our <span style="color:var(--gold);">Small Groups</span></p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">Our <span style="color:var(--gold);">Small Groups</span></p>
         <div style="width:60px;height:3px;background:var(--gold);margin:1.2rem auto 1rem;border-radius:2px;"></div>
-        <p style="color:rgba(255,255,255,.55);max-width:500px;margin:0 auto;">Six intentional communities — a place to belong, grow, and make a difference.</p>
+        <p style="color:var(--muted);max-width:500px;margin:0 auto;">Six intentional communities — a place to belong, grow, and make a difference.</p>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;">
 
         <!-- 1 -->
-        <div class="sg-drop sg-group-card" style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;">
-          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.07);line-height:1;pointer-events:none;">01</div>
+        <div class="sg-drop sg-group-card" style="position:relative;background:#fff;border:1px solid #eee;border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);">
+          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.09);line-height:1;pointer-events:none;">01</div>
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;">Faith</span>
-          <h3 style="color:#fff;font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Bible Study &amp; Discussion</h3>
+          <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Bible Study &amp; Discussion</h3>
           <div style="width:30px;height:2px;background:var(--gold);margin-bottom:.9rem;border-radius:2px;"></div>
-          <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.75;margin:0 0 1.4rem;">A relaxed setting to explore Scripture, unpack sermons, and apply God's Word to real life.</p>
-          <span style="font-size:.75rem;background:rgba(201,168,76,.15);color:var(--gold);padding:.3rem .9rem;border-radius:50px;font-weight:600;">Weekly · In person &amp; Zoom</span>
+          <p style="font-size:.87rem;color:var(--muted);line-height:1.75;margin:0 0 1.4rem;">A relaxed setting to explore Scripture, unpack sermons, and apply God's Word to real life. We go beyond reading — we discuss, question, and discover what the Bible means for us today. Whether you're a lifelong believer or still figuring things out, there's a seat at the table for you.</p>
+          <span style="font-size:.75rem;background:rgba(201,168,76,.12);color:#9a7630;padding:.3rem .9rem;border-radius:50px;font-weight:600;">Weekly · In person &amp; Zoom</span>
         </div>
 
         <!-- 2 -->
-        <div class="sg-drop sg-group-card" style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;">
-          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.07);line-height:1;pointer-events:none;">02</div>
+        <div class="sg-drop sg-group-card" style="position:relative;background:#fff;border:1px solid #eee;border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);">
+          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.09);line-height:1;pointer-events:none;">02</div>
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;">Prayer</span>
-          <h3 style="color:#fff;font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Prayer Circles</h3>
+          <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Prayer Circles</h3>
           <div style="width:30px;height:2px;background:var(--gold);margin-bottom:.9rem;border-radius:2px;"></div>
-          <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.75;margin:0 0 1.4rem;">An intimate group built entirely around prayer — interceding for one another, our church, and our city.</p>
-          <span style="font-size:.75rem;background:rgba(201,168,76,.15);color:var(--gold);padding:.3rem .9rem;border-radius:50px;font-weight:600;">Weekly · In person &amp; Zoom</span>
+          <p style="font-size:.87rem;color:var(--muted);line-height:1.75;margin:0 0 1.4rem;">An intimate group built entirely around prayer — interceding for one another, our church, and our city. We believe prayer moves mountains and changes hearts, starting with our own. Come with your burdens, your praise, and your faith, and watch God show up.</p>
+          <span style="font-size:.75rem;background:rgba(201,168,76,.12);color:#9a7630;padding:.3rem .9rem;border-radius:50px;font-weight:600;">Weekly · In person &amp; Zoom</span>
         </div>
 
         <!-- 3 -->
-        <div class="sg-drop sg-group-card" style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;">
-          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.07);line-height:1;pointer-events:none;">03</div>
+        <div class="sg-drop sg-group-card" style="position:relative;background:#fff;border:1px solid #eee;border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);">
+          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.09);line-height:1;pointer-events:none;">03</div>
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;">Life Stage</span>
-          <h3 style="color:#fff;font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Life Stage Groups</h3>
+          <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Life Stage Groups</h3>
           <div style="width:30px;height:2px;background:var(--gold);margin-bottom:.9rem;border-radius:2px;"></div>
-          <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.75;margin:0 0 1.4rem;">Young Adults, Married Couples, Men's and Women's Groups — find people in your season who truly get it.</p>
-          <span style="font-size:.75rem;background:rgba(201,168,76,.15);color:var(--gold);padding:.3rem .9rem;border-radius:50px;font-weight:600;">Bi-weekly · In person · Bronx</span>
+          <p style="font-size:.87rem;color:var(--muted);line-height:1.75;margin:0 0 1.4rem;">Young Adults, Married Couples, Men's and Women's Groups — find people in your season who truly get it. Life looks different depending on where you are, and these groups are designed to meet you right there. Real conversations, real support, and friendships that carry you through every chapter.</p>
+          <span style="font-size:.75rem;background:rgba(201,168,76,.12);color:#9a7630;padding:.3rem .9rem;border-radius:50px;font-weight:600;">Bi-weekly · In person · Bronx</span>
         </div>
 
         <!-- 4 -->
-        <div class="sg-drop sg-group-card" style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;">
-          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.07);line-height:1;pointer-events:none;">04</div>
+        <div class="sg-drop sg-group-card" style="position:relative;background:#fff;border:1px solid #eee;border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);">
+          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.09);line-height:1;pointer-events:none;">04</div>
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;">Growth</span>
-          <h3 style="color:#fff;font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Accountability &amp; Growth</h3>
+          <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Accountability &amp; Growth</h3>
           <div style="width:30px;height:2px;background:var(--gold);margin-bottom:.9rem;border-radius:2px;"></div>
-          <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.75;margin:0 0 1.4rem;">Groups of 3 to 5 committed to spiritual discipline, Bible reading, and personal growth. For those who want to go deep.</p>
-          <span style="font-size:.75rem;background:rgba(201,168,76,.15);color:var(--gold);padding:.3rem .9rem;border-radius:50px;font-weight:600;">Weekly · In person or Zoom</span>
+          <p style="font-size:.87rem;color:var(--muted);line-height:1.75;margin:0 0 1.4rem;">Groups of 3 to 5 committed to spiritual discipline, Bible reading, and personal growth — for those who want to go deep. Accountability here isn't about judgment; it's about iron sharpening iron. You'll push each other, celebrate each other, and grow in ways that simply can't happen alone.</p>
+          <span style="font-size:.75rem;background:rgba(201,168,76,.12);color:#9a7630;padding:.3rem .9rem;border-radius:50px;font-weight:600;">Weekly · In person or Zoom</span>
         </div>
 
         <!-- 5 -->
-        <div class="sg-drop sg-group-card" style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;">
-          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.07);line-height:1;pointer-events:none;">05</div>
+        <div class="sg-drop sg-group-card" style="position:relative;background:#fff;border:1px solid #eee;border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);">
+          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.09);line-height:1;pointer-events:none;">05</div>
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;">Leadership</span>
-          <h3 style="color:#fff;font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Leadership Development</h3>
+          <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Leadership Development</h3>
           <div style="width:30px;height:2px;background:var(--gold);margin-bottom:.9rem;border-radius:2px;"></div>
-          <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.75;margin:0 0 1.4rem;">For those called to lead. Building servant leaders through teaching, mentorship, and hands-on ministry training.</p>
-          <span style="font-size:.75rem;background:rgba(201,168,76,.15);color:var(--gold);padding:.3rem .9rem;border-radius:50px;font-weight:600;">Bi-weekly · Application-based</span>
+          <p style="font-size:.87rem;color:var(--muted);line-height:1.75;margin:0 0 1.4rem;">For those called to lead. Building servant leaders through teaching, mentorship, and hands-on ministry training. Leadership at DOXA is rooted in character before platform — we develop people who lead with humility, integrity, and a genuine love for others. If you sense a call, this is where it gets shaped.</p>
+          <span style="font-size:.75rem;background:rgba(201,168,76,.12);color:#9a7630;padding:.3rem .9rem;border-radius:50px;font-weight:600;">Bi-weekly · Application-based</span>
         </div>
 
         <!-- 6 -->
-        <div class="sg-drop sg-group-card" style="position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;">
-          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.07);line-height:1;pointer-events:none;">06</div>
+        <div class="sg-drop sg-group-card" style="position:relative;background:#fff;border:1px solid #eee;border-radius:12px;padding:2.2rem 1.8rem 1.8rem;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);">
+          <div style="position:absolute;top:-12px;right:12px;font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:rgba(201,168,76,.09);line-height:1;pointer-events:none;">06</div>
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;">Outreach</span>
-          <h3 style="color:#fff;font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Outreach &amp; Evangelism</h3>
+          <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 .8rem;line-height:1.3;">Outreach &amp; Evangelism</h3>
           <div style="width:30px;height:2px;background:var(--gold);margin-bottom:.9rem;border-radius:2px;"></div>
-          <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.75;margin:0 0 1.4rem;">Taking the Gospel into the neighborhoods, schools, and streets of the Bronx to pray, serve, and share Jesus.</p>
-          <span style="font-size:.75rem;background:rgba(201,168,76,.15);color:var(--gold);padding:.3rem .9rem;border-radius:50px;font-weight:600;">Monthly · Open to all</span>
+          <p style="font-size:.87rem;color:var(--muted);line-height:1.75;margin:0 0 1.4rem;">Taking the Gospel into the neighborhoods, schools, and streets of the Bronx to pray, serve, and share Jesus. We don't just talk about being the church — we go and be it. From community outreach events to one-on-one conversations, every member of this group is equipped and sent with purpose.</p>
+          <span style="font-size:.75rem;background:rgba(201,168,76,.12);color:#9a7630;padding:.3rem .9rem;border-radius:50px;font-weight:600;">Monthly · Open to all</span>
         </div>
 
       </div>
@@ -419,45 +416,83 @@
   </section>
 
   <!-- JOIN FORM -->
-  <section id="join-form" style="background:#faf8f4;padding:5.5rem 0;">
+  <section id="join-form" style="background:#fff;padding:5.5rem 0;">
     <div class="container">
-      <div class="section-hd center sg-hd">
-        <p class="eyebrow gold">Take the First Step</p>
-        <h2>Join a Small Group</h2>
-        <p class="sub">Fill out the form below and a group leader will reach out to you within 48 hours.</p>
-      </div>
-      <div class="sg-form-wrap sg-form-ani">
-        <form action="https://api.web3forms.com/submit" method="POST" name="small-group-join" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08);border:1px solid #eee;">
-          <input type="hidden" name="access_key" value="612a9abd-31db-41e8-8345-22ec5db63163" />
-          <input type="hidden" name="subject" value="Small Groups Interest — DOXA Sanctuary" />
-          <input type="hidden" name="from_page" value="Small Groups Page" />
-          <input type="hidden" name="redirect" value="https://doxatopchurch.org/thank-you" />
-          <div class="form-row">
-            <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
-            <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;">
+
+        <!-- Left: Info panel -->
+        <div class="sg-form-ani" style="position:sticky;top:110px;">
+          <p class="eyebrow gold">Take the First Step</p>
+          <h2 style="font-size:clamp(2.2rem,4vw,3rem);font-weight:900;color:var(--navy);line-height:1.1;margin:.3rem 0 1.2rem;">Ready to Find<br>Your People?</h2>
+          <div style="width:50px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:1.6rem;"></div>
+          <p style="color:var(--muted);line-height:1.8;margin-bottom:2rem;">Fill out the short form and a group leader will personally reach out to you within 48 hours to welcome you and share next steps.</p>
+
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fa-solid fa-clock" style="color:var(--gold);font-size:.9rem;"></i>
+              </div>
+              <div>
+                <p style="font-weight:700;color:var(--navy);margin:0 0 .2rem;font-size:.9rem;">Response within 48 hours</p>
+                <p style="color:var(--muted);font-size:.83rem;margin:0;line-height:1.6;">A real person from our team will reach out, not an automated email.</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fa-solid fa-heart" style="color:var(--gold);font-size:.9rem;"></i>
+              </div>
+              <div>
+                <p style="font-weight:700;color:var(--navy);margin:0 0 .2rem;font-size:.9rem;">Completely free to join</p>
+                <p style="color:var(--muted);font-size:.83rem;margin:0;line-height:1.6;">No fees, no commitments — just community.</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fa-solid fa-circle-question" style="color:var(--gold);font-size:.9rem;"></i>
+              </div>
+              <div>
+                <p style="font-weight:700;color:var(--navy);margin:0 0 .2rem;font-size:.9rem;">Not sure which group?</p>
+                <p style="color:var(--muted);font-size:.83rem;margin:0;line-height:1.6;">Select "Help me find one" and we'll match you to the right fit.</p>
+              </div>
+            </div>
           </div>
-          <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required /></div>
-          <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(631) 000-0000" /></div>
-          <div class="fg">
-            <label>Which group are you interested in?</label>
-            <select name="group" required>
-              <option value="">Select a group...</option>
-              <option>Bible Study &amp; Discussion</option>
-              <option>Prayer Circles</option>
-              <option>Life Stage Groups</option>
-              <option>Accountability &amp; Growth</option>
-              <option>Leadership Development</option>
-              <option>Outreach &amp; Evangelism</option>
-              <option>Not sure, help me find one</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label>Tell us a little about yourself (optional)</label>
-            <textarea name="message" rows="4" placeholder="How long have you been attending DOXA? What are you hoping to get out of a small group?"></textarea>
-          </div>
-          <button type="submit" class="btn-gold full">Request to Join <i class="fa-solid fa-paper-plane"></i></button>
-          <p class="form-note" id="sgNote" style="margin-top:1rem;text-align:center;"></p>
-        </form>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="sg-form-ani">
+          <form action="https://api.web3forms.com/submit" method="POST" name="small-group-join" style="background:#fff;border-radius:16px;padding:2.8rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.07);border:1px solid rgba(201,168,76,.15);border-top:3px solid var(--gold);">
+            <input type="hidden" name="access_key" value="612a9abd-31db-41e8-8345-22ec5db63163" />
+            <input type="hidden" name="subject" value="Small Groups Interest — DOXA Sanctuary" />
+            <input type="hidden" name="from_page" value="Small Groups Page" />
+            <input type="hidden" name="redirect" value="https://doxatopchurch.org/thank-you" />
+            <div class="form-row">
+              <div class="fg"><label>First Name</label><input type="text" name="first-name" placeholder="John" required /></div>
+              <div class="fg"><label>Last Name</label><input type="text" name="last-name" placeholder="Doe" required /></div>
+            </div>
+            <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(631) 000-0000" /></div>
+            <div class="fg">
+              <label>Which group are you interested in?</label>
+              <select name="group" required>
+                <option value="">Select a group...</option>
+                <option>Bible Study &amp; Discussion</option>
+                <option>Prayer Circles</option>
+                <option>Life Stage Groups</option>
+                <option>Accountability &amp; Growth</option>
+                <option>Leadership Development</option>
+                <option>Outreach &amp; Evangelism</option>
+                <option>Not sure, help me find one</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Tell us a little about yourself (optional)</label>
+              <textarea name="message" rows="4" placeholder="How long have you been attending DOXA? What are you hoping to get out of a small group?"></textarea>
+            </div>
+            <button type="submit" class="btn-gold full">Request to Join <i class="fa-solid fa-paper-plane"></i></button>
+            <p class="form-note" id="sgNote" style="margin-top:1rem;text-align:center;"></p>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
@@ -550,9 +585,9 @@
     }
 
     // Form fade
-    obs(document.querySelector('.sg-form-ani'), function() {
-      document.querySelector('.sg-form-ani').classList.add('visible');
-    }, { threshold: 0.1 });
+    document.querySelectorAll('.sg-form-ani').forEach(function(el, i) {
+      obs(el, function() { el.classList.add('visible'); }, { threshold: 0.1 });
+    });
 
     // CTA fade
     obs(document.querySelector('.sg-cta-inner'), function() {
