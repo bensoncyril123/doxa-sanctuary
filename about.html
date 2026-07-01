@@ -163,6 +163,8 @@
 
     /* ── BELIEFS ── */
     #beliefs p { text-align:justify; }
+    .belief-item { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+    .belief-item.visible { opacity:1; transform:translateY(0); }
 
     /* ── CTA BAND ── */
     .ab-cta {
@@ -314,32 +316,32 @@
           <p style="color:var(--muted);margin-top:1.2rem;line-height:1.8;">These are the non-negotiable truths that anchor everything we do at DOXA Sanctuary.</p>
         </div>
         <div>
-          <div style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
+          <div class="belief-item" style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
             <h3 style="color:var(--navy);font-size:1.15rem;font-weight:700;margin:0 0 .6rem;">The Bible</h3>
             <p style="color:var(--muted);line-height:1.85;margin:0 0 .6rem;text-align:justify;">The Bible is God's inspired Word to all people — written by human authors under the supernatural guidance of the Holy Spirit. It is the supreme and final authority for Christian belief and living, truth without any mixture of error. We do not treat it as a suggestion or a guideline; we treat it as the living voice of God. Every sermon preached, every decision made, and every direction taken at DOXA Sanctuary is measured against and rooted in the Word of God.</p>
             <span style="font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.06em;">2 Timothy 3:16–17 · 2 Peter 1:20–21</span>
           </div>
-          <div style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
+          <div class="belief-item" style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
             <h3 style="color:var(--navy);font-size:1.15rem;font-weight:700;margin:0 0 .6rem;">God</h3>
             <p style="color:var(--muted);line-height:1.85;margin:0 0 .6rem;text-align:justify;">God is the eternal Creator and Ruler of the universe, existing as one God in three Persons — Father, Son, and Holy Spirit — each fully God, co-equal and co-eternal. He is holy, sovereign, all-knowing, and all-powerful, yet deeply personal and near to those who seek Him. He is not a distant force or a religious concept; He is a living Father who loves the world He created and desires a genuine relationship with every person. At DOXA Sanctuary, we exist to glorify this God and to introduce others to who He truly is.</p>
             <span style="font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.06em;">Genesis 1:1 · Matthew 28:19</span>
           </div>
-          <div style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
+          <div class="belief-item" style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
             <h3 style="color:var(--navy);font-size:1.15rem;font-weight:700;margin:0 0 .6rem;">Jesus Christ</h3>
             <p style="color:var(--muted);line-height:1.85;margin:0 0 .6rem;text-align:justify;">Jesus Christ is the Son of God — fully God and fully man. He lived a sinless life on earth, died on the cross as the perfect and final sacrifice for the sins of all humanity, rose from the dead on the third day, and ascended to the right hand of the Father. His resurrection is not a metaphor; it is the cornerstone of our faith and the proof of His victory over sin and death. He is coming again, and every knee will bow and every tongue will confess that Jesus Christ is Lord.</p>
             <span style="font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.06em;">John 1:1–5 · 1 Corinthians 15:3–4</span>
           </div>
-          <div style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
+          <div class="belief-item" style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
             <h3 style="color:var(--navy);font-size:1.15rem;font-weight:700;margin:0 0 .6rem;">The Holy Spirit</h3>
             <p style="color:var(--muted);line-height:1.85;margin:0 0 .6rem;text-align:justify;">The Holy Spirit is the third Person of the Trinity — fully God, fully present, and fully active in the world today. He convicts the world of sin, indwells every believer at the moment of salvation, and empowers us to live the life God has called us to. We believe in the present-day fullness of the Holy Spirit, including His gifts and His power at work in and through the Church. At DOXA Sanctuary, we do not simply talk about the Holy Spirit — we pursue His presence in every service, every prayer, and every life.</p>
             <span style="font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.06em;">John 16:7–13 · Acts 1:8</span>
           </div>
-          <div style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
+          <div class="belief-item" style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
             <h3 style="color:var(--navy);font-size:1.15rem;font-weight:700;margin:0 0 .6rem;">Salvation</h3>
             <p style="color:var(--muted);line-height:1.85;margin:0 0 .6rem;text-align:justify;">Salvation is the greatest gift God has ever given — and it cannot be earned, purchased, or achieved through human effort or good works. It comes by grace alone, through faith alone, in Jesus Christ alone. Every person who genuinely repents of their sin and places their trust in Jesus is forgiven, born again, and sealed with the Holy Spirit. That salvation is secure, not because of our ability to hold on to God, but because of His power and faithfulness to hold on to us.</p>
             <span style="font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.06em;">Ephesians 2:8–9 · Romans 10:9–10</span>
           </div>
-          <div style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
+          <div class="belief-item" style="border-top:1px solid rgba(201,168,76,.3);padding:2rem 0;">
             <h3 style="color:var(--navy);font-size:1.15rem;font-weight:700;margin:0 0 .6rem;">The Church</h3>
             <p style="color:var(--muted);line-height:1.85;margin:0 0 .6rem;text-align:justify;">The Church is not a building, a denomination, or a Sunday program — it is the living Body of Christ, made up of all who have been redeemed by His blood. The local church exists to worship God in Spirit and in truth, preach the uncompromised Gospel, make disciples of all nations, and serve the community around it. We believe every believer is called to be an active, planted, and committed member of a local church family — because no one was designed to walk this journey alone.</p>
             <span style="font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.06em;">Matthew 16:18 · Hebrews 10:24–25</span>
@@ -549,6 +551,16 @@
         if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
       }, { threshold: 0.2 }).observe(ctaEl);
     }
+
+    // ── BELIEF ITEMS ──
+    document.querySelectorAll('.belief-item').forEach((el, i) => {
+      new IntersectionObserver(([e], o) => {
+        if (e.isIntersecting) {
+          setTimeout(() => { el.classList.add('visible'); }, i * 100);
+          o.disconnect();
+        }
+      }, { threshold: 0.15 }).observe(el);
+    });
 
     // ── GENERAL AB-FADE ──
     document.querySelectorAll('.ab-fade:not(#mandate .ab-fade):not(#pillars .ab-fade)').forEach(el => {
