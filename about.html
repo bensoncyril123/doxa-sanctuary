@@ -161,6 +161,15 @@
       transform: translateY(-5px) !important;
     }
 
+    /* ── TEAM CARDS ── */
+    .team-card { opacity:0; transform:translateY(50px) scale(.97); transition:opacity 1s cubic-bezier(.34,1.4,.64,1), transform 1s cubic-bezier(.34,1.4,.64,1), box-shadow .3s ease; overflow:hidden; position:relative; }
+    .team-card.visible { opacity:1; transform:translateY(0) scale(1); }
+    .team-card:hover { transform:translateY(-10px) scale(1) !important; box-shadow:0 0 0 2px rgba(201,168,76,.5), 0 32px 64px rgba(13,27,42,.22) !important; }
+    .team-photo { transition:transform .55s cubic-bezier(.22,.61,.36,1), filter .4s ease; }
+    .team-card:hover .team-photo { transform:scale(1.07); filter:brightness(1.06); }
+    .team-info span { transition:color .3s ease; display:block; }
+    .team-card:hover .team-info span { color:var(--gold); }
+
     /* ── BELIEFS ── */
     #beliefs p { text-align:justify; }
     .belief-item { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
@@ -356,8 +365,91 @@
     </div>
   </section>
 
+  <!-- MEET OUR LEADERS -->
+  <section id="leaders" style="padding:5rem 0;background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);">
+    <div class="container">
+      <div class="section-hd center ld-hd">
+        <p class="eyebrow gold">Leadership</p>
+        <h2>Meet Our Leaders</h2>
+        <p class="sub">Servants of God, leading with love, wisdom, and the Spirit of God.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo" style="background-image:url('assets/pastor-alex.jpg');background-position:center 15%;background-color:#000;"></div>
+          <div class="team-info">
+            <h4>Rev. Alex Owusu Jnr.</h4>
+            <span>Lead Pastor</span>
+            <p style="text-align:justify;">Rev. Alex Owusu Jnr. shepherds DOXA Sanctuary with love, wisdom, and apostolic vision, a preacher of the Word and a mentor committed to seeing every believer step into their God-given purpose.</p>
+            <div class="team-socials">
+              <a href="https://www.facebook.com/kwame.amankwahjnr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/ps.quamejnr/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="mailto:pastor@doxasanctuary.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo" style="background-image:url('assets/pastor-doreen.jpg');background-position:center top;background-size:80%;background-color:#000;"></div>
+          <div class="team-info">
+            <h4>Dr. Mrs. Doreen Owusu</h4>
+            <span>Co-Pastor &amp; Women's Ministry Leader</span>
+            <p style="text-align:justify;">Dr. Mrs. Doreen Owusu leads with grace, wisdom, and a mother's heart, overseeing Women's Ministry and pastoral care, a pillar of strength and tenderness in the life of DOXA Sanctuary.</p>
+            <div class="team-socials">
+              <a href="https://www.facebook.com/doreen.aboagye" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/do_rr_ooo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="mailto:copastor@doxasanctuary.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo" style="background-image:url('assets/elder-alex.jpg');background-position:center 8%;background-color:#000;"></div>
+          <div class="team-info">
+            <h4>Elder Alex Aboagye</h4>
+            <span>Presiding Elder &middot; Men's Ministry Leader</span>
+            <p style="text-align:justify;">Elder Alex Aboagye leads with strength, integrity, and a father's heart, overseeing the eldership and Men's Ministry, building men who are grounded in Scripture and faithful in every area of life.</p>
+            <div class="team-socials">
+              <a href="mailto:elder.aboagye@doxasanctuary.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo" style="background-image:url('assets/elder-johnson.jpg');background-position:center top;background-color:#000;"></div>
+          <div class="team-info">
+            <h4>Elder Johnson Yeboah</h4>
+            <span>Elder &middot; Marriage Counsellor</span>
+            <p style="text-align:justify;">Elder Johnson Yeboah is a deeply honourable servant of God, dedicated to marriage counselling and pastoral care with wisdom and compassion for every family.</p>
+            <div class="team-socials">
+              <a href="mailto:elder.johnson@doxasanctuary.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo" style="background-image:url('assets/elder-edmond.jpg');background-position:center 15%;background-color:#000;"></div>
+          <div class="team-info">
+            <h4>Elder Edmond Yeboah</h4>
+            <span>Elder &middot; Bible Teaching</span>
+            <p style="text-align:justify;">Elder Edmond Yeboah is a devoted teacher of the Word, committed to grounding the church in sound biblical truth that shapes a congregation who hears and lives the Word.</p>
+            <div class="team-socials">
+              <a href="mailto:elder.edmond@doxasanctuary.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo" style="background-image:url('assets/elder-james.jpg');background-position:center 15%;background-color:#000;"></div>
+          <div class="team-info">
+            <h4>Elder James Kumi</h4>
+            <span>Elder &middot; Finance</span>
+            <p style="text-align:justify;">Elder James Kumi served DOXA Sanctuary with diligence and integrity, overseeing the financial stewardship of the church with transparency and godly accountability.</p>
+            <div class="team-socials">
+              <a href="mailto:elder.james@doxasanctuary.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIES -->
-  <section id="testimonies" style="background:linear-gradient(135deg,#fdf8ef 0%,#fffdf8 100%);position:relative;overflow:hidden;">
+  <section id="testimonies" style="background:#fff;position:relative;overflow:hidden;">
     <div style="position:absolute;top:-60px;left:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.12),transparent 70%);pointer-events:none;"></div>
     <div style="position:absolute;bottom:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.1),transparent 70%);pointer-events:none;"></div>
     <div class="container" style="position:relative;">
@@ -369,7 +461,7 @@
         <h2 style="color:var(--navy);">Testimonies</h2>
         <p style="color:var(--navy);opacity:.65;max-width:480px;margin:0 auto;font-size:1rem;line-height:1.7;">Lives changed by the power of God at DOXA Sanctuary, Bronx.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:860px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin:0 auto;">
         <div class="testimony-card" style="background:var(--navy);border-radius:14px;padding:2.2rem;position:relative;border-bottom:3px solid var(--gold);">
           <i class="fa-solid fa-quote-left" style="color:var(--gold);font-size:1.4rem;opacity:.6;margin-bottom:1rem;display:block;"></i>
           <p style="color:rgba(255,255,255,.8);font-style:italic;font-size:.95rem;line-height:1.85;margin-bottom:1.5rem;">"I trusted God for a job for a long time. Through the prayers and worship at DOXA Sanctuary, God broke through and gave me far more than I asked for. This church taught me that worship is the key, God is always faithful."</p>
@@ -384,6 +476,14 @@
           <div style="display:flex;align-items:center;gap:.9rem;">
             <div style="width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0;">HK</div>
             <div><strong style="color:#fff;display:block;font-size:.9rem;">Harriet Kumi-Djan</strong><span style="font-size:.78rem;color:rgba(255,255,255,.45);">Bronx, NY</span></div>
+          </div>
+        </div>
+        <div class="testimony-card" style="background:var(--navy);border-radius:14px;padding:2.2rem;position:relative;border-bottom:3px solid var(--gold);">
+          <i class="fa-solid fa-quote-left" style="color:var(--gold);font-size:1.4rem;opacity:.6;margin-bottom:1rem;display:block;"></i>
+          <p style="color:rgba(255,255,255,.8);font-style:italic;font-size:.95rem;line-height:1.85;margin-bottom:1.5rem;">"I bless God for His faithfulness in my life. There were seasons where everything felt like it was closing in, but God brought me out of every single one. DOXA Sanctuary has been a place where I learned to hold on and trust Him, and He has never once let me down."</p>
+          <div style="display:flex;align-items:center;gap:.9rem;">
+            <div style="width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0;">MK</div>
+            <div><strong style="color:#fff;display:block;font-size:.9rem;">Mary Konama</strong><span style="font-size:.78rem;color:rgba(255,255,255,.45);">Bronx, NY</span></div>
           </div>
         </div>
       </div>
@@ -550,6 +650,18 @@
       new IntersectionObserver(([e], o) => {
         if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
       }, { threshold: 0.2 }).observe(ctaEl);
+    }
+
+    // ── TEAM CARDS ──
+    const aboutTeamCards = document.querySelectorAll('#leaders .team-card');
+    if (aboutTeamCards.length) {
+      const atObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          aboutTeamCards.forEach((card, i) => setTimeout(() => card.classList.add('visible'), i * 190));
+          atObs.disconnect();
+        }
+      }, { threshold: 0.08 });
+      atObs.observe(aboutTeamCards[0]);
     }
 
     // ── BELIEF ITEMS ──
