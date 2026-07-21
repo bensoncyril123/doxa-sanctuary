@@ -43,6 +43,7 @@ section{padding:5.5rem 0;position:relative;}
 
 .outreach-mobile-photos{display:none;}
 .about-mobile-p{display:none;}
+.sermon-mobile-top{display:none;}
 
 /* ── BUTTONS ── */
 .btn-white,.btn-ghost,.btn-dark,.btn-outline-dark,.btn-gold{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:4px;font-size:.88rem;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--t);border:2px solid transparent;}
@@ -656,6 +657,11 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 
   /* Two-col inline grids → stack */
   .two-col{grid-template-columns:1fr!important;gap:2rem!important;}
+
+  /* Sermon: mobile layout - label+title above video, hide desktop duplicates */
+  .sermon-mobile-top{display:block;margin-bottom:1.2rem;}
+  .sermon-mobile-top h2{font-size:1rem!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .sermon-desktop-label,.sermon-desktop-title{display:none!important;}
 
   /* About teaser: title above image on mobile */
   .about-mobile-heading{display:block!important;}
