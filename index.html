@@ -151,6 +151,7 @@
     .outreach-pagination .swiper-pagination-bullet { width:10px;height:10px;background:rgba(13,27,42,.2);opacity:1;border-radius:50%;transition:all .3s; }
     .outreach-pagination .swiper-pagination-bullet-active { width:28px;border-radius:6px;background:var(--gold); }
     .wb-line, .wb-line-h { display:block; }
+    .wb-mobile-photo { display:none; }
     #welcome-banner p, #welcome-banner a { font-family:'Plus Jakarta Sans',sans-serif; }
     /* Apply Plus Jakarta Sans to all non-heading text on homepage */
     body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
@@ -204,6 +205,9 @@
     @media(max-width:768px){
       /* Welcome banner: hide side photo, full-width text */
       .wb-photo { display:none; }
+      .wb-mobile-photo { display:block; position:relative; width:100%; height:280px; margin:0 0 1.5rem; border-radius:12px; overflow:hidden; }
+      .wb-mobile-photo img { width:100%; height:100%; object-fit:cover; object-position:center 12%; transform:scale(1.25); transform-origin:center 18%; }
+      .wb-mobile-photo-fade { position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--navy) 100%); }
       #welcome-banner { padding:3.5rem 0; }
       #welcome-banner .container > div { max-width:100%; }
       /* Hide service info block — ticker already shows it */
@@ -334,6 +338,10 @@
           <span class="wb-line-h" data-wi="0">You Have a</span>
           <span class="wb-line-h" data-wi="1"><em class="gold-shimmer" style="font-style:normal;">Place Here.</em></span>
         </h2>
+        <div class="wb-mobile-photo">
+          <img src="assets/welcome-community.jpg" alt="DOXA Sanctuary Community" />
+          <div class="wb-mobile-photo-fade"></div>
+        </div>
         <p class="wb-line" data-wi="2" style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:460px;text-align:justify;">
           <span class="wb-para-line">Church is not a building, and it is not just a Sunday event. At DOXA Sanctuary, it is a family and family means you are welcomed, known, and never on the outside looking in.</span>
           <span class="wb-para-line">Whether you are walking in for the first time, coming back after a long time away, or still figuring out what you believe, there is a place here for you. Bring your questions, your story, and exactly who you are. No judgment, no pressure, no conditions. Just real people, walking through real life together, with room for one more.</span>
