@@ -41,6 +41,8 @@ section{padding:5.5rem 0;position:relative;}
 .section-hd.center{flex-direction:column;align-items:center;}
 .section-hd h2{margin:.3rem 0;}
 
+.outreach-mobile-photos{display:none;}
+
 /* ── BUTTONS ── */
 .btn-white,.btn-ghost,.btn-dark,.btn-outline-dark,.btn-gold{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:4px;font-size:.88rem;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--t);border:2px solid transparent;}
 .btn-white{background:#fff;color:var(--navy);border-color:#fff;}
@@ -400,6 +402,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .hide-on-mobile{display:none;}
   #about-teaser{background:#fff!important;}
   #outreach-text{transform:none!important;opacity:1!important;}
+  .outreach-mobile-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1.2rem;}
+  .outreach-mobile-photos img{width:100%;height:110px;object-fit:cover;border-radius:8px;}
   .sermons-grid{grid-template-columns:1fr;}
   .gallery-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
