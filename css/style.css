@@ -809,7 +809,7 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .outreach-mobile-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1.2rem;}
   .outreach-mobile-photos img{width:100%;height:110px;object-fit:cover;border-radius:8px;}
   /* Hide full swiper on mobile — photo strip already tells the story */
-  #outreach-image{display:none;}
+  #outreach-image{display:none!important;}
 
   /* Hero CTA buttons */
   .hero-cta{flex-direction:row;align-items:center;flex-wrap:nowrap;gap:.6rem;}
