@@ -42,6 +42,7 @@ section{padding:5.5rem 0;position:relative;}
 .section-hd h2{margin:.3rem 0;}
 
 .outreach-mobile-photos{display:none;}
+.about-mobile-p{display:none;}
 
 /* ── BUTTONS ── */
 .btn-white,.btn-ghost,.btn-dark,.btn-outline-dark,.btn-gold{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:4px;font-size:.88rem;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--t);border:2px solid transparent;}
@@ -659,6 +660,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* About teaser: title above image on mobile */
   .about-mobile-heading{display:block!important;}
   .about-text-side h2{display:none;}
+  .about-desktop-p{display:none!important;}
+  .about-mobile-p{display:block;}
 
   /* About teaser: hide quote card + shadow box that overflow on mobile */
   .about-img-side>div[style*="top:-38px"]{display:none!important;}
