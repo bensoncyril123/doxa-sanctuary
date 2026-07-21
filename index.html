@@ -622,6 +622,23 @@
         </div>
         <a href="gallery" class="btn-outline-dark sr d2">View All Photos <i class="fa-solid fa-arrow-right"></i></a>
       </div>
+      <!-- Mobile: auto-scrolling Swiper carousel -->
+      <div class="swiper gallery-mobile-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="assets/gal-1.jpg" alt="Joy" /></div>
+          <div class="swiper-slide"><img src="assets/gal-5.jpg" alt="Prayer" /></div>
+          <div class="swiper-slide"><img src="assets/gal-IMG_3036.jpg" alt="Life at DOXA" /></div>
+          <div class="swiper-slide"><img src="assets/gal-2.jpg" alt="Church Family" /></div>
+          <div class="swiper-slide"><img src="assets/gal-IMG_3052.jpg" alt="Life at DOXA" /></div>
+          <div class="swiper-slide"><img src="assets/gal-3.jpg" alt="Community" /></div>
+          <div class="swiper-slide"><img src="assets/gal-IMG_3044.jpg" alt="Life at DOXA" /></div>
+          <div class="swiper-slide"><img src="assets/gal-4.jpg" alt="Life at DOXA" /></div>
+          <div class="swiper-slide"><img src="assets/gal-IMG_2836.jpg" alt="Life at DOXA" /></div>
+          <div class="swiper-slide"><img src="assets/gal-6.jpg" alt="Life at DOXA" /></div>
+        </div>
+        <div class="swiper-pagination gallery-mobile-pagination"></div>
+      </div>
+      <!-- Desktop: grid layout -->
       <div class="gallery-preview">
         <div class="gp tall sr sr-left"><img src="assets/gal-1.jpg" alt="DOXA Joy" style="object-position:center top;" /><div class="g-overlay"><span>Joy</span></div></div>
         <div class="gp sr d1"><img src="assets/gal-5.jpg" alt="DOXA Prayer" style="object-position:center top;" /><div class="g-overlay"><span>Prayer</span></div></div>
@@ -1024,6 +1041,14 @@
     fadeEffect: { crossFade: true },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     pagination: { el: '.outreach-pagination', clickable: true, dynamicBullets: false },
+  });
+  new Swiper('.gallery-mobile-swiper', {
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    slidesPerView: 1.15,
+    spaceBetween: 12,
+    centeredSlides: true,
+    pagination: { el: '.gallery-mobile-pagination', clickable: true },
   });
 </script>
 
