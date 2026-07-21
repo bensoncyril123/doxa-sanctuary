@@ -395,7 +395,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
 }
 @media(max-width:480px){
   .hero-body h1{font-size:clamp(2.2rem,10vw,3rem);}
-  .hero-cta{flex-direction:column;align-items:center;}
+  .hero-cta{flex-direction:row;align-items:center;flex-wrap:nowrap;gap:.6rem;}
+  .hero-btn-1,.hero-btn-2{min-width:0;padding:.65rem 1rem;font-size:.75rem;}
   .sermons-grid{grid-template-columns:1fr;}
   .gallery-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
@@ -793,8 +794,8 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   .mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
 
   /* Hero CTA buttons */
-  .hero-cta{flex-direction:column;align-items:stretch;gap:.8rem;}
-  .hero-cta .btn-gold,.hero-cta .btn-ghost{width:100%;justify-content:center;}
+  .hero-cta{flex-direction:row;align-items:center;flex-wrap:nowrap;gap:.6rem;}
+  .hero-btn-1,.hero-btn-2{min-width:0;padding:.7rem 1.2rem;font-size:.8rem;}
 
   /* Photo strip */
   .photo-strip{grid-template-columns:repeat(2,1fr);}
