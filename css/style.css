@@ -656,6 +656,10 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
   /* Two-col inline grids → stack */
   .two-col{grid-template-columns:1fr!important;gap:2rem!important;}
 
+  /* About teaser: title above image on mobile */
+  .about-mobile-heading{display:block!important;}
+  .about-text-side h2{display:none;}
+
   /* About teaser: hide quote card + shadow box that overflow on mobile */
   .about-img-side>div[style*="top:-38px"]{display:none!important;}
   .about-img-side>div[style*="top:22px"]{display:none!important;}
