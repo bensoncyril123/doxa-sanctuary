@@ -616,6 +616,27 @@ cite{display:block;font-size:.8rem;color:var(--gold);font-style:normal;margin-to
    COMPREHENSIVE RESPONSIVE OVERHAUL
 ══════════════════════════════════════ */
 
+/* ── IPAD (769px–1024px) ── */
+@media(min-width:769px) and (max-width:1024px){
+  /* Reset outreach animation stuck state */
+  #outreach-text{transform:none!important;opacity:1!important;}
+  #outreach-image{transform:none!important;opacity:1!important;}
+  /* Stack outreach to single column so text isn't cramped */
+  #outreach-text+div,
+  [id="outreach-image"]{display:block;}
+  section > .container > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr!important;
+    gap:2rem!important;
+  }
+  /* Outreach swiper height on tablet */
+  #outreach-image > div{height:340px!important;}
+  /* Sermon grid single column on tablet */
+  .sermon-feature-grid{grid-template-columns:1fr!important;gap:2rem!important;}
+  /* About stats wrap */
+  .stats-row{flex-wrap:wrap;gap:1.5rem;}
+  .stat-divider{display:none;}
+}
+
 /* ── TABLET (max 900px) ── */
 @media(max-width:900px){
   .container{padding:0 1.5rem;}
