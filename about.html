@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     body, body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
 
@@ -78,9 +79,15 @@
     .stat-item .stat-n { font-size:2.2rem; font-weight:900; font-family:'Playfair Display',serif; }
     .stat-item .stat-l { font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-top:.2rem; }
 
+    .about-strip-mobile{display:none;}
     @media(max-width:768px){
       .page-hero-body{ padding-top:130px!important; }
       #story{background:#fff!important;}
+      .about-strip-desktop{display:none!important;}
+      .about-strip-mobile{display:block;}
+      .about-strip-pagination{text-align:center;margin-top:.6rem;}
+      .about-strip-pagination .swiper-pagination-bullet{background:rgba(13,27,42,.25);opacity:1;}
+      .about-strip-pagination .swiper-pagination-bullet-active{background:var(--gold);}
       #story .container > div{grid-template-columns:1fr!important;gap:1.5rem!important;}
       #story h2{font-size:clamp(2.4rem,10vw,3.2rem)!important;margin-bottom:.5rem!important;}
       #mandate .values-grid{grid-template-columns:1fr 1fr!important;gap:1rem!important;}
@@ -282,14 +289,25 @@
     </div>
   </section>
 
-  <!-- PHOTO STRIP -->
-  <div class="photo-strip">
+  <!-- PHOTO STRIP (desktop) -->
+  <div class="photo-strip about-strip-desktop">
     <div class="ps-item"><img src="assets/doxa-3.jpg" alt="DOXA Joy" style="object-position:center center;" /></div>
     <div class="ps-item"><img src="assets/gal-2.jpg" alt="DOXA Community" style="object-position:center top;" /></div>
     <div class="ps-item"><img src="assets/gal-5.jpg" alt="DOXA Prayer" style="object-position:center top;" /></div>
     <div class="ps-item"><img src="assets/doxa-2.jpg" alt="DOXA Community" style="object-position:center center;" /></div>
     <div class="ps-item"><img src="assets/gal-6.jpg" alt="DOXA Worship" style="object-position:center center;" /></div>
     <div class="ps-item"><img src="assets/doxa-1.jpg" alt="Life at DOXA" style="object-position:center center;" /></div>
+  </div>
+  <!-- PHOTO SLIDER (mobile only) -->
+  <div class="about-strip-mobile swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="assets/doxa-3.jpg" alt="DOXA Joy" style="width:100%;height:260px;object-fit:cover;object-position:center center;" /></div>
+      <div class="swiper-slide"><img src="assets/gal-2.jpg" alt="DOXA Community" style="width:100%;height:260px;object-fit:cover;object-position:center top;" /></div>
+      <div class="swiper-slide"><img src="assets/gal-IMG_3036.jpg" alt="Life at DOXA" style="width:100%;height:260px;object-fit:cover;object-position:center 20%;" /></div>
+      <div class="swiper-slide"><img src="assets/about-strip-2.jpg" alt="Life at DOXA" style="width:100%;height:260px;object-fit:cover;object-position:center top;" /></div>
+    </div>
+    <div class="swiper-button-prev about-strip-prev" style="color:#fff;background:rgba(13,27,42,.5);width:34px;height:34px;border-radius:50%;--swiper-navigation-size:14px;"></div>
+    <div class="swiper-button-next about-strip-next" style="color:#fff;background:rgba(13,27,42,.5);width:34px;height:34px;border-radius:50%;--swiper-navigation-size:14px;"></div>
   </div>
 
   <!-- WHAT WE DO, 4 CONVICTIONS -->
@@ -689,6 +707,17 @@
         if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
       }, { threshold: 0.2 }).observe(el);
     });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    if(window.innerWidth <= 768){
+      new Swiper('.about-strip-mobile', {
+        loop: true,
+        autoplay: { delay: 3500, disableOnInteraction: false },
+        slidesPerView: 1,
+        navigation: { nextEl: '.about-strip-next', prevEl: '.about-strip-prev' },
+      });
+    }
   </script>
 
 </body>
