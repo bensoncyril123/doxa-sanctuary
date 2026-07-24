@@ -6,9 +6,12 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>I'm New — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    /* Match home page font */
+    body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
+
     /* EXPECT STEPS */
     .expect-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
     .expect-step { background:#fff; border-radius:10px; padding:1.8rem 1.5rem; text-align:center; box-shadow:var(--shadow); position:relative; }
@@ -470,8 +473,8 @@
 
   <!-- BOTTOM CTA -->
   <section style="position:relative;padding:6rem 0;text-align:center;overflow:hidden;">
-    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;"></div>
-    <div style="position:absolute;inset:0;background:rgba(13,27,42,.82);z-index:1;"></div>
+    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;filter:blur(6px);transform:scale(1.08);z-index:0;"></div>
+    <div style="position:absolute;inset:0;background:rgba(13,27,42,.75);z-index:1;"></div>
     <div class="container nh-fade" style="position:relative;z-index:2;">
       <p class="eyebrow gold">Your Next Step</p>
       <p style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.15;margin:.4rem 0 0;">Ready to Take the <span style="color:var(--gold);">Next Step?</span></p>
@@ -479,7 +482,6 @@
       <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto 2.5rem;font-size:1.05rem;line-height:1.8;">Join a small group, explore our ministries, or simply show up this Sunday. We are here to walk with you every step of the way.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="small-groups" class="btn-gold">Join a Small Group <i class="fa-solid fa-people-group"></i></a>
-        <a href="contact" class="btn-ghost">Plan Your Visit <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
