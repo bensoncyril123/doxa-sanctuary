@@ -18,13 +18,13 @@
     .expect-step p { font-size:.88rem; line-height:1.7; text-align:justify; }
 
     /* EXPECT STEP CARDS (new) */
-    .expect-card-new { position:relative; background:rgba(255,255,255,.05); border:1px solid rgba(201,168,76,.2); border-left:3px solid var(--gold); border-radius:10px; padding:2rem 1.5rem 1.8rem; text-align:center; overflow:hidden; transition:background .3s,transform .3s; }
+    .expect-card-new { position:relative; background:#f8f6f1; border:1px solid rgba(201,168,76,.25); border-left:3px solid var(--gold); border-radius:10px; padding:2rem 1.5rem 1.8rem; text-align:center; overflow:hidden; transition:background .3s,transform .3s; }
     .expect-card-new:hover { background:rgba(201,168,76,.08); transform:translateY(-6px); }
-    .ecn-num { position:absolute; top:10px; right:14px; font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:900; color:rgba(201,168,76,.12); line-height:1; pointer-events:none; }
+    .ecn-num { position:absolute; top:10px; right:14px; font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:900; color:rgba(201,168,76,.18); line-height:1; pointer-events:none; }
     .ecn-icon { width:56px; height:56px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; }
     .ecn-icon i { font-size:1.3rem; color:var(--navy); }
-    .expect-card-new h4 { color:#fff; margin-bottom:.7rem; font-size:1.05rem; }
-    .expect-card-new p { color:rgba(255,255,255,.65); font-size:.87rem; line-height:1.75; }
+    .expect-card-new h4 { color:var(--navy); margin-bottom:.7rem; font-size:1.05rem; }
+    .expect-card-new p { color:var(--muted); font-size:.87rem; line-height:1.75; }
     @media(max-width:860px){ .expect-card-new { grid-column:span 2; } }
     @media(max-width:540px){ .expect-card-new { grid-column:span 4; } }
     @media(max-width:768px){
@@ -87,8 +87,36 @@
     @media(max-width:768px){
       .page-hero-body a[href="#expect"]{ display:none; }
       .page-hero-body .eyebrow{ display:none; }
-      .page-hero-body{ padding-top:140px!important; }
+      .page-hero-body{ padding-top:90px!important; }
       #expect{ padding-top:4rem!important; padding-bottom:3rem!important; overflow:hidden; }
+      .expect-welcome-img{ display:block!important; }
+      /* Remove justify on mobile */
+      .tc-copy p, .tc-copy .btk-secondary { text-align:left!important; }
+      /* Hide dresscode image from What to Wear section on mobile */
+      .tc-img.nh-left{ display:none!important; }
+      /* Hide bring-the-kids image on mobile */
+      .tc-img.nh-right{ display:none!important; }
+      /* Keep dress code badges 2-column on mobile */
+      .dc-badges-grid{ grid-template-columns:1fr 1fr; }
+      /* Bring the Kids — 2-col compact cards on mobile */
+      .kids-programs-grid{ grid-template-columns:1fr 1fr!important; gap:.6rem!important; margin:1.2rem 0!important; }
+      .kids-programs-grid > div { padding:.85rem .75rem!important; border-radius:8px!important; }
+      .kids-programs-grid > div > div:first-child { display:none!important; }
+      .kids-programs-grid span { font-size:.58rem!important; padding:.12rem .45rem!important; }
+      .kids-programs-grid h5 { font-size:.85rem!important; margin-bottom:.25rem!important; margin-top:.2rem!important; }
+      .kids-programs-grid p { font-size:.76rem!important; line-height:1.5!important; }
+      /* Hide secondary paragraph on mobile */
+      .btk-secondary{ display:none!important; }
+      /* CTA — simple text link on mobile */
+      #bring-kids-cta{ background:none!important; padding:.25rem 0 0!important; border-radius:0!important; box-shadow:none!important; }
+      #bring-kids-cta p { display:none!important; }
+      #bring-kids-cta a { background:var(--navy)!important; color:#fff!important; border:none!important; padding:.65rem 1.4rem!important; border-radius:6px!important; font-size:.85rem!important; display:inline-flex!important; }
+      /* Compact step cards on mobile — no icons */
+      .ecn-icon{ display:none!important; }
+      .expect-card-new{ padding:1rem 1rem 1rem 1.2rem!important; text-align:left!important; }
+      .expect-card-new h4{ font-size:.95rem!important; margin-bottom:.3rem!important; }
+      .expect-card-new p{ font-size:.82rem!important; line-height:1.6!important; }
+      .ecn-num{ font-size:2.2rem!important; top:8px!important; right:10px!important; }
       #connect{ padding-top:3rem!important; background:#fff; }
       /* Fix dress code image negative margin bleeding into section above */
       [style*="margin-top:-120px"]{ margin-top:0!important; }
@@ -107,6 +135,16 @@
     @media(max-width:480px){
       [style*="grid-template-columns:repeat(4,1fr)"]{ grid-template-columns:1fr!important; }
     }
+
+    /* Mobile welcome image in #expect — hidden on desktop */
+    .expect-welcome-img { display:none; }
+    .expect-welcome-img img { width:100%; height:440px; object-fit:cover; object-position:center 20%; border-radius:12px; display:block; margin-top:2rem; }
+
+    /* Kids photo row — mobile only */
+    .kids-row { display:none; gap:.5rem; margin-bottom:1.5rem; }
+    .kids-row-item { flex:1; border-radius:10px; overflow:hidden; }
+    .kids-row-item img { width:100%; height:150px; object-fit:cover; object-position:center top; display:block; }
+    @media(max-width:768px){ .kids-row { display:flex!important; } }
 
     /* ── PAGE ANIMATIONS ── */
     .nh-fade { opacity:0; transform:translateY(28px); transition:opacity 1s ease, transform 1s ease; }
@@ -174,27 +212,29 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <div class="page-hero" style="background-image:url('assets/new-here-hero.jpg');background-position:center top;">
-    <div class="page-hero-dim"></div>
-    <div class="page-hero-body">
+  <div class="page-hero" style="background-image:none;background-position:center top;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:url('assets/new-here-hero.jpg');background-size:cover;background-position:center top;filter:blur(14px);transform:scale(1.1);z-index:0;"></div>
+    <div class="page-hero-dim" style="z-index:1;"></div>
+    <div class="page-hero-body" style="position:relative;z-index:2;">
       <p class="eyebrow light-gold">Welcome to DOXA</p>
       <h1>You Belong Here</h1>
       <p>No matter who you are or where you've been, there is a place for you at DOXA Sanctuary. Come as you are.</p>
       <p style="color:var(--gold);font-size:.88rem;font-weight:600;margin-top:.6rem;letter-spacing:.04em;">— Rev. Alex Owusu Jnr., Lead Pastor</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-        <a href="#expect" class="btn-gold">What to Expect <i class="fa-solid fa-arrow-down"></i></a>
-        <a href="#connect" class="btn-ghost">Connect With Us <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
     </div>
   </div>
 
   <!-- WHAT TO EXPECT -->
-  <section id="expect" style="background:var(--navy);padding:5rem 0;">
+  <section id="expect" style="background:#fff;padding:5rem 0;">
     <div class="container">
       <div class="section-hd center">
         <p class="eyebrow gold nh-fade">Your First Sunday</p>
-        <h2 class="nh-fade" style="color:#fff;">What to Expect When You Arrive</h2>
-        <p class="sub nh-fade" style="color:rgba(255,255,255,.6);">Here's a simple walkthrough of what your first visit at DOXA Sanctuary will look like.</p>
+        <h2 class="nh-fade" style="color:var(--navy);">What to Expect When You Arrive</h2>
+        <p class="sub nh-fade" style="color:var(--muted);">Here's a simple walkthrough of what your first visit at DOXA Sanctuary will look like.</p>
+      </div>
+
+      <!-- Mobile-only welcome image -->
+      <div class="expect-welcome-img">
+        <img src="assets/dresscode.jpg" alt="Warm welcome at DOXA Sanctuary" />
       </div>
 
       <!-- Timeline -->
@@ -254,7 +294,7 @@
           <div class="gold-bar" style="height:3px;background:var(--gold);margin:1.2rem 0 1.4rem;"></div>
           <p style="text-align:justify;">There is no dress code at DOXA Sanctuary. We believe God looks at the heart, not the outfit. Whether you come in your Sunday best or your everyday clothes, you are welcome here. What matters most is that you show up.</p>
           <p style="text-align:justify;margin-top:1rem;">Our congregation is beautifully diverse, a mix of cultures, backgrounds, ages, and styles. You will fit right in. We are a family, and families welcome each other just as they are.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:2rem;">
+          <div class="dc-badges-grid" style="display:grid;gap:.75rem;margin-top:2rem;">
             <div class="dc-badge" style="background:var(--navy);color:var(--gold);border-radius:8px;padding:.75rem 1rem;font-size:.88rem;font-weight:600;text-align:center;letter-spacing:.04em;">Casual Wear</div>
             <div class="dc-badge" style="background:var(--navy);color:var(--gold);border-radius:8px;padding:.75rem 1rem;font-size:.88rem;font-weight:600;text-align:center;letter-spacing:.04em;">Smart Casual</div>
             <div class="dc-badge" style="background:var(--gold);color:var(--navy);border-radius:8px;padding:.75rem 1rem;font-size:.88rem;font-weight:600;text-align:center;letter-spacing:.04em;">Formal Wear</div>
@@ -273,10 +313,18 @@
           <p class="eyebrow gold">Bring the Kids</p>
           <p style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:900;color:var(--navy);line-height:1.15;margin:.3rem 0 0;">Your Children Are<br><span style="color:var(--gold);">Welcome Here</span></p>
           <div class="gold-bar" style="height:3px;background:var(--gold);margin:1.2rem 0 1.4rem;"></div>
+
+          <!-- Mobile-only kids photo row -->
+          <div class="kids-row">
+            <div class="kids-row-item"><img src="assets/kids-crafts.jpg" alt="Kids at DOXA" /></div>
+            <div class="kids-row-item"><img src="assets/kids-family.jpg" alt="Family at DOXA" /></div>
+            <div class="kids-row-item"><img src="assets/kids-activity.jpg" alt="Kids ministry" /></div>
+          </div>
+
           <p style="text-align:justify;color:var(--muted);">We believe children deserve more than just a seat in the pew, they deserve an encounter with God too. When you visit DOXA Sanctuary, bring your kids along. We have age-appropriate programs running during the Sunday service so the whole family can experience God together.</p>
 
           <!-- Program Cards -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;">
+          <div class="kids-programs-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;">
             <div style="background:#fff;border-radius:10px;border-top:4px solid var(--gold);padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,.07);">
               <div style="width:48px;height:48px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
                 <i class="fa-solid fa-baby" style="color:var(--navy);font-size:1.1rem;"></i>
@@ -295,11 +343,11 @@
             </div>
           </div>
 
-          <p style="text-align:justify;color:var(--muted);font-size:.92rem;">When you arrive, our welcome team will point you in the right direction and make sure your children are settled before the service begins. Our goal is to partner with you in raising your children to know and love Jesus.</p>
+          <p class="btk-secondary" style="text-align:justify;color:var(--muted);font-size:.92rem;">When you arrive, our welcome team will point you in the right direction and make sure your children are settled before the service begins. Our goal is to partner with you in raising your children to know and love Jesus.</p>
 
           <!-- CTA strip -->
-          <div style="margin-top:2rem;background:var(--gold);border-radius:10px;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
-            <p style="color:var(--navy);font-weight:600;margin:0;font-size:.95rem;"><i class="fa-solid fa-heart" style="margin-right:.5rem;"></i>Want to learn more about our Kids' programs?</p>
+          <div id="bring-kids-cta" style="margin-top:2rem;background:var(--gold);border-radius:10px;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <p style="color:var(--navy);font-weight:600;margin:0;font-size:.95rem;">Want to learn more about our Kids' programs?</p>
             <a href="childrens-ministry" class="btn-dark" style="white-space:nowrap;">Children's Ministry <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
@@ -512,7 +560,8 @@
       }
     })();
 
-    function toggleFaq(btn) {
+  
+  function toggleFaq(btn) {
       const item = btn.parentElement;
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
