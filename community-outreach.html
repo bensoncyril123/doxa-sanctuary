@@ -141,6 +141,9 @@
       color: var(--navy);
     }
 
+    .or-trio-after { display: none; }
+    .or-body-img { display: none; }
+
     /* TRIO PHOTOS */
     .or-trio {
       display: grid;
@@ -287,9 +290,14 @@
       .or-story { padding: 2.5rem 0; }
       .or-section-title { font-size: 2rem; margin-bottom: 1rem; }
       .or-lead { font-size: .92rem; }
+      .or-body p { font-size: .92rem!important; }
+      .or-body-img { display: block!important; margin: 1.2rem 0; border-radius: 12px; overflow: hidden; }
+      .or-body-img img { width: 100%; height: 220px; object-fit: cover; display: block; }
       .or-trio { max-width: 100%; }
       .or-trio-item img { height: 200px; }
       .or-trio-first { display: none!important; }
+      .or-trio-after { display: block; margin: 1rem 0; border-radius: 12px; overflow: hidden; }
+      .or-trio-after img { width: 100%; height: 220px; object-fit: cover; object-position: center 20%; display: block; }
       .or-grid { grid-template-columns: 1fr 1fr; }
       .or-grid-item.wide { grid-column: span 2; }
       .or-grid-item img, .or-grid-item.wide img { height: 180px; }
@@ -387,11 +395,20 @@
         Families, children, elderly residents, and people just passing through all stopped, received, and left different than they came. Some walked away with food. Some with a fresh sense of hope. Some with a conversation still ringing in their hearts. And some with a decision to find out more about the God who sent a church to find them on an ordinary afternoon. <strong>This is who we are. And we are only just getting started.</strong>
       </p>
 
+      <!-- MOBILE-ONLY: first image placed after last paragraph -->
+      <div class="or-trio-after">
+        <img src="doxa/1.JPG" alt="Community outreach" />
+      </div>
+
       <!-- STORY TEXT -->
       <div class="or-body">
         <p>We are not content to simply hold services on Sunday and close our doors on Monday. We are a church on the move — alive, active, and deeply invested in the wellbeing of the people around us. The Bronx is not just the neighborhood we occupy. It is the community we are called to serve, to love, and to pour into with everything we have.</p>
 
         <p>Our outreach is about more than a single act of generosity. It is about showing up consistently, intentionally, and wholeheartedly. When we go into the community, we come prepared — with hot meals, warm smiles, and small gifts that remind people they were thought of before we even arrived. A pen, a Gospel tract, a simple token to take home. Nothing extravagant. Just enough to say: someone cared enough to bring this for you today.</p>
+
+        <div class="or-body-img">
+          <img src="doxa/14.JPG" alt="Community outreach" />
+        </div>
 
         <div class="or-pull">
           <p>"We are not content to simply hold services on Sunday and close our doors on Monday. We are a church on the move."</p>
