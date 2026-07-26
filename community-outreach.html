@@ -143,6 +143,7 @@
 
     .or-trio-after { display: none; }
     .or-body-img { display: none; }
+    .or-see-more { display: none; }
 
     /* TRIO PHOTOS */
     .or-trio {
@@ -292,6 +293,7 @@
       .or-lead { font-size: .92rem; }
       .or-body p { font-size: .92rem!important; }
       .or-pull { display: none!important; }
+      .or-body-hide-mobile { display: none!important; }
       .or-body-img { display: block!important; margin: 1.2rem 0; border-radius: 12px; overflow: hidden; }
       .or-body-img img { width: 100%; height: 220px; object-fit: cover; object-position: center 15%; display: block; }
       .or-trio { max-width: 100%; }
@@ -299,12 +301,20 @@
       .or-trio-first { display: none!important; }
       .or-trio-after { display: block; margin: 1rem 0; border-radius: 12px; overflow: hidden; }
       .or-trio-after img { width: 100%; height: 220px; object-fit: cover; object-position: center 20%; display: block; }
-      .or-grid { grid-template-columns: 1fr 1fr; }
-      .or-grid-item.wide { grid-column: span 2; }
-      .or-grid-item img, .or-grid-item.wide img { height: 180px; }
+      /* GRID: show only 4 featured */
+      .or-grid { grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 2rem; }
+      .or-grid-item { display: none; }
+      .or-grid-item.or-feat { display: block; }
+      .or-feat-top { grid-column: span 2; }
+      .or-feat-bottom { grid-column: span 2; }
+      .or-grid-item img, .or-grid-item.wide img { height: 160px; }
+      .or-feat-top img, .or-feat-bottom img { height: 200px; }
+      /* See More */
+      .or-see-more { display: flex!important; justify-content: center; margin-top: 1.2rem; }
+      .or-see-more-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--navy); color: #fff; padding: .7rem 1.6rem; border-radius: 6px; font-size: .88rem; font-weight: 600; text-decoration: none; }
     }
     @media(max-width: 480px) {
-      .or-grid { grid-template-columns: 1fr; }
+      .or-grid { grid-template-columns: 1fr 1fr; }
       .or-grid-item.wide { grid-column: span 1; }
     }
   </style>
@@ -420,9 +430,9 @@
 
         <p>Every time we step out into the streets, we carry with us the conviction that the Gospel is good news for the whole person — body, soul, and spirit. So we serve meals and we share the Word. We set up tables and we open conversations. We meet people exactly where they are, without judgment and without conditions, because that is exactly how God met each one of us.</p>
 
-        <p>Families, children, elderly residents, and people just passing through have all stopped, received, and left different than they came. Some walked away with food. Some walked away with a flyer and a fresh sense of hope. Some walked away with a conversation still ringing in their hearts. And some walked away with a decision to come back and find out more about the God who sent a church to find them on an ordinary afternoon.</p>
+        <p class="or-body-hide-mobile">Families, children, elderly residents, and people just passing through have all stopped, received, and left different than they came. Some walked away with food. Some walked away with a flyer and a fresh sense of hope. Some walked away with a conversation still ringing in their hearts. And some walked away with a decision to come back and find out more about the God who sent a church to find them on an ordinary afternoon.</p>
 
-        <p><strong>This is who we are. This is what we do. And we are only just getting started.</strong></p>
+        <p class="or-body-hide-mobile"><strong>This is who we are. This is what we do. And we are only just getting started.</strong></p>
       </div>
 
       <!-- PHOTO GRID -->
@@ -445,16 +455,16 @@
         <div class="or-grid-item" onclick="orLightbox(this)">
           <img src="assets/outreach/1.JPG" alt="Sharing the Gospel one on one" style="object-position:center top;" />
         </div>
-        <div class="or-grid-item" onclick="orLightbox(this)">
+        <div class="or-grid-item or-feat" onclick="orLightbox(this)">
           <img src="assets/outreach/17.JPG" alt="Mother and children at the outreach" style="object-position:center top;" />
         </div>
-        <div class="or-grid-item wide" onclick="orLightbox(this)">
+        <div class="or-grid-item wide or-feat or-feat-top" onclick="orLightbox(this)">
           <img src="assets/outreach/18.jpg" alt="Food table loaded with meals" style="object-position:center top;" />
         </div>
-        <div class="or-grid-item" onclick="orLightbox(this)">
+        <div class="or-grid-item or-feat" onclick="orLightbox(this)">
           <img src="assets/outreach/8.JPG" alt="DOXA ladies holding welcome banner" style="object-position:center 15%;" />
         </div>
-        <div class="or-grid-item wide" onclick="orLightbox(this)">
+        <div class="or-grid-item wide or-feat or-feat-bottom" onclick="orLightbox(this)">
           <img src="assets/outreach/10.JPG" alt="Pastor with outreach team members" style="object-position:center top;" />
         </div>
         <div class="or-grid-item" onclick="orLightbox(this)">
@@ -475,6 +485,11 @@
         <div class="or-grid-item" onclick="orLightbox(this)">
           <img src="assets/outreach/14.JPG" alt="Serving children at the outreach" style="object-position:center top;" />
         </div>
+      </div>
+
+      <!-- See More (mobile only) -->
+      <div class="or-see-more">
+        <a href="gallery" class="or-see-more-btn">See More Photos <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
     </div>
