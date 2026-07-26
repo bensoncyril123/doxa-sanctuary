@@ -6,9 +6,14 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Community Outreach | DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    /* FONT */
+    body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
     /* HERO */
     .or-hero {
       position: relative;
@@ -85,13 +90,22 @@
 
     /* STORY */
     .or-story { padding: 5rem 0; background: #fff; }
+    .or-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
     .or-lead {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.95;
       color: var(--muted);
-      max-width: 740px;
-      margin: 0 auto 3rem;
-      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 1.5rem;
+      text-align: justify;
     }
 
     /* STATS */
@@ -126,6 +140,27 @@
       letter-spacing: .12em;
       color: var(--navy);
     }
+
+    /* TRIO PHOTOS */
+    .or-trio {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2.5rem auto;
+      max-width: 760px;
+    }
+    .or-trio-item {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .or-trio-item img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .or-trio-item:hover img { transform: scale(1.03); }
 
     /* BODY TEXT */
     .or-body {
@@ -245,6 +280,16 @@
     }
 
     @media(max-width: 767px) {
+      .or-hero-body { display: none; }
+      .or-hero-dim { display: none; }
+      .or-hero { height: 15vh; min-height: 90px; }
+      .or-hero img.bg { object-position: center 0%; }
+      .or-story { padding: 2.5rem 0; }
+      .or-section-title { font-size: 2rem; margin-bottom: 1rem; }
+      .or-lead { font-size: .92rem; }
+      .or-trio { max-width: 100%; }
+      .or-trio-item img { height: 200px; }
+      .or-trio-first { display: none!important; }
       .or-grid { grid-template-columns: 1fr 1fr; }
       .or-grid-item.wide { grid-column: span 2; }
       .or-grid-item img, .or-grid-item.wide img { height: 180px; }
@@ -323,17 +368,24 @@
   <section class="or-story">
     <div class="container">
 
+      <h2 class="or-section-title">A Church on the Move</h2>
       <p class="or-lead">
-        At DOXA Sanctuary, the church doesn't wait for the community to come to us — we go to them. We take the love of Christ to the streets, showing up with food, fellowship, and the Gospel of Jesus Christ right where people are. Because we believe that faith without action is incomplete, and love without presence means nothing.
+        At DOXA Sanctuary, the church doesn't wait for the community to come to us — we go to them. On June 6, 2026, over <strong>40 volunteers</strong> took to the streets of Co-op City, Bronx, reaching <strong>100+ people</strong> with food, fellowship, and the Gospel of Jesus Christ. One community. One God's glory. Because we believe that faith without action is incomplete, and love without presence means nothing.
       </p>
 
-      <!-- STATS -->
-      <div class="or-stats">
-        <div class="or-stat"><strong>100+</strong><span>People Reached</span></div>
-        <div class="or-stat"><strong>40+</strong><span>Volunteers</span></div>
-        <div class="or-stat"><strong>1</strong><span>Community</span></div>
-        <div class="or-stat"><strong>1</strong><span>God's Glory</span></div>
+      <!-- TRIO PHOTOS -->
+      <div class="or-trio">
+        <div class="or-trio-item or-trio-first"><img src="doxa/1.JPG" alt="Community outreach" /></div>
+        <div class="or-trio-item"><img src="doxa/2.JPG" alt="Community outreach" /></div>
+        <div class="or-trio-item"><img src="doxa/6.JPG" alt="Community outreach" /></div>
       </div>
+
+      <p class="or-lead">
+        We showed up with hot meals, warm smiles, and small gifts — pens, Gospel tracts, and simple tokens to remind every person they were thought of before we even arrived. We sat with people, listened to their stories, prayed with them, and looked them in the eyes to say: you are not invisible, and there is a community right here in the Bronx that has room for you.
+      </p>
+      <p class="or-lead">
+        Families, children, elderly residents, and people just passing through all stopped, received, and left different than they came. Some walked away with food. Some with a fresh sense of hope. Some with a conversation still ringing in their hearts. And some with a decision to find out more about the God who sent a church to find them on an ordinary afternoon. <strong>This is who we are. And we are only just getting started.</strong>
+      </p>
 
       <!-- STORY TEXT -->
       <div class="or-body">
