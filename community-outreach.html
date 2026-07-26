@@ -259,7 +259,7 @@
 
     /* CTA */
     .or-cta {
-      background: var(--navy);
+      background: transparent;
       padding: 4.5rem 0;
       text-align: center;
     }
@@ -496,8 +496,10 @@
   </section>
 
   <!-- CTA -->
-  <section class="or-cta">
-    <div class="container">
+  <section class="or-cta" style="position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;filter:blur(6px);transform:scale(1.08);z-index:0;"></div>
+    <div style="position:absolute;inset:0;background:rgba(13,27,42,.72);z-index:1;"></div>
+    <div class="container" style="position:relative;z-index:2;">
       <h2>Want to Serve With Us?</h2>
       <p>Join our team and be part of reaching the Bronx and the world with the love of Christ.</p>
       <div class="or-cta-btns">
@@ -506,6 +508,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer id="footer">
