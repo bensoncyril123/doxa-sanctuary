@@ -171,6 +171,25 @@
       #join-form [style*="position:sticky"] { position: static!important; }
       #join-form h2 { font-size: 1.8rem!important; }
       #join-form p { font-size: .88rem!important; line-height: 1.7!important; }
+      #join-form input, #join-form select, #join-form textarea {
+        font-family: 'Plus Jakarta Sans', sans-serif!important;
+        font-size: .82rem!important;
+        padding: .6rem .85rem!important;
+      }
+      #join-form label, #join-form .fg label {
+        font-family: 'Plus Jakarta Sans', sans-serif!important;
+        font-size: .78rem!important;
+        font-weight: 600!important;
+      }
+      #join-form textarea { min-height: 90px!important; font-size: .82rem!important; }
+      #join-form select { font-size: .82rem!important; }
+      #join-form button[type="submit"] { font-size: .88rem!important; padding: .75rem!important; margin-top: 1rem!important; }
+      .sg-intro-section { background: #fff!important; }
+      .sg-cta-section { padding: 3rem 0!important; }
+      .sg-cta-bg { filter: blur(5px); transform: scale(1.08); }
+      .sg-cta-inner h2 { font-size: 1.4rem!important; margin-bottom: .5rem!important; }
+      .sg-cta-inner p { font-size: .85rem!important; margin-bottom: 1.2rem!important; }
+      .sg-cta-inner .btn-gold { font-size: .85rem!important; padding: .65rem 1.4rem!important; }
       .sg-freq-tag { display: none!important; }
       .sg-group-card { padding: 1.2rem 1rem 1.2rem 1.2rem!important; }
       .sg-group-card p { font-family: 'Plus Jakarta Sans', sans-serif!important; font-size: .82rem!important; line-height: 1.6!important; text-align: justify!important; margin-bottom: 0!important;
@@ -274,7 +293,7 @@
   </div>
 
   <!-- INTRO -->
-  <section style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
+  <section class="sg-intro-section" style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
     <div class="container">
       <div class="two-col" style="align-items:center;gap:5rem;">
 
@@ -541,8 +560,8 @@
   </section>
 
   <!-- FOOTER CTA BAND -->
-  <section style="position:relative;padding:5.5rem 0;text-align:center;overflow:hidden;">
-    <div style="position:absolute;inset:0;background-image:url('assets/worship-crowd.jpg');background-size:cover;background-position:center;z-index:0;"></div>
+  <section class="sg-cta-section" style="position:relative;padding:5.5rem 0;text-align:center;overflow:hidden;">
+    <div class="sg-cta-bg" style="position:absolute;inset:0;background-image:url('assets/worship-crowd.jpg');background-size:cover;background-position:center;z-index:0;"></div>
     <div style="position:absolute;inset:0;background:rgba(13,27,42,.82);z-index:1;"></div>
     <div class="container sg-cta-inner" style="position:relative;z-index:2;">
       <p class="eyebrow gold">Have Questions?</p>
