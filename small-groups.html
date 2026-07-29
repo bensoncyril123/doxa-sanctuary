@@ -145,10 +145,15 @@
       .sg-grid { grid-template-columns: 1fr; }
       .sg-form-wrap { padding: 2rem 1.2rem; }
     }
+    .sg-photo-row { display: none; }
+
     @media(max-width:768px){
       .page-hero-body{ padding-top:130px!important; }
       .page-hero-body h1{ display:none!important; }
       .sg-from-right{ display:none!important; }
+      .sg-photo-row { display: flex!important; gap: .5rem; padding: 0 1rem 1.5rem; }
+      .sg-photo-item { flex: 1; border-radius: 10px; overflow: hidden; }
+      .sg-photo-item img { width: 100%; height: 200px; object-fit: cover; object-position: center top; display: block; }
       [style*="grid-template-columns:repeat(3,1fr)"]{ grid-template-columns:1fr!important; }
       [style*="grid-template-columns:1fr 1fr"]{ grid-template-columns:1fr!important; }
       [style*="grid-template-columns:1fr 1.4fr"]{ grid-template-columns:1fr!important; }
@@ -289,6 +294,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Mobile-only photo row -->
+  <div class="sg-photo-row">
+    <div class="sg-photo-item"><img src="assets/sg-photo-1.jpg" alt="Small group at DOXA" /></div>
+    <div class="sg-photo-item"><img src="assets/sg-photo-2.jpg" alt="Small group at DOXA" /></div>
+  </div>
 
   <!-- HOW IT WORKS -->
   <section style="background:#fafafa;padding:5.5rem 0;">
