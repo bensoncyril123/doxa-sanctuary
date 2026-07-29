@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Events Calendar — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" />
   <style>
@@ -67,18 +67,25 @@
 
     /* ── MOBILE ── */
     @media(max-width:768px){
+      body p, body a:not(.btn-give), body li, body label, body .eyebrow,
+      body input, body textarea, body select, body button:not(.btn-give) {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
       .page-hero { display: none !important; }
       .page-hero + section { padding-top: 5.5rem !important; }
-      #cal-wrapper{ padding:.9rem .6rem; }
-      .fc .fc-toolbar-title{ font-size:1rem!important; }
-      .fc .fc-toolbar{ gap:.4rem!important; flex-wrap:wrap; }
-      .fc .fc-button{ font-size:.75rem!important; padding:.3rem .55rem!important; }
-      .fc .fc-col-header-cell-cushion{ font-size:.65rem!important; padding:.5rem 0!important; }
-      .fc .fc-daygrid-day-frame{ min-height:60px!important; }
-      .fc .fc-daygrid-day-number{ font-size:.75rem!important; }
-      .cal-legend{ gap:.6rem; }
-      .legend-item{ font-size:.72rem; }
-      .btn-outline-dark.no-print:last-child{ display:none; }
+      /* hide buttons, simplify heading */
+      .no-print { display: none !important; }
+      .section-hd { margin-bottom: 1.2rem !important; }
+      .section-hd h2 { font-size: 1.3rem !important; }
+      /* calendar sizing */
+      #cal-wrapper { padding: .8rem .5rem !important; border-radius: 10px !important; }
+      .fc .fc-toolbar-title { font-size: 1rem !important; }
+      .fc .fc-toolbar { gap: .4rem !important; flex-wrap: wrap; }
+      .fc .fc-button { font-size: .75rem !important; padding: .3rem .55rem !important; }
+      .fc .fc-list-event-title { font-size: .85rem !important; }
+      .fc .fc-list-day-text, .fc .fc-list-day-side-text { font-size: .82rem !important; }
+      .cal-legend { gap: .5rem !important; flex-wrap: wrap !important; }
+      .legend-item { font-size: .72rem !important; }
     }
 
     /* ── PRINT ── */
