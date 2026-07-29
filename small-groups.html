@@ -153,6 +153,15 @@
       .sg-from-right{ display:none!important; }
       .sg-photo-row { display: flex!important; gap: .5rem; padding: 0 1rem 1.5rem; }
       .sg-photo-item { flex: 1; border-radius: 10px; overflow: hidden; }
+      /* Compact step cards */
+      .sg-step-card { padding: .9rem 1rem .9rem 1.2rem!important; text-align: left!important; }
+      .sg-step-card .step-icon { display: none!important; }
+      .sg-step-card h4 { font-size: .92rem!important; margin-bottom: .3rem!important; }
+      .sg-step-card p { font-size: .82rem!important; line-height: 1.55!important; }
+      .sg-step-card > div:first-child { display: none!important; }
+      .sg-hd { margin-bottom: 0!important; }
+      .sg-steps-wrap { margin-top: 1.2rem!important; }
+      .sg-how-section { padding: 2.5rem 0!important; }
       .sg-photo-item img { width: 100%; height: 200px; object-fit: cover; object-position: center top; display: block; }
       [style*="grid-template-columns:repeat(3,1fr)"]{ grid-template-columns:1fr!important; }
       [style*="grid-template-columns:1fr 1fr"]{ grid-template-columns:1fr!important; }
@@ -302,7 +311,7 @@
   </div>
 
   <!-- HOW IT WORKS -->
-  <section style="background:#fafafa;padding:5.5rem 0;">
+  <section class="sg-how-section" style="background:#fafafa;padding:5.5rem 0;">
     <div class="container">
       <div class="section-hd center sg-hd">
         <p class="eyebrow gold">Getting Started</p>
@@ -312,7 +321,7 @@
       </div>
 
       <!-- Steps with connector -->
-      <div style="position:relative;margin-top:4rem;">
+      <div class="sg-steps-wrap" style="position:relative;margin-top:4rem;">
         <div style="position:absolute;top:56px;left:calc(16.6% + 28px);right:calc(16.6% + 28px);height:2px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3),var(--gold));z-index:0;display:none;" class="step-connector"></div>
 
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;position:relative;z-index:1;">
@@ -351,6 +360,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Mobile-only photo row 2 -->
+  <div class="sg-photo-row sg-photo-row-2">
+    <div class="sg-photo-item"><img src="assets/sg-photo-3.jpg" alt="Small group at DOXA" /></div>
+    <div class="sg-photo-item"><img src="assets/sg-photo-4.jpg" alt="Small group at DOXA" /></div>
+  </div>
 
   <!-- GROUPS GRID -->
   <section style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
