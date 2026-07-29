@@ -6,9 +6,15 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Sermons — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    /* ── FONT OVERRIDE (match homepage) ── */
+    body p, body a:not(.btn-give), body li, body label, body .eyebrow,
+    body input, body textarea, body select, body button:not(.btn-give) {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
     /* ── HERO ENTRANCE ── */
     @keyframes srmTitleIn  { from{opacity:0;transform:translateY(36px) scale(.96);} to{opacity:1;transform:translateY(0) scale(1);} }
     @keyframes srmSubIn    { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:translateY(0);} }
