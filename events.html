@@ -277,6 +277,11 @@
       #upcoming + section h2 { font-size: 1.4rem !important; }
       #upcoming + section p { font-size: .85rem !important; }
 
+      /* hide list, show calendar only */
+      .view-toggle { display: none !important; }
+      #listView { display: none !important; }
+      #calendarView { display: block !important; }
+
       /* para-reveal */
       .para-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
       .para-reveal.prv-in { opacity: 1 !important; transform: translateY(0) !important; }
@@ -561,6 +566,12 @@
   <script>
     // ── MOBILE SCROLL ANIMATIONS ──
     var _isMobile = window.innerWidth <= 768;
+
+    // On mobile, init calendar immediately
+    if (_isMobile) {
+      initCalendar();
+    }
+
     if (_isMobile) {
       function obsCard(el) {
         if (!el) return;
