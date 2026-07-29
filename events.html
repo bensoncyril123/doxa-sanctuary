@@ -172,9 +172,7 @@
     .ev-card-footer-row { display: flex; align-items: center; gap: 1rem; margin-top: .4rem; flex-wrap: wrap; }
 
     /* ── CALENDAR VIEW ── */
-    #calendarView { display: block; }
-    #listView { display: none !important; }
-    .view-toggle { display: none !important; }
+    #calendarView { display: none; }
     #fc-wrapper {
       background: #fff;
       border-radius: 12px;
@@ -561,9 +559,15 @@
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
   <script>
-    // ── INIT CALENDAR ON LOAD ──
+    // ── MOBILE: default to calendar view ──
     var _isMobile = window.innerWidth <= 768;
-    initCalendar();
+    if (_isMobile) {
+      listView.style.display = 'none';
+      calView.style.display = 'block';
+      document.getElementById('btnList').classList.remove('active');
+      document.getElementById('btnCal').classList.add('active');
+      initCalendar();
+    }
 
     if (_isMobile) {
       function obsCard(el) {
