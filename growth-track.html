@@ -136,16 +136,25 @@
     }
     @media(max-width:768px){
       .page-hero { display: none !important; }
+      /* Intro section */
       .gt-intro-section { background: #fff !important; padding-top: 5.5rem !important; }
-      .gt-intro-section .two-col { margin-top: 5rem !important; }
-      /* Walk Away With card */
-      .gt-gain-icon { display: none !important; }
-      .gt-gain-item { gap: 0 !important; padding: 1rem 0 !important; }
-      .gt-gain-item > div > p:first-child { font-size: .88rem !important; margin-bottom: .2rem !important; }
-      .gt-gain-item > div > p:last-child { font-size: .8rem !important; }
-      .gt-right > div { padding: 1.4rem 1.2rem !important; border-radius: 10px !important; }
-      .gt-right > div > p:first-child { font-size: .95rem !important; margin-bottom: .2rem !important; }
-      .gt-right > div > p:nth-child(2) { font-size: .8rem !important; margin-bottom: .8rem !important; }
+      .gt-intro-section .two-col { margin-top: 3rem !important; }
+      .gt-left  { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .gt-right { display: none !important; }
+      /* Disable gt-fade on mobile — use para-reveal instead */
+      .gt-fade { opacity: 1 !important; transform: none !important; transition: none !important; }
+      /* Section headings */
+      .gt-fade p[style*="Playfair"] { font-size: 1.5rem !important; }
+      .gt-fade p[style*="clamp"] { font-size: 1.5rem !important; }
+      /* Step cards */
+      .gt-steps-grid { grid-template-columns: 1fr !important; }
+      .gt-step-icon { display: none !important; }
+      .gt-step-num { font-size: 4rem !important; }
+      .gt-step-card { padding: 1.4rem 1.2rem 1.2rem !important; }
+      .gt-step-card h3 { font-size: 1rem !important; margin-bottom: .4rem !important; }
+      .gt-step-card p { font-size: .82rem !important; line-height: 1.6 !important; margin-bottom: .8rem !important; }
+      .gt-step-badge i { display: none !important; }
+      .gt-step-badge { font-size: .7rem !important; padding: .25rem .75rem !important; }
       /* Fast Track card */
       .gt-fast-card { grid-template-columns: 1fr !important; padding: 2rem 1.4rem !important; }
       .gt-fast-card > div:last-child { display: none !important; }
@@ -153,18 +162,10 @@
       .gt-fast-card h3 { font-size: 1.3rem !important; }
       .gt-fast-card p { font-size: .85rem !important; line-height: 1.7 !important; }
       .gt-fast-card .btn-gold i { display: none !important; }
-      /* Start Any Sunday — entire section */
+      /* Start Any Sunday — hidden */
       #start-any-sunday { display: none !important; }
-      /* Step cards */
-      .gt-step-icon { display: none !important; }
-      .gt-step-card { padding: 1.4rem 1.2rem 1.2rem !important; }
-      .gt-step-card h3 { font-size: 1rem !important; margin-bottom: .4rem !important; }
-      .gt-step-card p { font-size: .82rem !important; line-height: 1.6 !important; margin-bottom: .8rem !important; }
-      .gt-step-badge i { display: none !important; }
-      .gt-step-badge { font-size: .7rem !important; padding: .25rem .75rem !important; }
-      .gt-left  { opacity: 1 !important; transform: none !important; transition: none !important; }
-      .gt-right { opacity: 1 !important; transform: none !important; transition: none !important; }
-      .gt-steps-grid { grid-template-columns: 1fr !important; }
+      /* Sign-up section */
+      #signup { background: #fff !important; }
       [style*="grid-template-columns:1fr 1.4fr"] { grid-template-columns:1fr !important; }
       [style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
       .fg input,.fg select,.fg textarea { width:100% !important; box-sizing:border-box !important; font-size:.82rem !important; padding: .55rem .85rem !important; }
@@ -487,7 +488,7 @@
         obs(el, function() { el.classList.add('prv-in'); });
       }
 
-      // Intro left column — stagger in on load (already in view, no scroll needed)
+      // Intro left column — stagger in on load (already in view)
       var gtLeft = document.querySelector('.gt-left');
       if (gtLeft) {
         gtLeft.querySelectorAll(':scope > p, :scope > div, :scope > a').forEach(function(el, i) {
@@ -496,10 +497,23 @@
         });
       }
 
-      // Right column — the "What You'll Walk Away With" card items
-      var gtRight = document.querySelector('.gt-right');
-      if (gtRight) {
-        gtRight.querySelectorAll('.gt-gain-item').forEach(paraObs);
+      // Steps section heading children
+      var stepsGrid = document.querySelector('.gt-steps-grid');
+      if (stepsGrid) {
+        var stepsHd = stepsGrid.closest('section').querySelector('.section-hd');
+        if (stepsHd) stepsHd.querySelectorAll(':scope > *').forEach(paraObs);
+      }
+
+      // Fast Track card — each piece
+      var fastCard = document.querySelector('.gt-fast-card > div:first-child');
+      if (fastCard) {
+        fastCard.querySelectorAll(':scope > *').forEach(paraObs);
+      }
+
+      // Signup section heading children
+      var signupHd = document.querySelector('#signup .section-hd');
+      if (signupHd) {
+        signupHd.querySelectorAll(':scope > *').forEach(paraObs);
       }
     }
   </script>
