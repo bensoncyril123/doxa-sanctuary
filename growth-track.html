@@ -173,6 +173,11 @@
       #signup select { font-size: .82rem !important; }
       #signup form { padding: 1.8rem 1.2rem !important; }
       #signup button[type="submit"] { margin-top: 1.4rem !important; font-size: .88rem !important; }
+      /* Footer CTA */
+      .gt-cta-bg { filter: blur(5px); transform: scale(1.08); }
+      .gt-cta h2 { font-size: 1.4rem !important; margin-bottom: .5rem !important; }
+      .gt-cta p { font-size: .85rem !important; margin-bottom: 1.2rem !important; }
+      .gt-cta .btn-gold { font-size: .85rem !important; padding: .65rem 1.4rem !important; }
       .para-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
       .para-reveal.prv-in { opacity: 1 !important; transform: translateY(0) !important; }
     }
@@ -180,7 +185,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
       <a href="/" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-18px;" /></a>
@@ -201,7 +205,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <div class="page-hero" style="background-image:url('assets/worship-crowd.jpg');background-position:center 35%;">
     <div class="page-hero-dim" style="background:linear-gradient(to bottom,rgba(10,20,33,.3),rgba(10,20,33,.65));"></div>
     <div class="page-hero-body" style="padding-top:2rem;padding-bottom:14rem;">
@@ -212,12 +215,10 @@
     </div>
   </div>
 
-  <!-- WHAT IS GROWTH TRACK -->
   <section class="gt-intro-section" style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
     <div class="container">
       <div class="two-col" style="align-items:center;gap:5rem;">
 
-        <!-- Left -->
         <div class="tc-copy gt-left">
           <p class="eyebrow gold">What Is Growth Track?</p>
           <p style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--navy);line-height:1.1;margin:.3rem 0 0;">A Journey to <span style="color:var(--gold);">Purpose</span></p>
@@ -230,7 +231,6 @@
           <a href="#signup" class="btn-story" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.8rem;background:var(--navy);color:#fff;padding:.75rem 1.8rem;border-radius:4px;font-weight:600;text-decoration:none;">Get Started <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <!-- Right: What you gain -->
         <div class="gt-right">
           <div style="background:#fff;border-radius:16px;padding:2.4rem;box-shadow:0 8px 40px rgba(0,0,0,.07);border:1px solid #eee;">
             <p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin:0 0 .4rem;">What You'll Walk Away With</p>
@@ -270,7 +270,6 @@
     </div>
   </section>
 
-  <!-- THE 4 STEPS -->
   <section style="background:#fafafa;padding:5.5rem 0;">
     <div class="container">
       <div class="section-hd center gt-fade">
@@ -282,7 +281,6 @@
 
       <div class="gt-steps-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem;">
 
-        <!-- Step 1 -->
         <div class="gt-card-ani gt-step-card">
           <div class="gt-step-num">01</div>
           <div class="gt-step-icon"><i class="fa-solid fa-compass"></i></div>
@@ -291,7 +289,6 @@
           <span class="gt-step-badge"><i class="fa-solid fa-calendar-day"></i> 1st Sunday monthly</span>
         </div>
 
-        <!-- Step 2 -->
         <div class="gt-card-ani gt-step-card" style="border-top:3px solid var(--gold);">
           <div class="gt-step-num">02</div>
           <div class="gt-step-icon"><i class="fa-solid fa-fingerprint"></i></div>
@@ -300,7 +297,6 @@
           <span class="gt-step-badge"><i class="fa-solid fa-calendar-day"></i> 2nd Sunday monthly</span>
         </div>
 
-        <!-- Step 3 -->
         <div class="gt-card-ani gt-step-card">
           <div class="gt-step-num">03</div>
           <div class="gt-step-icon"><i class="fa-solid fa-seedling"></i></div>
@@ -309,7 +305,6 @@
           <span class="gt-step-badge"><i class="fa-solid fa-calendar-day"></i> 3rd Sunday monthly</span>
         </div>
 
-        <!-- Step 4 -->
         <div class="gt-card-ani gt-step-card" style="border-top:3px solid var(--gold);">
           <div class="gt-step-num">04</div>
           <div class="gt-step-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
@@ -322,7 +317,6 @@
     </div>
   </section>
 
-  <!-- FAST TRACK -->
   <section style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
     <div class="container">
       <div class="gt-fade" style="max-width:900px;margin:0 auto;">
@@ -344,7 +338,6 @@
     </div>
   </section>
 
-  <!-- START ANY SUNDAY -->
   <section id="start-any-sunday" style="background:#fafafa;padding:4rem 0;">
     <div class="container">
       <div class="gt-fade" style="text-align:center;max-width:640px;margin:0 auto;">
@@ -359,7 +352,6 @@
     </div>
   </section>
 
-  <!-- SIGN-UP FORM -->
   <section id="signup" style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);padding:5.5rem 0;">
     <div class="container">
       <div class="section-hd center gt-fade" style="margin-bottom:3rem;">
@@ -412,9 +404,8 @@
     </div>
   </section>
 
-  <!-- FOOTER CTA -->
   <section style="position:relative;padding:5.5rem 0;text-align:center;overflow:hidden;">
-    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;"></div>
+    <div class="gt-cta-bg" style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;"></div>
     <div style="position:absolute;inset:0;background:rgba(13,27,42,.82);z-index:1;"></div>
     <div class="container gt-cta" style="position:relative;z-index:2;">
       <p class="eyebrow gold">Still Have Questions?</p>
@@ -424,7 +415,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
