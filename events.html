@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Events — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" />
   <style>
@@ -242,15 +242,44 @@
     .ev-tag.youth     { background: rgba(27,94,32,.12);   color: #1b5e20; }
     .ev-tag.growth    { background: rgba(136,14,79,.12);  color: #880e4f; }
 
-    @media(max-width: 680px) {
-      .ev-card { flex-direction: column; }
-      .ev-card-thumb { width: 100%; height: 200px; }
-      .cal-day { min-height: 60px; }
-      .cal-event-pill { display: none; }
-      .cal-day.has-event::after { content: '•'; color: var(--gold); font-size: 1rem; display: block; text-align: center; }
-    }
+    /* ── MOBILE ── */
     @media(max-width:768px){
-      .page-hero-body{ padding-top:130px!important; }
+      /* fonts */
+      body p, body a:not(.btn-give), body li, body label, body .eyebrow,
+      body input, body textarea, body select, body button:not(.btn-give) {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      /* hide hero, push section down */
+      .page-hero { display: none !important; }
+      #upcoming { padding-top: 5.5rem !important; }
+
+      /* filter row */
+      .ev-filter-row { flex-direction: column !important; align-items: flex-start !important; gap: .8rem !important; margin-bottom: 1.5rem !important; }
+      .ev-cats { gap: .5rem !important; }
+      .ev-all-btn, .ev-filter-toggle { font-size: .78rem !important; padding: .45rem 1rem !important; }
+      .view-toggle { align-self: flex-end; }
+      .view-btn { font-size: .78rem !important; padding: .4rem .85rem !important; }
+
+      /* event cards */
+      .ev-card { flex-direction: column !important; }
+      .ev-card-thumb { width: 100% !important; height: 190px !important; }
+      .ev-card-content { padding: 1.2rem 1.1rem !important; gap: .45rem !important; }
+      .ev-card-content h3 { font-size: 1rem !important; }
+      .ev-card-content p { font-size: .82rem !important; line-height: 1.65 !important; }
+      .ev-meta { gap: .45rem !important; }
+      .ev-meta span { font-size: .76rem !important; }
+      .ev-card-footer-row a { font-size: .8rem !important; padding: .45rem 1rem !important; }
+      .ev-date-badge strong { font-size: 1.2rem !important; }
+      .ev-tag { font-size: .65rem !important; }
+
+      /* CTA section */
+      #upcoming + section .container { flex-direction: column !important; text-align: center !important; align-items: center !important; }
+      #upcoming + section h2 { font-size: 1.4rem !important; }
+      #upcoming + section p { font-size: .85rem !important; }
+
+      /* para-reveal */
+      .para-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+      .para-reveal.prv-in { opacity: 1 !important; transform: translateY(0) !important; }
     }
   </style>
 </head>
@@ -530,6 +559,19 @@
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
   <script>
+    // ── MOBILE SCROLL ANIMATIONS ──
+    var _isMobile = window.innerWidth <= 768;
+    if (_isMobile) {
+      function obsCard(el) {
+        if (!el) return;
+        el.classList.add('para-reveal');
+        new IntersectionObserver(function(entries, o) {
+          if (entries[0].isIntersecting) { el.classList.add('prv-in'); o.disconnect(); }
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }).observe(el);
+      }
+      document.querySelectorAll('.ev-card').forEach(obsCard);
+    }
+
     // ── EVENT DATA ──
     const EVENTS = [
       { id:'1', title:'Community Outreach Day',    start:'2026-05-03', cat:'community', desc:'Join us as we serve our city — food distribution, neighborhood cleanup, and free prayer for all who come.',          time:'8:00 AM – 2:00 PM',    location:'Church Parking Lot',  ticket:'Volunteer signup encouraged' },
