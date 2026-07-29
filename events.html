@@ -559,8 +559,16 @@
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
   <script>
-    // ── MOBILE SCROLL ANIMATIONS ──
+    // ── MOBILE: default to calendar view ──
     var _isMobile = window.innerWidth <= 768;
+    if (_isMobile) {
+      listView.style.display = 'none';
+      calView.style.display = 'block';
+      document.getElementById('btnList').classList.remove('active');
+      document.getElementById('btnCal').classList.add('active');
+      initCalendar();
+    }
+
     if (_isMobile) {
       function obsCard(el) {
         if (!el) return;
@@ -646,10 +654,18 @@
       listView.style.display = 'flex'; calView.style.display = 'none';
       document.getElementById('btnList').classList.add('active');
       document.getElementById('btnCal').classList.remove('active');
+      applyFilter();
     });
 
     document.getElementById('btnCal').addEventListener('click', () => {
-      window.location.href = 'calendar.html';
+      if (window.innerWidth <= 768) {
+        listView.style.display = 'none'; calView.style.display = 'block';
+        document.getElementById('btnCal').classList.add('active');
+        document.getElementById('btnList').classList.remove('active');
+        if (!calendar) initCalendar();
+      } else {
+        window.location.href = 'calendar.html';
+      }
     });
 
     // ── FULLCALENDAR INIT ──
