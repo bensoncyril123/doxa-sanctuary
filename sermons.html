@@ -9,10 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    @media(max-width:768px){
-      .page-hero-body{ padding-top:130px!important; }
-    }
-
     /* ── HERO ENTRANCE ── */
     @keyframes srmTitleIn  { from{opacity:0;transform:translateY(36px) scale(.96);} to{opacity:1;transform:translateY(0) scale(1);} }
     @keyframes srmSubIn    { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:translateY(0);} }
@@ -57,17 +53,30 @@
     .sm-card:hover .sm-play { transform:scale(1.15); }
 
     /* ── FEATURED PLAYER GLOW ── */
-    .yt-wrapper {
-      transition: box-shadow .4s ease;
-    }
-    .yt-wrapper:hover {
-      box-shadow: 0 0 0 3px rgba(201,168,76,.4), 0 28px 60px rgba(0,0,0,.25);
-    }
+    .yt-wrapper { transition: box-shadow .4s ease; }
+    .yt-wrapper:hover { box-shadow: 0 0 0 3px rgba(201,168,76,.4), 0 28px 60px rgba(0,0,0,.25); }
 
     /* ── WATCH BUTTON HOVER ARROW ── */
     .btn-dark { transition: background .25s, gap .25s; display:inline-flex; align-items:center; gap:.5rem; }
     .btn-dark i { transition: transform .25s; }
     .btn-dark:hover i { transform: translateX(3px); }
+
+    /* ── MOBILE ── */
+    @media(max-width:768px){
+      .page-hero { display: none !important; }
+      #featured-sermon { padding-top: 5.5rem !important; }
+      .srm-left  { opacity:1!important; transform:none!important; transition:none!important; }
+      .srm-right { opacity:1!important; transform:none!important; transition:none!important; }
+      .srm-fade  { opacity:1!important; transform:none!important; transition:none!important; }
+      .sm-card { opacity:1!important; transform:none!important; }
+      .para-reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
+      .para-reveal.prv-in { opacity:1!important; transform:translateY(0)!important; }
+      .sermon-feature-btns { flex-direction:column!important; gap:.8rem!important; }
+      .sermon-feature-btns a { justify-content:center!important; text-align:center!important; font-size:.88rem!important; }
+      .filter-bar { flex-wrap:wrap!important; gap:.5rem!important; }
+      .filter-search { width:100%!important; }
+      #sermonSearch { width:100%!important; }
+    }
   </style>
 </head>
 <body>
@@ -100,22 +109,41 @@
   </div>
 
   <!-- FEATURED -->
-  <section id="featured-sermon">
+  <section id="featured-sermon" style="background:linear-gradient(135deg,#faf7f0 0%,#f9f2e3 100%);">
     <div class="container">
-      <div class="sermon-feature-grid">
+      <!-- Mobile: label + title above video -->
+      <div class="sermon-mobile-top">
+        <span style="display:inline-block;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:.8rem;">Latest Message</span>
+        <div style="border-left:3px solid var(--gold);padding-left:1rem;margin-bottom:.6rem;">
+          <h2 style="margin:0;color:var(--navy);font-size:1.1rem;">Celebration Service — June 1, 2026</h2>
+        </div>
+      </div>
+      <div class="sermon-feature-grid" style="grid-template-columns:1.2fr 1fr;">
         <div class="sermon-player srm-left">
-          <div class="yt-wrapper">
-            <iframe src="https://www.youtube.com/embed/3uHv1DQTulA?rel=0" title="Latest Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
+          <a href="https://www.youtube.com/watch?v=3uHv1DQTulA" target="_blank" class="yt-thumb-link">
+            <div class="yt-wrapper" style="box-shadow:0 20px 60px rgba(0,0,0,.5);">
+              <img src="https://img.youtube.com/vi/3uHv1DQTulA/maxresdefault.jpg" alt="Latest Sermon" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+              <div style="position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;">
+                <div style="width:64px;height:64px;background:rgba(255,0,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <i class="fa-solid fa-play" style="color:#fff;font-size:1.4rem;margin-left:4px;"></i>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
         <div class="sermon-feature-info srm-right">
-          <p class="eyebrow gold">Latest Message</p>
-          <h2>Celebration Service — June 1, 2026</h2>
+          <div class="sermon-desktop-header">
+            <span style="display:inline-block;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:1rem;">Latest Message</span>
+            <div style="border-left:3px solid var(--gold);padding-left:1rem;margin-bottom:.8rem;">
+              <h2 style="margin:0;">Celebration Service — June 1, 2026</h2>
+            </div>
+          </div>
           <p class="sermon-meta-line"><i class="fa-solid fa-user"></i> Rev. Alex Owusu Jnr. &nbsp;·&nbsp; <i class="fa-regular fa-calendar"></i> June 1, 2026</p>
           <span class="sermon-series-tag">TOP Ministries NYC</span>
-          <p>Join us for a powerful Sunday Celebration Service at DOXA Sanctuary. Spirit-filled worship, unadulterated Word, and the presence of God on full display.</p>
+          <p style="text-align:justify;">Join us for a powerful Sunday Celebration Service at DOXA Sanctuary. Spirit-filled worship, unadulterated Word, and the presence of God on full display.</p>
           <div class="sermon-feature-btns">
-            <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank" class="btn-dark"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+            <a href="https://www.youtube.com/watch?v=3uHv1DQTulA" target="_blank" class="btn-gold"><i class="fa-brands fa-youtube"></i> Watch Now</a>
+            <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank" class="btn-dark">More Sermons <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -233,34 +261,68 @@
     });
 
     // ── ANIMATIONS ──
+    var _isMobile = window.innerWidth <= 768;
+
     function obs(el, fn, threshold) {
       if (!el) return;
+      var opts = _isMobile
+        ? { threshold: 0.15, rootMargin: '0px 0px -80px 0px' }
+        : { threshold: threshold || 0.15 };
       new IntersectionObserver(function(entries, o) {
         if (entries[0].isIntersecting) { fn(); o.disconnect(); }
-      }, { threshold: threshold || 0.15 }).observe(el);
+      }, opts).observe(el);
     }
 
-    // Featured sermon two-col
-    obs(document.querySelector('.srm-left'), function() {
-      document.querySelector('.srm-left').classList.add('visible');
-      document.querySelector('.srm-right').classList.add('visible');
-    }, 0.1);
+    if (!_isMobile) {
+      // Featured sermon two-col — desktop slide-in
+      obs(document.querySelector('.srm-left'), function() {
+        document.querySelector('.srm-left').classList.add('visible');
+        document.querySelector('.srm-right').classList.add('visible');
+      }, 0.1);
 
-    // Archive heading + filter bar
-    document.querySelectorAll('.srm-fade').forEach(function(el, i) {
-      obs(el, function() {
-        setTimeout(function() { el.classList.add('visible'); }, i * 190);
-      }, 0.15);
-    });
+      // Archive heading + filter bar
+      document.querySelectorAll('.srm-fade').forEach(function(el, i) {
+        obs(el, function() {
+          setTimeout(function() { el.classList.add('visible'); }, i * 190);
+        }, 0.15);
+      });
 
-    // Sermon cards stagger
-    var cards = document.querySelectorAll('.sm-card');
-    if (cards.length) {
-      obs(cards[0].closest('section'), function() {
-        cards.forEach(function(card, i) {
-          setTimeout(function() { card.classList.add('visible'); }, i * 150);
+      // Sermon cards stagger on desktop
+      var cards = document.querySelectorAll('.sm-card');
+      if (cards.length) {
+        obs(cards[0].closest('section'), function() {
+          cards.forEach(function(card, i) {
+            setTimeout(function() { card.classList.add('visible'); }, i * 150);
+          });
+        }, 0.05);
+      }
+    }
+
+    // ── MOBILE PER-ELEMENT REVEAL ──
+    if (_isMobile) {
+      function paraObs(el) {
+        if (!el) return;
+        el.classList.add('para-reveal');
+        obs(el, function() { el.classList.add('prv-in'); });
+      }
+
+      // Featured info — stagger in on load (already in view after thumb)
+      var srmRight = document.querySelector('.sermon-feature-info');
+      if (srmRight) {
+        srmRight.querySelectorAll(':scope > *:not(.sermon-desktop-header)').forEach(function(el, i) {
+          el.classList.add('para-reveal');
+          setTimeout(function() { el.classList.add('prv-in'); }, 200 + i * 160);
         });
-      }, 0.05);
+      }
+
+      // Archive section heading
+      var archiveHd = document.querySelector('#sermon-archive .section-hd');
+      if (archiveHd) paraObs(archiveHd);
+
+      // Each sermon card individually
+      document.querySelectorAll('.sm-card').forEach(function(el) {
+        paraObs(el);
+      });
     }
   </script>
 
