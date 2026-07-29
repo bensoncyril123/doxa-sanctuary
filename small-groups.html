@@ -170,8 +170,10 @@
       .sg-groups-section { padding: 2rem 0!important; }
       .sg-groups-section .sg-hd { margin-bottom: 0!important; }
       .sg-groups-section [style*="margin-top:3rem"] { margin-top: 1rem!important; }
+      .sg-from-left { opacity: 1!important; transform: none!important; transition: none!important; }
+      .sg-form-ani  { opacity: 1!important; transform: none!important; transition: none!important; position: static!important; width: 100%!important; }
       #join-form { padding: 2.5rem 0!important; }
-      #join-form .container > div { grid-template-columns: 1fr!important; gap: 2rem!important; }
+      #join-form .container > div { display: flex!important; flex-direction: column!important; gap: 2rem!important; }
       #join-form [style*="position:sticky"] { position: static!important; }
       #join-form h2 { font-size: 1.8rem!important; }
       #join-form p { font-size: .88rem!important; line-height: 1.7!important; }
@@ -613,15 +615,10 @@
       }, opts || defaultOpts).observe(el);
     }
 
-    // Intro two-col slide in
-    var introSec = document.querySelector('.tc-copy.sg-from-left');
-    if (introSec) {
-      if (_isMobile) {
-        // Show container immediately; children animate individually below
-        introSec.style.opacity = '1';
-        introSec.style.transform = 'none';
-        introSec.style.transition = 'none';
-      } else {
+    // Intro two-col slide in (desktop only — mobile handled by CSS + per-para below)
+    if (!_isMobile) {
+      var introSec = document.querySelector('.tc-copy.sg-from-left');
+      if (introSec) {
         obs(introSec, function() { introSec.classList.add('in-view'); });
         var introRight = document.querySelector('.sg-from-right');
         if (introRight) obs(introRight, function() { introRight.classList.add('in-view'); });
@@ -648,16 +645,10 @@
       obs(el, function() { el.classList.add('in-view'); });
     });
 
-    // Form panel — desktop whole-div; mobile per-element below
+    // Form panel — desktop whole-div; mobile handled by CSS + per-para below
     if (!_isMobile) {
       document.querySelectorAll('.sg-form-ani').forEach(function(el) {
         obs(el, function() { el.classList.add('visible'); }, { threshold: 0.1 });
-      });
-    } else {
-      document.querySelectorAll('.sg-form-ani').forEach(function(el) {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.style.transition = 'none';
       });
     }
 
