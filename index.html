@@ -152,6 +152,10 @@
     .outreach-pagination .swiper-pagination-bullet-active { width:28px;border-radius:6px;background:var(--gold); }
     .wb-line, .wb-line-h { display:block; }
     .wb-mobile-photo { display:none; }
+    @media (max-width: 768px) {
+      .para-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+      .para-reveal.prv-in { opacity: 1 !important; transform: translateY(0) !important; }
+    }
     #welcome-banner p, #welcome-banner a { font-family:'Plus Jakarta Sans',sans-serif; }
     /* Apply Plus Jakarta Sans to all non-heading text on homepage */
     body p, body a:not(.btn-give), body li, body label, body .eyebrow, body input, body textarea, body select, body button:not(.btn-give) { font-family:'Plus Jakarta Sans',sans-serif; }
@@ -907,128 +911,102 @@
     }
     requestAnimationFrame(update);
   }
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.6 });
-  document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+  // ── SHARED OBSERVER HELPER ──
+  const _isMobile = window.innerWidth <= 768;
+  function obs(el, fn, opts) {
+    if (!el) return;
+    const defaultOpts = _isMobile
+      ? { threshold: 0.15, rootMargin: '0px 0px -120px 0px' }
+      : { threshold: 0.12 };
+    new IntersectionObserver((entries, o) => {
+      if (entries[0].isIntersecting) { fn(); o.disconnect(); }
+    }, opts || defaultOpts).observe(el);
+  }
 
+  // ── COUNTERS ──
+  document.querySelectorAll('[data-count]').forEach(el => {
+    obs(el, () => animateCounter(el), { threshold: 0.6 });
+  });
 
   // ── WELCOME BANNER ANIMATION ──
   const wbBody = document.querySelector('.wb-body');
-  if (wbBody) {
-    const wbObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { wbBody.classList.add('wb-visible'); wbObserver.disconnect(); }
-      });
-    }, { threshold: 0.15 });
-    wbObserver.observe(document.getElementById('welcome-banner'));
-  }
+  if (wbBody) obs(document.getElementById('welcome-banner'), () => wbBody.classList.add('wb-visible'), { threshold: 0.15 });
 
   // ── SERMON SECTION SLIDE-IN ──
-  const sermonObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateX(0)';
-        sermonObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.sermon-slide-left, .sermon-slide-right').forEach(el => sermonObserver.observe(el));
+  document.querySelectorAll('.sermon-slide-left, .sermon-slide-right').forEach(el => {
+    obs(el, () => { el.style.opacity = '1'; el.style.transform = 'translateX(0)'; }, { threshold: _isMobile ? 0.15 : 0.2, rootMargin: _isMobile ? '0px 0px -120px 0px' : '0px' });
+  });
 
   // ── ABOUT SECTION SLIDE-IN ──
-  const aboutObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateX(0)';
-        aboutObserver.unobserve(entry.target);
-      }
+  if (_isMobile) {
+    // On mobile: show containers immediately — paragraphs animate individually below
+    const aboutImg = document.querySelector('.about-img-side');
+    if (aboutImg) { aboutImg.style.opacity = '1'; aboutImg.style.transform = 'none'; aboutImg.style.transition = 'none'; }
+    const aboutText = document.querySelector('.about-text-side');
+    if (aboutText) { aboutText.style.opacity = '1'; aboutText.style.transform = 'none'; aboutText.style.transition = 'none'; }
+  } else {
+    ['.about-img-side', '.about-text-side'].forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) obs(el, () => { el.style.opacity = '1'; el.style.transform = 'translateX(0)'; }, { threshold: 0.2 });
     });
-  }, { threshold: 0.2 });
-  const imgSide = document.querySelector('.about-img-side');
-  const txtSide = document.querySelector('.about-text-side');
-  if (imgSide) aboutObserver.observe(imgSide);
-  if (txtSide) aboutObserver.observe(txtSide);
+  }
 
-
-
-  // ── EVENT CARDS DROP-IN ──
-  const eventCards = document.querySelectorAll('.event-drop');
-  const eventObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        eventCards.forEach((card, i) => {
-          setTimeout(() => card.classList.add('in-view'), i * 180);
-        });
-        eventObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.15 });
-  if (eventCards.length) eventObserver.observe(document.getElementById('events-teaser'));
+  // ── EVENT CARDS DROP-IN — each card individually ──
+  document.querySelectorAll('.event-drop').forEach(card => {
+    obs(card, () => card.classList.add('in-view'));
+  });
 
   // ── GLOBAL SCROLL REVEAL ──
-  const srObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        srObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
+  document.querySelectorAll('.sr').forEach(el => {
+    obs(el, () => el.classList.add('in'), { threshold: _isMobile ? 0.15 : 0.12, rootMargin: _isMobile ? '0px 0px -120px 0px' : '0px' });
+  });
 
   // ── OUTREACH SLIDE-IN ──
   [['outreach-text', 'translateX(-50px)'], ['outreach-image', 'scale(1)']].forEach(([id, reset]) => {
     const el = document.getElementById(id);
-    if (el) {
-      new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            el.style.opacity = '1';
-            el.style.transform = reset;
-            obs.disconnect();
-          }
-        });
-      }, { threshold: 0.12 }).observe(el);
-    }
+    if (el) obs(el, () => { el.style.opacity = '1'; el.style.transform = reset; });
   });
 
   // ── DRAW ARROW ANIMATION ──
   const arrowEl = document.getElementById('draw-arrow');
-  if (arrowEl) {
-    const arrowObs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          document.getElementById('arrow-body').classList.add('animate');
-          document.getElementById('arrow-head').classList.add('animate');
-          arrowObs.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    arrowObs.observe(arrowEl);
-  }
+  if (arrowEl) obs(arrowEl, () => {
+    document.getElementById('arrow-body').classList.add('animate');
+    document.getElementById('arrow-head').classList.add('animate');
+  }, { threshold: 0.3 });
 
-  // ── NEXT STEPS SECTION ANIMATION ──
-  const nsSection = document.getElementById('next-steps');
-  if (nsSection) {
-    const nsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          nsSection.querySelectorAll('.ns-item').forEach(item => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-          });
-          nsObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.05 });
-    nsObserver.observe(nsSection);
+  // ── NEXT STEPS — each item individually ──
+  document.querySelectorAll('#next-steps .ns-item').forEach(item => {
+    obs(item, () => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, { threshold: _isMobile ? 0.15 : 0.05, rootMargin: _isMobile ? '0px 0px -120px 0px' : '0px' });
+  });
+
+  // ── MOBILE-ONLY PER-PARAGRAPH REVEAL ──
+  if (_isMobile) {
+    function paraObs(el) {
+      if (!el) return;
+      el.classList.add('para-reveal');
+      obs(el, () => el.classList.add('prv-in'));
+    }
+
+    // About mobile heading (eyebrow + h2 above the image)
+    document.querySelectorAll('.about-mobile-heading > *').forEach(paraObs);
+
+    // About mobile split paragraphs
+    document.querySelectorAll('.about-mobile-p p').forEach(paraObs);
+
+    // About "More About Us" link
+    paraObs(document.querySelector('.about-text-side a[href="about"]'));
+
+    // Outreach — eyebrow, heading, photos, each paragraph, CTA
+    const outreachText = document.getElementById('outreach-text');
+    if (outreachText) {
+      outreachText.querySelectorAll(':scope > span, :scope > h2, .outreach-mobile-photos, :scope > p, :scope > a').forEach(paraObs);
+    }
+
+    // Next steps left column — h2, sub-paragraph, "And Here's How" label
+    const nsLeft = document.querySelector('#next-steps [style*="position:sticky"]');
+    if (nsLeft) {
+      nsLeft.querySelectorAll('h2, div > p, > p').forEach(paraObs);
+    }
   }
 </script>
 
