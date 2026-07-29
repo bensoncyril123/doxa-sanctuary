@@ -601,7 +601,7 @@
       if (!el) return;
       var isMobile = window.innerWidth <= 768;
       var defaultOpts = isMobile
-        ? { threshold: 0.25, rootMargin: '0px 0px -80px 0px' }
+        ? { threshold: 0.15, rootMargin: '0px 0px -120px 0px' }
         : { threshold: 0.12 };
       new IntersectionObserver(function(entries, o) {
         if (entries[0].isIntersecting) { fn(); o.disconnect(); }
@@ -611,47 +611,33 @@
     // Intro two-col slide in
     const introSec = document.querySelector('.tc-copy.sg-from-left');
     if (introSec) {
-      obs(introSec.closest('section'), function() {
-        document.querySelector('.tc-copy.sg-from-left').classList.add('in-view');
-        document.querySelector('.sg-from-right').classList.add('in-view');
-      });
+      obs(introSec, function() { introSec.classList.add('in-view'); });
+      var introRight = document.querySelector('.sg-from-right');
+      if (introRight) obs(introRight, function() { introRight.classList.add('in-view'); });
     }
 
-    // Stat mini-cards stagger
-    const statMinis = document.querySelectorAll('.stat-mini');
-    if (statMinis.length) {
-      obs(statMinis[0].closest('section') || statMinis[0], function() {
-        statMinis.forEach(function(el, i) { setTimeout(function() { el.classList.add('visible'); }, 200 + i * 180); });
-      });
-    }
+    // Stat mini-cards — each individually
+    document.querySelectorAll('.stat-mini').forEach(function(el) {
+      obs(el, function() { el.classList.add('visible'); });
+    });
 
-    // Section headings
+    // Section headings — each individually
     document.querySelectorAll('.sg-hd').forEach(function(el) {
       obs(el, function() { el.classList.add('visible'); }, { threshold: 0.2 });
     });
 
-    // How-to steps stagger
-    const stepsSec = document.querySelector('.step-connector');
-    if (stepsSec) {
-      obs(stepsSec.closest('section'), function() {
-        document.querySelectorAll('.sg-step-card').forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('in-view'); }, i * 240);
-        });
-      });
-    }
+    // How-to steps — each individually
+    document.querySelectorAll('.sg-step-card').forEach(function(el) {
+      obs(el, function() { el.classList.add('in-view'); });
+    });
 
-    // Groups grid stagger
-    const groupCards = document.querySelectorAll('.sg-group-card');
-    if (groupCards.length) {
-      obs(groupCards[0].closest('section'), function() {
-        groupCards.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('in-view'); }, i * 190);
-        });
-      });
-    }
+    // Groups grid — each card individually
+    document.querySelectorAll('.sg-group-card').forEach(function(el) {
+      obs(el, function() { el.classList.add('in-view'); });
+    });
 
-    // Form fade
-    document.querySelectorAll('.sg-form-ani').forEach(function(el, i) {
+    // Form fade — each individually
+    document.querySelectorAll('.sg-form-ani').forEach(function(el) {
       obs(el, function() { el.classList.add('visible'); }, { threshold: 0.1 });
     });
 
