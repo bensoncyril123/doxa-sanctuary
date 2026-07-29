@@ -599,9 +599,13 @@
 
     function obs(el, fn, opts) {
       if (!el) return;
+      var isMobile = window.innerWidth <= 768;
+      var defaultOpts = isMobile
+        ? { threshold: 0.25, rootMargin: '0px 0px -80px 0px' }
+        : { threshold: 0.12 };
       new IntersectionObserver(function(entries, o) {
         if (entries[0].isIntersecting) { fn(); o.disconnect(); }
-      }, opts || { threshold: 0.12 }).observe(el);
+      }, opts || defaultOpts).observe(el);
     }
 
     // Intro two-col slide in
