@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Men's Ministry — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     .pillars-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem; }
@@ -39,14 +39,45 @@
     @media(max-width:900px){ .pillars-grid { grid-template-columns:repeat(2,1fr); } .values-navy { grid-template-columns:1fr; } .leader-block { flex-direction:column; text-align:center; } .leader-info p { text-align:center; } }
     @media(max-width:480px){ .pillars-grid { grid-template-columns:1fr; } }
     @media(max-width:768px){
-      .page-hero-body{ padding-top:130px!important; }
-      .page-hero-body a[href="#about"]{ display:none; }
-      .page-hero-body a[href="join-mens-ministry"]{
-        background:var(--gold)!important;color:var(--navy)!important;
-        border-color:var(--gold)!important;font-weight:700!important;
+      body p, body a:not(.btn-give):not(.btn-gold):not(.btn-dark), body span:not(.hero-gold-line),
+      body li, .faq-q, .pillar-item h4, .pillar-item p, .val-card h4, .val-card p,
+      .leader-info p, .leader-info h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
       }
-      .leader-block{ padding:2rem 1.2rem!important;gap:1.5rem!important; }
-      .leader-photo{ width:120px!important;height:120px!important; }
+      .page-hero { display: none !important; }
+      section[style*="background:var(--navy)"][style*="padding:4rem"] { padding-top: 5.5rem !important; padding-bottom: 2.5rem !important; }
+      section[style*="background:var(--navy)"][style*="padding:4rem"] .container { text-align: left !important; }
+      section[style*="background:var(--navy)"][style*="padding:4rem"] h2 { font-size: 1.2rem !important; text-align: left !important; }
+      section[style*="background:var(--navy)"][style*="padding:4rem"] p:not(.eyebrow) { font-size: .84rem !important; line-height: 1.8 !important; text-align: left !important; }
+      .section-hd.center { text-align: left !important; }
+      .section-hd h2 { font-size: 1.2rem !important; }
+      .section-hd .sub { font-size: .82rem !important; }
+      .pillars-grid { grid-template-columns: 1fr 1fr !important; gap: .9rem !important; margin-top: 1.5rem !important; }
+      .pillar-item { padding: 1.2rem 1rem !important; text-align: left !important; }
+      .pillar-item i { display: none !important; }
+      .pillar-item h4 { font-size: .88rem !important; margin-bottom: .3rem !important; }
+      .pillar-item p { font-size: .78rem !important; line-height: 1.55 !important; }
+      .tc-img { min-height: 200px !important; }
+      .tc-copy p { font-size: .83rem !important; line-height: 1.75 !important; }
+      .values-navy { gap: .9rem !important; margin-top: 1.5rem !important; }
+      .val-card { padding: 1.2rem !important; }
+      .val-card h4 { font-size: .9rem !important; margin-bottom: .3rem !important; }
+      .val-card p { font-size: .8rem !important; line-height: 1.7 !important; }
+      .leader-block { flex-direction: column !important; text-align: left !important; padding: 1.8rem 1.2rem !important; gap: 1.2rem !important; margin-top: 1.8rem !important; }
+      .leader-photo { width: 110px !important; height: 110px !important; }
+      .leader-info h3 { font-size: 1rem !important; }
+      .leader-info span { font-size: .8rem !important; }
+      .leader-info p { font-size: .81rem !important; line-height: 1.75 !important; text-align: justify !important; }
+      .faq-q { font-size: .84rem !important; padding: 1rem 1.1rem !important; }
+      .faq-a p { font-size: .79rem !important; padding: 0 1.1rem 1rem !important; line-height: 1.75 !important; }
+      #connect .container { text-align: left !important; padding-top: 3rem !important; padding-bottom: 3rem !important; }
+      #connect h2 { font-size: 1.2rem !important; }
+      #connect p { font-size: .83rem !important; }
+      .mn-fade, .mn-left, .mn-right, .mn-cta, .pillar-item, .val-card, .leader-block, .faq-item {
+        opacity: 1 !important; transform: none !important; transition: none !important;
+      }
+      .para-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+      .para-reveal.prv-in { opacity: 1 !important; transform: translateY(0) !important; }
     }
     /* ── ANIMATIONS ── */
     .page-hero-body h1{animation:mnH 1s cubic-bezier(.34,1.4,.64,1) both;}
@@ -257,8 +288,34 @@
 
   <script>
   (function(){
+    const _isMobile = window.innerWidth <= 768;
     const h1=document.querySelector('.page-hero-body h1');
     if(h1) h1.innerHTML+='<span class="hero-gold-line"></span>';
+
+    if(_isMobile){
+      const paraObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('prv-in'); paraObs.unobserve(e.target); } });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      const targets = [
+        document.querySelector('section[style*="background:var(--navy)"][style*="padding:4rem"] .container'),
+        ...document.querySelectorAll('.section-hd.center'),
+        ...document.querySelectorAll('.pillar-item'),
+        document.querySelector('.tc-copy'),
+        document.querySelector('.tc-img'),
+        ...document.querySelectorAll('.val-card'),
+        document.querySelector('.leader-block'),
+        ...document.querySelectorAll('.faq-item'),
+        document.querySelector('#connect .container'),
+      ].filter(Boolean);
+      targets.forEach((el, i) => {
+        el.classList.add('para-reveal');
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight){ setTimeout(() => el.classList.add('prv-in'), i * 80); }
+        else { paraObs.observe(el); }
+      });
+      return;
+    }
+
     function obs(els,cb){const io=new IntersectionObserver(ee=>ee.forEach(e=>{if(e.isIntersecting){cb(e.target);io.unobserve(e.target);}}),{threshold:.12});els.forEach(el=>io.observe(el));}
     const openSec=document.querySelector('section[style*="background:var(--navy)"][style*="padding:4rem"] .container');
     if(openSec){openSec.classList.add('mn-fade');obs([openSec],el=>el.classList.add('visible'));}
