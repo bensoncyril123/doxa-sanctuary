@@ -92,12 +92,62 @@
     @media(max-width: 860px) {
       .why-grid { grid-template-columns: 1fr; }
     }
-    @media(max-width: 768px) {
-      .page-hero-body { padding-top: 130px !important; }
-      [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; }
-      [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    @media(max-width:768px){
+      /* hero */
+      .page-hero { display: none !important; }
+      section:first-of-type { padding-top: 5.5rem !important; }
+
+      /* disable slide-in, let para-reveal take over */
+      .bap-left, .bap-right { opacity:1!important; transform:none!important; transition:none!important; }
+      .bap-fade { opacity:1!important; transform:none!important; transition:none!important; }
+      .bap-form-ani { opacity:1!important; transform:none!important; transition:none!important; }
+      .bap-cta { opacity:1!important; transform:none!important; transition:none!important; }
+
+      /* section headings */
+      [style*="Playfair Display"] { font-size: 1.5rem !important; }
+
+      /* scripture quote */
+      div[style*="border-left:3px solid var(--gold)"] p { font-size: .78rem !important; line-height: 1.7 !important; }
+
+      /* what is baptism two-col */
+      .two-col { gap: 2rem !important; }
+      .bap-right img { height: 260px !important; }
+
+      /* why cards */
+      .why-grid { grid-template-columns: 1fr !important; gap: 1rem !important; margin-top: 1.8rem !important; }
+      .why-card { padding: 1.6rem 1.4rem !important; }
+      .why-card i { display: none !important; }
+      .why-card h4 { font-size: .95rem !important; }
+      .why-card p { font-size: .82rem !important; }
+
+      /* expect step cards — 2×2 */
+      [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+      .expect-step-card { padding: 1.2rem 1rem 1rem !important; }
+      .step-num-bg { font-size: 4rem !important; }
+      .step-icon { display: none !important; }
+      .expect-step-card h4 { font-size: .88rem !important; margin-bottom: .4rem !important; }
+      .expect-step-card p { font-size: .78rem !important; line-height: 1.6 !important; }
+
+      /* faq */
+      .bap-faq-q { font-size: .85rem !important; padding: 1rem 0 !important; }
+      .bap-faq-a p { font-size: .82rem !important; }
+
+      /* form section */
       [style*="grid-template-columns:1fr 1.4fr"] { grid-template-columns: 1fr !important; }
-      .fg input, .fg select, .fg textarea { width: 100% !important; box-sizing: border-box !important; }
+      [style*="position:sticky"] { position: static !important; }
+      .fg input, .fg select, .fg textarea { width:100%!important; box-sizing:border-box!important; font-size:.82rem!important; }
+      form[name="baptism"] { padding: 1.8rem 1.2rem !important; }
+      #signup h2 { font-size: 1.6rem !important; }
+
+      /* cta */
+      .bap-cta h2 { font-size: 1.4rem !important; }
+      .bap-cta p { font-size: .85rem !important; }
+      .bap-right p[style*="Playfair Display"] { font-size: .7rem !important; }
+      .bap-right div[style*="position:absolute"] { padding: .8rem 1rem !important; }
+
+      /* para-reveal */
+      .para-reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
+      .para-reveal.prv-in { opacity:1!important; transform:translateY(0)!important; }
     }
 
     /* ── HERO ENTRANCE ── */
@@ -456,8 +506,8 @@
 
   <!-- FOOTER CTA -->
   <section style="position:relative;padding:5.5rem 0;text-align:center;overflow:hidden;">
-    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;"></div>
-    <div style="position:absolute;inset:0;background:rgba(13,27,42,.82);z-index:1;"></div>
+    <div style="position:absolute;inset:0;background-image:url('assets/cta-worship.jpg');background-size:cover;background-position:center;z-index:0;filter:blur(6px);transform:scale(1.06);"></div>
+    <div style="position:absolute;inset:0;background:rgba(13,27,42,.72);z-index:1;"></div>
     <div class="container bap-cta" style="position:relative;z-index:2;">
       <p class="eyebrow gold">Still Have Questions?</p>
       <h2 style="color:#fff;margin-bottom:.8rem;">We'd Love to Talk With You</h2>
@@ -498,63 +548,99 @@
       });
     }
 
+    var _isMobile = window.innerWidth <= 768;
+
     function obs(el, fn, threshold) {
       if (!el) return;
+      var opts = _isMobile
+        ? { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+        : { threshold: threshold || 0.15 };
       new IntersectionObserver(function(entries, o) {
         if (entries[0].isIntersecting) { fn(); o.disconnect(); }
-      }, { threshold: threshold || 0.15 }).observe(el);
+      }, opts).observe(el);
     }
 
-    // Two-col: What Is Baptism
-    obs(document.querySelector('.bap-left'), function() {
-      document.querySelector('.bap-left').classList.add('visible');
-      document.querySelector('.bap-right').classList.add('visible');
-    });
+    if (!_isMobile) {
+      // Two-col: What Is Baptism
+      obs(document.querySelector('.bap-left'), function() {
+        document.querySelector('.bap-left').classList.add('visible');
+        document.querySelector('.bap-right').classList.add('visible');
+      });
 
-    // Section headings
-    document.querySelectorAll('.bap-fade').forEach(function(el) {
-      obs(el, function() { el.classList.add('visible'); }, 0.2);
-    });
+      // Section headings
+      document.querySelectorAll('.bap-fade').forEach(function(el) {
+        obs(el, function() { el.classList.add('visible'); }, 0.2);
+      });
 
-    // Why cards stagger
-    var whyCards = document.querySelectorAll('.why-card');
-    if (whyCards.length) {
-      obs(whyCards[0].closest('section'), function() {
-        whyCards.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 210);
+      // Why cards stagger
+      var whyCards = document.querySelectorAll('.why-card');
+      if (whyCards.length) {
+        obs(whyCards[0].closest('section'), function() {
+          whyCards.forEach(function(el, i) {
+            setTimeout(function() { el.classList.add('visible'); }, 200 + i * 210);
+          });
+        }, 0.1);
+      }
+
+      // Expect step cards stagger
+      var stepCards = document.querySelectorAll('.expect-step-card');
+      if (stepCards.length) {
+        obs(stepCards[0].closest('section'), function() {
+          stepCards.forEach(function(el, i) {
+            setTimeout(function() { el.classList.add('visible'); }, 200 + i * 190);
+          });
+        }, 0.1);
+      }
+
+      // FAQ items stagger
+      var faqItems = document.querySelectorAll('.bap-faq-item');
+      if (faqItems.length) {
+        obs(faqItems[0].closest('section'), function() {
+          faqItems.forEach(function(el, i) {
+            setTimeout(function() { el.classList.add('visible'); }, i * 160);
+          });
+        }, 0.1);
+      }
+
+      // Form + CTA
+      document.querySelectorAll('.bap-form-ani').forEach(function(el) {
+        obs(el, function() { el.classList.add('visible'); }, 0.1);
+      });
+      obs(document.querySelector('.bap-cta'), function() {
+        document.querySelector('.bap-cta').classList.add('visible');
+      }, 0.2);
+    }
+
+    // ── MOBILE PER-ELEMENT SCROLL ANIMATIONS ──
+    if (_isMobile) {
+      function paraObs(el) {
+        if (!el) return;
+        el.classList.add('para-reveal');
+        obs(el, function() { el.classList.add('prv-in'); });
+      }
+
+      // What is baptism — left col children stagger on load
+      var bapLeft = document.querySelector('.bap-left');
+      if (bapLeft) {
+        bapLeft.querySelectorAll(':scope > p, :scope > div, :scope > a').forEach(function(el, i) {
+          el.classList.add('para-reveal');
+          setTimeout(function() { el.classList.add('prv-in'); }, 150 + i * 150);
         });
-      }, 0.1);
+      }
+
+      // Why cards individually
+      document.querySelectorAll('.why-card').forEach(paraObs);
+
+      // Expect step cards individually
+      document.querySelectorAll('.expect-step-card').forEach(paraObs);
+
+      // FAQ items individually
+      document.querySelectorAll('.bap-faq-item').forEach(paraObs);
+
+      // Form section left panel children
+      var formLeft = document.querySelector('.bap-form-ani');
+      if (formLeft) formLeft.querySelectorAll(':scope > *').forEach(paraObs);
     }
-
-    // Expect step cards stagger
-    var stepCards = document.querySelectorAll('.expect-step-card');
-    if (stepCards.length) {
-      obs(stepCards[0].closest('section'), function() {
-        stepCards.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('visible'); }, 200 + i * 190);
-        });
-      }, 0.1);
-    }
-
-    // FAQ items stagger
-    var faqItems = document.querySelectorAll('.bap-faq-item');
-    if (faqItems.length) {
-      obs(faqItems[0].closest('section'), function() {
-        faqItems.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('visible'); }, i * 160);
-        });
-      }, 0.1);
-    }
-
-    // Form
-    document.querySelectorAll('.bap-form-ani').forEach(function(el) {
-      obs(el, function() { el.classList.add('visible'); }, 0.1);
-    });
-
-    // CTA
-    obs(document.querySelector('.bap-cta'), function() {
-      document.querySelector('.bap-cta').classList.add('visible');
-    }, 0.2);
   </script>
 
 </body>
