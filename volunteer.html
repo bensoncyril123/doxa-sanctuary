@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Serve — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ── FLIP CARDS ── */
@@ -173,9 +173,36 @@
     .flip-front .f-icon{transition:transform .35s cubic-bezier(.34,1.4,.64,1),box-shadow .3s;}
     .flip-card.visible .flip-front:hover .f-icon{transform:scale(1.18) translateY(-3px);box-shadow:0 8px 24px rgba(201,168,76,.28);}
 
-    /* Mobile: push hero content down so it clears the nav/logo */
-    @media(max-width:768px){.page-hero-body{padding-top:9rem;}}
-    @media(max-width:360px){.page-hero-body{padding-top:8rem;}}
+    @media(max-width:768px){
+      body p, body a:not(.btn-give):not(.btn-gold), body li, body span:not(.hero-gold-line), body h4, body label { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+      .page-hero { display: none !important; }
+      section[style*="background:var(--navy)"][style*="padding:5rem"] { padding-top: 5.5rem !important; padding-bottom: 3rem !important; }
+      section[style*="background:var(--navy)"] .container > div { text-align: left !important; }
+      section[style*="background:var(--navy)"] h2 { font-size: 1.2rem !important; text-align: left !important; }
+      section[style*="background:var(--navy)"] p { font-size: .83rem !important; line-height: 1.8 !important; text-align: left !important; }
+      .why-pillars { gap: 1rem !important; margin-top: 1.5rem !important; }
+      .why-pillar { padding: 1.3rem 1.2rem !important; text-align: left !important; }
+      .why-pillar i { display: none !important; }
+      .why-pillar h4 { font-size: .9rem !important; margin-bottom: .3rem !important; }
+      .why-pillar p { font-size: .79rem !important; line-height: 1.65 !important; }
+      .section-hd.center { text-align: left !important; }
+      .section-hd h2 { font-size: 1.2rem !important; }
+      .section-hd .sub { font-size: .82rem !important; }
+      #teams { padding: 3rem 0 !important; }
+      .flip-card { height: 180px !important; }
+      .flip-front h3 { font-size: .88rem !important; }
+      .flip-back p { font-size: .78rem !important; line-height: 1.55 !important; }
+      .vol-connect { padding: 3rem 0 !important; }
+      .vol-connect .container > div { text-align: left !important; }
+      .vol-connect h2 { font-size: 1.2rem !important; text-align: left !important; }
+      .vol-connect p { font-size: .83rem !important; text-align: left !important; }
+      .vol-form { padding: 1.6rem 1.2rem !important; margin-top: 1.5rem !important; }
+      /* Disable desktop animations */
+      .vs-fade,.flip-card,.vol-form,.why-pillar,.vs-strip { opacity:1!important; transform:none!important; transition:none!important; }
+      /* Mobile scroll reveal */
+      .para-reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease; }
+      .para-reveal.prv-in { opacity:1!important; transform:translateY(0)!important; }
+    }
   </style>
 </head>
 <body>
@@ -531,9 +558,30 @@
 
   <script>
   (function(){
-    // Hero gold line
+    const _isMobile = window.innerWidth <= 768;
     const h1=document.querySelector('.page-hero-body h1');
     if(h1) h1.innerHTML+='<span class="hero-gold-line"></span>';
+
+    if(_isMobile){
+      const paraObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('prv-in'); paraObs.unobserve(e.target); } });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      const targets = [
+        document.querySelector('section[style*="background:var(--navy)"] .container > div'),
+        ...document.querySelectorAll('.why-pillar'),
+        document.querySelector('#teams .section-hd'),
+        ...document.querySelectorAll('.flip-card'),
+        document.querySelector('#serve-form .container > div'),
+        document.querySelector('.vol-form'),
+      ].filter(Boolean);
+      targets.forEach((el, i) => {
+        el.classList.add('para-reveal');
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight){ setTimeout(() => el.classList.add('prv-in'), i * 70); }
+        else { paraObs.observe(el); }
+      });
+      return;
+    }
 
     function obs(els,cb){const io=new IntersectionObserver(ee=>ee.forEach(e=>{if(e.isIntersecting){cb(e.target);io.unobserve(e.target);}}),{threshold:.12});els.forEach(el=>io.observe(el));}
 

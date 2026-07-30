@@ -81,25 +81,48 @@
 
     .about-strip-mobile{display:none;}
     @media(max-width:768px){
-      .page-hero-body{ padding-top:130px!important; }
-      #story{background:#fff!important;}
+      body p, body a:not(.btn-give):not(.btn-gold):not(.btn-story):not(.btn-dark), body li, body span:not(.hero-gold-line) { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+      .page-hero { display: none !important; }
+      #story { padding-top: 5.5rem !important; background:#fff!important; }
       .about-strip-desktop{display:none!important;}
       .about-strip-mobile{display:block;}
       .about-strip-pagination{text-align:center;margin-top:.6rem;}
       .about-strip-pagination .swiper-pagination-bullet{background:rgba(13,27,42,.25);opacity:1;}
       .about-strip-pagination .swiper-pagination-bullet-active{background:var(--gold);}
       #story .container > div{grid-template-columns:1fr!important;gap:1.5rem!important;}
-      #story h2{font-size:clamp(2.4rem,10vw,3.2rem)!important;margin-bottom:.5rem!important;}
+      #story h2{font-size:1.8rem!important;margin-bottom:.5rem!important;text-align:left!important;}
+      #story p { font-size: .84rem !important; line-height: 1.8 !important; text-align: left !important; }
+      .story-pull-quote p { font-size: .84rem !important; }
+      .section-hd.center { text-align: left !important; }
+      .section-hd h2 { font-size: 1.2rem !important; }
+      .section-hd .sub { font-size: .82rem !important; }
+      #mandate { padding-bottom: 1.5rem !important; }
       #mandate .values-grid{grid-template-columns:1fr 1fr!important;gap:1rem!important;}
-      #mandate .value-card{padding:1.1rem!important;}
+      #mandate .value-card{padding:1.1rem!important; text-align:left!important;}
       #mandate .value-num{font-size:1.4rem!important;}
       #mandate .value-card:last-child{grid-column:1 / -1;}
+      #mandate h3 { font-size: .9rem !important; }
+      #mandate p { font-size: .78rem !important; }
       #pillars > .container > div:last-child{grid-template-columns:1fr 1fr!important;gap:1rem!important;}
-      #pillars .conv-card{padding:1.2rem!important;}
-      #beliefs .container > div{grid-template-columns:1fr!important;gap:1.5rem!important;}
+      #pillars .conv-card{padding:1.2rem!important; text-align:left!important;}
+      #pillars .conv-card h3 { font-size: .88rem !important; margin:.7rem 0 .4rem!important; }
+      #pillars .conv-card p { font-size: .78rem !important; line-height:1.6!important; }
+      #beliefs .container > div{grid-template-columns:1fr!important;gap:1rem!important;}
       #beliefs .container > div > div:first-child{position:static!important;top:auto!important;}
-      #beliefs h2{font-size:clamp(2.2rem,9vw,3rem)!important;}
+      #beliefs h2{font-size:1.5rem!important;}
+      #beliefs h3 { font-size: .95rem !important; }
+      #beliefs p { font-size: .82rem !important; line-height:1.8!important; }
       #mandate > div:nth-child(2){background:rgba(13,27,42,.96)!important;}
+      .testimony-card { padding: 1.4rem !important; }
+      .testimony-card > p { font-size: .82rem !important; line-height:1.75!important; }
+      .team-grid { gap: 1.2rem !important; }
+      /* Disable desktop animations */
+      .story-img-side,.story-text-side,.top-card,.ps-item,.stats-band,.ab-fade,.value-card,.conv-card,.team-card,.belief-item,.ab-cta,.testimony-card,.cov-fade,.cov-item {
+        opacity:1!important; transform:none!important; transition:none!important;
+      }
+      /* Mobile scroll reveal */
+      .para-reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease; }
+      .para-reveal.prv-in { opacity:1!important; transform:translateY(0)!important; }
     }
 
     /* ── OUR COVERING ANIMATION ── */
@@ -549,6 +572,38 @@
 
   <script src="js/main.js"></script>
   <script>
+  (function(){
+    const _isMobile = window.innerWidth <= 768;
+    if(!_isMobile) return;
+    const paraObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('prv-in'); paraObs.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    const targets = [
+      document.querySelector('#story .story-text-side'),
+      document.querySelector('#mandate .section-hd'),
+      ...document.querySelectorAll('.value-card'),
+      document.querySelector('#pillars .section-hd'),
+      ...document.querySelectorAll('.conv-card'),
+      document.querySelector('#beliefs .section-hd') || document.querySelector('#beliefs h2'),
+      ...document.querySelectorAll('.belief-item'),
+      document.querySelector('#leaders .section-hd'),
+      ...document.querySelectorAll('.team-card'),
+      document.querySelector('#testimonies .section-hd'),
+      ...document.querySelectorAll('.testimony-card'),
+      document.querySelector('.ab-cta'),
+    ].filter(Boolean);
+    targets.forEach((el, i) => {
+      el.classList.add('para-reveal');
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight){ setTimeout(() => el.classList.add('prv-in'), i * 70); }
+      else { paraObs.observe(el); }
+    });
+  })();
+  </script>
+
+  <script>
+    const _isAboutMobile = window.innerWidth <= 768;
+    if(!_isAboutMobile){
     // Story slide-in
     const storyObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); storyObs.unobserve(e.target); } });
@@ -712,6 +767,7 @@
         if (e.isIntersecting) { e.target.classList.add('visible'); o.disconnect(); }
       }, { threshold: 0.2 }).observe(el);
     });
+    } // end !_isAboutMobile
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
