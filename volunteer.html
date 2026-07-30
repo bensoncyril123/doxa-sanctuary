@@ -201,7 +201,7 @@
       /* Disable desktop animations */
       .vs-fade,.vol-form,.why-pillar,.vs-strip { opacity:1!important; transform:none!important; transition:none!important; }
       /* Flip cards: just make them visible instantly, but keep flip transition intact */
-      .flip-card { opacity:1!important; transform:none!important; }
+      .flip-card { opacity:1!important; }
       /* Mobile scroll reveal */
       .para-reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease; }
       .para-reveal.prv-in { opacity:1!important; transform:translateY(0)!important; }
@@ -554,9 +554,6 @@
         if (!isOpen) card.classList.add('flipped');
       });
     });
-
-    );
-    }
   </script>
 
   <script>
@@ -581,6 +578,18 @@
         const rect = el.getBoundingClientRect();
         if(rect.top < window.innerHeight){ setTimeout(() => el.classList.add('prv-in'), i * 70); }
         else { paraObs.observe(el); }
+      });
+      // Tap-to-flip on mobile
+      document.querySelectorAll('.flip-card').forEach(card=>{
+        card.addEventListener('touchend',function(e){
+          e.preventDefault();
+          if(this.classList.contains('flipped')){
+            this.classList.remove('flipped');
+          } else {
+            document.querySelectorAll('.flip-card').forEach(c=>c.classList.remove('flipped'));
+            this.classList.add('flipped');
+          }
+        },{passive:false});
       });
       return;
     }
