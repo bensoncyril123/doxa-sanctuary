@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Daily Bible Reading Plan — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ── Daily Bible Reading Plan ── */
@@ -179,6 +179,48 @@
       .brp-today{ padding:1rem 1.2rem; gap:1rem; }
       .brp-today-icon{ width:40px; height:40px; }
       .brp-today-reading{ font-size:1.05rem; }
+    }
+
+    @media(max-width:768px){
+      /* Font override */
+      body p, body a:not(.btn-give):not(.btn-gold), body span, body div, body li,
+      .brp-tab, .brp-nav-btn, .brp-dl a, .brp-today-label,
+      a.cal-reading, .cal-day-num, .cal-head-cell { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+
+      /* Hide hero */
+      .page-hero { display: none !important; }
+
+      /* Compensate for no hero */
+      .brp-dl { padding-top: 4rem !important; }
+
+      /* Download bar */
+      .brp-dl a { font-size: .8rem !important; gap: .45rem !important; }
+
+      /* Top section */
+      .brp-top { padding: 1.8rem 0 1.4rem !important; }
+      .brp-top h2 { font-size: 1.3rem !important; }
+      .brp-top > .container > p { font-size: .82rem !important; }
+      .eyebrow { font-size: .7rem !important; }
+
+      /* Tabs */
+      .brp-tabs { margin-top: 1rem !important; }
+      .brp-tab { font-size: .78rem !important; padding: .55rem .5rem !important; }
+
+      /* Today card */
+      .brp-today { padding: .9rem 1rem !important; gap: .75rem !important; flex-wrap: nowrap !important; align-items: center !important; }
+      .brp-today-icon { width: 36px !important; height: 36px !important; flex-shrink: 0 !important; }
+      .brp-today-icon i { font-size: 1rem !important; }
+      .brp-today-label { font-size: .65rem !important; }
+      .brp-today-reading { font-size: .9rem !important; }
+      .brp-today-link { padding: .5rem 1rem !important; font-size: .75rem !important; white-space: nowrap !important; flex-shrink: 0 !important; }
+
+      /* Month nav */
+      .brp-month-nav { margin-bottom: 1rem !important; }
+      .brp-month-title { font-size: .85rem !important; }
+      .brp-nav-btn { font-size: .7rem !important; padding: .4rem .6rem !important; }
+
+      /* Calendar */
+      .brp-main { padding: 1.6rem 0 3rem !important; }
     }
 
     /* ── PRINT ── */
