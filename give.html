@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Give — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ── ANIMATIONS ── */
@@ -23,6 +23,13 @@
     .gv-left.visible{opacity:1;transform:none;}
     .gv-right{opacity:0;transform:translateX(44px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.61,.36,1);}
     .gv-right.visible{opacity:1;transform:none;}
+
+    @media(max-width:768px){
+      body p, body a:not(.btn-give), body li, body label, body .eyebrow,
+      body input, body textarea, body select, body button:not(.btn-give) {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    }
   </style>
 </head>
 <body>
