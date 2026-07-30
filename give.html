@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Give — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ── ANIMATIONS ── */
@@ -23,6 +23,37 @@
     .gv-left.visible{opacity:1;transform:none;}
     .gv-right{opacity:0;transform:translateX(44px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.61,.36,1);}
     .gv-right.visible{opacity:1;transform:none;}
+
+    @media(max-width:768px){
+      body p, body a:not(.btn-give), body li, body label, body .eyebrow,
+      body input, body textarea, body select, body button:not(.btn-give) {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      /* hide hero */
+      .page-hero { display: none !important; }
+      #give-online { padding-top: 5.5rem !important; }
+      /* section headings */
+      #give-online h2, #give-options h2 { font-size: 1.3rem !important; }
+      /* featured give card */
+      .give-featured-card > div { flex-direction: column !important; }
+      .give-featured-card > div > div:first-child { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.08) !important; padding: 2rem 1.4rem !important; }
+      .give-featured-card > div > div:last-child { padding: 1.8rem 1.4rem !important; }
+      .give-featured-card h3 { font-size: 1.15rem !important; }
+      .give-featured-card p { font-size: .82rem !important; }
+      /* give option cards */
+      .give-big-card > div:last-child { padding: 1.4rem 1.4rem 1.6rem !important; }
+      /* disable slide-in on mobile */
+      .gv-left, .gv-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+      /* scripture + impact */
+      .give-scripture h2, .give-impact-stats h2 { font-size: 1.2rem !important; }
+      .give-scripture blockquote { font-size: .95rem !important; }
+      /* FAQ */
+      .faq-q { font-size: .88rem !important; padding: 1rem 1.2rem !important; }
+      .faq-a p { font-size: .84rem !important; padding: 0 1.2rem 1rem !important; }
+      /* para-reveal */
+      .para-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+      .para-reveal.prv-in { opacity: 1 !important; transform: translateY(0) !important; }
+    }
   </style>
 </head>
 <body>
@@ -241,6 +272,36 @@
 
   <script>
   (function(){
+    var _isMobile = window.innerWidth <= 768;
+
+    // Mobile per-element animations
+    if (_isMobile) {
+      function paraObs(el) {
+        if (!el) return;
+        el.classList.add('para-reveal');
+        new IntersectionObserver(function(entries, o) {
+          if (entries[0].isIntersecting) { el.classList.add('prv-in'); o.disconnect(); }
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }).observe(el);
+      }
+      // Featured card stagger on load
+      var featCard = document.querySelector('.give-featured-card');
+      if (featCard) {
+        featCard.querySelectorAll(':scope > div > div').forEach(function(el, i) {
+          el.classList.add('para-reveal');
+          setTimeout(function() { el.classList.add('prv-in'); }, 200 + i * 200);
+        });
+      }
+      // Give option cards
+      document.querySelectorAll('.give-big-card').forEach(paraObs);
+      // Scripture + impact children
+      var scr = document.querySelector('.give-scripture');
+      if (scr) scr.querySelectorAll(':scope > *').forEach(paraObs);
+      var imp = document.querySelector('.give-impact-stats');
+      if (imp) imp.querySelectorAll(':scope > *').forEach(paraObs);
+      // FAQ items
+      document.querySelectorAll('.faq-item').forEach(paraObs);
+    }
+
     // Hero gold line
     const h1=document.querySelector('.page-hero-body h1');
     if(h1) h1.innerHTML+='<span class="hero-gold-line"></span>';
