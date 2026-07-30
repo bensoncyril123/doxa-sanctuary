@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
   <title>Children's Ministry — DOXA Sanctuary</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* AGE GROUP CARDS */
@@ -70,22 +70,82 @@
       [style*="grid-template-columns:repeat(4,1fr)"]{ grid-template-columns:1fr!important; }
     }
     @media(max-width:768px){
-      /* Push hero content below fixed navbar */
-      .page-hero-body{ padding-top:130px!important; }
-      /* Hide Our Programs button only — keep Register Your Child */
-      .page-hero-body a[href="#programs"]{ display:none; }
-      /* Make Register Your Child gold-filled like Our Programs was */
-      .page-hero-body a[href="register-child"]{
-        background:var(--gold)!important;color:var(--navy)!important;
-        border-color:var(--gold)!important;font-weight:700!important;
+      /* Font */
+      body p, body a:not(.btn-give):not(.btn-gold), body span:not(.hero-gold-line),
+      body li, .faq-q, .brp-tab, .age-card h3, .age-card p,
+      .parent-card h4, .parent-card p, .leader-info p, .leader-info h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
       }
-      /* Who We Are section — breathing room */
-      section[style*="background:var(--navy);padding:4rem"]{ padding:3rem 0!important; }
-      /* Our Programs section */
-      #programs{ padding-top:3rem!important; }
-      /* Leader block: stack cleanly */
-      .leader-block{ padding:2rem 1.2rem!important; gap:1.5rem!important; }
-      .leader-photo{ width:120px!important; height:120px!important; }
+
+      /* Hide hero */
+      .page-hero { display: none !important; }
+
+      /* First section fills from top */
+      section[style*="background:var(--navy)"] { padding-top: 5.5rem !important; padding-bottom: 2.5rem !important; }
+      section[style*="background:var(--navy)"] h2 { font-size: 1.2rem !important; }
+      section[style*="background:var(--navy)"] p:not(.eyebrow) { font-size: .84rem !important; line-height: 1.8 !important; }
+
+      /* Programs section */
+      #programs { padding: 2.5rem 0 !important; }
+      .section-hd h2 { font-size: 1.2rem !important; }
+      .section-hd .sub { font-size: .82rem !important; }
+
+      /* Age cards */
+      .age-card-top { padding: 1.2rem 1.2rem .8rem !important; }
+      .age-card-foot { padding: .7rem 1.2rem 1rem !important; }
+      .age-card h3 { font-size: .97rem !important; }
+      .age-card p { font-size: .81rem !important; line-height: 1.7 !important; }
+
+      /* Activity grid — 2×2 */
+      [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; gap: .9rem !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] > div { padding: 1.2rem 1rem !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] > div > div[style*="width:52px"] { width: 38px !important; height: 38px !important; margin-bottom: .6rem !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] i { font-size: 1rem !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] h4 { font-size: .85rem !important; margin-bottom: .3rem !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] p { font-size: .77rem !important; line-height: 1.55 !important; }
+
+      /* Leader */
+      .leader-block { flex-direction: column !important; text-align: center !important; padding: 1.8rem 1.2rem !important; gap: 1.2rem !important; margin-top: 1.8rem !important; }
+      .leader-photo { width: 110px !important; height: 110px !important; }
+      .leader-info h3 { font-size: 1rem !important; }
+      .leader-info span { font-size: .8rem !important; }
+      .leader-info p { font-size: .81rem !important; line-height: 1.75 !important; text-align: center !important; }
+
+      /* For Parents */
+      section[style*="position:relative;overflow:hidden"] { padding: 3rem 0 !important; }
+      .parent-cards { gap: 1rem !important; }
+      .parent-card { padding: 1.3rem !important; }
+      .parent-card i { display: none !important; }
+      .parent-card h4 { font-size: .9rem !important; margin-bottom: .4rem !important; }
+      .parent-card p { font-size: .8rem !important; line-height: 1.7 !important; }
+
+      /* FAQ */
+      .faq-q { font-size: .84rem !important; padding: 1rem 1.1rem !important; }
+      .faq-a p { font-size: .79rem !important; padding: 0 1.1rem 1rem !important; line-height: 1.75 !important; }
+
+      /* Left-align / justify all text */
+      .section-hd.center { text-align: left !important; }
+      .section-hd.center div[style*="margin:1rem auto"] { margin-left: 0 !important; margin-right: auto !important; }
+      section[style*="background:var(--navy)"] .container { text-align: left !important; }
+      section[style*="background:var(--navy)"] h2 { text-align: left !important; }
+      section[style*="background:var(--navy)"] p { text-align: left !important; }
+      .leader-info p { text-align: justify !important; }
+      .leader-block { text-align: left !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] > div { text-align: left !important; }
+      [style*="grid-template-columns:repeat(4,1fr)"] > div > div[style*="width"] { margin-left: 0 !important; margin-right: auto !important; }
+      .age-card { text-align: left !important; }
+      .parent-card { text-align: left !important; }
+      section[style*="position:relative;overflow:hidden"] .section-hd { text-align: left !important; }
+      section[style*="position:relative;overflow:hidden"] .sub { text-align: left !important; }
+
+      /* Disable desktop scroll animations */
+      .cm-fade, .age-card, .leader-block, .parent-card, .faq-item, .cm-act {
+        opacity: 1 !important; transform: none !important; transition: none !important;
+      }
+
+      /* Mobile scroll reveal */
+      .para-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+      .para-reveal.prv-in { opacity: 1 !important; transform: translateY(0) !important; }
     }
     /* ── ANIMATIONS ── */
     .page-hero-body h1{animation:cmH 1s cubic-bezier(.34,1.4,.64,1) both;}
@@ -332,8 +392,44 @@
 
   <script>
   (function(){
+    const _isMobile = window.innerWidth <= 768;
     const h1=document.querySelector('.page-hero-body h1');
     if(h1) h1.innerHTML+='<span class="hero-gold-line"></span>';
+
+    if(_isMobile){
+      const paraObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('prv-in'); paraObs.unobserve(e.target); } });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      const revealTargets = [
+        // Opening statement
+        document.querySelector('section[style*="background:var(--navy)"] .container'),
+        // Program headings
+        ...document.querySelectorAll('.section-hd.center'),
+        // Age cards
+        ...document.querySelectorAll('.age-card'),
+        // Activity items
+        ...document.querySelectorAll('[style*="grid-template-columns:repeat(4,1fr)"] > div'),
+        // Leader block
+        document.querySelector('.leader-block'),
+        // Parent cards
+        ...document.querySelectorAll('.parent-card'),
+        // FAQ items
+        ...document.querySelectorAll('.faq-item'),
+      ].filter(Boolean);
+
+      revealTargets.forEach((el, i) => {
+        el.classList.add('para-reveal');
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight){
+          setTimeout(() => el.classList.add('prv-in'), i * 80);
+        } else {
+          paraObs.observe(el);
+        }
+      });
+      return;
+    }
+
     function obs(els,cb){const io=new IntersectionObserver(ee=>ee.forEach(e=>{if(e.isIntersecting){cb(e.target);io.unobserve(e.target);}}),{threshold:.12});els.forEach(el=>io.observe(el));}
     const openSec=document.querySelector('section[style*="background:var(--navy)"] .container');
     if(openSec){openSec.classList.add('cm-fade');obs([openSec],el=>el.classList.add('visible'));}
