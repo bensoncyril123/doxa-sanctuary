@@ -849,7 +849,7 @@
       if (!homeCal) {
         homeCal = new FullCalendar.Calendar(document.getElementById('homeFullCalendar'), {
           initialView: 'dayGridMonth',
-          initialDate: '2026-05-01',
+          initialDate: '2026-08-01',
           headerToolbar: { left: 'prev,next', center: 'title', right: '' },
           height: 'auto',
           events: HOME_EVENTS.map(e => ({ title:e.title, start:e.start, end:e.end||null, classNames:['fc-event-'+e.cat], extendedProps:e })),
