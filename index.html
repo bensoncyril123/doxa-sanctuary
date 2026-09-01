@@ -749,6 +749,11 @@
       { title:'Prayer Service',                         start:'2026-08-21', cat:'growth',    time:'7:00 PM – 8:00 PM', location:'Zoom', ticket:'Free — All Welcome' },
       { title:'Church Picnic',                  start:'2026-08-22', cat:'community', time:'11:00 AM', location:'Pelham Bay Park, Bronx, NY',                          ticket:'Free — All Welcome' },
       { title:'Half Night at DOXA Sanctuary',   start:'2026-08-28', cat:'worship',   time:'9:00 PM – 12:00 AM', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
+      { title:'Word Encounter',                 start:'2026-09-01', cat:'worship',   time:'7:00 PM – 8:00 PM', location:'Zoom', ticket:'Free — All Welcome' },
+      { title:'Street Evangelism',              start:'2026-09-12', cat:'community', time:'TBA', location:'TBA', ticket:'Free — All Welcome' },
+      { title:'Halal Praise Service',            start:'2026-09-13', cat:'worship',   time:'10:00 AM', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
+      { title:'Palal Night with Rev. Alex Owusu Jnr.', start:'2026-09-25', cat:'worship', time:'TBA', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
+      { title:'Communion Service',              start:'2026-09-27', cat:'worship',   time:'10:00 AM', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
     ];
 
     // Render upcoming events (today and future only)
@@ -790,7 +795,7 @@
     (function() {
       var now = new Date();
       var year = 2026;
-      var month = 7; // August
+      var month = 8; // September
       var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       var SHORT_MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 
@@ -849,7 +854,7 @@
       if (!homeCal) {
         homeCal = new FullCalendar.Calendar(document.getElementById('homeFullCalendar'), {
           initialView: 'dayGridMonth',
-          initialDate: '2026-08-01',
+          initialDate: '2026-09-01',
           headerToolbar: { left: 'prev,next', center: 'title', right: '' },
           height: 'auto',
           events: HOME_EVENTS.map(e => ({ title:e.title, start:e.start, end:e.end||null, classNames:['fc-event-'+e.cat], extendedProps:e })),

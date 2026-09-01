@@ -243,13 +243,18 @@
       { title:'Prayer Service',                         start:'2026-08-21T19:00:00', end:'2026-08-21T20:00:00', cat:'growth', desc:'A dedicated hour of corporate prayer on Zoom as we intercede together and seek God\'s face. Join us and be encouraged.', time:'7:00 PM – 8:00 PM', location:'Zoom', ticket:'Free — All Welcome' },
       { title:'Church Picnic',                  start:'2026-08-22T11:00:00', cat:'community', desc:'Come out for a fun-filled church picnic at Pelham Bay Park! Great food, great fellowship, and a wonderful time for the whole family.', time:'11:00 AM', location:'Pelham Bay Park, Bronx, NY', ticket:'Free — All Welcome' },
       { title:'Half Night at DOXA Sanctuary',   start:'2026-08-28T21:00:00', end:'2026-08-29T00:00:00', cat:'worship', desc:'A powerful night of prayer and worship as we seek the face of God together. Come hungry for His presence — expecting an encounter.', time:'9:00 PM – 12:00 AM', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
+      { title:'Word Encounter',                 start:'2026-09-01T19:00:00', end:'2026-09-01T20:00:00', cat:'worship', desc:'Join us on Zoom for a Word Encounter — a night of teaching and impartation from God\'s Word, designed to strengthen your walk with Him.', time:'7:00 PM – 8:00 PM', location:'Zoom', ticket:'Free — All Welcome' },
+      { title:'Street Evangelism',              start:'2026-09-12', cat:'community', desc:'Join us as we hit the streets to share the love and hope of Jesus Christ with our neighbors. Come ready to serve and share the Gospel.', time:'TBA', location:'TBA', ticket:'Free — All Welcome' },
+      { title:'Halal Praise Service',            start:'2026-09-13T10:00:00', cat:'worship',   desc:'Join us for a powerful Halal Praise Service — a morning of worship, adoration, and encountering God\'s presence together as a church family.', time:'10:00 AM', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
+      { title:'Palal Night with Rev. Alex Owusu Jnr.', start:'2026-09-25', cat:'worship', desc:'A powerful night of prayer, worship, and the Word with special guest Rev. Alex Owusu Jnr. Come hungry for an encounter with God\'s presence.', time:'TBA', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
+      { title:'Communion Service',              start:'2026-09-27T10:00:00', cat:'worship', desc:'Join us as we come together around the Lord\'s Table to remember His sacrifice and celebrate His grace as one church family.', time:'10:00 AM', location:'Church Auditorium · 865 Morris Park Ave, Bronx NY', ticket:'Free — All Welcome' },
     ];
 
     const isMobile = window.innerWidth < 768;
     const wantsListView = new URLSearchParams(window.location.search).get('view') === 'list';
     const calendar = new FullCalendar.Calendar(document.getElementById('fullcalendar'), {
       initialView: (isMobile || wantsListView) ? 'listMonth' : 'dayGridMonth',
-      initialDate: '2026-08-01',
+      initialDate: '2026-09-01',
       headerToolbar: isMobile
         ? { left: 'prev,next', center: 'title', right: 'today' }
         : { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' },
