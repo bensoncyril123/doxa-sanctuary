@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
+  <title>DOXA Sanctuary — Weekly Restroom Check</title>
+  <meta name="description" content="This form is completed every Sunday. Please physically check the restroom, verify the supplies, and report anything that needs attention." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DOXA Sanctuary — Weekly Restroom Check" />
+  <meta property="og:description" content="This form is completed every Sunday. Please physically check the restroom, verify the supplies, and report anything that needs attention." />
+  <meta property="og:image" content="https://doxatopchurch.org/assets/og-doxa-card.jpg" />
+  <meta property="og:url" content="https://doxatopchurch.org/restroom-check" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .rc-wrap{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1.5rem;}
+    .rc-card{max-width:560px;}
+    .rc-icon{width:80px;height:80px;border-radius:50%;background:rgba(201,168,76,.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.8rem;}
+    .rc-icon i{font-size:2rem;color:var(--gold);}
+    .rc-card .eyebrow{display:block;margin-bottom:.6rem;}
+    .rc-card h1{color:var(--navy);font-size:clamp(1.6rem,4.5vw,2.4rem);margin-bottom:1rem;}
+    .rc-card p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:2rem;}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-18px;" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="about">About Us</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="rc-wrap">
+    <div class="rc-card">
+      <div class="rc-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+      <p class="eyebrow gold">Internal Form · Facilities Team</p>
+      <h1>Weekly Restroom Check</h1>
+      <p>This form is completed every Sunday. Please physically check the restroom, verify the supplies, and report anything that needs attention.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeORFZSnUZN7tjP3O4dRwqSNwjlmy0lTr2fzdiu8YL5GLH-2A/viewform" target="_blank" rel="noopener" class="btn-gold" style="display:inline-flex;align-items:center;gap:.5rem;">Open the Form <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
