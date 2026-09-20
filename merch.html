@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/favicon-doxa.png" />
+  <title>Merch — DOXA Sanctuary</title>
+  <meta name="description" content="Shop official DOXA Sanctuary merch — tees, hoodies, sweatshirts, tank tops, caps, beanies and tote bags carrying our scripture-inspired designs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DOXA Merch — Expressing His Glory. Displaying His Power." />
+  <meta property="og:description" content="Shop official DOXA Sanctuary merch — tees, hoodies, sweatshirts, tank tops, caps, beanies and tote bags carrying our scripture-inspired designs." />
+  <meta property="og:image" content="https://doxatopchurch.org/assets/merch/merch-cover.jpg" />
+  <meta property="og:url" content="https://doxatopchurch.org/merch" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── MERCH HERO ── */
+    .merch-hero-wrap{max-width:1320px;margin:0 auto;padding:1.6rem 1.2rem 0;}
+    .merch-hero-img{width:100%;border-radius:14px;display:block;object-fit:cover;object-position:center top;box-shadow:var(--shadowM);}
+    .merch-intro{text-align:center;max-width:720px;margin:2rem auto 0;}
+    .merch-cats{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem;}
+    .merch-contact-row{display:flex;align-items:center;justify-content:center;gap:1.4rem;flex-wrap:wrap;margin-top:1.6rem;}
+    .merch-contact-row a{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.88rem;color:var(--navy);}
+    .merch-contact-row a:hover{color:var(--gold);}
+    .merch-socials{display:flex;gap:.6rem;}
+    .merch-socials a{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:var(--t);}
+    .merch-socials a:hover{background:var(--gold);color:var(--navy);}
+
+    /* ── PRODUCT GRID ── */
+    .merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.8rem;}
+    .merch-card{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:#fff;transition:var(--t);display:flex;flex-direction:column;}
+    .merch-card:hover{box-shadow:var(--shadowM);transform:translateY(-4px);}
+    .merch-media{position:relative;background:var(--off);}
+    .merch-media img{width:100%;height:300px;object-fit:cover;transition:opacity .25s ease;}
+    .merch-price{position:absolute;top:.8rem;right:.8rem;background:var(--gold);color:var(--navy);font-weight:700;font-size:.8rem;padding:.35rem .8rem;border-radius:50px;box-shadow:var(--shadow);}
+    .merch-body{padding:1.5rem;display:flex;flex-direction:column;flex:1;}
+    .merch-cat-tag{color:var(--gold);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem;}
+    .merch-body h3{color:var(--navy);margin-bottom:.5rem;}
+    .merch-body>p:not(.merch-cat-tag):not(.merch-design-label){margin-bottom:1rem;font-size:.87rem;}
+    .merch-swatches{display:flex;gap:.5rem;margin-bottom:.6rem;}
+    .swatch{width:34px;height:34px;border-radius:50%;border:2px solid var(--border);background-size:cover;background-position:center;cursor:pointer;padding:0;transition:var(--t);flex-shrink:0;}
+    .swatch:hover{border-color:var(--gold);transform:scale(1.08);}
+    .swatch.active{border-color:var(--navy);box-shadow:0 0 0 2px var(--goldp);}
+    .merch-design-label{font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:.9rem;}
+    .merch-sizes{display:flex;gap:.4rem;margin-bottom:1.1rem;}
+    .size-btn{width:34px;height:34px;border-radius:6px;border:1.5px solid var(--border);background:#fff;font-size:.78rem;font-weight:700;font-family:'Inter',sans-serif;color:var(--muted);cursor:pointer;transition:var(--t);}
+    .size-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .size-btn.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+    .merch-body .btn-outline-dark{margin-top:auto;}
+
+    @media(max-width:1024px){
+      .merch-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:600px){
+      .merch-grid{grid-template-columns:1fr;}
+      .merch-media img{height:340px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-18px;" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li><li class="has-dropdown"><a href="#">About Us <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="about">Who We Are</a></li><li><a href="small-groups">Small Groups</a></li><li><a href="baptism">Baptism</a></li></ul></li><li><a href="new-here" class="nav-im-new">I'm New</a></li>
+        <li class="has-dropdown"><a href="#">Media <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="sermons">Sermons</a></li><li><a href="gallery">Gallery</a></li><li><a href="bible-reading-plan">Daily Bible Reading Plan</a></li></ul></li>
+        <li class="has-dropdown nav-events-desktop"><a href="calendar">Events <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="calendar?view=list">All Events</a></li><li><a href="calendar">Calendar</a></li></ul></li><li class="nav-events-mobile"><a href="events">Events</a></li>
+
+        <li class="has-dropdown"><a href="#">Ministries <i class="fa-solid fa-chevron-down fa-xs"></i></a><ul class="dropdown"><li><a href="childrens-ministry">Children's Ministry</a></li><li><a href="youth-ministry">Youth &amp; Young Adults</a></li><li><a href="mens-ministry">Men's Ministry</a></li><li><a href="womens-ministry">Women's Ministry</a></li></ul></li><li><a href="volunteer">Serve</a></li><li><a href="merch">Merch</a></li><li><a href="contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="give" class="btn-give">Give <i class="fa-solid fa-heart"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div style="height:70px;"></div>
+  <div class="merch-hero-wrap">
+    <img src="assets/merch/merch-cover.jpg" alt="DOXA Merch — Expressing His Glory. Displaying His Power. Apparel, Accessories, Lifestyle." class="merch-hero-img" />
+  </div>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="merch-intro">
+        <p class="eyebrow gold">DOXA Merch</p>
+        <h2 style="margin-top:.4rem;">Wear the Word. Carry the Glory.</h2>
+        <p style="margin-top:.8rem;">Every design is scripture-rooted — a wearable reminder of who we are and who we belong to. Browse the collection below, pick your favorite design, and reach out to place your order.</p>
+        <div class="merch-cats">
+          <button class="filter-btn active" data-cat="all">All</button>
+          <button class="filter-btn" data-cat="apparel">Apparel</button>
+          <button class="filter-btn" data-cat="accessories">Accessories</button>
+          <button class="filter-btn" data-cat="lifestyle">Lifestyle</button>
+        </div>
+        <div class="merch-contact-row">
+          <a href="tel:16314928609"><i class="fa-solid fa-phone"></i> (631) 492-8609</a>
+          <div class="merch-socials">
+            <a href="https://www.tiktok.com/@doxa.sanctuary" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/doxatopchurch_nyc/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCT GRID -->
+      <div class="merch-grid" id="merchGrid">
+
+        <!-- T-SHIRT -->
+        <div class="merch-card" data-product="Oversized T-Shirt" data-cat="apparel">
+          <div class="merch-media">
+            <img id="mm-tshirt" src="assets/merch/tshirt-doxa.jpg" alt="DOXA Sanctuary oversized t-shirt" />
+            <span class="merch-price">$25</span>
+          </div>
+          <div class="merch-body">
+            <p class="merch-cat-tag">Apparel</p>
+            <h3>Oversized T-Shirt</h3>
+            <p>Oversized fit tee featuring our signature scripture-inspired designs.</p>
+            <div class="merch-swatches" data-target="mm-tshirt">
+              <button class="swatch active" style="background-image:url('assets/merch/tshirt-doxa.jpg')" data-img="assets/merch/tshirt-doxa.jpg" data-name="DOXA Sanctuary" title="DOXA Sanctuary" aria-label="DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tshirt-wbf.jpg')" data-img="assets/merch/tshirt-wbf.jpg" data-name="Walk By Faith" title="Walk By Faith" aria-label="Walk By Faith"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tshirt-hotg.jpg')" data-img="assets/merch/tshirt-hotg.jpg" data-name="Heavy On The Glory" title="Heavy On The Glory" aria-label="Heavy On The Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tshirt-ll.jpg')" data-img="assets/merch/tshirt-ll.jpg" data-name="Look &amp; Live" title="Look &amp; Live" aria-label="Look &amp; Live"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tshirt-fhg.jpg')" data-img="assets/merch/tshirt-fhg.jpg" data-name="For His Glory" title="For His Glory" aria-label="For His Glory"></button>
+            </div>
+            <div class="merch-sizes" role="group" aria-label="Select size">
+              <button class="size-btn active" data-size="S">S</button>
+              <button class="size-btn" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+            </div>
+            <p class="merch-design-label">DOXA Sanctuary</p>
+            <a href="contact" class="btn-outline-dark full merch-order-btn">Contact to Order <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- HOODIE -->
+        <div class="merch-card" data-product="Hoodie" data-cat="apparel">
+          <div class="merch-media">
+            <img id="mm-hoodie" src="assets/merch/hoodie-doxa.jpg" alt="DOXA Sanctuary hoodie" loading="lazy" />
+            <span class="merch-price">$45</span>
+          </div>
+          <div class="merch-body">
+            <p class="merch-cat-tag">Apparel</p>
+            <h3>Hoodie</h3>
+            <p>Heavyweight hoodie for cooler days, carrying His Word wherever you go.</p>
+            <div class="merch-swatches" data-target="mm-hoodie">
+              <button class="swatch active" style="background-image:url('assets/merch/hoodie-doxa.jpg')" data-img="assets/merch/hoodie-doxa.jpg" data-name="DOXA Sanctuary" title="DOXA Sanctuary" aria-label="DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/hoodie-wbf.jpg')" data-img="assets/merch/hoodie-wbf.jpg" data-name="Walk By Faith" title="Walk By Faith" aria-label="Walk By Faith"></button>
+              <button class="swatch" style="background-image:url('assets/merch/hoodie-hotg.jpg')" data-img="assets/merch/hoodie-hotg.jpg" data-name="Heavy On The Glory" title="Heavy On The Glory" aria-label="Heavy On The Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/hoodie-ll.jpg')" data-img="assets/merch/hoodie-ll.jpg" data-name="Look &amp; Live" title="Look &amp; Live" aria-label="Look &amp; Live"></button>
+              <button class="swatch" style="background-image:url('assets/merch/hoodie-fhg.jpg')" data-img="assets/merch/hoodie-fhg.jpg" data-name="For His Glory" title="For His Glory" aria-label="For His Glory"></button>
+            </div>
+            <div class="merch-sizes" role="group" aria-label="Select size">
+              <button class="size-btn active" data-size="S">S</button>
+              <button class="size-btn" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+            </div>
+            <p class="merch-design-label">DOXA Sanctuary</p>
+            <a href="contact" class="btn-outline-dark full merch-order-btn">Contact to Order <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- SWEATSHIRT -->
+        <div class="merch-card" data-product="Crewneck Sweatshirt" data-cat="apparel">
+          <div class="merch-media">
+            <img id="mm-sweatshirt" src="assets/merch/sweatshirt-1.jpg" alt="DOXA Sanctuary crewneck sweatshirt" loading="lazy" />
+            <span class="merch-price">$40</span>
+          </div>
+          <div class="merch-body">
+            <p class="merch-cat-tag">Apparel</p>
+            <h3>Crewneck Sweatshirt</h3>
+            <p>Classic crewneck sweatshirt in a range of colorways.</p>
+            <div class="merch-swatches" data-target="mm-sweatshirt">
+              <button class="swatch active" style="background-image:url('assets/merch/sweatshirt-1.jpg')" data-img="assets/merch/sweatshirt-1.jpg" data-name="Olive · DOXA Sanctuary" title="Olive · DOXA Sanctuary" aria-label="Olive · DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/sweatshirt-2.jpg')" data-img="assets/merch/sweatshirt-2.jpg" data-name="White · DOXA Sanctuary" title="White · DOXA Sanctuary" aria-label="White · DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/sweatshirt-3.jpg')" data-img="assets/merch/sweatshirt-3.jpg" data-name="Black · For His Glory" title="Black · For His Glory" aria-label="Black · For His Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/sweatshirt-4.jpg')" data-img="assets/merch/sweatshirt-4.jpg" data-name="Teal · For His Glory" title="Teal · For His Glory" aria-label="Teal · For His Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/sweatshirt-5.jpg')" data-img="assets/merch/sweatshirt-5.jpg" data-name="Black · Walk By Faith" title="Black · Walk By Faith" aria-label="Black · Walk By Faith"></button>
+            </div>
+            <div class="merch-sizes" role="group" aria-label="Select size">
+              <button class="size-btn active" data-size="S">S</button>
+              <button class="size-btn" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+            </div>
+            <p class="merch-design-label">Olive · DOXA Sanctuary</p>
+            <a href="contact" class="btn-outline-dark full merch-order-btn">Contact to Order <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- TANK TOP -->
+        <div class="merch-card" data-product="Tank Top" data-cat="apparel">
+          <div class="merch-media">
+            <img id="mm-tank" src="assets/merch/tank-doxa.jpg" alt="DOXA Sanctuary tank top" loading="lazy" />
+            <span class="merch-price">$22</span>
+          </div>
+          <div class="merch-body">
+            <p class="merch-cat-tag">Apparel</p>
+            <h3>Tank Top</h3>
+            <p>Lightweight racerback tank for training, service days, or summer worship.</p>
+            <div class="merch-swatches" data-target="mm-tank">
+              <button class="swatch active" style="background-image:url('assets/merch/tank-doxa.jpg')" data-img="assets/merch/tank-doxa.jpg" data-name="DOXA Sanctuary" title="DOXA Sanctuary" aria-label="DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tank-wbf.jpg')" data-img="assets/merch/tank-wbf.jpg" data-name="Walk By Faith" title="Walk By Faith" aria-label="Walk By Faith"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tank-hotg.jpg')" data-img="assets/merch/tank-hotg.jpg" data-name="Heavy On The Glory" title="Heavy On The Glory" aria-label="Heavy On The Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tank-ll.jpg')" data-img="assets/merch/tank-ll.jpg" data-name="Look &amp; Live" title="Look &amp; Live" aria-label="Look &amp; Live"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tank-fhg.jpg')" data-img="assets/merch/tank-fhg.jpg" data-name="For His Glory" title="For His Glory" aria-label="For His Glory"></button>
+            </div>
+            <div class="merch-sizes" role="group" aria-label="Select size">
+              <button class="size-btn active" data-size="S">S</button>
+              <button class="size-btn" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+            </div>
+            <p class="merch-design-label">DOXA Sanctuary</p>
+            <a href="contact" class="btn-outline-dark full merch-order-btn">Contact to Order <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- CAP -->
+        <div class="merch-card" data-product="Baseball Cap" data-cat="accessories">
+          <div class="merch-media">
+            <img id="mm-cap" src="assets/merch/cap-doxa.jpg" alt="DOXA Sanctuary baseball cap" loading="lazy" />
+            <span class="merch-price">$20</span>
+          </div>
+          <div class="merch-body">
+            <p class="merch-cat-tag">Accessories</p>
+            <h3>Baseball Cap</h3>
+            <p>Structured dad cap with a patterned brim detail.</p>
+            <div class="merch-swatches" data-target="mm-cap">
+              <button class="swatch active" style="background-image:url('assets/merch/cap-doxa.jpg')" data-img="assets/merch/cap-doxa.jpg" data-name="DOXA Sanctuary" title="DOXA Sanctuary" aria-label="DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/cap-wbf.jpg')" data-img="assets/merch/cap-wbf.jpg" data-name="Walk By Faith" title="Walk By Faith" aria-label="Walk By Faith"></button>
+              <button class="swatch" style="background-image:url('assets/merch/cap-hotg.jpg')" data-img="assets/merch/cap-hotg.jpg" data-name="Heavy On The Glory" title="Heavy On The Glory" aria-label="Heavy On The Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/cap-ll.jpg')" data-img="assets/merch/cap-ll.jpg" data-name="Look &amp; Live" title="Look &amp; Live" aria-label="Look &amp; Live"></button>
+              <button class="swatch" style="background-image:url('assets/merch/cap-fhg.jpg')" data-img="assets/merch/cap-fhg.jpg" data-name="For His Glory" title="For His Glory" aria-label="For His Glory"></button>
+            </div>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.1rem;">One Size</p>
+            <p class="merch-design-label">DOXA Sanctuary</p>
+            <a href="contact" class="btn-outline-dark full merch-order-btn">Contact to Order <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- BEANIE -->
+        <div class="merch-card" data-product="Beanie" data-cat="accessories">
+          <div class="merch-media">
+            <img id="mm-beanie" src="assets/merch/beanie-doxa.jpg" alt="DOXA Sanctuary beanie" loading="lazy" />
+            <span class="merch-price">$18</span>
+          </div>
+          <div class="merch-body">
+            <p class="merch-cat-tag">Accessories</p>
+            <h3>Beanie</h3>
+            <p>Ribbed knit beanie to keep you warm and covered.</p>
+            <div class="merch-swatches" data-target="mm-beanie">
+              <button class="swatch active" style="background-image:url('assets/merch/beanie-doxa.jpg')" data-img="assets/merch/beanie-doxa.jpg" data-name="DOXA Sanctuary" title="DOXA Sanctuary" aria-label="DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/beanie-wbf.jpg')" data-img="assets/merch/beanie-wbf.jpg" data-name="Walk By Faith" title="Walk By Faith" aria-label="Walk By Faith"></button>
+              <button class="swatch" style="background-image:url('assets/merch/beanie-hotg.jpg')" data-img="assets/merch/beanie-hotg.jpg" data-name="Heavy On The Glory" title="Heavy On The Glory" aria-label="Heavy On The Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/beanie-ll.jpg')" data-img="assets/merch/beanie-ll.jpg" data-name="Look &amp; Live" title="Look &amp; Live" aria-label="Look &amp; Live"></button>
+              <button class="swatch" style="background-image:url('assets/merch/beanie-fhg.jpg')" data-img="assets/merch/beanie-fhg.jpg" data-name="For His Glory" title="For His Glory" aria-label="For His Glory"></button>
+            </div>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.1rem;">One Size</p>
+            <p class="merch-design-label">DOXA Sanctuary</p>
+            <a href="contact" class="btn-outline-dark full merch-order-btn">Contact to Order <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- TOTE BAG -->
+        <div class="merch-card" data-product="Tote Bag" data-cat="lifestyle">
+          <div class="merch-media">
+            <img id="mm-tote" src="assets/merch/tote-main.jpg" alt="DOXA Sanctuary tote bag" loading="lazy" />
+            <span class="merch-price">$15</span>
+          </div>
+          <div class="merch-body">
+            <p class="merch-cat-tag">Lifestyle</p>
+            <h3>Tote Bag</h3>
+            <p>Durable canvas-style tote for Bible study, groceries, or gifting.</p>
+            <div class="merch-swatches" data-target="mm-tote">
+              <button class="swatch active" style="background-image:url('assets/merch/tote-doxa.jpg')" data-img="assets/merch/tote-doxa.jpg" data-name="DOXA Sanctuary" title="DOXA Sanctuary" aria-label="DOXA Sanctuary"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tote-wbf.jpg')" data-img="assets/merch/tote-wbf.jpg" data-name="Walk By Faith" title="Walk By Faith" aria-label="Walk By Faith"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tote-hotg.jpg')" data-img="assets/merch/tote-hotg.jpg" data-name="Heavy On The Glory" title="Heavy On The Glory" aria-label="Heavy On The Glory"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tote-ll.jpg')" data-img="assets/merch/tote-ll.jpg" data-name="Look &amp; Live" title="Look &amp; Live" aria-label="Look &amp; Live"></button>
+              <button class="swatch" style="background-image:url('assets/merch/tote-fhg.jpg')" data-img="assets/merch/tote-fhg.jpg" data-name="For His Glory" title="For His Glory" aria-label="For His Glory"></button>
+            </div>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.1rem;">One Size</p>
+            <p class="merch-design-label">DOXA Sanctuary</p>
+            <a href="contact" class="btn-outline-dark full merch-order-btn">Contact to Order <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-brand"><a href="/" class="logo-img-link" style="display:flex;align-items:center;gap:0;text-decoration:none;"><img src="assets/top-logo.jpg" alt="TOP Logo" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-right:.4rem;" /><span style="width:1px;height:36px;background:var(--gold);opacity:.7;display:inline-block;"></span><img src="assets/logo.png" alt="DOXA Sanctuary" class="nav-logo" style="margin-left:-18px;" /></a><p>A community of believers committed to glorifying God and serving people.</p><div class="socials"><a href="https://www.facebook.com/Templeofpraiseministriesintnational" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/doxatopchurch_nyc/" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.youtube.com/@TOPMinistriesNYC" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="https://www.tiktok.com/@doxa.sanctuary" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div></div>
+        <div class="ft-col"><h5>About Us</h5><ul><li><a href="about">Who We Are</a></li><li><a href="service-times">Service Times</a></li><li><a href="small-groups">Small Groups</a></li><li><a href="contact">Contact Us</a></li></ul></div>
+        <div class="ft-col"><h5>Media</h5><ul><li><a href="sermons">Sermons</a></li><li><a href="gallery">Gallery</a></li><li><a href="about.html#testimonies">Testimonies</a></li><li><a href="bible-reading-plan">Daily Bible Reading Plan</a></li></ul></div>
+        <div class="ft-col"><h5>Ministries</h5><ul><li><a href="ministries">Children's Ministry</a></li><li><a href="ministries">Youth &amp; Young Adults</a></li><li><a href="ministries">Men's Ministry</a></li><li><a href="ministries">Women's Ministry</a></li></ul></div>
+        <div class="ft-col"><h5>Service Times</h5><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:.5rem;"><strong style="color:#fff;">Sunday</strong><br>Celebration Service · 10:00 AM</p><p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:1rem;"><strong style="color:#fff;">Tue &amp; Fri</strong><br>Zoom · 7:00 PM – 8:00 PM</p><a href="give" class="btn-gold" style="display:inline-flex;padding:.6rem 1.4rem;font-size:.85rem;">Give Online</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 DOXA Sanctuary. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#c9a84c;"></i> for the glory of God.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Build/refresh the "Contact to Order" link so it carries the selected
+    // product, design, size and price into the Contact page.
+    function refreshOrderLink(card) {
+      const link = card.querySelector('.merch-order-btn');
+      if (!link) return;
+      const product = card.dataset.product || '';
+      const price = (card.querySelector('.merch-price') || {}).textContent || '';
+      const design = (card.querySelector('.merch-design-label') || {}).textContent || '';
+      const sizeBtn = card.querySelector('.size-btn.active');
+      const size = sizeBtn ? sizeBtn.dataset.size : 'One Size';
+      const params = new URLSearchParams({
+        product: product,
+        design: design.trim(),
+        size: size,
+        price: price.trim()
+      });
+      link.href = 'contact?' + params.toString();
+    }
+
+    // Design swatches
+    document.querySelectorAll('.merch-swatches').forEach(group => {
+      const targetImg = document.getElementById(group.dataset.target);
+      const card = group.closest('.merch-card');
+      const label = card.querySelector('.merch-design-label');
+      group.querySelectorAll('.swatch').forEach(btn => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.swatch').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          targetImg.style.opacity = '0';
+          setTimeout(() => {
+            targetImg.src = btn.dataset.img;
+            targetImg.alt = btn.dataset.name;
+            targetImg.style.opacity = '1';
+          }, 120);
+          if (label) label.textContent = btn.dataset.name;
+          refreshOrderLink(card);
+        });
+      });
+    });
+
+    // Size selectors
+    document.querySelectorAll('.merch-sizes').forEach(group => {
+      const card = group.closest('.merch-card');
+      group.querySelectorAll('.size-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          refreshOrderLink(card);
+        });
+      });
+    });
+
+    // Set the initial order link for every card on load
+    document.querySelectorAll('.merch-card').forEach(refreshOrderLink);
+
+    // Category filter
+    document.querySelectorAll('.filter-btn[data-cat]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.merch-card').forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

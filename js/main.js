@@ -91,7 +91,7 @@ function handleForm(e) {
 
 // ── FADE-IN on scroll ──
 const fadeTargets = document.querySelectorAll(
-  '.svc-card,.svc-time-card,.ev,.sm-card,.gp,.testi-card,.give-opt,.stat-item,.pillar,.value-card,.team-card,.give-big-card,.ev-card-big,.gm-item'
+  '.svc-card,.svc-time-card,.ev,.sm-card,.gp,.testi-card,.give-opt,.stat-item,.pillar,.value-card,.team-card,.give-big-card,.ev-card-big,.gm-item,.merch-card'
 );
 const io = new IntersectionObserver((entries) => {
   entries.forEach(el => {
